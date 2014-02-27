@@ -1,0 +1,18 @@
+/*--------------------------------------------------------------------
+----------------------------------------------------------------------
+						Anotaciones
+----------------------------------------------------------------------
+--------------------------------------------------------------------*/	
+
+#Cargado automatico de marcadas
+Listo #Al insertar una marcacion no se superponga con otra
+Listo #Marcar entradas modificadas
+Listo #Marcada dentro de los parametros
+#Niveles de usuario
+
+#Exportar listas
+#Hacer lista de marcadas por usuario
+#Ver si se puede dar de baja una marcacion
+
+#Cronogramas ver como funciona
+#Desarrrollo cronogramas
