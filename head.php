@@ -85,7 +85,9 @@ date_default_timezone_set('America/Argentina/Mendoza');
 									changeYear: true});
   });
     $(function() {
-    $( "#datepicker2" ).datepicker({dateFormat: 'yy-mm-dd'});
+    $( "#datepicker2" ).datepicker({	dateFormat: 'dd-mm-yy',
+									changeMonth: true,
+									changeYear: true});
   });
 </script>
 <script>

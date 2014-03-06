@@ -1,4 +1,21 @@
-<?php include_once("head.php");     
+<?php include_once("head.php");    
+
+/*--------------------------------------------------------------------
+----------------------------------------------------------------------
+					Borrar Marcada
+----------------------------------------------------------------------
+--------------------------------------------------------------------*/	
+	
+if (isset($_GET['delete'])){
+
+$delete=$_GET['delete'];
+
+mysql_query("UPDATE `marcada` SET 
+						id_estado=0
+						WHERE id_marcada='$delete'
+						") or die(mysql_error());
+
+}	 
 
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------
@@ -11,11 +28,12 @@
 	$bandera=1;
 	
 	//Query para traer todas las entradas correspondiente al dia y id de usuario
- 	$query="SELECT * 
+ 	$query="SELECT *	
 		FROM marcada 
 		INNER JOIN parametros ON(marcada.id_parametros=parametros.id_parametros)
 		WHERE DATE_FORMAT(entrada, '%Y-%m-%d') like '$fecha' 
-		AND id_usuario='$id'
+		AND id_usuario='$id' 
+		AND id_estado!=0
 		ORDER BY marcada.id_parametros";   
 	$marcacion=mysql_query($query) or die(mysql_error());
 	$row_marcacion = mysql_fetch_assoc($marcacion);
@@ -44,7 +62,22 @@
 	}
 	}
 
+/*--------------------------------------------------------------------
+----------------------------------------------------------------------
+					Borrar Marcada
+----------------------------------------------------------------------
+--------------------------------------------------------------------*/	
+	
+if (isset($_GET['delete'])){
 
+$delete=$_GET['delete'];
+
+mysql_query("UPDATE `marcada` SET 
+						id_estado=0
+						WHERE id_marcada='$delete'
+						") or die(mysql_error());
+
+}	
 	
 /*--------------------------------------------------------------------
 ----------------------------------------------------------------------
@@ -65,25 +98,47 @@
 	
 	//verificar si la entrada esta dentro de los parametros permitidos
 	$control_parametros=control_parametros($id_parametros,$entrada);	
+	
+	$id_marcada=$row_marcacion['id_marcada'];
+	$id_estado=$row_marcacion['id_estado'];
 
 	if($control_parametros==0){
-		echo "<div class='container; celeste'>Por favor controle los horarios ingresados, no está dentro de los parámetros.
-				<a class='btn btn-danger' href='' title='no guarda los cambios realizados' onClick='cerrarse()'>volver</a></div>";
+	$query="SELECT * FROM parametros
+			INNER JOIN
+			tipo ON(parametros.id_tipo=tipo.id_tipo)
+			INNER JOIN
+			turno ON(parametros.id_turno=turno.id_turno)
+			WHERE id_parametros='$id_parametros'";   
+	$parametros=mysql_query($query) or die(mysql_error());
+	$row_parametros = mysql_fetch_assoc($parametros);
+	
+		echo 	"<div class='container; celeste'>
+				Por favor controle los horarios ingresados, no está dentro de los parámetros.<br>
+				Marcada:<b>".$entrada."</b><br>
+				Parametro:<b>".$row_parametros['tipo']." ".$row_parametros['turno']."</b><br>
+				<form action='edit.php' method='get'>
+				<input type='hidden' name='id_parametros' value=".$id_parametros.">
+				<input type='hidden' name='fecha' value=".$fecha.">
+				<input type='hidden' name='entrada' value=".$entrada.">
+				<input type='hidden' name='id_marcada' value=".$id_marcada.">
+				<input type='hidden' name='id_estado' value=".$id_estado.">
+				<button class='btn' value='confirmar' name='confirmar_edit' title='confirmar cambios realizados'>Confirmar</button>
+				<a class='btn btn-danger' href='' title='no guarda los cambios realizados' onClick='cerrarse()'>Volver</a>
+				</form>
+				</div>";
+				
 		$bandera=0;
 	}else{
 
-	
-	if($row_marcacion['id_estado']==2){
-		$id_estado=2;//creado por php
-	}else{
+	if($id_estado==1){
 		$id_estado=3;//estado editado de access
 	}
-
+	
 	mysql_query("UPDATE `marcada` SET 
 						id_parametros='$id_parametros',
 						entrada = '$fecha $entrada:00',
 						id_estado = '$id_estado'
-						WHERE id_marcada='$row_marcacion[id_marcada]'
+						WHERE id_marcada='$id_marcada'
 						") or die(mysql_error());
 	}
 	}
@@ -92,12 +147,41 @@
 	//cierro ventana
 	?>
 		<script>
-		alert("Las entradas fueron modificadas con éxito");
+		<!--alert("Las entradas fueron modificadas con éxito");-->
 		window.parent.location.reload()
 		window.close();
 		</script>
 		
 	<? }} 
+	
+	if (isset($_GET['confirmar_edit'])){
+	
+	$id_parametros=$_GET['id_parametros'];
+	$fecha=$_GET['fecha'];
+	$entrada=$_GET['entrada'];
+	$id_marcada=$_GET['id_marcada'];
+	$id_estado=$_GET['id_estado'];
+	if($id_estado==1){
+		$id_estado=3;//estado editado de access
+	}
+
+
+	mysql_query("UPDATE `marcada` SET 
+						id_parametros='$id_parametros',
+						entrada = '$fecha $entrada:00',
+						id_estado = '$id_estado'
+						WHERE id_marcada='$id_marcada'
+						") or die(mysql_error());
+	?>
+		<script>
+		<!--alert("Las entradas fueron modificadas con éxito");-->
+		window.parent.location.reload()
+		window.close();
+		</script>
+		
+	<? } 
+	
+	
 	
 /*--------------------------------------------------------------------
 ----------------------------------------------------------------------
@@ -112,24 +196,67 @@
 	
 	//verificar si la entrada esta dentro de los parametros permitidos	
 	if($control_parametros==0){
-		echo "<div class='container; celeste'>Por favor controle su horario ingresado, no está dentro de los parámetros.
-				<a class='btn btn-danger' href='' title='no guarda los cambios realizados' onClick='cerrarse()'>volver</a></div>";
+	$query="SELECT * FROM parametros
+			INNER JOIN
+			tipo ON(parametros.id_tipo=tipo.id_tipo)
+			INNER JOIN
+			turno ON(parametros.id_turno=turno.id_turno)
+			WHERE id_parametros='$id_parametro'";   
+	$parametros=mysql_query($query) or die(mysql_error());
+	$row_parametros = mysql_fetch_assoc($parametros);
+	
+		echo 	"<div class='container; celeste'>
+				Por favor controle los horarios ingresados, no está dentro de los parámetros.<br>
+				Marcada:<b>".$entrada."</b><br>
+				Parametro:<b>".$row_parametros['tipo']." ".$row_parametros['turno']."</b><br>
+				<form action='edit.php' method='get'>
+				<input type='hidden' name='id_parametro' value=".$id_parametro.">
+				<input type='hidden' name='fecha' value=".$fecha.">
+				<input type='hidden' name='entrada' value=".$entrada.">
+				<input type='hidden' name='id' value=".$id.">
+				<button value='confirmar' name='confirmar_update' title='confirmar cambios realizados'>Confirmar</button>
+				<a class='btn btn-danger' href='' title='no guarda los cambios realizados' onClick='cerrarse()'>Volver</a>
+				</form>
+				</div>";
+				
 		$bandera=0;
 	}else{
 	mysql_query("INSERT INTO `marcada` (id_parametros, entrada, id_usuario, id_estado) 
-								VALUES ('$id_parametro', '$fecha $entrada:00', '$id', 2)") or die(mysql_error());
+				VALUES ('$id_parametro', '$fecha $entrada:00', '$id', 2)") or die(mysql_error());
 	
 	//cierro ventana
 	?>
 		<script>
-		alert("La entrada fue ingresada con éxito");
+		<!--alert("La entrada fue ingresada con éxito");-->
 		window.close();
 		</script>								
 		
 								
 	<?}
 	
-		}?>
+	}
+	
+	if (isset($_GET['confirmar_update'])){
+	
+	$id_parametro=$_GET['id_parametro'];
+	$entrada=$_GET['entrada'];
+	$fecha=$_GET['fecha'];
+	$id=$_GET['id'];
+	
+	mysql_query("INSERT INTO `marcada` (id_parametros, entrada, id_usuario, id_estado) 
+				VALUES ('$id_parametro', '$fecha $entrada:00', '$id', 2)") or die(mysql_error());
+	?>
+		<script>
+		<!--alert("La entrada fue ingresada con éxito");-->
+		window.close();
+		</script>								
+		
+								
+	<?}
+	
+	
+	
+	?>
 	
 	<?if ($bandera==1){?>
 	<body>
@@ -183,6 +310,7 @@
 	</td>
 	
 	<td><input type="time" class="input-medium" name="entrada<?echo $row_marcacion['id_marcada']?>" value="<?echo date("H:i", strtotime($row_marcacion['entrada']))?>" required></td>
+	<td><a href="edit.php?delete=<?echo $row_marcacion['id_marcada']?>&fecha=<?= $fecha?>&id=<?= $id?>" onclick="return confirm('Esta seguro que quiere borrar');" class="btn btn-danger" name="delete">X</td>
 	</tr>
 	<? 	}while ($row_marcacion = mysql_fetch_array($marcacion));
 	if($comparacion==1){?>
@@ -217,7 +345,7 @@
 					Formulario nueva entrada
 ----------------------------------------------------------------------
 --------------------------------------------------------------------->	
-	
+	 
 	<div class="slidingDiv">
 		<form action="edit.php" method="get" > 
 		<fieldset>

@@ -46,7 +46,7 @@
 	//cierro ventana
 	?>
 		<script>
-		alert("Las entradas fueron modificadas con éxito");
+		<!--alert("Las entradas fueron modificadas con éxito");-->
 		window.parent.location.reload()
 		window.close();
 		</script>
@@ -71,7 +71,7 @@
 	//cierro ventana
 	?>
 		<script>
-		alert("La entrada fue ingresada con éxito");
+		<!--alert("La entrada fue ingresada con éxito");-->
 		window.close();
 		</script>								
 									

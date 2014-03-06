@@ -1,4 +1,9 @@
-<?php include_once("menu.php"); 
+<?php include_once("../config/database.php"); ?>
+
+<style>
+.datagrid table { border-collapse: collapse; text-align: left; width: 100%; } .datagrid {font: normal 12px/150% Arial, Helvetica, sans-serif; background: #fff; overflow: hidden; border: 1px solid #006699; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; }.datagrid table td, .datagrid table th { padding: 3px 10px; }.datagrid table thead th {background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #006699), color-stop(1, #00557F) );background:-moz-linear-gradient( center top, #006699 5%, #00557F 100% );filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#006699', endColorstr='#00557F');background-color:#006699; color:#FFFFFF; font-size: 15px; font-weight: bold; border-left: 1px solid #0070A8; } .datagrid table thead th:first-child { border: none; }.datagrid table tbody td { color: #00557F; border-left: 1px solid #E1EEF4;font-size: 12px;font-weight: normal; }.datagrid table tbody .alt td { background: #E1EEf4; color: #00557F; }.datagrid table tbody td:first-child { border-left: none; }.datagrid table tbody tr:last-child td { border-bottom: none; }.datagrid table tfoot td div { border-top: 1px solid #006699;background: #E1EEf4;} .datagrid table tfoot td { padding: 0; font-size: 12px } .datagrid table tfoot td div{ padding: 2px; }.datagrid table tfoot td ul { margin: 0; padding:0; list-style: none; text-align: right; }.datagrid table tfoot  li { display: inline; }.datagrid table tfoot li a { text-decoration: none; display: inline-block;  padding: 2px 8px; margin: 1px;color: #FFFFFF;border: 1px solid #006699;-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #006699), color-stop(1, #00557F) );background:-moz-linear-gradient( center top, #006699 5%, #00557F 100% );filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#006699', endColorstr='#00557F');background-color:#006699; }.datagrid table tfoot ul.active, .datagrid table tfoot ul a:hover { text-decoration: none;border-color: #00557F; color: #FFFFFF; background: none; background-color:#006699;}div.dhtmlx_window_active, div.dhx_modal_cover_dv { position: fixed !important; }
+</style>
+<?
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------
 //						Valores iniciales
@@ -25,7 +30,6 @@ $query="SELECT 	usuario.id_usuario,
 		FROM `usuario` 
 		INNER JOIN
 		departamento on(usuario.id_departamento=departamento.id_departamento)
-		WHERE usuario.id_estado=1
 		ORDER BY usuario.nombre";   
 $usuarios=mysql_query($query) or die(mysql_error());
 $row_usuarios = mysql_fetch_assoc($usuarios);
@@ -112,8 +116,7 @@ $query="SELECT *
 		WHERE 
 		DATE_FORMAT(entrada, '%Y-%m-%d') >= '$fecha_inicio' AND
 		DATE_FORMAT(entrada, '%Y-%m-%d') <= '$fecha_final' AND
-		id_usuario='$id_usuario' AND
-		id_estado!=0";   
+		id_usuario='$id_usuario'";   
 		$marcacion=mysql_query($query) or die(mysql_error());
 		$row_marcacion = mysql_fetch_assoc($marcacion);   
 $cantidad_marcacion = mysql_num_rows($marcacion);
@@ -149,67 +152,25 @@ $res_ins = mysql_query($query_ins) or die(mysql_error());
 ?>
 <!--------------------------------------------------------------------
 ----------------------------------------------------------------------
-						Cabecera
-----------------------------------------------------------------------			
---------------------------------------------------------------------->
-
-	<table class="table table-striped table-hover">
-	<tr class="success">
-	<td>
-		<b>Periodo de tiempo</b>
-	</td>
-	<td>
-		<form class="form-inline" action="usuario.php" name="ente">
-		<input type="hidden" name="id" value="<? echo $id_usuario?>">
-		<b><div class="input-prepend">
-			<span class="add-on"><i class="icon-calendar"></i></span>
-			<input <? if(isset($fecha_inicio)){?>
-			value="<? echo date('d-m-Y', strtotime($fecha_inicio)); ?>"
-			<?}?>
-			type="text" name="fecha_inicio" id="datepicker2" placeholder="fecha de inicio" autocomplete="off" required>
-		</div></b>
-		<b><div class="input-prepend">
-			<span class="add-on"><i class="icon-calendar"></i></span>
-			<input <? if(isset($fecha_final)){?>
-			value="<? echo date('d-m-Y', strtotime($fecha_final)); ?>"
-			<?}else{?>
-			value="<? echo $fecha;?>" 
-			<?}?>
-			type="text" name="fecha_final" id="datepicker" placeholder="fecha final" autocomplete="off" required>
-		</div></b>
-		<button type="submit" class="btn" title="Buscar" name="buscar" value="1"><i class="icon-search"></i></button>
-		</form>
-	<td>
-		<select 
-		onChange="javascript:window.location.href='usuario.php?id='+this.value+'&buscar=<?= 1;?>&fecha_final=<?= $fecha_final; ?>&fecha_inicio=<?= $fecha_inicio; ?>';"
-		name="id" <? if(!isset($fecha_inicio)){?> disabled title="Seleccione periodo de tiempo"<? } ?> required>
-		<? do{ 
-		if($id_usuario==$row_usuarios['id_usuario']){
-		?>
-		<option value="<? echo $row_usuarios['id_usuario']?>" selected><? echo $row_usuarios['nombre']?></option>
-		<?}else{?>
-		<option value="<? echo $row_usuarios['id_usuario']?>"><? echo $row_usuarios['nombre']?></option>
-		<?} 
-		} while($row_usuarios=mysql_fetch_array($usuarios));?>
-		</select>
-	</td>	
-	</td>
-	<td>
-		<a href="usuario.php?id=<?= $id_usuario;?>&buscar=<?= 1;?>&fecha_final=<?= $fecha_final; ?>&fecha_inicio=<?= $fecha_inicio; ?>"" class="btn" title="Refresh" <? if(!isset($fecha_final)){ ?> disabled<? } ?>><i class="icon-refresh"></i></a>
-		<a href="imprimir/usuario.php?id=<?= $id_usuario;?>&buscar=<?= 1;?>&fecha_final=<?= $fecha_final; ?>&fecha_inicio=<?= $fecha_inicio; ?>" class="btn" title="Imprimir" target="_blank" <? if(!isset($fecha_final)){ ?> disabled<? } ?>><i class="icon-print"></i></a>
-		<a href="exportar/usuario.php?id=<?= $id_usuario;?>&nombre=<?= $id_usuario;?>&buscar=<?= 1;?>&fecha_final=<?= $fecha_final; ?>&fecha_inicio=<?= $fecha_inicio; ?>" class="btn btn-primary" title="Exportar" target="_blank" <? if(!isset($fecha_final)){ ?> disabled<? } ?>><i class="icon-upload-alt"></i></a>
-		<a href="index.php" class="btn btn-success" title="Volver" ><i class="icon-circle-arrow-left"></i></a>
-	</td>
-	</tr>
-	</table>
-
-<!--------------------------------------------------------------------
-----------------------------------------------------------------------
 						Tabla
 ----------------------------------------------------------------------			
 --------------------------------------------------------------------->	
+<body onload="window.print(); window.close();">
+<center>
+
+<div class="datagrid">
+<table>
+<tr>
+	<td><h1>Reporte Horario</h1></td>
+	<td><center><img src="../imagenes/genco.jpg"  width='191' height='69'></center></td>
+</tr>
+</table>
+</div>
+
+
 <? if(isset($_GET['buscar'])){?>
-<table border="1" class="tablad">
+<div class="datagrid">
+<table border="1">
 <tbody>
 <tr>
 	<th title="Nombre de los usuarios">Nombre</th>
@@ -229,31 +190,25 @@ $res_ins = mysql_query($query_ins) or die(mysql_error());
 </tr>
 </tbody>
 </table>
+</div>
 <br>
 
-<div id="target">
-<table  id="table" class="sortable">
-<thead>
-	<th title="Fecha"><h3>Fecha</h3></th>
-	<th title="Nombre"><h3>Nombre</h3></th>
-	<th title="Sin definir"><h3>sd</h3></th>
+<div class="datagrid">
+<table border="1">
+	<th title="fecha"><h3>Fecha</h3></th>
 	<th title="Mañana - Entrada"><h3>m-e</h3></th>
 	<th title="Mañana - Salida"><h3>m-s</h3></th>
 	<th title="Tarde - Entrada"><h3>t-e</h3></th>
 	<th title="Tarde - Salida"><h3>t-s</h3></th>
 	<th title="Calculo de horas laborales"><h3>Horas</h3></th>
 	<th title="Otro tipo"><h3>otros</h3></th>
-	<th title="Editar las entradas"><h3>editar</h3></th>
-</thead>
 
 <tbody>
 <? foreach($arrayFechas as $valor){?>
 	<tr>
-		
 		<td><? echo date( "d-m-Y", strtotime($valor));?></td>
-		<td><? echo $row_usuario['nombre']?></td>
 		<? 
-		for ($i = 0; $i <= 4; $i++) {
+		for ($i = 1; $i <= 4; $i++) {
 				$query="SELECT * 
 				FROM temp 
 				WHERE
@@ -351,7 +306,6 @@ $res_ins = mysql_query($query_ins) or die(mysql_error());
 		<?}else{?>
 		<td><p class="insert_access"><a href="#" class="btn" title="Agregar" onClick="abrirVentana('edit_otros.php?id=<?echo $row_usuario['id']?>&fecha=<?echo $fecha_americana?>')"><i class="icon-plus-sign-alt"></i></a></p></td>
 		<?}?>
-	<td><a href="#" class="btn" title="Parametros" onClick="abrirVentana('edit.php?id=<?echo $row_usuario['id_usuario']?>&fecha=<?echo $valor?>')"><i class="icon-edit-sign"></i></a></td>
 	</tr>
 <? }
 
@@ -366,6 +320,8 @@ $res_drop = mysql_query($query_drop) or die(mysql_error());
 
 </tbody>
 </table>
+</div>
+
 <table class="tablad">
 <tr>
 	<td>Total de horas</td>
@@ -374,44 +330,6 @@ $res_drop = mysql_query($query_drop) or die(mysql_error());
 </table>	
 </div>	
  
-<!--Controles de la tabla-->            
-	<div id="controls">
-	<div id="perpage">
-		<select onchange="sorter.size(this.value)">
-		<option value="5">5</option>
-			<option value="10" selected="selected">10</option>
-			<option value="20">20</option>
-			<option value="50">50</option>
-			<option value="100">100</option>
-		</select>
-		<span>Cantidad por Pagina</span>
-	</div>
-	<div id="navigation">
-		<img src="imagenes/first.gif" width="16" height="16" alt="First Page" onclick="sorter.move(-1,true)" />
-		<img src="imagenes/previous.gif" width="16" height="16" alt="First Page" onclick="sorter.move(-1)" />
-		<img src="imagenes/next.gif" width="16" height="16" alt="First Page" onclick="sorter.move(1)" />
-		<img src="imagenes/last.gif" width="16" height="16" alt="Last Page" onclick="sorter.move(1,true)" />
-	</div>
-	<div id="text">Mostrando pagina <span id="currentpage"></span> de <span id="pagelimit"></span></div>
-    <p><br /></p>
-    <p>&nbsp; </p>
-    </div>
-
-<!--script de la tabla, ver si se cambia de lugar-->	
-	<script type="text/javascript">
-  var sorter = new TINY.table.sorter("sorter");
-	sorter.head = "head";
-	sorter.asc = "asc";
-	sorter.desc = "desc";
-	sorter.even = "evenrow";
-	sorter.odd = "oddrow";
-	sorter.evensel = "evenselected";
-	sorter.oddsel = "oddselected";
-	sorter.paginate = true;
-	sorter.currentid = "currentpage";
-	sorter.limitid = "pagelimit";
-	sorter.init("table",1);
-  </script>   
 
 </center>
 </div><!--cierra el class="span12" -->
@@ -419,7 +337,4 @@ $res_drop = mysql_query($query_drop) or die(mysql_error());
 </div><!--cierra el class="container"-->
 
 </body>
-<?}else{
-echo "Seleccione periodo de tiempo";
-
-}?>
+<?}?>

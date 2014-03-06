@@ -358,9 +358,10 @@ Por favor actualice la base de datos
 			<input type="hidden" name="fecha" value="<? echo $fecha;?>">
 			<button type="submit" class="btn btn-danger" id="blink" title="Actualice la base de datos" name="actualizar" value="1"><i class="icon-download-alt"></i></button>
 		<?}else{?>
-			<button class="btn btn-primary" title="Los datos ya estan actalizados" name="actualizar" value="1" disabled><i class="icon-download-alt"></i></button>
+			<button class="btn btn-success" title="Los datos ya estan actalizados" name="actualizar" value="1" disabled><i class="icon-download-alt"></i></button>
 		<?}?>
-		<a href="genco-usuarios/index.php" class="btn btn-success" title="Usuarios"><i class="icon-folder-open"></i></a>
+		<button type="submit" class="btn btn-primary" title="Exportar"><i class="icon-upload-alt"></i></button>	
+		<a href="genco-usuarios/index.php" class="btn" title="Usuarios"><i class="icon-folder-open"></i></a>
 		</form>
 	</td>
 	</tr>
@@ -413,6 +414,8 @@ Por favor actualice la base de datos
 	<th title="Mañana - Salida"><h3>m-s</h3></th>
 	<th title="Tarde - Entrada"><h3>t-e</h3></th>
 	<th title="Tarde - Salida"><h3>t-s</h3></th>
+	<th title="Noche - Entrada"><h3>n-e</h3></th>
+	<th title="Noche - Salida"><h3>n-s</h3></th>
 	<th title="Otro tipo"><h3>otros</h3></th>
 	<th title="Editar las entradas"><h3>editar</h3></th>
 </thead>
@@ -420,19 +423,17 @@ Por favor actualice la base de datos
 <tbody>
 <?
 # Creo y completo tabla temporal para horas
-$query_create = "CREATE TEMPORARY TABLE temp (id_marcada int, entrada datetime, id_usuario int, id_parametros int, id_estado int)";
+$query_create = "CREATE TEMPORARY TABLE temp (entrada datetime, id_usuario int, id_parametros int, id_estado int)";
 $res_create = mysql_query($query_create) or die(mysql_error());
 
 $query="SELECT * 
-		FROM marcada 
-		WHERE 
-		DATE_FORMAT(entrada, '%Y-%m-%d') like '$fecha_americana'
-		AND	id_estado!=0";   
-		$marcacion=mysql_query($query) or die(mysql_error());
-		$row_marcacion = mysql_fetch_assoc($marcacion);
+				FROM marcada 
+				WHERE DATE_FORMAT(entrada, '%Y-%m-%d') like '$fecha_americana'";   
+			$marcacion=mysql_query($query) or die(mysql_error());
+			$row_marcacion = mysql_fetch_assoc($marcacion);
 		
 do{
-$query_ins = "INSERT INTO temp VALUES ('$row_marcacion[id_marcada]', '$row_marcacion[entrada]', '$row_marcacion[id_usuario]', '$row_marcacion[id_parametros]', '$row_marcacion[id_estado]')";
+$query_ins = "INSERT INTO temp VALUES ('$row_marcacion[entrada]', '$row_marcacion[id_usuario]', '$row_marcacion[id_parametros]', '$row_marcacion[id_estado]')";
 $res_ins = mysql_query($query_ins) or die(mysql_error());
 }while ($row_marcacion = mysql_fetch_array($marcacion));
 
@@ -441,10 +442,10 @@ $query_create = "CREATE TEMPORARY TABLE tempotra (id_usuario int, id_tipootra in
 $res_create = mysql_query($query_create) or die(mysql_error());
 
 $query="SELECT * 
-		FROM otrahora 
-		WHERE fecha = '$fecha_americana'";   
-		$otrahora=mysql_query($query) or die(mysql_error());
-		$row_otrahora = mysql_fetch_assoc($otrahora);
+				FROM otrahora 
+				WHERE fecha = '$fecha_americana'";   
+			$otrahora=mysql_query($query) or die(mysql_error());
+			$row_otrahora = mysql_fetch_assoc($otrahora);
 
 do{
 $query_ins = "INSERT INTO tempotra VALUES ('$row_otrahora[id_usuario]', '$row_otrahora[id_tipootra]', '$row_otrahora[id_nota]', '$row_otrahora[horas]', '$row_otrahora[fecha]')";
@@ -458,7 +459,7 @@ do{?>
 	<td><a href="usuario.php?id=<? echo $row_usuario['id']?>" class="ayuda-boton btn"><? echo $row_usuario['nombre']?></a></td>
 	<td><? echo $row_usuario['departamento']?></td>
 		<? 
-		for ($i = 0; $i <= 4; $i++) {
+		for ($i = 0; $i <= 6; $i++) {
 				$query="SELECT * 
 				FROM temp 
 				WHERE
@@ -466,28 +467,16 @@ do{?>
 				AND id_parametros=$i";   
 			$marcacion=mysql_query($query) or die(mysql_error());
 			$row_marcacion = mysql_fetch_assoc($marcacion);
-			$cantidad_parametros=mysql_num_rows($marcacion);
 			?>
 
 			<?
-			if($cantidad_parametros==0){?>
+			if($row_marcacion['entrada']==0){?>
 				<td><p class="insert_access"> - </p></td>
-			<?}else if($cantidad_parametros>1){?>
-				<td><p class="duplicado" title="Registro duplicado, por favor modificarlo"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
 			<?}else{
-				if($row_marcacion['id_estado']==3){
-					$query="SELECT * 
-					FROM log_auditoria_marcada
-					WHERE
-					id_marcada='$row_marcacion[id_marcada]'";   
-				$log_auditoria_marcada=mysql_query($query) or die(mysql_error());
-				$row_log_auditoria_marcada = mysql_fetch_assoc($log_auditoria_marcada);
-				?>
-				<td><p class="modificado" title="Registro modificado, original :<? echo date('H:i', strtotime($row_log_auditoria_marcada['entrada_old']));?>"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
+				if($row_marcacion['id_estado']==3){?>
+				<td><p class="modificado" title="Registro modificado"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
 				<?}else if($row_marcacion['id_estado']==2){?>
 				<td><p class="insert_php" title="Registro dado de alta por sistema"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
-				<?}else if($row_marcacion['id_parametros']==0){?>
-				<td><p class="duplicado" title="Registro sin definir, por favor modificarlo"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
 				<?}else{?>
 				<td><p class="insert_access"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
 				<?}?>
@@ -513,13 +502,9 @@ do{?>
 	</tr>
 <? }while ($row_usuario = mysql_fetch_array($usuario));
 
-//elimino las tablas temporaria
+//elimino tabla temporaria
 $query_drop = "DROP TABLE temp";
 $res_drop = mysql_query($query_drop) or die(mysql_error());
-
-$query_drop = "DROP TABLE tempotra";
-$res_drop = mysql_query($query_drop) or die(mysql_error());
-
 ?>
 </tbody>
 </table>

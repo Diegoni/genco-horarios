@@ -143,3 +143,19 @@ input[type='range'] {
 		height: 20px;
 		width: 20px;
 	}
+	
+.titulo{
+	line-height: 200px;
+	text-align: center;
+	background:#000;
+}
+
+#padre {
+background: #ccc;
+width: 500px;
+}
+
+#hijo {
+line-height: 200px;
+text-align: center;
+}

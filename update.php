@@ -36,7 +36,7 @@ $CHECKTYPE=odbc_result($checkinout,"CHECKTYPE");
 $hora=date('H:i', strtotime("$CHECKTIME"));
 
 //CONTROLO QUE TIPO ES I=IN,ENTRADA Y O=OUT,SALIDA
-if($CHECKTYPE=="I"){
+if($CHECKTYPE=="I" || $CHECKTYPE==1){
 	$tipo=1;
 }else{
 	$tipo=2;

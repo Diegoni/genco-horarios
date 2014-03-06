@@ -9,12 +9,20 @@ option.error{
 	background:#dff0d8;
 }
 
+.duplicado{
+	cursor:cell;
+	background:#f2dede;
+	text-align:center;
+}
+
 .modificado{
+	cursor:cell;
 	background:#dff0d8;
 	text-align:center;
 }
 
 .insert_php{
+	cursor:cell;
 	background:#fcf8e3;
 	text-align:center;
 }
@@ -124,5 +132,17 @@ option.error{
 #navigation {float:left; width:580px; text-align:center}
 #navigation img {cursor:pointer}
 #text {float:left; width:200px; text-align:right; margin-top:2px}
+
+
+.tablad{
+border: #c6d5e1;
+width: 100%;
+}
+.tablad th{
+ background: #ecf2f6;
+}
+.tablad td{
+text-align:center;
+}
 
 
