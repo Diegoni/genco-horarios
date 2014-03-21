@@ -1,32 +1,34 @@
-<?php include_once("../config/database.php"); ?>
-
-<html>
-<head>
-<title>Sistema de horario Genco</title>
-<!--BEGIN META TAGS-->
-<META NAME="keywords" CONTENT="">
-<META NAME="description" CONTENT="Sistema de horario Genco by TMS Group">
-<META NAME="rating" CONTENT="General">
-<META NAME="ROBOTS" CONTENT="ALL">
-<!--END META TAGS-->
-
-<!-- Charset tiene que estar en utf-8 para que tome ñ y acentos -->
-<meta http-equiv="Content-type" content="text/html; charset="utf-8" />
-<style>
-.datagrid table { border-collapse: collapse; text-align: left; width: 100%; } .datagrid {font: normal 12px/150% Arial, Helvetica, sans-serif; background: #fff; overflow: hidden; border: 1px solid #006699; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; }.datagrid table td, .datagrid table th { padding: 3px 10px; }.datagrid table thead th {background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #006699), color-stop(1, #00557F) );background:-moz-linear-gradient( center top, #006699 5%, #00557F 100% );filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#006699', endColorstr='#00557F');background-color:#006699; color:#FFFFFF; font-size: 15px; font-weight: bold; border-left: 1px solid #0070A8; } .datagrid table thead th:first-child { border: none; }.datagrid table tbody td { color: #00557F; border-left: 1px solid #E1EEF4;font-size: 12px;font-weight: normal; }.datagrid table tbody .alt td { background: #E1EEf4; color: #00557F; }.datagrid table tbody td:first-child { border-left: none; }.datagrid table tbody tr:last-child td { border-bottom: none; }.datagrid table tfoot td div { border-top: 1px solid #006699;background: #E1EEf4;} .datagrid table tfoot td { padding: 0; font-size: 12px } .datagrid table tfoot td div{ padding: 2px; }.datagrid table tfoot td ul { margin: 0; padding:0; list-style: none; text-align: right; }.datagrid table tfoot  li { display: inline; }.datagrid table tfoot li a { text-decoration: none; display: inline-block;  padding: 2px 8px; margin: 1px;color: #FFFFFF;border: 1px solid #006699;-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #006699), color-stop(1, #00557F) );background:-moz-linear-gradient( center top, #006699 5%, #00557F 100% );filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#006699', endColorstr='#00557F');background-color:#006699; }.datagrid table tfoot ul.active, .datagrid table tfoot ul a:hover { text-decoration: none;border-color: #00557F; color: #FFFFFF; background: none; background-color:#006699;}div.dhtmlx_window_active, div.dhx_modal_cover_dv { position: fixed !important; }
-</style>
+<?php
+header("Content-Type: application/vnd.ms-excel");
+header("Expires: 0");
+header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+header("content-disposition: attachment;filename=Resumen.xls");
+?>
+<HTML LANG=”es”>
+<title>Bases de Datos.</title>
+<TITLE>Titulo de la Página.</TITLE>
 </head>
-<?
+<body>
+<?php
+		$username="diegonieto";
+		$password="Diego2013";
+		$database="controlfinal2";
+		$url="localhost";
+		mysql_connect($url,$username,$password);
+		@mysql_select_db($database) or die( "No pude conectarme a la base de datos");
+		
+	
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------
 //						Valores iniciales
 //----------------------------------------------------------------------			
 //--------------------------------------------------------------------->
 $id_usuario=$_GET['id'];
+$totalotras=0;
 $fecha=date("d-m-Y");
 
 $query="SELECT 	usuario.id_usuario,
-				usuario.nombre as nombre,
+				usuario.usuario as usuario,
 				usuario.legajo as legajo,
 				departamento.nombre as departamento				
 		FROM `usuario` 
@@ -37,16 +39,35 @@ $usuario=mysql_query($query) or die(mysql_error());
 $row_usuario = mysql_fetch_assoc($usuario);
 
 $query="SELECT 	usuario.id_usuario,
-				usuario.nombre as nombre,
+				usuario.usuario as usuario,
 				usuario.legajo as legajo,
 				departamento.nombre as departamento				
 		FROM `usuario` 
 		INNER JOIN
 		departamento on(usuario.id_departamento=departamento.id_departamento)
 		WHERE usuario.id_estado=1
-		ORDER BY usuario.nombre";   
+		ORDER BY usuario.usuario";   
 $usuarios=mysql_query($query) or die(mysql_error());
 $row_usuarios = mysql_fetch_assoc($usuarios);
+
+$query="SELECT 	usuario.id_usuario,
+				usuario.usuario as usuario,
+				usuario.legajo as legajo,
+				departamento.nombre as departamento				
+		FROM `usuario` 
+		INNER JOIN
+		departamento on(usuario.id_departamento=departamento.id_departamento)
+		WHERE usuario.id_estado=1
+		ORDER BY usuario.usuario";   
+$usuarios2=mysql_query($query) or die(mysql_error());
+$row_usuarios2 = mysql_fetch_assoc($usuarios2);
+
+
+$query="SELECT *				
+		FROM `tipootra` 
+		ORDER BY tipootra.id_tipootra";   
+$tipootra=mysql_query($query) or die(mysql_error());
+$row_tipootra = mysql_fetch_assoc($tipootra);
 
 
 
@@ -174,7 +195,6 @@ $query="SELECT *
 		WHERE 
 		DATE_FORMAT(entrada, '%Y-%m-%d') >= '$fecha_inicio' AND
 		DATE_FORMAT(entrada, '%Y-%m-%d') <= '$fecha_final' AND
-		id_usuario='$id_usuario' AND
 		id_estado!=0";   
 		$marcacion=mysql_query($query) or die(mysql_error());
 		$row_marcacion = mysql_fetch_assoc($marcacion);   
@@ -196,8 +216,7 @@ $query="SELECT *
 		FROM otrahora 
 		WHERE 
 		fecha >= '$fecha_inicio' AND
-		fecha <= '$fecha_final' AND
-		id_usuario='$id_usuario'";   
+		fecha <= '$fecha_final'";   
 		$otrahora=mysql_query($query) or die(mysql_error());
 		$row_otrahora = mysql_fetch_assoc($otrahora);
 
@@ -206,92 +225,62 @@ $query_ins = "INSERT INTO tempotra VALUES ('$row_otrahora[id_usuario]', '$row_ot
 $res_ins = mysql_query($query_ins) or die(mysql_error());
 }while ($row_otrahora = mysql_fetch_array($otrahora));			
 }
-
-
 ?>
+
 
 <!--------------------------------------------------------------------
 ----------------------------------------------------------------------
 						Tabla
 ----------------------------------------------------------------------			
 --------------------------------------------------------------------->	
-<body onload="window.print();">
+<body>
 <center>
-
-<div class="datagrid">
-<table>
-<tr>
-	<td><h1>Reporte Horario</h1></td>
-	<td><center><img src="../imagenes/genco.jpg"  width='191' height='69'></center></td>
-</tr>
-</table>
-</div>
-
-
-<? if(isset($_GET['buscar'])){?>
-<div class="datagrid">
 <table border="1">
-<tbody>
-<tr>
-	<th>Nombre</th>
-	<td><? echo $row_usuario['nombre']?></td>
-	<th title="Departamento al que pertenecen">Sector</th>
-	<td><? echo $row_usuario['departamento']?></td>
-	<th>Legajo</th>
-	<td><? echo $row_usuario['legajo']?></td>
-</tr>
-<tr>
-	<th>Fecha Inicio</th>
-	<td><? echo date('d-m-Y', strtotime($fecha_inicio))?></td>
-	<th>Fecha Final</th>
-	<td><? echo date('d-m-Y', strtotime($fecha_final))?></td>
-	<th>Cantidad</th>
-	<td><? echo $cantidad_marcacion;?></td>
-</tr>
-</tbody>
-</table>
-</div>
-<br>
-
-<div class="datagrid">
-<table border="1">
-	<th><h3>Dia</h3></th>
-	<th><h3>Fecha</h3></th>
-	<th><h3>m-e</h3></th>
-	<th><h3>m-s</h3></th>
-	<th><h3>t-e</h3></th>
-	<th><h3>t-s</h3></th>
+<thead>
+	<th><h3>Legajo</h3></th>
+	<th><h3>Usuario</h3></th>
+	<th><h3>desde</h3></th>
+	<th><h3>hasta</h3></th>
 	<th><h3>Horas</h3></th>
-	<th><h3>otros</h3></th>
-
+	<? do{ ?>
+	<th><h3><?= $row_tipootra['tipootra'];?></h3></th>
+	<? }while($row_tipootra=mysql_fetch_array($tipootra))?>
+	<th><h3>50%</h3></th>
+	<th><h3>100%</h3></th>
+</thead>
 
 <tbody>
-<? 
-foreach($arrayFechas as $valor){?>
-
-	<tr>
-		<td><?= devuelve_dia($valor);?></td>
-		<td><?= $valor;?></td>
-		
-		<? 
-		for ($i = 1; $i <= 4; $i++) {
+<?
+//recorremos todos los usuarios
+do{
+$total=0;
+$totalotras;
+$id_usuario=$row_usuarios2['id_usuario'];
+?>
+<tr>
+	<td><?= $row_usuarios2['legajo'];?></td>
+	<td><?= $row_usuarios2['usuario'];?></td>
+	<td><?= $fecha_inicio;?></td>
+	<td><?= $fecha_final;?></td>
+<?
+foreach($arrayFechas as $valor){
+	
+		for ($i = 0; $i <= 4; $i++) {
 				$query="SELECT * 
 				FROM temp 
 				WHERE
 				DATE_FORMAT(entrada, '%Y-%m-%d') like '$valor'
-				AND id_parametros=$i";   
+				AND id_parametros=$i
+				AND id_usuario=$id_usuario";   
 			$marcacion=mysql_query($query) or die(mysql_error());
 			$row_marcacion = mysql_fetch_assoc($marcacion);
 			$cantidad_parametros=mysql_num_rows($marcacion);
 			
 			// Esta funcion redondea segun los la tabla limites de la base de datos, se pidio que se sacara
 			//$redondear_minutos=redondear_minutos(date('H:i', strtotime($row_marcacion['entrada'])));
-			?>
 
-			<?
-			if($cantidad_parametros==0){?>
-				<td> - </td>
-				<? 
+			if($cantidad_parametros==0){
+				 
 				if($i==1){
 					$me=0;
 				} else if($i==2){ 
@@ -301,10 +290,8 @@ foreach($arrayFechas as $valor){?>
 				} else if($i==4){ 
 					$ts=0;
 				}
-				?>
-			<?}else if($cantidad_parametros>1){?>
-				<td><? echo date('H:i', strtotime($row_marcacion['entrada']));?></td>
-			<?}else{
+
+			}else{
 						
 				if($i==1){
 					$me=date('H:i', strtotime($row_marcacion['entrada']));
@@ -315,29 +302,10 @@ foreach($arrayFechas as $valor){?>
 				} else if($i==4){ 
 					$ts=date('H:i', strtotime($row_marcacion['entrada']));
 				}
-				
-				if($row_marcacion['id_estado']==3){
-					$query="SELECT * 
-					FROM log_auditoria_marcada
-					WHERE
-					id_marcada='$row_marcacion[id_marcada]'";   
-				$log_auditoria_marcada=mysql_query($query) or die(mysql_error());
-				$row_log_auditoria_marcada = mysql_fetch_assoc($log_auditoria_marcada);
-			
-				?>
-				<td><p class="modificado" title="Registro modificado, original :<? echo date('H:i', strtotime($row_log_auditoria_marcada['entrada_old']));?>"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
-				<?}else if($row_marcacion['id_estado']==2){?>
-				<td><p class="insert_php" title="Registro dado de alta por sistema"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
-				<?}else if($row_marcacion['id_parametros']==0){?>
-				<td><p class="duplicado" title="Registro sin definir, por favor modificarlo"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
-				<?}else{?>
-				<td><p class="insert_access"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
-				<?}
+						
 			}//cierra el else
 		}//cierra el for
-		
-		//Si la entrada y la salida de la mañana son mayores a 0 calculamos el intervalo de tiempo, el resultado es un numero
-		if($me>0 && $ms>0){
+		 if($me>0 && $ms>0){
 			$m=intervalo_tiempo($me,$ms);
 			}else{
 			$m=0;
@@ -355,32 +323,53 @@ foreach($arrayFechas as $valor){?>
 			}else{
 			$subtotal=0;
 			}
-			if($subtotal>0){
 		
-		//transformamos el numero resultante en hora y minutos
-		
-		?>
-		<td><? echo pasar_hora($subtotal); ?></td>
-		<? } else {?>
-		<td> - </td>
-		<?}
-		$query="SELECT * 
+} 
+if($total>0){ ?>
+<td><?= pasar_hora($total); ?></td>
+<? } else { ?>
+<td> - </td>
+
+<?}			$query="SELECT *				
+					FROM `tipootra` 
+					ORDER BY tipootra.id_tipootra";   
+			$tipootra2=mysql_query($query) or die(mysql_error());
+			$row_tipootra2 = mysql_fetch_assoc($tipootra2);
+	
+	$total_otrahora=0;
+	do{
+	$suma_otrahora=0;
+	$id_tipootra=$row_tipootra2['id_tipootra'];
+			
+			$query="SELECT * 
 				FROM tempotra 
 				INNER JOIN tipootra ON(tempotra.id_tipootra=tipootra.id_tipootra)
-				INNER JOIN nota ON(tempotra.id_nota=nota.id_nota)
 				WHERE
-				id_usuario='$row_usuario[id_usuario]' AND
-				fecha='$valor'";   
+				id_usuario='$id_usuario' AND
+				tempotra.id_tipootra='$id_tipootra'";   
 			$otrahora=mysql_query($query) or die(mysql_error());
 			$row_otrahora = mysql_fetch_assoc($otrahora);
 			$cantidad=mysql_num_rows($otrahora);
-			if($cantidad>0){
-			$totalotras=$totalotras+$row_otrahora['horas'];
-			}
-		?>
-		<td><? echo $row_otrahora['horas'];?> <? echo $row_otrahora['tipootra'];?></td>	
-	</tr>
-<? }
+	do{
+	$suma_otrahora=$suma_otrahora+$row_otrahora['horas'];
+	}while($row_otrahora=mysql_fetch_array($otrahora));
+	$total_otrahora=$total_otrahora+$suma_otrahora;
+	if($suma_otrahora==0){ ?>
+	<td> - </td>		
+	<?}else{?>
+	<td><?= $suma_otrahora;?></td>		
+<? 	}
+	}while($row_tipootra2=mysql_fetch_array($tipootra2));
+
+	if($total_otrahora==0){ ?>
+	<td> - </td>		
+	<?}else{?>
+	<td><?= $total_otrahora;?></td>		
+<? 	} ?>
+		<td> - </td>	
+		</tr>
+<?}while($row_usuarios2=mysql_fetch_array($usuarios2));
+
 
 //elimino las tablas temporaria
 $query_drop = "DROP TABLE temp";
@@ -391,24 +380,10 @@ $res_drop = mysql_query($query_drop) or die(mysql_error());
 
 ?>
 
+
+<!--Controles de la tabla-->            
 </tbody>
 </table>
-</div>
-<table class="tablad">
-<tr>
-	<td>Total de otras</td>
-	<th><? echo round($totalotras,2);?></th>
-	<td>Total de horas</td>
-	<th><? echo pasar_hora($total);?></th>
-</tr>
-</table>	
-</div>
- 
 
 </center>
-</div><!--cierra el class="span12" -->
-</div><!--cierra el row -->
-</div><!--cierra el class="container"-->
-
 </body>
-<?}?>

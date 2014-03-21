@@ -3,8 +3,8 @@ session_start();
 	if(!isset($_SESSION['usuario_nombre'])){
 	header("Location: login/acceso.php");
 	}
+	
 include_once("menu.php"); 
-
 
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------
@@ -37,6 +37,25 @@ $query="SELECT 	usuario.id_usuario,
 		ORDER BY usuario.usuario";   
 $usuarios=mysql_query($query) or die(mysql_error());
 $row_usuarios = mysql_fetch_assoc($usuarios);
+
+$query="SELECT 	usuario.id_usuario,
+				usuario.usuario as usuario,
+				usuario.legajo as legajo,
+				departamento.nombre as departamento				
+		FROM `usuario` 
+		INNER JOIN
+		departamento on(usuario.id_departamento=departamento.id_departamento)
+		WHERE usuario.id_estado=1
+		ORDER BY usuario.usuario";   
+$usuarios2=mysql_query($query) or die(mysql_error());
+$row_usuarios2 = mysql_fetch_assoc($usuarios2);
+
+
+$query="SELECT *				
+		FROM `tipootra` 
+		ORDER BY tipootra.id_tipootra";   
+$tipootra=mysql_query($query) or die(mysql_error());
+$row_tipootra = mysql_fetch_assoc($tipootra);
 
 
 
@@ -87,13 +106,11 @@ function redondear_minutos($hora){
 function intervalo_tiempo($init,$finish)
 {
 	$diferencia = strtotime($finish) - strtotime($init);
-	$diferencia = round($diferencia/60);
-	$diferencia = $diferencia/60;
-	
+	$diferencia=round($diferencia/60);
+	$diferencia=$diferencia/60;
 	if($diferencia<0){
 		$diferencia="ERROR";
 	}
-	
     return $diferencia;
 }
 
@@ -141,17 +158,12 @@ function devuelve_dia($fecha){
 	return $dia;
 }
 
-function getUltimoDiaMes($elAnio,$elMes) {
-  return date("d",(mktime(0,0,0,$elMes+1,1,$elAnio)-1));
-}
- 
-
 
 
 
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------
-//			Busqueda de fechas y creacion de tablas temporales
+//						Busqueda de fechas
 //----------------------------------------------------------------------			
 //--------------------------------------------------------------------->
 
@@ -171,7 +183,6 @@ $query="SELECT *
 		WHERE 
 		DATE_FORMAT(entrada, '%Y-%m-%d') >= '$fecha_inicio' AND
 		DATE_FORMAT(entrada, '%Y-%m-%d') <= '$fecha_final' AND
-		id_usuario='$id_usuario' AND
 		id_estado!=0";   
 		$marcacion=mysql_query($query) or die(mysql_error());
 		$row_marcacion = mysql_fetch_assoc($marcacion);   
@@ -193,8 +204,7 @@ $query="SELECT *
 		FROM otrahora 
 		WHERE 
 		fecha >= '$fecha_inicio' AND
-		fecha <= '$fecha_final' AND
-		id_usuario='$id_usuario'";   
+		fecha <= '$fecha_final'";   
 		$otrahora=mysql_query($query) or die(mysql_error());
 		$row_otrahora = mysql_fetch_assoc($otrahora);
 
@@ -217,10 +227,6 @@ $classcadena="";
 if(!isset($fecha_inicio)){ 
 	$cadena="disabled title='Seleccione periodo de tiempo'"; 
 	$classcadena="class='disabled' title='Seleccione periodo de tiempo'";
-}
-
-if(isset($fecha_inicio) && empty($id_usuario)){
-echo "<div class='alert'><button type='button' class='close' data-dismiss='alert'>&times;</button>Falta seleccionar usuario</div><br>";
 } 
 
 ?>
@@ -239,14 +245,12 @@ echo "<div class='alert'><button type='button' class='close' data-dismiss='alert
 	</td>
 	
 	<td>
-		<form class="form-inline" action="usuario.php" name="ente">
+	<form class="form-inline" action="usuario2.php" name="ente">
 		<input type="hidden" name="id" value="<? echo $id_usuario?>">
 		<b><div class="input-prepend">
 			<span class="add-on" onclick="document.getElementById('datepicker2').focus();"><i class="icon-calendar"></i></span>
 			<input <? if(isset($fecha_inicio)){?>
-			value="<?= date('d-m-Y', strtotime($fecha_inicio)); ?>"
-			<?}else if(isset($id_usuario)){?>
-			value="<?= date('01-m-Y', strtotime($_GET['fecha'])); ?>"
+			value="<? echo date('d-m-Y', strtotime($fecha_inicio)); ?>"
 			<?}?>
 			type="text" name="fecha_inicio" id="datepicker2" placeholder="fecha de inicio" autocomplete="off" required>
 		</div></b>
@@ -254,11 +258,8 @@ echo "<div class='alert'><button type='button' class='close' data-dismiss='alert
 			<span class="add-on" onclick="document.getElementById('datepicker').focus();"><i class="icon-calendar"></i></span>
 			<input <? if(isset($fecha_final)){?>
 			value="<? echo date('d-m-Y', strtotime($fecha_final)); ?>"
-			<?}else if(isset($id_usuario)){
-			$ultimoDia = getUltimoDiaMes(date('Y', strtotime($_GET['fecha'])),date('m', strtotime($_GET['fecha'])));
-			echo $ultimoDia;
-			?>
-			value="<?= $ultimoDia.date('-m-Y', strtotime($_GET['fecha'])) ?>"1
+			<?}else{?>
+			value="<? echo $fecha;?>" 
 			<?}?>
 			type="text" name="fecha_final" id="datepicker" placeholder="fecha final" autocomplete="off" required>
 		</div></b>
@@ -289,11 +290,10 @@ echo "<div class='alert'><button type='button' class='close' data-dismiss='alert
 	  </a>
 	  <ul class="dropdown-menu">
 		<li <?= $classcadena;?>><a href="usuario.php?id=<?= $id_usuario;?>&buscar=<?= 1;?>&fecha_final=<?= $fecha_final; ?>&fecha_inicio=<?= $fecha_inicio; ?>"  title="Refresh" <? if(!isset($fecha_final)){ ?> disabled<? } ?>><i class="icon-refresh"></i> Refresh</a></li>
-		<li <?= $classcadena;?>><a href="imprimir/usuario.php?id=<?= $id_usuario;?>&buscar=<?= 1;?>&fecha_final=<?= $fecha_final; ?>&fecha_inicio=<?= $fecha_inicio; ?>"  title="Imprimir" target="_blank" <? if(!isset($fecha_final)){ ?> disabled<? } ?>><i class="icon-print"></i> Imprimir</a></li>
-		<li <?= $classcadena;?>><a href="exportar/usuario.php?id=<?= $id_usuario;?>&nombre=<?= $id_usuario;?>&buscar=<?= 1;?>&fecha_final=<?= $fecha_final; ?>&fecha_inicio=<?= $fecha_inicio; ?>" title="Exportar" target="_blank" <? if(!isset($fecha_final)){ ?> disabled<? } ?>><i class="icon-upload-alt"></i> Exportar</a></li>
+		<li <?= $classcadena;?>><a href="javascript:imprSelec('muestra')"><i class="icon-print"></i> Imprimir</a></li>
+		<li <?= $classcadena;?>><a href="exportar/usuario2.php?id=<?= $id_usuario;?>&nombre=<?= $id_usuario;?>&buscar=<?= 1;?>&fecha_final=<?= $fecha_final; ?>&fecha_inicio=<?= $fecha_inicio; ?>" title="Exportar" target="_blank" <? if(!isset($fecha_final)){ ?> disabled<? } ?>><i class="icon-upload-alt"></i> Exportar</a></li>
 		<li class="divider"></li>
 		<li><a href="genco-usuarios/index.php" title="Usuarios"><i class="icon-folder-open"></i> Usuarios</a></li>
-		<li <?= $classcadena?>><a href="usuario2.php?fecha_final=<?= $fecha_final; ?>&fecha_inicio=<?= $fecha_inicio; ?>&buscar=1;"><i class="icon-tasks"></i> Resumen</a></li>
 		<li><a href="index.php" title="Inicio" ><i class="icon-home"></i> Inicio</a></li>	
 	  </ul>
 	</div>
@@ -320,78 +320,55 @@ if($fecha_inicio>$fecha_final){
 }else{
 
 ?>
-
-<table border="1" class="tablad">
-<tbody>
-<tr>
-	<th title="Nombre de los usuarios">Nombre</th>
-	<td><? echo $row_usuario['usuario']?></td>
-	<th title="Departamento al que pertenecen">Sector</th>
-	<td><? echo $row_usuario['departamento']?></td>
-	<th title="Legajo de los usuarios">Legajo</th>
-	<td><? echo $row_usuario['legajo']?></td>
-</tr>
-<tr>
-	<th title="Fecha inicio">Fecha Inicio</th>
-	<td><? echo date('d-m-Y', strtotime($fecha_inicio))?></td>
-	<th title="Fecha final">Fecha Final</th>
-	<td><? echo date('d-m-Y', strtotime($fecha_final))?></td>
-	<th title="Cantidad de marcaciones">Cantidad</th>
-	<td><? echo $cantidad_marcacion;?></td>
-</tr>
-</tbody>
-</table>
-<br>
-
 <div id="target">
-<img class="carga" src="imagenes/cargando.gif" />
-<table  id="table" class="sortable">
+<div id="muestra">
+
+<table   border="1" id="table" class="sortable">
 <thead>
-	<th title="Fecha"><h3>Dia</h3></th>
-	<th title=""><h3>Fecha año/mes/dia</h3></th>
-	<th title="Sin definir"><h3>sd</h3></th>
-	<th title="Mañana - Entrada"><h3>m-e</h3></th>
-	<th title="Mañana - Salida"><h3>m-s</h3></th>
-	<th title="Tarde - Entrada"><h3>t-e</h3></th>
-	<th title="Tarde - Salida"><h3>t-s</h3></th>
-	<th title="Subtotales"><h3>Subtotales</h3></th>
-	<th title="Calculo de horas laborales"><h3>Horas</h3></th>
-	<th title="Otro tipo"><h3>otros</h3></th>
-	<th title="Editar las entradas"><h3>editar</h3></th>
+	<th title="Legajo del usuario"><h3>Legajo</h3></th>
+	<th title="Usuario"><h3>Usuario</h3></th>
+	<th title="Fecha de inicio"><h3>desde</h3></th>
+	<th title="Fecha final"><h3>hasta</h3></th>
+	<th title="Horas normales"><h3>Horas</h3></th>
+	<? do{ ?>
+	<th title=""><h3><?= $row_tipootra['tipootra'];?></h3></th>
+	<? }while($row_tipootra=mysql_fetch_array($tipootra))?>
+	<th title="Horas que van al 50%"><h3>50%</h3></th>
+	<th title="Horas que van al 100%"><h3>100%</h3></th>
 </thead>
 
 <tbody>
-<? 
-foreach($arrayFechas as $valor){?>
-
-	<tr>
-		<td><? if(devuelve_dia($valor)=="Domingo"){ ?>
-			<p class="letra_roja">
-			<? } else if(devuelve_dia($valor)=="Sabado"){?>
-			<p class="letra_azul">
-			<? } ?>
-			<?= devuelve_dia($valor);?></td>
-		<td><?= $valor;?></td>
-		
-		<? 
+<?
+//recorremos todos los usuarios
+do{
+$total=0;
+$totalotras;
+$id_usuario=$row_usuarios2['id_usuario'];
+?>
+<tr>
+	<td><?= $row_usuarios2['legajo'];?></td>
+	<td><?= $row_usuarios2['usuario'];?></td>
+	<td><?= $fecha_inicio;?></td>
+	<td><?= $fecha_final;?></td>
+<?
+foreach($arrayFechas as $valor){
+	
 		for ($i = 0; $i <= 4; $i++) {
 				$query="SELECT * 
 				FROM temp 
 				WHERE
 				DATE_FORMAT(entrada, '%Y-%m-%d') like '$valor'
-				AND id_parametros=$i";   
+				AND id_parametros=$i
+				AND id_usuario=$id_usuario";   
 			$marcacion=mysql_query($query) or die(mysql_error());
 			$row_marcacion = mysql_fetch_assoc($marcacion);
 			$cantidad_parametros=mysql_num_rows($marcacion);
 			
 			// Esta funcion redondea segun los la tabla limites de la base de datos, se pidio que se sacara
 			//$redondear_minutos=redondear_minutos(date('H:i', strtotime($row_marcacion['entrada'])));
-			?>
 
-			<?
-			if($cantidad_parametros==0){?>
-				<td><p class="insert_access"> - </p></td>
-				<? 
+			if($cantidad_parametros==0){
+				 
 				if($i==1){
 					$me=0;
 				} else if($i==2){ 
@@ -401,10 +378,8 @@ foreach($arrayFechas as $valor){?>
 				} else if($i==4){ 
 					$ts=0;
 				}
-				?>
-			<?}else if($cantidad_parametros>1){?>
-				<td><p class="duplicado" title="Registro duplicado, por favor modificarlo"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
-			<?}else{
+
+			}else{
 						
 				if($i==1){
 					$me=date('H:i', strtotime($row_marcacion['entrada']));
@@ -415,29 +390,10 @@ foreach($arrayFechas as $valor){?>
 				} else if($i==4){ 
 					$ts=date('H:i', strtotime($row_marcacion['entrada']));
 				}
-				
-				if($row_marcacion['id_estado']==3){
-					$query="SELECT * 
-					FROM log_auditoria_marcada
-					WHERE
-					id_marcada='$row_marcacion[id_marcada]'";   
-				$log_auditoria_marcada=mysql_query($query) or die(mysql_error());
-				$row_log_auditoria_marcada = mysql_fetch_assoc($log_auditoria_marcada);
-			
-				?>
-				<td><p class="modificado" title="Registro modificado, original :<? echo date('H:i', strtotime($row_log_auditoria_marcada['entrada_old']));?>"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
-				<?}else if($row_marcacion['id_estado']==2){?>
-				<td><p class="insert_php" title="Registro dado de alta por sistema"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
-				<?}else if($row_marcacion['id_parametros']==0){?>
-				<td><p class="duplicado" title="Registro sin definir, por favor modificarlo"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
-				<?}else{?>
-				<td><p class="insert_access"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
-				<?}
+						
 			}//cierra el else
 		}//cierra el for
-		
-		//Si la entrada y la salida de la mañana son mayores a 0 calculamos el intervalo de tiempo, el resultado es un numero
-		if($me>0 && $ms>0){
+		 if($me>0 && $ms>0){
 			$m=intervalo_tiempo($me,$ms);
 			}else{
 			$m=0;
@@ -455,37 +411,53 @@ foreach($arrayFechas as $valor){?>
 			}else{
 			$subtotal=0;
 			}
-			if($subtotal>0){
 		
-		//transformamos el numero resultante en hora y minutos
-		
-		?>
-		<td><? echo pasar_hora($m)." + ".pasar_hora($t) ?></td>
-		<td><? echo pasar_hora($subtotal); ?></td>
-		<? } else {?>
-		<td> - </td>
-		<td> - </td>
-		<?}
-		$query="SELECT * 
+} 
+if($total>0){ ?>
+<td><?= pasar_hora($total); ?></td>
+<? } else { ?>
+<td> - </td>
+
+<?}			$query="SELECT *				
+					FROM `tipootra` 
+					ORDER BY tipootra.id_tipootra";   
+			$tipootra2=mysql_query($query) or die(mysql_error());
+			$row_tipootra2 = mysql_fetch_assoc($tipootra2);
+	
+	$total_otrahora=0;
+	do{
+	$suma_otrahora=0;
+	$id_tipootra=$row_tipootra2['id_tipootra'];
+			
+			$query="SELECT * 
 				FROM tempotra 
 				INNER JOIN tipootra ON(tempotra.id_tipootra=tipootra.id_tipootra)
-				INNER JOIN nota ON(tempotra.id_nota=nota.id_nota)
 				WHERE
-				id_usuario='$row_usuario[id_usuario]' AND
-				fecha='$valor'";   
+				id_usuario='$id_usuario' AND
+				tempotra.id_tipootra='$id_tipootra'";   
 			$otrahora=mysql_query($query) or die(mysql_error());
 			$row_otrahora = mysql_fetch_assoc($otrahora);
 			$cantidad=mysql_num_rows($otrahora);
-			if($cantidad>0){
-			$totalotras=$totalotras+$row_otrahora['horas'];
-		?>
-		<td><p class="insert_access"><a href="#" class="btn" title="<? echo $row_otrahora['nota'];?>" onClick="abrirVentana('edit_otros.php?id=<?echo $row_usuario['id_usuario']?>&fecha=<?echo $valor?>')"><? echo $row_otrahora['tipootra'];?> : <? echo $row_otrahora['horas'];?></a></p></td>
-		<?}else{?>
-		<td><p class="insert_access"><a href="#" class="btn" title="Agregar" onClick="abrirVentana('edit_otros.php?id=<?echo $row_usuario['id_usuario']?>&fecha=<?echo $valor?>')"><i class="icon-plus-sign-alt"></i></a></p></td>
-		<?}?>
-	<td><a href="#" class="btn" title="Parametros" onClick="abrirVentana('edit.php?id=<?echo $row_usuario['id_usuario']?>&fecha=<?echo $valor?>')"><i class="icon-edit-sign"></i></a></td>
-	</tr>
-<? }
+	do{
+	$suma_otrahora=$suma_otrahora+$row_otrahora['horas'];
+	}while($row_otrahora=mysql_fetch_array($otrahora));
+	$total_otrahora=$total_otrahora+$suma_otrahora;
+	if($suma_otrahora==0){ ?>
+	<td> - </td>		
+	<?}else{?>
+	<td><?= $suma_otrahora;?></td>		
+<? 	}
+	}while($row_tipootra2=mysql_fetch_array($tipootra2));
+
+	if($total_otrahora==0){ ?>
+	<td> - </td>		
+	<?}else{?>
+	<td><?= $total_otrahora;?></td>		
+<? 	} ?>
+		<td> - </td>	
+		</tr>
+<?}while($row_usuarios2=mysql_fetch_array($usuarios2));
+
 
 //elimino las tablas temporaria
 $query_drop = "DROP TABLE temp";
@@ -495,21 +467,14 @@ $query_drop = "DROP TABLE tempotra";
 $res_drop = mysql_query($query_drop) or die(mysql_error());
 
 ?>
-
+<!--Controles de la tabla--> 
 </tbody>
 </table>
 </div>
-<table class="tablad">
-<tr>
-	<td>Total de otras</td>
-	<th><? echo round($totalotras,2);?>
-	</th><td>Total de horas</td>
-	<th><? echo pasar_hora($total);?></th>
-</tr>
-</table>	
-	
+</div>
+
  
-<!--Controles de la tabla-->            
+           
 	<div id="controls">
 	<div id="perpage">
 		<select onchange="sorter.size(this.value)">

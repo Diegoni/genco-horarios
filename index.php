@@ -1,4 +1,10 @@
-<?php include_once("menu.php"); 
+<?php 
+session_start();
+	if(!isset($_SESSION['usuario_nombre'])){
+	header("Location: login/acceso.php");
+	}
+include_once("menu.php"); 
+
 //Funcion para saber si se debe actualizar la pagina
 function actualizar ($fecha_americana,$fecha_access2){
 //conexion odbc		
@@ -166,24 +172,24 @@ echo "Los datos se han cargado correctamente";
 
 if(isset($_GET['empleado'])){
 $query="SELECT 	usuario.id_usuario as id,
-				usuario.nombre as nombre,
+				usuario.usuario as usuario,
 				usuario.legajo as legajo,
 				usuario.id_estado as id_estado,
 				departamento.nombre as departamento
 		FROM `usuario` INNER JOIN departamento
 		ON (usuario.id_departamento=departamento.id_departamento)
 		WHERE 
-		usuario.nombre like '%$_GET[nombre]%' AND
+		usuario.usuario like '%$_GET[usuario]%' AND
 		departamento.nombre like '%$_GET[departamento]%' AND
 		usuario.legajo like '%$_GET[legajo]%' AND
 		usuario.id_estado=1
-		ORDER BY usuario.nombre";   
+		ORDER BY usuario.usuario";   
 $usuario=mysql_query($query) or die(mysql_error());
 $row_usuario = mysql_fetch_assoc($usuario);
 
 }else{
 $query="SELECT 	usuario.id_usuario as id,
-				usuario.nombre as nombre,
+				usuario.usuario as usuario,
 				usuario.legajo as legajo,
 				usuario.id_estado as id_estado,
 				departamento.nombre as departamento
@@ -191,7 +197,7 @@ $query="SELECT 	usuario.id_usuario as id,
 		ON (usuario.id_departamento=departamento.id_departamento)
 		WHERE 
 		usuario.id_estado=1
-		ORDER BY usuario.nombre";   
+		ORDER BY usuario.usuario";   
 $usuario=mysql_query($query) or die(mysql_error());
 $row_usuario = mysql_fetch_assoc($usuario);
 
@@ -337,31 +343,45 @@ Por favor actualice la base de datos
 		<b>Marcaciones del día</b>
 	</td>
 	<td>
-		<label><? echo  $fecha;?></label>
+		<p class="fecha" title="Fecha con la que se esta trabajando"><? echo  $fecha;?></p>
 	</td>
 	<td>
 		<form class="form-inline" action="index.php" name="ente">
+		<p></p>
 		<b><div class="input-prepend">
-			<span class="add-on"><i class="icon-calendar"></i></span>
-			<input type="text" name="fecha" id="datepicker" placeholder="ingrese fecha" required>
+			<span class="add-on" onclick="document.getElementById('datepicker').focus();"><i class="icon-calendar"></i></span>
+			<input type="text" name="fecha" id="datepicker" placeholder="ingrese fecha"  autocomplete="off" required>
 		</div></b>
 		<button type="submit" class="btn" title="Buscar"><i class="icon-search"></i></button>
 		</form>
 		
 	</td>
-	<td><form class="form-inline" action="index.php" name="importar">
-		<!--<a href="index.php" class="btn" title="Limpiar"><i class="icon-eraser"></i></a>-->
-		<a href="#openModal" title="Parametros" class="btn"><i class="icon-time"></i></a>
-		<!--<a href="#" class="btn" title="Cronogramas" onClick="abrirVentana('cronogramas.php')"><i class="icon-cogs"></i></a>-->
-		<a href="index.php?fecha=<? echo $fecha;?>" class="btn" title="Refresh" ><i class="icon-refresh"></i></a>
+	<td>
+			
+	<div class="btn-group">
+	  <a class="btn btn-success dropdown-toggle" data-toggle="dropdown" href="#">
+		<i class="icon-cogs"></i>
+		<span class="caret"></span>
+	  </a>
+	  <ul class="dropdown-menu">
+		<li><a href="#openModal" title="Parametros"><i class="icon-time"></i> Parametros</a></li>
+		<li><a href="index.php?fecha=<? echo $fecha;?>" title="Refresh" ><i class="icon-refresh"></i> Refresh</a></li>
 		<?if($bandera==1){ ?>
+			<form class="form-inline" action="index.php" name="importar">
 			<input type="hidden" name="fecha" value="<? echo $fecha;?>">
-			<button type="submit" class="btn btn-danger" id="blink" title="Actualice la base de datos" name="actualizar" value="1"><i class="icon-download-alt"></i></button>
+			<li><button type="submit" title="Actualice la base de datos" name="actualizar" value="1"><i class="icon-download-alt"></i> Actualizar</button></li>
+			<form class="form-inline" action="index.php" name="importar">
 		<?}else{?>
-			<button class="btn btn-primary" title="Los datos ya estan actalizados" name="actualizar" value="1" disabled><i class="icon-download-alt"></i></button>
+			<li class="disabled"><a href="" title="Los datos ya estan actalizados" name="actualizar" value="1"><i class="icon-download-alt"></i> Actualizar</a></li>
 		<?}?>
-		<a href="genco-usuarios/index.php" class="btn btn-success" title="Usuarios"><i class="icon-folder-open"></i></a>
+		<li class="divider"></li>
+		<li><a href="genco-usuarios/index.php" title="Usuarios"><i class="icon-folder-open"></i> Usuarios</a>
+		<li><a href="usuario.php" title="Totales"><i class="icon-dashboard"></i></i> Totales</a>
 		</form>
+	  </ul>
+	</div>
+		
+		
 	</td>
 	</tr>
 	</table>
@@ -371,38 +391,72 @@ Por favor actualice la base de datos
 						Formulario busqueda
 ----------------------------------------------------------------------			
 --------------------------------------------------------------------->
+<?
+	$query="SELECT 	*
+			FROM `usuario` 
+			WHERE
+			usuario.id_estado=1
+			ORDER BY usuario.usuario";   
+	$usuario_lista=mysql_query($query) or die(mysql_error());
+	$row_usuario_lista = mysql_fetch_assoc($usuario_lista);
+?>
+<datalist id="usuario">
+<? do{ ?>
+  <option value="<?= $row_usuario_lista['usuario'];?>">
+<? }while($row_usuario_lista=mysql_fetch_array($usuario_lista));?>
+</datalist>
 
+<?
+	$query="SELECT 	*
+			FROM `departamento` 
+			WHERE
+			departamento.id_estado=1
+			ORDER BY departamento.nombre";   
+	$departamento_lista=mysql_query($query) or die(mysql_error());
+	$row_departamento_lista = mysql_fetch_assoc($departamento_lista);
+?>
+<datalist id="departamento">
+<? do{ ?>
+  <option value="<?= $row_departamento_lista['nombre'];?>">
+<? }while($row_departamento_lista=mysql_fetch_array($departamento_lista));?>
+</datalist>
+
+
+<div class="alert alert-info">
+<button type="button" class="close" data-dismiss="alert">&times;</button>
 	<form class="form-inline" action="index.php" name="ente">
 	<tr>
 	<td>
 		<div class="input-prepend">
-		<span class="add-on"><i class="icon-paper-clip"></i></span>
-		<input type="text" class="span1" name="legajo" placeholder="legajo" autofocus>
+		<span class="add-on" onclick="document.getElementById('legajo').focus();"><i class="icon-paper-clip"></i></span>
+		<input type="text" class="span1" name="legajo" placeholder="legajo" id="legajo" autofocus>
 		</div>
 	</td>
 	<td>
 		<div class="input-prepend">
-		<span class="add-on"><i class="icon-user"></i></span>
-		<input type="text" class="span2" name="nombre" placeholder="nombre" id="nombre">
+		<span class="add-on" onclick="document.getElementById('usuario2').focus();"><i class="icon-user"></i></span>
+		<input type="text" list="usuario" class="span2" name="usuario" placeholder="nombre" autocomplete="off" id="usuario2">
 		</div>
 	</td>
 	<td>
 		<div class="input-prepend">
-		<span class="add-on"><i class="icon-group"></i></span>
-		<input type="text" class="span2" name="departamento" placeholder="departamento" id="departamento">
+		<span class="add-on" onclick="document.getElementById('departamento2').focus();"><i class="icon-group"></i></span>
+		<input type="text" list="departamento" class="span2" name="departamento" placeholder="departamento" autocomplete="off" id="departamento2">
 		</div>
 	</td>
 	<input type="hidden" name="fecha" value="<? echo $fecha;?>">
 	<td colspan="8"><button type="submit" class="btn" title="buscar" name="empleado" value="1">Aceptar</button></td>
 	</tr>
 	</form>
-
+</div>
+<BR>
 <!--------------------------------------------------------------------
 ----------------------------------------------------------------------
 						Tabla
 ----------------------------------------------------------------------			
 --------------------------------------------------------------------->           
 <div id="target">
+<img class="carga" src="imagenes/cargando.gif" />
 <table  id="table" class="sortable">
 <thead>
 	<th title="Legajo de los usuarios"><h3>Legajo</h3></th>
@@ -455,7 +509,7 @@ $res_ins = mysql_query($query_ins) or die(mysql_error());
 do{?>
 	<tr>
 	<td><? echo $row_usuario['legajo']?></td>
-	<td><a href="usuario.php?id=<? echo $row_usuario['id']?>" class="ayuda-boton btn"><? echo $row_usuario['nombre']?></a></td>
+	<td><a href="usuario.php?id=<?= $row_usuario['id']?>&fecha=<?= $fecha;?>" class="ayuda-boton btn"><? echo $row_usuario['usuario']?></a></td>
 	<td><? echo $row_usuario['departamento']?></td>
 		<? 
 		for ($i = 0; $i <= 4; $i++) {

@@ -120,18 +120,13 @@
 	<td>Horas</td>
 	<td><input type="number" class="input-medium" name="horas" value="<?echo $row_otrahora['horas']?>" required></td>
 	</tr>
-	<tr>
-	<td>Fecha</td>
-	<td><input type="date" class="input-medium" name="fecha" value="<?echo $row_otrahora['fecha']?>" required></td>
-	</tr>
+	<input type="hidden" class="input-medium" name="fecha" value="<?echo $row_otrahora['fecha']?>" required>
 	<tr>
 	<td>Comentario</td>
 	<td><textarea type="text" class="input-medium" rows="5" cols="40" name="nota" required><?echo $row_otrahora['nota']?></textarea></td>
 	</tr>
 	</tr>
-	<? 		
-	}else{
-	echo "No hay otras marcaciones";}?>
+
 	<tr>
 	<td colspan="5">
 			<center>
@@ -153,7 +148,8 @@
 	</table>
 	</fieldset>
 	</form>
-	
+		<? 		
+	}else{?>
 <!--------------------------------------------------------------------
 ----------------------------------------------------------------------
 					Formulario nueva entrada
@@ -167,7 +163,7 @@
 	<table>
 	
 	<tr>
-	<td>Tipo</td>
+	<td>Razón</td>
 	<td>
 		<select name="id_tipootra" class="input-medium" required>
 		<option value="">--ingrese tipo--</option>
@@ -186,13 +182,10 @@
 	</td>
 	</tr>
 	<tr>
-	<td>Horas</td>
+	<td>Horas ausentadas</td>
 	<td><input type="number" class="input-medium" name="horas" value="" placeholder="ingrese horas" required></td>
 	</tr>
-	<tr>
-	<td>Fecha</td>
-	<td><input type="date" class="input-medium" name="fecha" value="<?echo $fecha;?>" placeholder="ingrese fecha" required></td>
-	</tr>
+	<input type="hidden" class="input-medium" name="fecha" value="<?echo $fecha;?>" placeholder="ingrese fecha" required>
 	<tr>
 	<td>Comentario</td>
 	<td><textarea type="text" class="input-medium" rows="5" cols="40" name="nota" placeholder="ingrese comentario" required><?echo $row_otrahora['nota']?></textarea></td>
@@ -204,7 +197,7 @@
 			<center>
 			<input type="hidden" name="id" value="<?echo $_GET['id']?>">
 			<input type="submit" class="btn" name="agregar" title="agregar registro" value="nuevo" id="nuevo">
-			<a href='#' class='show_hide btn btn-danger' title="no guarda los cambios realizados">volver</a>
+			<a class="btn btn-danger" href="" title="no guarda los cambios realizados" onClick="cerrarse()">volver</a>
 			</center>
 	</td>
 	</tr>
@@ -212,7 +205,7 @@
 	</fieldset>
 	</form>
 	</div>
-	
+	<?}?>
 	
 	</div><!--Cierra el div class="celeste"-->
 

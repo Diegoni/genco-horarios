@@ -5,9 +5,9 @@
 		$url="localhost";
 		mysql_connect($url,$username,$password);
 		@mysql_select_db($database) or die( "No pude conectarme a la base de datos");
+		mysql_query("SET NAMES 'utf8'");
 ?>
-
-<?		//ODBC a access
+<?/*		//ODBC a access
 		$dsn = "NWIND"; 
 		//debe ser de sistema no de usuario
 		$usuario ="";

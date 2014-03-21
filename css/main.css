@@ -159,3 +159,16 @@ width: 500px;
 line-height: 200px;
 text-align: center;
 }
+
+
+.session{
+font-size: 15px;
+color:#FFF;
+}
+.session a{
+color:#a5b8da;
+}
+.session a:hover{
+text-decoration:none;
+color:#FFF;
+}

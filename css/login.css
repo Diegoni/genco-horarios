@@ -1,0 +1,226 @@
+
+#firstboxlogin {
+   height: 276px;
+   width: 650px;
+   margin-top:150px;
+   margin-left: auto;
+   margin-right: auto;
+   font-family : Verdana,Arial,Helvetica,sans-serif;
+   font-size : 12px;
+   color : #25729a;
+   font-weight: bold;
+   background-color:#FFFFFF;
+   border:3px solid #ccc;
+   border-radius:10px;
+   -moz-border-radius:10px;
+   -webkit-border-radius:10px;
+   padding:10px;
+   position: relative;
+}
+
+
+#logo_login {
+   position:absolute;
+   top:-25px;
+   padding:0;
+   margin:0;
+   width: 107px;
+   height: 43px;
+   background: url(../imagenes/login.png)  no-repeat; 
+}
+
+
+#text-login {
+   
+   font-size: 13px;
+   margin-bottom:10px;
+   max-height: 50px;
+   width: 95%;
+   /*margin-right:10px;
+   margin-left:0px;
+   margin-top:80px;*/
+   color :#000000;
+   overflow: auto;
+   padding:10px;
+}
+
+#text-login a:hover {
+   color :#659900;
+   text-decoration: underline;
+}
+
+
+#bloc {
+   
+   width:760px;
+   margin:0 auto;
+   text-align:left;
+   position:relative;
+   padding:10px;
+   background-image: -webkit-linear-gradient(top, #f2f5f6, #c8d7dc);
+ background-image: -moz-linear-gradient(top, #f2f5f6, #c8d7dc);
+ background-image: -ms-linear-gradient(top, #f2f5f6, #c8d7dc);
+ background-image: -o-linear-gradient(top, #f2f5f6, #c8d7dc);
+
+   /* For Internet Explorer 5.5 - 7 */
+   filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#E9EDD0, endColorStr=#BBC972, GradientType=1);
+   /* For Internet Explorer 8 */
+   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#E9EDD0, endColorstr=#BBC972, GradientType=1)";
+
+   border:1px solid #aaa;
+   border-radius:10px;
+   -moz-border-radius:10px;
+   -webkit-border-radius:10px;
+   box-shadow:0 0 15px #aaa;
+   -moz-box-shadow:0 0 15px #aaa;
+   -webkit-box-shadow:0 0 15px #aaa;
+}
+
+#logo_bloc {
+   position:absolute;
+   top:-25px;
+   padding:0;
+   margin:0;
+   width: 107px;
+   height: 43px;
+   background: url(../pics/login_logo_glpi.png)  no-repeat; 
+}
+
+
+#boxlogin {
+   position:relative;
+   margin:auto;
+   text-align: left;  /* Bug IE Grrr */
+   width: 350px;
+   padding:10px;
+ background-image: -webkit-linear-gradient(top, #f2f5f6, #c8d7dc);
+ background-image: -moz-linear-gradient(top, #f2f5f6, #c8d7dc);
+ background-image: -ms-linear-gradient(top, #f2f5f6, #c8d7dc);
+ background-image: -o-linear-gradient(top, #f2f5f6, #c8d7dc);
+
+   /* For Internet Explorer 5.5 - 7 */
+   filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#E9EDD0, endColorStr=#BBC972, GradientType=1);
+   /* For Internet Explorer 8 */
+   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#E9EDD0, endColorstr=#BBC972, GradientType=1)";
+
+   border:1px solid #d1dcdf;
+   border-radius:10px;
+   -moz-border-radius:10px;
+   -webkit-border-radius:10px;
+   box-shadow:0 0 15px #aaa;
+   -moz-box-shadow:0 0 15px #aaa;
+   -webkit-box-shadow:0 0 15px #aaa;
+}
+
+#boxlogin p {
+   text-align:center;
+}
+
+#forget {
+   text-align:right;
+   text-decoration: underline;
+}
+
+
+.row {
+   clear: both;
+   padding-top: 5px;
+}
+
+.label {
+   float: left;
+   margin-left:10px;
+   text-align: left;
+}
+
+.formw {
+   float: right;
+   margin-right:10px;
+   text-align: right;
+}
+
+#boxlogin fieldset {
+   background-color: transparent;
+   border: 2px solid  #25729a;
+   padding-bottom:22px;
+}
+
+#boxlogin legend {
+   font-family:"Trebuchet MS",Verdana,Geneva,Arial,Helvetica,sans-serif;
+   font-size: 15px;
+   font-weight: 700;
+   background-color: transparent;
+   color : #25729a;
+}
+
+#boxlogin input {
+
+   border: 1px solid  #25729a;
+   -moz-border-radius:5px;
+   -webkit-border-radius:5px;
+}
+
+#boxlogin input[type=text],
+ #boxlogin input[type=password]{
+   width:13em;
+}
+
+#boxlogin input[type=text]:focus,
+ #boxlogin input[type=password]:focus{
+   border-color:#FFA500;
+   background-color: #fff;
+   -moz-box-shadow:0 0 3px #FFA500;
+   -webkit-box-shadow:0 0 3px #FFA500;
+   outline:none; /* Pour enlever le contour jaune lorsque l'on sélectionne un input dans Chrome */
+}
+
+
+#box-faq {
+   padding-top:30px;
+   text-align:center;
+   position:relative;
+   margin:auto;
+}
+
+.sous_logo {
+   font-family: arial;
+   font-size: 9px;
+   color: #eeeeee;
+   text-decoration: none;
+}
+
+.error {
+   color: red; 
+   margin-top:20px;
+   text-align:center;
+}
+
+#footer-login {
+   text-align:right;
+   position: fixed !important;
+   left: 0px;
+   right: 10px;
+   bottom: 0px !important;
+   height: 40px;
+   font-size : 10px;
+   color :#757575;
+   font-family: Verdana,Arial,Helvetica,sans-serif;
+   font-weight: bold;
+   margin-top:10px;
+   margin:auto;
+    /*css hack for IE*/
+   position: absolute;
+   bottom: auto;
+   top: expression((parseInt(document.documentElement.clientHeight)+parseInt(document.documentElement.scrollTop)-42)+'px');
+   width: expression(parseInt(document.documentElement.clientWidth)+'px');
+}
+
+body {
+   font-family: 'Bitstream Vera Sans', arial, Tahoma, 'Sans serif';
+   font-size: 12px;
+   margin: 0;
+   padding: 0;
+   background:  #dfdfdf repeat-x;
+   
+}
+

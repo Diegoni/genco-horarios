@@ -1,5 +1,5 @@
 <? include_once("head.php");?>
-<body>
+<body >
 <div class="container">
 
 <!--------------------------------------------------------------------
@@ -16,6 +16,10 @@
 			</div>
 			<div class="span3">
 				<a href="http://www.tmsgroup.com.ar/" title="Sitio de TMS Group" target="_blank"><img class="imagenlogo" src="imagenes/logo.png"></a>
+				<div class="session">
+				<strong><?=$_SESSION['usuario_nombre']?></strong> 
+				<a title="Cerrar sessión de usuario" href="login/logout.php">Cerrar Sessión</a> 
+				</div>
 			</div>
 			<!--<a href='#' class='show_hide' title='Ayuda' id="ayuda-boton"><i class='icon-question-sign'></i></a>-->
 			
