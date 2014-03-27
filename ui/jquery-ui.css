@@ -419,6 +419,7 @@ button.ui-button::-moz-focus-inner {
 	margin: -10px 0 0 0;
 	padding: 1px;
 	height: 20px;
+
 }
 .ui-dialog .ui-dialog-content {
 	position: relative;
@@ -1032,7 +1033,7 @@ body .ui-tooltip {
 .ui-icon-document { background-position: -32px -96px; }
 .ui-icon-document-b { background-position: -48px -96px; }
 .ui-icon-note { background-position: -64px -96px; }
-.ui-icon-mail-closed { background-position: -80px -96px; }
+.ui-icon-mail-closed { background-image: url(../imagenes/close.png); }
 .ui-icon-mail-open { background-position: -96px -96px; }
 .ui-icon-suitcase { background-position: -112px -96px; }
 .ui-icon-comment { background-position: -128px -96px; }
@@ -1065,7 +1066,7 @@ body .ui-tooltip {
 .ui-icon-minus { background-position: -48px -128px; }
 .ui-icon-minusthick { background-position: -64px -128px; }
 .ui-icon-close { background-position: -80px -128px; }
-.ui-icon-closethick { background-position: -96px -128px; }
+.ui-icon-closethick { background-image: url(../imagenes/close.png); }
 .ui-icon-key { background-position: -112px -128px; }
 .ui-icon-lightbulb { background-position: -128px -128px; }
 .ui-icon-scissors { background-position: -144px -128px; }

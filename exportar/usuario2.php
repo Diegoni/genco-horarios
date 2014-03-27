@@ -154,7 +154,7 @@ function devuelve_dia($fecha){
          $dia="Martes";
          break;
 	case 3:
-         $dia="Miercoles";
+         $dia="Miércoles";
          break;
 	case 4:
          $dia="Jueves";
@@ -163,7 +163,7 @@ function devuelve_dia($fecha){
          $dia="Viernes";
          break;
 	case 6:
-         $dia="Sabado";
+         $dia="Sábado";
          break;
 	}
 	

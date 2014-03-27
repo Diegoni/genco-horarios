@@ -7647,7 +7647,7 @@ function Datepicker() {
 		monthNames: ["Enero","Febrero","Marzo","Abril","Mayo","Junio",
 			"Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"], // Names of months for drop-down and formatting
 		monthNamesShort: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"], // For formatting
-		dayNames: ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"], // For formatting
+		dayNames: ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"], // For formatting
 		dayNamesShort: ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"], // For formatting
 		dayNamesMin: ["Do","Lu","Ma","Mi","Ju","Vi","Sa"], // Column headings for days starting at Sunday
 		weekHeader: "Wk", // Column header for week of the year
@@ -9970,7 +9970,7 @@ $.widget( "ui.dialog", {
 				},
 				text: false
 			})
-			.addClass("ui-dialog-titlebar-close")
+			.addClass("btn btn-danger")
 			.appendTo( this.uiDialogTitlebar );
 		this._on( this.uiDialogTitlebarClose, {
 			click: function( event ) {

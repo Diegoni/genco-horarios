@@ -1297,6 +1297,10 @@ textarea::-webkit-input-placeholder {
   width: 90px;
 }
 
+.input-inter {
+  width: 110px;
+}
+
 .input-medium {
   width: 150px;
 }
@@ -2018,7 +2022,7 @@ table {
 .table td {
   padding: 8px;
   line-height: 20px;
-  text-align: left;
+  /*text-align: left;*/
   vertical-align: top;
   border-top: 1px solid #dddddd;
 }
@@ -2153,7 +2157,8 @@ table {
 
 .table-hover tbody tr:hover > td,
 .table-hover tbody tr:hover > th {
-  background-color: #f5f5f5;
+  background-color: #2f96b4;
+  color:#FFF;
 }
 
 table td[class*="span"],

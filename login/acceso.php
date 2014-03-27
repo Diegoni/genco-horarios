@@ -1,8 +1,15 @@
-<?php 
+<?php header('Content-type: text/html; charset=utf-8'); 
     session_start(); 
-    include('../config/database.php');
+    include('../config/database.php');?>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="../css/login.css">
+<head>
+<body>
+<?	
     if(empty($_SESSION['usuario_nombre'])) { // comprobamos que las variables de sesión estén vacías         
 ?> 
+
 		<div id="firstboxlogin">
 		<div id="logo_login"></div>
 		<div id="boxlogin">
@@ -26,7 +33,7 @@
 			</span>
 			</div>
 		</fieldset>
-		<p><span><input type="submit" name="enviar" value="Ingresar" /></span></p>
+		<p><span><input class="button" type="submit" name="enviar" value="Ingresar" /></span></p>
 		<script language="JavaScript">
 		document.login.usuario_nombre.focus();
 		</script>
@@ -41,9 +48,28 @@
 <?php 
     }else { 
 ?> 
-        <p>Hola <strong><?=$_SESSION['usuario_nombre']?></strong> | <a href="logout.php">Salir</a></p> 
+		<div id="firstboxlogin">
+		<div id="logo_login"></div>
+		<div id="boxlogin">
+		<fieldset>
+		<legend>Autenticación</legend>
+		<div class="row">
+			<span class="label">
+				<label>Usuario :  </label>
+			</span>
+			<span class="label">
+				<?=$_SESSION['usuario_nombre']?>
+			</span>
+		</div>
+		</fieldset>
+		<p><span><a class="button" title="volver a la aplicación" href="../index.php">Volver</a> <a class="button" title="desconectar usuario" href="logout.php">Salir</a></span></p>
+		<script language="JavaScript">
+		document.login.usuario_nombre.focus();
+		</script>
+		</form>    
 <?php 
     } 
 ?>
-<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="../css/login.css">
+</body>
+</html>
+

@@ -28,18 +28,22 @@ option.error{
 	cursor:cell;
 	background:#f2dede;
 	text-align:center;
+	color:#000;
 }
+
 
 .modificado{
 	cursor:cell;
 	background:#dff0d8;
 	text-align:center;
+	color:#000;
 }
 
 .insert_php{
 	cursor:cell;
 	background:#fcf8e3;
 	text-align:center;
+	color:#000;
 }
 
 .insert_access{

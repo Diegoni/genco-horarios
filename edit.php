@@ -320,7 +320,7 @@ mysql_query("UPDATE `marcada` SET
 				</script>
 	<?} 
 	}else{
-	echo "No hay marcaciones";}?>
+	echo "No hay elementos para editar";}?>
 	<tr>
 	<td colspan="5">
 			<center>

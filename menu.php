@@ -7,19 +7,22 @@
 							Cabecera
 ----------------------------------------------------------------------
 --------------------------------------------------------------------->
-
-		
+	
 		<div class="row cabecera">
 	
-			<div class="span9">
-				<p>Sistema de marcación horaria</p>
-			</div>
 			<div class="span3">
-				<a href="http://www.tmsgroup.com.ar/" title="Sitio de TMS Group" target="_blank"><img class="imagenlogo" src="imagenes/logo.png"></a>
-				<div class="session">
+				<a href="index.php"><img width="106" height="40" class="imagenlogo" src="imagenes/genco.png"></a>
+			</div>
+			
+			<div class="span6 title">
+				<center>
+				<p>Sistema de marcación horaria</p>
+				</center>
+			</div>
+			
+			<div class="span3 session">
 				<strong><?=$_SESSION['usuario_nombre']?></strong> 
-				<a title="Cerrar sessión de usuario" href="login/logout.php">Cerrar Sessión</a> 
-				</div>
+				<a title="Cerrar sessión de usuario" href="login/logout.php">Cerrar Sesión</a> 
 			</div>
 			<!--<a href='#' class='show_hide' title='Ayuda' id="ayuda-boton"><i class='icon-question-sign'></i></a>-->
 			
@@ -66,4 +69,6 @@
 
         </div>
 		</div>
+		
+		
 

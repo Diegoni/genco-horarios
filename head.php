@@ -22,21 +22,28 @@ date_default_timezone_set('America/Argentina/Mendoza');
 <link type="image/x-icon" href="imagenes/favicon.ico" rel="shortcut icon" />
 
 <!-- Necesario para que funcione Jquery UI y Bootstrap -->
+
+
+
+
+
+		
+
+
+
+
 <script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" language="javascript" src="jquery.dataTables.js"></script>
 
-
-<!-- Scroll  -->
-<script type="text/javascript" src="js/jquery.slimscroll.js"></script>
-<script type="text/javascript">
-    $(function(){
-      $('#target').slimScroll({
-         color: '#00f',
-		width: '100%',
-		height: '500px'
-      });
-    });
-</script>
-
+<script type="text/javascript" charset="utf-8">
+function imprSelec(muestra){
+	var ficha=document.getElementById(muestra);
+	var ventimp=window.open(' ','popimpr');ventimp.document.write(ficha.innerHTML);
+	ventimp.document.close();
+	ventimp.print();
+	ventimp.close();
+}
+</script>	
 
 <!--------------------------------------------------------------------
 ----------------------------------------------------------------------
@@ -47,6 +54,8 @@ date_default_timezone_set('America/Argentina/Mendoza');
 <script type="text/javascript" src="js/script.js"></script>
 <link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
 <script src="js/main.js"></script>
+
+
 
 <!--------------------------------------------------------------------
 ----------------------------------------------------------------------
@@ -78,6 +87,16 @@ date_default_timezone_set('America/Argentina/Mendoza');
 						Funciones
 ----------------------------------------------------------------------
 --------------------------------------------------------------------->	
+<script type="text/javascript" language="javascript" src="js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf-8">
+			$(document).ready(function() {
+				 $('#example').dataTable( {
+				"sPaginationType": "full_numbers"
+			} );
+			} );
+		</script>
+		
+
 
 
 </head>

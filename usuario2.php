@@ -142,7 +142,7 @@ function devuelve_dia($fecha){
          $dia="Martes";
          break;
 	case 3:
-         $dia="Miercoles";
+         $dia="Miércoles";
          break;
 	case 4:
          $dia="Jueves";
@@ -151,7 +151,7 @@ function devuelve_dia($fecha){
          $dia="Viernes";
          break;
 	case 6:
-         $dia="Sabado";
+         $dia="Sábado";
          break;
 	}
 	
@@ -225,12 +225,12 @@ $cadena="";
 $classcadena="";
 
 if(!isset($fecha_inicio)){ 
-	$cadena="disabled title='Seleccione periodo de tiempo'"; 
-	$classcadena="class='disabled' title='Seleccione periodo de tiempo'";
+	$cadena="disabled title='Seleccione período de tiempo'"; 
+	$classcadena="class='disabled' title='Seleccione período de tiempo'";
 } 
 
 ?>
-
+<div class="row">
 
 <!--------------------------------------------------------------------
 ----------------------------------------------------------------------
@@ -238,10 +238,10 @@ if(!isset($fecha_inicio)){
 ----------------------------------------------------------------------			
 --------------------------------------------------------------------->
 
-	<table class="table table-striped table-hover">
+	<table class="table table-striped">
 	<tr class="success">
 	<td>
-		<b>Periodo de tiempo</b>
+		<b>Período de tiempo</b>
 	</td>
 	
 	<td>
@@ -280,7 +280,8 @@ if(!isset($fecha_inicio)){
 		<?} 
 		} while($row_usuarios=mysql_fetch_array($usuarios));?>
 		</select>
-	</td>	
+	</td>
+	
 	
 	<td>
 	<div class="btn-group">
@@ -291,7 +292,7 @@ if(!isset($fecha_inicio)){
 	  <ul class="dropdown-menu">
 		<li <?= $classcadena;?>><a href="usuario.php?id=<?= $id_usuario;?>&buscar=<?= 1;?>&fecha_final=<?= $fecha_final; ?>&fecha_inicio=<?= $fecha_inicio; ?>"  title="Refresh" <? if(!isset($fecha_final)){ ?> disabled<? } ?>><i class="icon-refresh"></i> Refresh</a></li>
 		<li <?= $classcadena;?>><a href="javascript:imprSelec('muestra')"><i class="icon-print"></i> Imprimir</a></li>
-		<li <?= $classcadena;?>><a href="exportar/usuario2.php?id=<?= $id_usuario;?>&nombre=<?= $id_usuario;?>&buscar=<?= 1;?>&fecha_final=<?= $fecha_final; ?>&fecha_inicio=<?= $fecha_inicio; ?>" title="Exportar" target="_blank" <? if(!isset($fecha_final)){ ?> disabled<? } ?>><i class="icon-upload-alt"></i> Exportar</a></li>
+		<li <?= $classcadena;?>><a onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</a></li>
 		<li class="divider"></li>
 		<li><a href="genco-usuarios/index.php" title="Usuarios"><i class="icon-folder-open"></i> Usuarios</a></li>
 		<li><a href="index.php" title="Inicio" ><i class="icon-home"></i> Inicio</a></li>	
@@ -320,21 +321,20 @@ if($fecha_inicio>$fecha_final){
 }else{
 
 ?>
-<div id="target">
-<div id="muestra">
 
-<table   border="1" id="table" class="sortable">
+<div id="muestra">
+<table class="table table-hover" border ="1" id="example">
 <thead>
-	<th title="Legajo del usuario"><h3>Legajo</h3></th>
-	<th title="Usuario"><h3>Usuario</h3></th>
-	<th title="Fecha de inicio"><h3>desde</h3></th>
-	<th title="Fecha final"><h3>hasta</h3></th>
-	<th title="Horas normales"><h3>Horas</h3></th>
+	<th title="Legajo del usuario">Legajo</th>
+	<th title="Usuario">Usuario</th>
+	<th title="Fecha de inicio">desde</th>
+	<th title="Fecha final">hasta</th>
+	<th title="Horas normales">Horas</th>
 	<? do{ ?>
-	<th title=""><h3><?= $row_tipootra['tipootra'];?></h3></th>
+	<th title=""><?= $row_tipootra['tipootra'];?></th>
 	<? }while($row_tipootra=mysql_fetch_array($tipootra))?>
-	<th title="Horas que van al 50%"><h3>50%</h3></th>
-	<th title="Horas que van al 100%"><h3>100%</h3></th>
+	<th title="Horas que van al 50%">50%</th>
+	<th title="Horas que van al 100%">100%</th>
 </thead>
 
 <tbody>
@@ -471,47 +471,22 @@ $res_drop = mysql_query($query_drop) or die(mysql_error());
 </tbody>
 </table>
 </div>
-</div>
 
- 
-           
-	<div id="controls">
-	<div id="perpage">
-		<select onchange="sorter.size(this.value)">
-		<option value="5">5</option>
-			<option value="10" selected="selected">10</option>
-			<option value="20">20</option>
-			<option value="50">50</option>
-			<option value="100">100</option>
-		</select>
-		<span>Cantidad por Pagina</span>
-	</div>
-	<div id="navigation">
-		<img src="imagenes/first.gif" width="16" height="16" alt="First Page" onclick="sorter.move(-1,true)" />
-		<img src="imagenes/previous.gif" width="16" height="16" alt="First Page" onclick="sorter.move(-1)" />
-		<img src="imagenes/next.gif" width="16" height="16" alt="First Page" onclick="sorter.move(1)" />
-		<img src="imagenes/last.gif" width="16" height="16" alt="Last Page" onclick="sorter.move(1,true)" />
-	</div>
-	<div id="text">Mostrando pagina <span id="currentpage"></span> de <span id="pagelimit"></span></div>
-    <p><br /></p>
-    <p>&nbsp; </p>
-    </div>
 
-<!--script de la tabla, ver si se cambia de lugar-->	
-	<script type="text/javascript">
-  var sorter = new TINY.table.sorter("sorter");
-	sorter.head = "head";
-	sorter.asc = "asc";
-	sorter.desc = "desc";
-	sorter.even = "evenrow";
-	sorter.odd = "oddrow";
-	sorter.evensel = "evenselected";
-	sorter.oddsel = "oddselected";
-	sorter.paginate = true;
-	sorter.currentid = "currentpage";
-	sorter.limitid = "pagelimit";
-	sorter.init("table",1);
-  </script>   
+
+
+
+<?}//cierra el if de fechas inicio>final
+}else{
+echo 	"<div class='alert alert-info'>
+		<button type='button' class='close' data-dismiss='alert'>&times;</button>
+		Seleccione período de tiempo
+		</div>";
+
+}?>
+
+
+<? include_once("footer.php");?>
 
 </center>
 </div><!--cierra el class="span12" -->
@@ -519,11 +494,3 @@ $res_drop = mysql_query($query_drop) or die(mysql_error());
 </div><!--cierra el class="container"-->
 
 </body>
-<?}//cierra el if de fechas inicio>final
-}else{
-echo 	"<div class='alert alert-info'>
-		<button type='button' class='close' data-dismiss='alert'>&times;</button>
-		Seleccione periodo de tiempo
-		</div>";
-
-}?>

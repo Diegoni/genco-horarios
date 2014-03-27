@@ -247,8 +247,8 @@ $row_usuario = mysql_fetch_assoc($usuario);
 <div id="openModal" class="modalDialog">
 	<div>
 		<a href="#closes" title="Cerrar" class="closes">X</a>
-		<h2>Parametros de configuración</h2>
-		<p>Estos son los valores que se paramétrizan las entradas y salidas</p>
+		<h2>Parámetros de configuración</h2>
+		<p>Estos son los valores que filtran las entradas y salidas</p>
 		<p>
 		<?$query="SELECT *
 		FROM `parametros`
@@ -260,7 +260,8 @@ $row_usuario = mysql_fetch_assoc($usuario);
 	
 	<div class="container; celeste">
 	<form action="index.php" method="post" > 
-	<table>
+	<table class="sortable">
+	<thead>
 	<tr>
 	<td>Turno</td>
 	<td>Tipo</td>
@@ -268,6 +269,7 @@ $row_usuario = mysql_fetch_assoc($usuario);
 	<td>Hasta</td>
 	<td>Considerar</td>
 	</tr>
+	</thead>
 	<?
 	do{ ?>	
 	<tr>
@@ -297,8 +299,8 @@ $row_usuario = mysql_fetch_assoc($usuario);
 		}while ($row_tipo = mysql_fetch_array($tipo))
 		?>
 	</td>
-	<td><input type="time" class="input-medium" name="inicio<?echo $row_parametros['id_parametros']?>" value="<?echo $row_parametros['inicio']?>" required></td>
-	<td><input type="time" class="input-medium" name="final<?echo $row_parametros['id_parametros']?>" value="<?echo $row_parametros['final']?>" required></td>
+	<td><input type="time" class="input-inter" name="inicio<?echo $row_parametros['id_parametros']?>" value="<?echo $row_parametros['inicio']?>" required></td>
+	<td><input type="time" class="input-inter" name="final<?echo $row_parametros['id_parametros']?>" value="<?echo $row_parametros['final']?>" required></td>
 	<td><input type="range" class="input-small" name="considerar<?echo $row_parametros['id_parametros']?>" value="<?echo $row_parametros['considerar']?>" min="1" max="30" id="slider<?echo $row_parametros['id_parametros']?>" onchange="printValue('slider<?echo $row_parametros['id_parametros']?>','rangeValue<?echo $row_parametros['id_parametros']?>')" required>
 		<input id="rangeValue<?echo $row_parametros['id_parametros']?>" type="text" class="input-minimini" disabled>min.</td>
 	</tr>
@@ -337,7 +339,7 @@ Por favor actualice la base de datos
 </p>
 
 
-	<table class="table table-striped table-hover">
+	<table class="table table-striped">
 	<tr class="success">
 	<td>
 		<b>Marcaciones del día</b>
@@ -357,7 +359,11 @@ Por favor actualice la base de datos
 		
 	</td>
 	<td>
-			
+
+	<a href="javascript:imprSelec('muestra')" class='btn'><i class="icon-print"></i> Imprimir</a>
+	<button class="btn" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
+
+	
 	<div class="btn-group">
 	  <a class="btn btn-success dropdown-toggle" data-toggle="dropdown" href="#">
 		<i class="icon-cogs"></i>
@@ -374,12 +380,14 @@ Por favor actualice la base de datos
 		<?}else{?>
 			<li class="disabled"><a href="" title="Los datos ya estan actalizados" name="actualizar" value="1"><i class="icon-download-alt"></i> Actualizar</a></li>
 		<?}?>
+		<li><a href='#' class='show_hide' title='Más detalles en la búsqueda'><i class="icon-chevron-sign-down"></i> Búsqueda</a></li>
 		<li class="divider"></li>
 		<li><a href="genco-usuarios/index.php" title="Usuarios"><i class="icon-folder-open"></i> Usuarios</a>
-		<li><a href="usuario.php" title="Totales"><i class="icon-dashboard"></i></i> Totales</a>
+		<li><a href="usuario.php?fecha=<?= $fecha;?>&buscar=2" title="Totales"><i class="icon-dashboard"></i></i> Totales</a>
 		</form>
 	  </ul>
 	</div>
+
 		
 		
 	</td>
@@ -421,14 +429,14 @@ Por favor actualice la base de datos
 <? }while($row_departamento_lista=mysql_fetch_array($departamento_lista));?>
 </datalist>
 
-
+<div class="slidingDiv">
 <div class="alert alert-info">
-<button type="button" class="close" data-dismiss="alert">&times;</button>
+<a href='#'  class="close show_hide">&times;</a>
 	<form class="form-inline" action="index.php" name="ente">
 	<tr>
 	<td>
 		<div class="input-prepend">
-		<span class="add-on" onclick="document.getElementById('legajo').focus();"><i class="icon-paper-clip"></i></span>
+		<span class="add-on" onclick="document.getElementById('legajo').focus();"><i class="icon-folder-close-alt"></i></span>
 		<input type="text" class="span1" name="legajo" placeholder="legajo" id="legajo" autofocus>
 		</div>
 	</td>
@@ -449,26 +457,29 @@ Por favor actualice la base de datos
 	</tr>
 	</form>
 </div>
+</div>
 <BR>
 <!--------------------------------------------------------------------
 ----------------------------------------------------------------------
 						Tabla
 ----------------------------------------------------------------------			
 --------------------------------------------------------------------->           
-<div id="target">
+
 <img class="carga" src="imagenes/cargando.gif" />
-<table  id="table" class="sortable">
+<!--<table  id="table" class="sortable">-->
+<div id="muestra">
+<table border="1" class="table table-hover" id="example">
 <thead>
-	<th title="Legajo de los usuarios"><h3>Legajo</h3></th>
-	<th title="Nombre de los usuarios"><h3>Nombre</h3></th>
-	<th title="Departamento al que pertenecen"><h3>Sector</h3></th>
-	<th title="sin definir"><h3>sd</h3></th>
-	<th title="Mañana - Entrada"><h3>m-e</h3></th>
-	<th title="Mañana - Salida"><h3>m-s</h3></th>
-	<th title="Tarde - Entrada"><h3>t-e</h3></th>
-	<th title="Tarde - Salida"><h3>t-s</h3></th>
-	<th title="Otro tipo"><h3>otros</h3></th>
-	<th title="Editar las entradas"><h3>editar</h3></th>
+	<th title="Legajo de los usuarios">Legajo</th>
+	<th title="Nombre de los usuarios">Nombre</th>
+	<th title="Departamento al que pertenecen">Sector</th>
+	<th title="sin definir">sd</th>
+	<th title="Mañana - Entrada">m-e</th>
+	<th title="Mañana - Salida">m-s</th>
+	<th title="Tarde - Entrada">t-e</th>
+	<th title="Tarde - Salida">t-s</th>
+	<th title="Otro tipo">otros</th>
+	<th title="Editar las entradas">editar</th>
 </thead>
 
 <tbody>
@@ -509,7 +520,7 @@ $res_ins = mysql_query($query_ins) or die(mysql_error());
 do{?>
 	<tr>
 	<td><? echo $row_usuario['legajo']?></td>
-	<td><a href="usuario.php?id=<?= $row_usuario['id']?>&fecha=<?= $fecha;?>" class="ayuda-boton btn"><? echo $row_usuario['usuario']?></a></td>
+	<td><a href="usuario.php?id=<?= $row_usuario['id']?>&fecha=<?= $fecha;?>&buscar=2" class="ayuda-boton btn"><? echo $row_usuario['usuario']?></a></td>
 	<td><? echo $row_usuario['departamento']?></td>
 		<? 
 		for ($i = 0; $i <= 4; $i++) {
@@ -577,50 +588,18 @@ $res_drop = mysql_query($query_drop) or die(mysql_error());
 ?>
 </tbody>
 </table>
-</div>	
- 
-<!--Controles de la tabla-->            
-	<div id="controls">
-	<div id="perpage">
-		<select onchange="sorter.size(this.value)">
-		<option value="5">5</option>
-			<option value="10" selected="selected">10</option>
-			<option value="20">20</option>
-			<option value="50">50</option>
-			<option value="100">100</option>
-		</select>
-		<span>Cantidad por Pagina</span>
-	</div>
-	<div id="navigation">
-		<img src="imagenes/first.gif" width="16" height="16" alt="First Page" onclick="sorter.move(-1,true)" />
-		<img src="imagenes/previous.gif" width="16" height="16" alt="First Page" onclick="sorter.move(-1)" />
-		<img src="imagenes/next.gif" width="16" height="16" alt="First Page" onclick="sorter.move(1)" />
-		<img src="imagenes/last.gif" width="16" height="16" alt="Last Page" onclick="sorter.move(1,true)" />
-	</div>
-	<div id="text">Mostrando pagina <span id="currentpage"></span> de <span id="pagelimit"></span></div>
-    <p><br /></p>
-    <p>&nbsp; </p>
-    </div>
+</div>
 
-<!--script de la tabla, ver si se cambia de lugar-->	
-	<script type="text/javascript">
-  var sorter = new TINY.table.sorter("sorter");
-	sorter.head = "head";
-	sorter.asc = "asc";
-	sorter.desc = "desc";
-	sorter.even = "evenrow";
-	sorter.odd = "oddrow";
-	sorter.evensel = "evenselected";
-	sorter.oddsel = "oddselected";
-	sorter.paginate = true;
-	sorter.currentid = "currentpage";
-	sorter.limitid = "pagelimit";
-	sorter.init("table",1);
-  </script>   
+ 
+<? include_once("footer.php");?>
 
 </center>
 </div><!--cierra el class="span12" -->
 </div><!--cierra el row -->
+
+
 </div><!--cierra el class="container"-->
 
 </body>
+
+

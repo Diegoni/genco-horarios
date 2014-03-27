@@ -1,6 +1,22 @@
 // Funcion que controla que no sean mas de 3 caracteres en el input buscar 
 // Para el datapicker, es una funcion de jquery ui 
 
+$(document).ready(function(){
+        $(window).scroll(function(){
+            if ($(this).scrollTop() > 100) {
+                $('.scrollup').fadeIn();
+            } else {
+                $('.scrollup').fadeOut();
+            }
+        });
+
+        $('.scrollup').click(function(){
+            $("html, body").animate({ scrollTop: 0 }, 600);
+            return false;
+        });
+ 
+});
+
 
 $(document).ready(function(){
          $(".carga").hide();
@@ -21,6 +37,51 @@ $(function() {
     $( "#datepicker2" ).datepicker({	dateFormat: 'dd-mm-yy',
 									changeMonth: true,
 									changeYear: true});
+  });
+  
+
+			$(document).ready(function() {
+				 $('#example').dataTable( {
+				"sPaginationType": "full_numbers"
+			} );
+			} );
+
+function imprSelec(muestra){
+	//oculto paginadores y busqueda
+	$("#example_length").hide();
+	$("#example_filter").hide();
+	$("#example_info").hide();
+	$("#example_paginate").hide();
+	
+	var ficha=document.getElementById(muestra);
+	var ventimp=window.open(' ','popimpr');ventimp.document.write(ficha.innerHTML);
+	ventimp.document.close();
+	ventimp.print();
+	ventimp.close();
+	
+	//oculto paginadores y busqueda
+	$("#example_length").show();
+	$("#example_filter").show();
+	$("#example_info").show();
+	$("#example_paginate").show();
+}
+
+$(function() {
+    $( "#dialog" ).dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 1000
+      },
+      hide: {
+        effect: "clip",
+        duration: 1000
+      }
+    });
+ 
+    $( "#opener" ).click(function() {
+      $( "#dialog" ).dialog( "open" );
+    });
   });
 
 
@@ -176,9 +237,6 @@ reader.readAsText(file);
 }
 
 
-
-
-
 // Mostrar ocultar clase
 
 
@@ -218,25 +276,22 @@ function printValue(sliderID, textbox) {
 
 
 
-// Boton titilando
-
-function toggleError(button) { 
-    if ( button.className === 'visible' ) {
-        // HIDE ERROR
-        button.className = '';
-    } else {
-        // SHOW ERROR
-        button.className = 'visible';
-    }
-}
 
 
-function imprSelec(muestra){
-	var ficha=document.getElementById(muestra);
-	var ventimp=window.open(' ','popimpr');ventimp.document.write(ficha.innerHTML);
-	ventimp.document.close();
-	ventimp.print();
-	ventimp.close();
-}
+
+
+
+
+var tableToExcel = (function() {
+  var uri = 'data:application/vnd.ms-excel;base64,'
+    , template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel"><head><meta charset="UTF-8"></meta><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>{table}</table></body></html>'
+    , base64 = function(s) { return window.btoa(unescape(encodeURIComponent(s))) }
+    , format = function(s, c) { return s.replace(/{(\w+)}/g, function(m, p) { return c[p]; }) }
+  return function(table, name) {
+    if (!table.nodeType) table = document.getElementById(table)
+    var ctx = {worksheet: name || 'Worksheet', table: table.innerHTML}
+    window.location.href = uri + base64(format(template, ctx))
+  }
+})()
 
 

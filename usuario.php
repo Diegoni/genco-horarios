@@ -125,7 +125,7 @@ function devuelve_dia($fecha){
          $dia="Martes";
          break;
 	case 3:
-         $dia="Miercoles";
+         $dia="Miércoles";
          break;
 	case 4:
          $dia="Jueves";
@@ -134,7 +134,7 @@ function devuelve_dia($fecha){
          $dia="Viernes";
          break;
 	case 6:
-         $dia="Sabado";
+         $dia="Sábado";
          break;
 	}
 	
@@ -157,8 +157,17 @@ function getUltimoDiaMes($elAnio,$elMes) {
 
 if(isset($_GET['buscar'])){
 
+if($_GET['buscar']==1){
 $fecha_inicio=date( "Y-m-d", strtotime($_GET['fecha_inicio']));
 $fecha_final=date( "Y-m-d", strtotime($_GET['fecha_final']));
+}else{
+$fecha_inicio=date('01-m-Y', strtotime($_GET['fecha']));
+$ultimoDia = getUltimoDiaMes(date('Y', strtotime($_GET['fecha'])),date('m', strtotime($_GET['fecha'])));
+$fecha_final=$ultimoDia.date('-m-Y', strtotime($_GET['fecha']));
+
+}
+
+
 
 $arrayFechas=devuelveArrayFechasEntreOtrasDos($fecha_inicio, $fecha_final);
 
@@ -215,8 +224,8 @@ $cadena="";
 $classcadena="";
 
 if(!isset($fecha_inicio)){ 
-	$cadena="disabled title='Seleccione periodo de tiempo'"; 
-	$classcadena="class='disabled' title='Seleccione periodo de tiempo'";
+	$cadena="disabled title='Seleccione período de tiempo'"; 
+	$classcadena="class='disabled' title='Seleccione período de tiempo'";
 }
 
 if(isset($fecha_inicio) && empty($id_usuario)){
@@ -224,18 +233,17 @@ echo "<div class='alert'><button type='button' class='close' data-dismiss='alert
 } 
 
 ?>
-
-
+<div class="row">
 <!--------------------------------------------------------------------
 ----------------------------------------------------------------------
 						Cabecera
 ----------------------------------------------------------------------			
 --------------------------------------------------------------------->
 
-	<table class="table table-striped table-hover">
+	<table class="table table-striped">
 	<tr class="success">
 	<td>
-		<b>Periodo de tiempo</b>
+		<b>Período de tiempo</b>
 	</td>
 	
 	<td>
@@ -243,24 +251,11 @@ echo "<div class='alert'><button type='button' class='close' data-dismiss='alert
 		<input type="hidden" name="id" value="<? echo $id_usuario?>">
 		<b><div class="input-prepend">
 			<span class="add-on" onclick="document.getElementById('datepicker2').focus();"><i class="icon-calendar"></i></span>
-			<input <? if(isset($fecha_inicio)){?>
-			value="<?= date('d-m-Y', strtotime($fecha_inicio)); ?>"
-			<?}else if(isset($id_usuario)){?>
-			value="<?= date('01-m-Y', strtotime($_GET['fecha'])); ?>"
-			<?}?>
-			type="text" name="fecha_inicio" id="datepicker2" placeholder="fecha de inicio" autocomplete="off" required>
+			<input value="<?= date('d-m-Y', strtotime($fecha_inicio)); ?>" type="text" name="fecha_inicio" id="datepicker2" placeholder="fecha de inicio" autocomplete="off" required>
 		</div></b>
 		<b><div class="input-prepend">
 			<span class="add-on" onclick="document.getElementById('datepicker').focus();"><i class="icon-calendar"></i></span>
-			<input <? if(isset($fecha_final)){?>
-			value="<? echo date('d-m-Y', strtotime($fecha_final)); ?>"
-			<?}else if(isset($id_usuario)){
-			$ultimoDia = getUltimoDiaMes(date('Y', strtotime($_GET['fecha'])),date('m', strtotime($_GET['fecha'])));
-			echo $ultimoDia;
-			?>
-			value="<?= $ultimoDia.date('-m-Y', strtotime($_GET['fecha'])) ?>"1
-			<?}?>
-			type="text" name="fecha_final" id="datepicker" placeholder="fecha final" autocomplete="off" required>
+			<input value="<? echo date('d-m-Y', strtotime($fecha_final)); ?>"	type="text" name="fecha_final" id="datepicker" placeholder="fecha final" autocomplete="off" required>
 		</div></b>
 		<button type="submit" class="btn" title="Buscar" name="buscar" value="1"><i class="icon-search"></i></button>
 		</form>
@@ -282,6 +277,7 @@ echo "<div class='alert'><button type='button' class='close' data-dismiss='alert
 	</td>	
 	
 	<td>
+		
 	<div class="btn-group">
 	  <a class="btn btn-success dropdown-toggle" data-toggle="dropdown" href="#">
 		<i class="icon-cogs"></i>
@@ -289,7 +285,7 @@ echo "<div class='alert'><button type='button' class='close' data-dismiss='alert
 	  </a>
 	  <ul class="dropdown-menu">
 		<li <?= $classcadena;?>><a href="usuario.php?id=<?= $id_usuario;?>&buscar=<?= 1;?>&fecha_final=<?= $fecha_final; ?>&fecha_inicio=<?= $fecha_inicio; ?>"  title="Refresh" <? if(!isset($fecha_final)){ ?> disabled<? } ?>><i class="icon-refresh"></i> Refresh</a></li>
-		<li <?= $classcadena;?>><a href="imprimir/usuario.php?id=<?= $id_usuario;?>&buscar=<?= 1;?>&fecha_final=<?= $fecha_final; ?>&fecha_inicio=<?= $fecha_inicio; ?>"  title="Imprimir" target="_blank" <? if(!isset($fecha_final)){ ?> disabled<? } ?>><i class="icon-print"></i> Imprimir</a></li>
+		<li <?= $classcadena;?>><a href="javascript:imprSelec('muestra')"><i class="icon-print"></i> Imprimir</a></li>
 		<li <?= $classcadena;?>><a href="exportar/usuario.php?id=<?= $id_usuario;?>&nombre=<?= $id_usuario;?>&buscar=<?= 1;?>&fecha_final=<?= $fecha_final; ?>&fecha_inicio=<?= $fecha_inicio; ?>" title="Exportar" target="_blank" <? if(!isset($fecha_final)){ ?> disabled<? } ?>><i class="icon-upload-alt"></i> Exportar</a></li>
 		<li class="divider"></li>
 		<li><a href="genco-usuarios/index.php" title="Usuarios"><i class="icon-folder-open"></i> Usuarios</a></li>
@@ -321,6 +317,7 @@ if($fecha_inicio>$fecha_final){
 
 ?>
 
+<div id="muestra">
 <table border="1" class="tablad">
 <tbody>
 <tr>
@@ -343,21 +340,21 @@ if($fecha_inicio>$fecha_final){
 </table>
 <br>
 
-<div id="target">
 <img class="carga" src="imagenes/cargando.gif" />
-<table  id="table" class="sortable">
+<table border="1" class="table table-hover" id="example">
 <thead>
-	<th title="Fecha"><h3>Dia</h3></th>
-	<th title=""><h3>Fecha año/mes/dia</h3></th>
-	<th title="Sin definir"><h3>sd</h3></th>
-	<th title="Mañana - Entrada"><h3>m-e</h3></th>
-	<th title="Mañana - Salida"><h3>m-s</h3></th>
-	<th title="Tarde - Entrada"><h3>t-e</h3></th>
-	<th title="Tarde - Salida"><h3>t-s</h3></th>
-	<th title="Subtotales"><h3>Subtotales</h3></th>
-	<th title="Calculo de horas laborales"><h3>Horas</h3></th>
-	<th title="Otro tipo"><h3>otros</h3></th>
-	<th title="Editar las entradas"><h3>editar</h3></th>
+	
+	<th title="">Fecha año/mes/día</th>
+	<th title="Fecha">Día</th>
+	<th title="Sin definir">sd</th>
+	<th title="Mañana - Entrada">m-e</th>
+	<th title="Mañana - Salida">m-s</th>
+	<th title="Tarde - Entrada">t-e</th>
+	<th title="Tarde - Salida">t-s</th>
+	<th title="Subtotales">Subtotales</th>
+	<th title="Calculo de horas laborales">Horas</th>
+	<th title="Otro tipo">otros</th>
+	<th title="Editar las entradas">editar</th>
 </thead>
 
 <tbody>
@@ -365,13 +362,14 @@ if($fecha_inicio>$fecha_final){
 foreach($arrayFechas as $valor){?>
 
 	<tr>
+		<td><?= $valor;?></td>
 		<td><? if(devuelve_dia($valor)=="Domingo"){ ?>
 			<p class="letra_roja">
-			<? } else if(devuelve_dia($valor)=="Sabado"){?>
+			<? } else if(devuelve_dia($valor)=="Sábado"){?>
 			<p class="letra_azul">
 			<? } ?>
 			<?= devuelve_dia($valor);?></td>
-		<td><?= $valor;?></td>
+		
 		
 		<? 
 		for ($i = 0; $i <= 4; $i++) {
@@ -499,66 +497,32 @@ $res_drop = mysql_query($query_drop) or die(mysql_error());
 </tbody>
 </table>
 </div>
+
+<br>
+<br>
 <table class="tablad">
 <tr>
-	<td>Total de otras</td>
-	<th><? echo round($totalotras,2);?>
-	</th><td>Total de horas</td>
+	<td title="Es la suma de las 'otros', son horas de enfermedad, accidente, ausencias, otros">Total de otras horas</td>
+	<th><? echo round($totalotras,2);?></th>
+	<td title="Suma total de las horas normales">Total de horas</td>
 	<th><? echo pasar_hora($total);?></th>
 </tr>
 </table>	
 	
- 
-<!--Controles de la tabla-->            
-	<div id="controls">
-	<div id="perpage">
-		<select onchange="sorter.size(this.value)">
-		<option value="5">5</option>
-			<option value="10" selected="selected">10</option>
-			<option value="20">20</option>
-			<option value="50">50</option>
-			<option value="100">100</option>
-		</select>
-		<span>Cantidad por Pagina</span>
-	</div>
-	<div id="navigation">
-		<img src="imagenes/first.gif" width="16" height="16" alt="First Page" onclick="sorter.move(-1,true)" />
-		<img src="imagenes/previous.gif" width="16" height="16" alt="First Page" onclick="sorter.move(-1)" />
-		<img src="imagenes/next.gif" width="16" height="16" alt="First Page" onclick="sorter.move(1)" />
-		<img src="imagenes/last.gif" width="16" height="16" alt="Last Page" onclick="sorter.move(1,true)" />
-	</div>
-	<div id="text">Mostrando pagina <span id="currentpage"></span> de <span id="pagelimit"></span></div>
-    <p><br /></p>
-    <p>&nbsp; </p>
-    </div>
 
-<!--script de la tabla, ver si se cambia de lugar-->	
-	<script type="text/javascript">
-  var sorter = new TINY.table.sorter("sorter");
-	sorter.head = "head";
-	sorter.asc = "asc";
-	sorter.desc = "desc";
-	sorter.even = "evenrow";
-	sorter.odd = "oddrow";
-	sorter.evensel = "evenselected";
-	sorter.oddsel = "oddselected";
-	sorter.paginate = true;
-	sorter.currentid = "currentpage";
-	sorter.limitid = "pagelimit";
-	sorter.init("table",1);
-  </script>   
+<?}//cierra el if de fechas inicio>final
+}else{
+echo 	"<div class='alert alert-info'>
+		<button type='button' class='close' data-dismiss='alert'>&times;</button>
+		Seleccione período de tiempo
+		</div>";
 
+}?>
+
+<? include_once("footer.php");?> 
 </center>
 </div><!--cierra el class="span12" -->
 </div><!--cierra el row -->
 </div><!--cierra el class="container"-->
 
 </body>
-<?}//cierra el if de fechas inicio>final
-}else{
-echo 	"<div class='alert alert-info'>
-		<button type='button' class='close' data-dismiss='alert'>&times;</button>
-		Seleccione periodo de tiempo
-		</div>";
-
-}?>
