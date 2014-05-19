@@ -1,9 +1,10 @@
 <?php header('Content-type: text/html; charset=utf-8'); 
     session_start(); 
-    include('../config/database.php');?>
+    include('../config/database.php');
+    include('../config/config.php');?>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="stylesheet" href="../css/login.css">
+<link rel="stylesheet" href="../<?= $librerias_url?>css/login.css">
 <head>
 <body>
 <?	

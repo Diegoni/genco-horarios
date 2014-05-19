@@ -4,6 +4,15 @@ session_start();
 	header("Location: login/acceso.php");
 	}
 include_once("menu.php"); 
+include_once($models_url."marcadas_model.php"); 
+include_once($models_url."parametros_model.php"); 
+include_once($models_url."turnos_model.php"); 
+include_once($models_url."tipos_model.php"); 
+include_once($models_url."updates_model.php"); 
+include_once($models_url."usuarios_model.php"); 
+include_once($models_url."departamentos_model.php"); 
+include_once($models_url."otrahora_model.php"); 
+include_once($models_url."logs_model.php"); 
 
 //Funcion para saber si se debe actualizar la pagina
 function actualizar ($fecha_americana,$fecha_access2){
@@ -31,10 +40,7 @@ $bandera=0;
 			$id=odbc_result($contador,"USERID");
 			$cantidad_odbc=odbc_result($contador,"total");        
 
-			$query="SELECT * 
-					FROM marcada 
-					WHERE DATE_FORMAT(entrada, '%Y-%m-%d') like '$fecha_americana' AND id_usuario='$id'";   
-			$registro=mysql_query($query) or die(mysql_error());
+			$registro=getMarcacion($id, $fecha_americana);
 			$row_registro = mysql_fetch_assoc($registro);
 			$cantidad_mysql = mysql_num_rows($registro);
 			 
@@ -51,13 +57,13 @@ return $bandera;
 
 //fecha con la que se trabaja, la actual o la seteada
 if(isset($_GET['fecha'])){
-$fecha=$_GET['fecha'];
-$fecha_americana=date( "Y-m-d", strtotime($_GET['fecha']));
-$fecha_access2 = date('Y/m/d', strtotime("$fecha_americana + 1 day"));
+	$fecha=$_GET['fecha'];
+	$fecha_americana=date( "Y-m-d", strtotime($_GET['fecha']));
+	$fecha_access2 = date('Y/m/d', strtotime("$fecha_americana + 1 day"));
 }else{
-$fecha= date("d-m-Y");
-$fecha_americana=date("Y-m-d");
-$fecha_access2 = date('Y/m/d', strtotime("$fecha_americana + 1 day"));
+	$fecha= date("d-m-Y");
+	$fecha_americana=date("Y-m-d");
+	$fecha_access2 = date('Y/m/d', strtotime("$fecha_americana + 1 day"));
 }
 
 //consulto si debo actualizar la pagina
@@ -74,9 +80,7 @@ $fecha_access2 = date('Y/m/d', strtotime("$fecha_americana + 1 day"));
 if(isset($_GET['actualizar'])&& $bandera==1){
 $bandera=1;
 
-$query="SELECT * FROM `update` 
-		ORDER BY id_update DESC";   
-$update=mysql_query($query) or die(mysql_error());
+$update=getUpdates();
 $row_update = mysql_fetch_assoc($update);
 
 $fecha_americana=date( "Y-m-d H:m:s", strtotime($row_update['ultima_fecha']));
@@ -93,75 +97,51 @@ $i=0;
 
 
 do{
-$i=$i+1;
+	$i=$i+1;
 
-$USERID=odbc_result($checkinout,"USERID");
-if($USERID!=0){
-$CHECKTIME=odbc_result($checkinout,"CHECKTIME");
-$CHECKTYPE=odbc_result($checkinout,"CHECKTYPE");
+	$USERID=odbc_result($checkinout,"USERID");
+	if($USERID!=0){
+		$CHECKTIME=odbc_result($checkinout,"CHECKTIME");
+		$CHECKTYPE=odbc_result($checkinout,"CHECKTYPE");
 
-$hora=date('H:i', strtotime("$CHECKTIME"));
+		$hora=date('H:i', strtotime("$CHECKTIME"));
 
-//CONTROLO QUE TIPO ES I=IN,ENTRADA Y O=OUT,SALIDA
-if($CHECKTYPE=="I"){
-	$tipo=1;
-}else{
-	$tipo=2;
-}
-//BUSCO DENTRO DE PARAMETROS SI ES MAÑANA TARDE O NOCHE DEPENDIENDO DE LA HORA
-$query="SELECT * FROM `parametros` 
-		WHERE DATE_FORMAT(inicio, '%H:%m')<'$hora' 
-		AND DATE_FORMAT(final, '%H:%m')>'$hora'
-		AND id_tipo='$tipo'";   
-$parametros=mysql_query($query) or die(mysql_error());
-$row_parametros = mysql_fetch_assoc($parametros);
-$cantidad=mysql_num_rows($parametros);
+		//CONTROLO QUE TIPO ES I=IN,ENTRADA Y O=OUT,SALIDA
+		if($CHECKTYPE=="I"){
+			$tipo=1;
+		}else{
+			$tipo=2;
+		}
+		//BUSCO DENTRO DE PARAMETROS SI ES MAÑANA TARDE O NOCHE DEPENDIENDO DE LA HORA
+		$parametros=getParametros($hora, $tipo);
+		$row_parametros = mysql_fetch_assoc($parametros);
+		$cantidad=mysql_num_rows($parametros);
 
-//SI NO COINCIDE CON NINGUNO VA 0
-if($cantidad<0){
-	$id_parametros=0;
-}else{
-	$id_parametros=$row_parametros['id_parametros'];
-}
+		//SI NO COINCIDE CON NINGUNO VA 0
+		if($cantidad<0){
+			$id_parametros=0;
+		}else{
+			$id_parametros=$row_parametros['id_parametros'];
+		}
 
-//INGRESO EL REGISTRO
-mysql_query("INSERT INTO marcada 
-					(entrada, id_usuario,id_parametros_access, id_parametros,id_estado) 
-					VALUES 
-					('$CHECKTIME','$USERID','$CHECKTYPE','$id_parametros',1)") 
-					or die(mysql_error());
-					
-}else{
-echo "No hay nuevos registros";
-$bandera=0;
-}					
-					
+		//INGRESO EL REGISTRO
+		insertMarcadaAccess($CHECKTIME, $USERID, $CHECKTYPE, $id_parametros);			
+	}else{
+		echo "No hay nuevos registros";
+		$bandera=0;
+	}								
 					
 }while (odbc_fetch_row($checkinout));
 
-if($bandera==1){
+	if($bandera==1){
+		//GUARDO REGISTRO DE LA ULTIMA FECHA
+		$ultima_fecha=date( "Y-m-d H:m:s", strtotime($CHECKTIME));
+		$fecha_hoy=date("Y-m-d H:m:s");
 
-//GUARDO REGISTRO DE LA ULTIMA FECHA
-$ultima_fecha=date( "Y-m-d H:m:s", strtotime($CHECKTIME));
-$fecha_hoy=date("Y-m-d H:m:s");
-
-mysql_query("INSERT INTO  `update` (
-				`ultima_fecha` ,
-				`ultimo_id` ,
-				`fecha` ,
-				`registros`
-				)
-				VALUES (
-				'$ultima_fecha',  
-				'$USERID',  
-				'$fecha_hoy',  
-				'$i'
-				);") 
-					or die(mysql_error());
-			    //('$CHECKTIME','$USERID','$fecha_hoy','$i')") 
-					
-echo "Los datos se han cargado correctamente";
-}
+		insertUpdate($ultima_fecha, $USERID, $fecha_hoy, $i);
+						
+		echo "Los datos se han cargado correctamente";
+	}
 }
 
 //----------------------------------------------------------------------
@@ -171,36 +151,11 @@ echo "Los datos se han cargado correctamente";
 //--------------------------------------------------------------------->
 
 if(isset($_GET['empleado'])){
-$query="SELECT 	usuario.id_usuario as id,
-				usuario.usuario as usuario,
-				usuario.legajo as legajo,
-				usuario.id_estado as id_estado,
-				departamento.nombre as departamento
-		FROM `usuario` INNER JOIN departamento
-		ON (usuario.id_departamento=departamento.id_departamento)
-		WHERE 
-		usuario.usuario like '%$_GET[usuario]%' AND
-		departamento.nombre like '%$_GET[departamento]%' AND
-		usuario.legajo like '%$_GET[legajo]%' AND
-		usuario.id_estado=1
-		ORDER BY usuario.usuario";   
-$usuario=mysql_query($query) or die(mysql_error());
-$row_usuario = mysql_fetch_assoc($usuario);
-
+	$usuario=getUsuarios($_GET['empredo'],'usuario');
+	$row_usuario = mysql_fetch_assoc($usuario);
 }else{
-$query="SELECT 	usuario.id_usuario as id,
-				usuario.usuario as usuario,
-				usuario.legajo as legajo,
-				usuario.id_estado as id_estado,
-				departamento.nombre as departamento
-		FROM `usuario` INNER JOIN departamento
-		ON (usuario.id_departamento=departamento.id_departamento)
-		WHERE 
-		usuario.id_estado=1
-		ORDER BY usuario.usuario";   
-$usuario=mysql_query($query) or die(mysql_error());
-$row_usuario = mysql_fetch_assoc($usuario);
-
+	$usuario=getUsuarios();
+	$row_usuario = mysql_fetch_assoc($usuario);
 }
 
 //----------------------------------------------------------------------
@@ -210,26 +165,18 @@ $row_usuario = mysql_fetch_assoc($usuario);
 //--------------------------------------------------------------------->
 	if (isset($_POST['parametros']))
 	{
-	$query="SELECT * FROM `parametros`";   
-	$parametros2=mysql_query($query) or die(mysql_error());
+	$parametros2=getParametros();
 	$row_parametros2 = mysql_fetch_assoc($parametros2);
 	$numero_parametros2 = mysql_num_rows($parametros2);
 	
 	do {
-	$id_turno=$_POST['id_turno'.$row_parametros2['id_parametros']];
-	$id_tipo=$_POST['id_tipo'.$row_parametros2['id_parametros']];
-	$inicio=$_POST['inicio'.$row_parametros2['id_parametros']];
-	$final=$_POST['final'.$row_parametros2['id_parametros']];
-	$considerar=$_POST['considerar'.$row_parametros2['id_parametros']];
-	
-	mysql_query("UPDATE `parametros` SET 
-						id_turno='$id_turno',
-						id_tipo='$id_tipo',
-						inicio='$inicio',
-						final='$final',
-						considerar='$considerar'
-						WHERE id_parametros='$row_parametros2[id_parametros]'
-						") or die(mysql_error());
+		$id_turno=$_POST['id_turno'.$row_parametros2['id_parametros']];
+		$id_tipo=$_POST['id_tipo'.$row_parametros2['id_parametros']];
+		$inicio=$_POST['inicio'.$row_parametros2['id_parametros']];
+		$final=$_POST['final'.$row_parametros2['id_parametros']];
+		$considerar=$_POST['considerar'.$row_parametros2['id_parametros']];
+		
+	updatePrametro($id_turno,	$id_tipo,	$inicio, $final, $considerar,	$row_parametros2['id_parametros']);
 	}while ($row_parametros2 = mysql_fetch_array($parametros2));
 	}
 
@@ -250,13 +197,10 @@ $row_usuario = mysql_fetch_assoc($usuario);
 		<h2>Parámetros de configuración</h2>
 		<p>Estos son los valores que filtran las entradas y salidas</p>
 		<p>
-		<?$query="SELECT *
-		FROM `parametros`
-		INNER JOIN turno ON(parametros.id_turno=turno.id_turno)
-		INNER JOIN tipo ON(parametros.id_tipo=tipo.id_tipo)
-		ORDER BY id_parametros ";   
-	$parametros=mysql_query($query) or die(mysql_error());
-	$row_parametros = mysql_fetch_assoc($parametros);?>
+	<?
+	$parametros=getParametros();
+	$row_parametros = mysql_fetch_assoc($parametros);
+	?>
 	
 	<div class="container; celeste">
 	<form action="index.php" method="post" > 
@@ -274,8 +218,7 @@ $row_usuario = mysql_fetch_assoc($usuario);
 	do{ ?>	
 	<tr>
 	<td><?
-		$query="SELECT * FROM `turno`";   
-		$turno=mysql_query($query) or die(mysql_error());
+		$turno=getTurnos();
 		$row_turno = mysql_fetch_assoc($turno);
 		do{
 		if($row_turno['id_turno']==$row_parametros['id_turno']){
@@ -287,8 +230,7 @@ $row_usuario = mysql_fetch_assoc($usuario);
 		?>
 	</td>
 	<td><?
-		$query="SELECT * FROM `tipo`";   
-		$tipo=mysql_query($query) or die(mysql_error());
+		$tipo=getTipos();
 		$row_tipo = mysql_fetch_assoc($tipo);
 		do{
 		if($row_tipo['id_tipo']==$row_parametros['id_tipo']){
@@ -332,11 +274,11 @@ $row_usuario = mysql_fetch_assoc($usuario);
 						Cabecera
 ----------------------------------------------------------------------			
 --------------------------------------------------------------------->
-<p class="blink">	
+
 <?if($bandera==1){ ?>
 Por favor actualice la base de datos
 <? }?>
-</p>
+
 
 
 	<table class="table table-striped">
@@ -380,10 +322,8 @@ Por favor actualice la base de datos
 		<?}else{?>
 			<li class="disabled"><a href="" title="Los datos ya estan actalizados" name="actualizar" value="1"><i class="icon-download-alt"></i> Actualizar</a></li>
 		<?}?>
-		<li><a href='#' class='show_hide' title='Más detalles en la búsqueda'><i class="icon-chevron-sign-down"></i> Búsqueda</a></li>
-		<li class="divider"></li>
-		<li><a href="genco-usuarios/index.php" title="Usuarios"><i class="icon-folder-open"></i> Usuarios</a>
-		<li><a href="usuario.php?fecha=<?= $fecha;?>&buscar=2" title="Totales"><i class="icon-dashboard"></i></i> Totales</a>
+		<!--<li><a href='#' class='show_hide' title='Más detalles en la búsqueda'><i class="icon-chevron-sign-down"></i> Búsqueda</a></li>-->
+		<li><a href="#myModal" role="button" data-toggle="modal"><i class="icon-question-sign"></i> Ayuda</a></li>
 		</form>
 	  </ul>
 	</div>
@@ -394,18 +334,33 @@ Por favor actualice la base de datos
 	</tr>
 	</table>
 
+	
+	
+	<!-- Ayuda -->
+	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	<h3 id="myModalLabel"><i class="icon-question-sign"></i> Ayuda</h3>
+	</div>
+	<div class="modal-body">
+	<p>Esta tabla muestra todas las marcaciones que se hicieron para una fecha determinada.</p>
+	<p>Las marcaciones que aparecen en rojo tienen algún tipo de conflicto.</p>
+	<p>Las marcaciones que aparecen en verde están modificadas y las que aparecen en amarillo están dada de alta por el sistema.</p>
+	<p>Las marcaciones se pueden editar desde la columna “Editar”.</p>
+	<p>Se pueden agregar otro tipo de horas desde “Otros”.</p>
+	<p>Para ver las de un usuario determinado, solo debe seleccionar al usuario.</p>
+	</div>
+	<div class="modal-footer">
+	<button class="btn" data-dismiss="modal" aria-hidden="true">Aceptar</button>
+	</div>
+	</div>
 <!--------------------------------------------------------------------
 ----------------------------------------------------------------------
 						Formulario busqueda
 ----------------------------------------------------------------------			
 --------------------------------------------------------------------->
 <?
-	$query="SELECT 	*
-			FROM `usuario` 
-			WHERE
-			usuario.id_estado=1
-			ORDER BY usuario.usuario";   
-	$usuario_lista=mysql_query($query) or die(mysql_error());
+	$usuario_lista=getUsuarios();
 	$row_usuario_lista = mysql_fetch_assoc($usuario_lista);
 ?>
 <datalist id="usuario">
@@ -415,12 +370,7 @@ Por favor actualice la base de datos
 </datalist>
 
 <?
-	$query="SELECT 	*
-			FROM `departamento` 
-			WHERE
-			departamento.id_estado=1
-			ORDER BY departamento.nombre";   
-	$departamento_lista=mysql_query($query) or die(mysql_error());
+	$departamento_lista=getDepartamentos();
 	$row_departamento_lista = mysql_fetch_assoc($departamento_lista);
 ?>
 <datalist id="departamento">
@@ -465,7 +415,7 @@ Por favor actualice la base de datos
 ----------------------------------------------------------------------			
 --------------------------------------------------------------------->           
 
-<img class="carga" src="imagenes/cargando.gif" />
+
 <!--<table  id="table" class="sortable">-->
 <div id="muestra">
 <table border="1" class="table table-hover" id="example">
@@ -478,8 +428,8 @@ Por favor actualice la base de datos
 	<th title="Mañana - Salida">m-s</th>
 	<th title="Tarde - Entrada">t-e</th>
 	<th title="Tarde - Salida">t-s</th>
-	<th title="Otro tipo">otros</th>
-	<th title="Editar las entradas">editar</th>
+	<th title="Otro tipo">Otros</th>
+	<th title="Editar las entradas">Editar</th>
 </thead>
 
 <tbody>
@@ -488,71 +438,58 @@ Por favor actualice la base de datos
 $query_create = "CREATE TEMPORARY TABLE temp (id_marcada int, entrada datetime, id_usuario int, id_parametros int, id_estado int)";
 $res_create = mysql_query($query_create) or die(mysql_error());
 
-$query="SELECT * 
-		FROM marcada 
-		WHERE 
-		DATE_FORMAT(entrada, '%Y-%m-%d') like '$fecha_americana'
-		AND	id_estado!=0";   
-		$marcacion=mysql_query($query) or die(mysql_error());
+		$marcacion=getMarcaciones(NULL, $fecha_americana);
 		$row_marcacion = mysql_fetch_assoc($marcacion);
 		
 do{
-$query_ins = "INSERT INTO temp VALUES ('$row_marcacion[id_marcada]', '$row_marcacion[entrada]', '$row_marcacion[id_usuario]', '$row_marcacion[id_parametros]', '$row_marcacion[id_estado]')";
-$res_ins = mysql_query($query_ins) or die(mysql_error());
+	$query_ins = "INSERT INTO temp VALUES ('$row_marcacion[id_marcada]', '$row_marcacion[entrada]', '$row_marcacion[id_usuario]', '$row_marcacion[id_parametros]', '$row_marcacion[id_estado]')";
+	$res_ins = mysql_query($query_ins) or die(mysql_error());
 }while ($row_marcacion = mysql_fetch_array($marcacion));
 
 # Creo y completo tabla temporal para otras
 $query_create = "CREATE TEMPORARY TABLE tempotra (id_usuario int, id_tipootra int, id_nota int, horas int, fecha date)";
 $res_create = mysql_query($query_create) or die(mysql_error());
 
-$query="SELECT * 
-		FROM otrahora 
-		WHERE fecha = '$fecha_americana'";   
-		$otrahora=mysql_query($query) or die(mysql_error());
+		$otrahora=getOtrahoras($fecha_americana);
 		$row_otrahora = mysql_fetch_assoc($otrahora);
 
 do{
-$query_ins = "INSERT INTO tempotra VALUES ('$row_otrahora[id_usuario]', '$row_otrahora[id_tipootra]', '$row_otrahora[id_nota]', '$row_otrahora[horas]', '$row_otrahora[fecha]')";
-$res_ins = mysql_query($query_ins) or die(mysql_error());
+	$query_ins = "INSERT INTO tempotra VALUES ('$row_otrahora[id_usuario]', '$row_otrahora[id_tipootra]', '$row_otrahora[id_nota]', '$row_otrahora[horas]', '$row_otrahora[fecha]')";
+	$res_ins = mysql_query($query_ins) or die(mysql_error());
 }while ($row_otrahora = mysql_fetch_array($otrahora));			
 
 
 do{?>
 	<tr>
 	<td><? echo $row_usuario['legajo']?></td>
-	<td><a href="usuario.php?id=<?= $row_usuario['id']?>&fecha=<?= $fecha;?>&buscar=2" class="ayuda-boton btn"><? echo $row_usuario['usuario']?></a></td>
+	<td><a href="usuario.php?id=<?= $row_usuario['id_usuario']?>&fecha=<?= $fecha;?>&buscar=2" class="ayuda-boton btn"><? echo $row_usuario['usuario']?></a></td>
 	<td><? echo $row_usuario['departamento']?></td>
 		<? 
 		for ($i = 0; $i <= 4; $i++) {
 				$query="SELECT * 
 				FROM temp 
 				WHERE
-				id_usuario='$row_usuario[id]'
+				id_usuario='$row_usuario[id_usuario]'
 				AND id_parametros=$i";   
 			$marcacion=mysql_query($query) or die(mysql_error());
 			$row_marcacion = mysql_fetch_assoc($marcacion);
 			$cantidad_parametros=mysql_num_rows($marcacion);
-			?>
 
-			<?
 			if($cantidad_parametros==0){?>
 				<td><p class="insert_access"> - </p></td>
 			<?}else if($cantidad_parametros>1){?>
-				<td><p class="duplicado" title="Registro duplicado, por favor modificarlo"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
+				<td><p class="label label-important" title="Registro duplicado, por favor modificarlo"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
 			<?}else{
 				if($row_marcacion['id_estado']==3){
-					$query="SELECT * 
-					FROM log_auditoria_marcada
-					WHERE
-					id_marcada='$row_marcacion[id_marcada]'";   
-				$log_auditoria_marcada=mysql_query($query) or die(mysql_error());
+				
+				$log_auditoria_marcada=getLog($row_marcacion['id_marcada']);
 				$row_log_auditoria_marcada = mysql_fetch_assoc($log_auditoria_marcada);
 				?>
-				<td><p class="modificado" title="Registro modificado, original :<? echo date('H:i', strtotime($row_log_auditoria_marcada['entrada_old']));?>"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
+				<td><p class="label label-success" title="Registro modificado, original :<? echo date('H:i', strtotime($row_log_auditoria_marcada['entrada_old']));?>"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
 				<?}else if($row_marcacion['id_estado']==2){?>
-				<td><p class="insert_php" title="Registro dado de alta por sistema"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
+				<td><p class="label" title="Registro dado de alta por sistema"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
 				<?}else if($row_marcacion['id_parametros']==0){?>
-				<td><p class="duplicado" title="Registro sin definir, por favor modificarlo"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
+				<td><p class="label label-important" title="Registro sin definir, por favor modificarlo"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
 				<?}else{?>
 				<td><p class="insert_access"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
 				<?}?>
@@ -564,17 +501,17 @@ do{?>
 				INNER JOIN tipootra ON(tempotra.id_tipootra=tipootra.id_tipootra)
 				INNER JOIN nota ON(tempotra.id_nota=nota.id_nota)
 				WHERE
-				id_usuario='$row_usuario[id]'";   
+				id_usuario='$row_usuario[id_usuario]'";   
 			$otrahora=mysql_query($query) or die(mysql_error());
 			$row_otrahora = mysql_fetch_assoc($otrahora);
 			$cantidad=mysql_num_rows($otrahora);
 			if($cantidad>0){
 		?>
-		<td><p class="insert_access"><a href="#" class="btn" title="<? echo $row_otrahora['nota'];?>" onClick="abrirVentana('edit_otros.php?id=<?echo $row_usuario['id']?>&fecha=<?echo $fecha_americana?>')"><? echo $row_otrahora['tipootra'];?> : <? echo $row_otrahora['horas'];?></a></p></td>
+		<td><p class="insert_access"><a href="#" class="btn" title="<? echo $row_otrahora['nota'];?>" onClick="abrirVentana('edit_otros.php?id=<?echo $row_usuario['id_usuario']?>&fecha=<?echo $fecha_americana?>')"><? echo $row_otrahora['tipootra'];?> : <? echo $row_otrahora['horas'];?></a></p></td>
 		<?}else{?>
-		<td><p class="insert_access"><a href="#" class="btn" title="Agregar" onClick="abrirVentana('edit_otros.php?id=<?echo $row_usuario['id']?>&fecha=<?echo $fecha_americana?>')"><i class="icon-plus-sign-alt"></i></a></p></td>
+		<td><p class="insert_access"><a href="#" class="btn" title="Agregar" onClick="abrirVentana('edit_otros.php?id=<?echo $row_usuario['id_usuario']?>&fecha=<?echo $fecha_americana?>')"><i class="icon-plus-sign-alt"></i></a></p></td>
 		<?}?>
-	<td><a href="#" class="btn" title="Parametros" onClick="abrirVentana('edit.php?id=<?echo $row_usuario['id']?>&fecha=<?echo $fecha_americana?>')"><i class="icon-edit-sign"></i></a></td>
+	<td><a href="#" class="btn" title="Parametros" onClick="abrirVentana('edit.php?id=<?echo $row_usuario['id_usuario']?>&fecha=<?echo $fecha_americana?>')"><i class="icon-edit-sign"></i></a></td>
 	</tr>
 <? }while ($row_usuario = mysql_fetch_array($usuario));
 

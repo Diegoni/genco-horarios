@@ -5,6 +5,9 @@ session_start();
 	}
 	
 include_once("menu.php"); 
+include_once($models_url."usuarios_model.php"); 
+include_once($models_url."otrahora_model.php"); 
+include_once($models_url."marcadas_model.php"); 
 
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------
@@ -15,49 +18,15 @@ $id_usuario=$_GET['id'];
 $totalotras=0;
 $fecha=date("d-m-Y");
 
-$query="SELECT 	usuario.id_usuario,
-				usuario.usuario as usuario,
-				usuario.legajo as legajo,
-				departamento.nombre as departamento				
-		FROM `usuario` 
-		INNER JOIN
-		departamento on(usuario.id_departamento=departamento.id_departamento)
-		WHERE id_usuario='$id_usuario'";   
-$usuario=mysql_query($query) or die(mysql_error());
-$row_usuario = mysql_fetch_assoc($usuario);
-
-$query="SELECT 	usuario.id_usuario,
-				usuario.usuario as usuario,
-				usuario.legajo as legajo,
-				departamento.nombre as departamento				
-		FROM `usuario` 
-		INNER JOIN
-		departamento on(usuario.id_departamento=departamento.id_departamento)
-		WHERE usuario.id_estado=1
-		ORDER BY usuario.usuario";   
-$usuarios=mysql_query($query) or die(mysql_error());
+$usuarios=getUsuarios();
 $row_usuarios = mysql_fetch_assoc($usuarios);
 
-$query="SELECT 	usuario.id_usuario,
-				usuario.usuario as usuario,
-				usuario.legajo as legajo,
-				departamento.nombre as departamento				
-		FROM `usuario` 
-		INNER JOIN
-		departamento on(usuario.id_departamento=departamento.id_departamento)
-		WHERE usuario.id_estado=1
-		ORDER BY usuario.usuario";   
-$usuarios2=mysql_query($query) or die(mysql_error());
+$usuarios2=getUsuarios();
 $row_usuarios2 = mysql_fetch_assoc($usuarios2);
 
 
-$query="SELECT *				
-		FROM `tipootra` 
-		ORDER BY tipootra.id_tipootra";   
-$tipootra=mysql_query($query) or die(mysql_error());
+$tipootra=getTipootra();
 $row_tipootra = mysql_fetch_assoc($tipootra);
-
-
 
 
 
@@ -128,6 +97,25 @@ function pasar_hora($num){
 	return $final;
 }
 
+function pasar_hora_resta($num){
+	$signo=1;
+	if($num<0){
+		$num=$num*-1;
+		$signo=0;
+	}
+	$num=$num*60;
+	$hora_cd = $num*0.01666666667; //hora sin decimales
+	$hora = floor($num*0.01666666667);//hora sin decimales
+	$resto = $hora_cd-$hora;
+	$minutos = round($resto*60);
+	if($minutos<10){
+		$minutos="0".$minutos;
+	}
+	$final= "".$hora.":".$minutos."";	
+	
+	return array($final,$signo);
+}
+
 function devuelve_dia($fecha){
 	$i = strtotime($fecha); 
 	$nro = jddayofweek(cal_to_jd(CAL_GREGORIAN, date("m",$i),date("d",$i), date("Y",$i)));
@@ -159,6 +147,30 @@ function devuelve_dia($fecha){
 }
 
 
+function esferiado($valor){
+
+$query="SELECT * 
+		FROM feriado 
+		WHERE 
+		DATE_FORMAT(dia, '%Y-%m-%d') = '$valor'";   
+		$feriado=mysql_query($query) or die(mysql_error());
+		$row_feriado = mysql_fetch_assoc($feriado);   
+$cantidad_feriado = mysql_num_rows($feriado);
+
+if($cantidad_feriado>0){
+	$i="label label-important";
+	$j=$row_feriado['feriado'];
+	$k=1;
+	return array($i,$j,$k);
+} else{
+	$i="";
+	$j="";
+	$k=0;
+	return array($i,$j,$k);
+}
+
+}
+
 
 
 //----------------------------------------------------------------------
@@ -178,15 +190,9 @@ $arrayFechas=devuelveArrayFechasEntreOtrasDos($fecha_inicio, $fecha_final);
 $query_create = "CREATE TEMPORARY TABLE temp (id_marcada int, entrada datetime, id_usuario int, id_parametros int, id_estado int)";
 $res_create = mysql_query($query_create) or die(mysql_error());
 
-$query="SELECT * 
-		FROM marcada 
-		WHERE 
-		DATE_FORMAT(entrada, '%Y-%m-%d') >= '$fecha_inicio' AND
-		DATE_FORMAT(entrada, '%Y-%m-%d') <= '$fecha_final' AND
-		id_estado!=0";   
-		$marcacion=mysql_query($query) or die(mysql_error());
-		$row_marcacion = mysql_fetch_assoc($marcacion);   
-$cantidad_marcacion = mysql_num_rows($marcacion);
+	$marcacion=getMarcaciones(NULL, $fecha_inicio, $fecha_final);
+	$row_marcacion = mysql_fetch_assoc($marcacion);   
+	$cantidad_marcacion = mysql_num_rows($marcacion);
 
 		
 do{
@@ -200,12 +206,7 @@ $res_ins = mysql_query($query_ins) or die(mysql_error());
 $query_create = "CREATE TEMPORARY TABLE tempotra (id_usuario int, id_tipootra int, id_nota int, horas int, fecha date)";
 $res_create = mysql_query($query_create) or die(mysql_error());
 
-$query="SELECT * 
-		FROM otrahora 
-		WHERE 
-		fecha >= '$fecha_inicio' AND
-		fecha <= '$fecha_final'";   
-		$otrahora=mysql_query($query) or die(mysql_error());
+		$otrahora=getOtrahora(NULL, $fecha_inicio, $fecha_final);
 		$row_otrahora = mysql_fetch_assoc($otrahora);
 
 do{
@@ -245,40 +246,31 @@ if(!isset($fecha_inicio)){
 	</td>
 	
 	<td>
-	<form class="form-inline" action="usuario2.php" name="ente">
+		<form class="form-inline" action="usuario2.php" name="ente">
 		<input type="hidden" name="id" value="<? echo $id_usuario?>">
 		<b><div class="input-prepend">
 			<span class="add-on" onclick="document.getElementById('datepicker2').focus();"><i class="icon-calendar"></i></span>
-			<input <? if(isset($fecha_inicio)){?>
-			value="<? echo date('d-m-Y', strtotime($fecha_inicio)); ?>"
-			<?}?>
-			type="text" name="fecha_inicio" id="datepicker2" placeholder="fecha de inicio" autocomplete="off" required>
+			<input value="" type="text" name="fecha_inicio" id="datepicker2" placeholder="fecha de inicio" autocomplete="off" required>
 		</div></b>
 		<b><div class="input-prepend">
 			<span class="add-on" onclick="document.getElementById('datepicker').focus();"><i class="icon-calendar"></i></span>
-			<input <? if(isset($fecha_final)){?>
-			value="<? echo date('d-m-Y', strtotime($fecha_final)); ?>"
-			<?}else{?>
-			value="<? echo $fecha;?>" 
-			<?}?>
-			type="text" name="fecha_final" id="datepicker" placeholder="fecha final" autocomplete="off" required>
+			<input value=""	type="text" name="fecha_final" id="datepicker" placeholder="fecha final" autocomplete="off" required>
 		</div></b>
-		<button type="submit" class="btn" title="Buscar" name="buscar" value="1"><i class="icon-search"></i></button>
+		<button type="submit" class="btn" title="Buscar" name="buscar" value="1"><i class="icon-search"></i> Buscar</button>
 		</form>
+	</td>
+	
+	<td>
+		<b>Usuario</b>
 	</td>
 	
 	<td>
 		<select 
 		onChange="javascript:window.location.href='usuario.php?id='+this.value+'&buscar=<?= 1;?>&fecha_final=<?= $fecha_final; ?>&fecha_inicio=<?= $fecha_inicio; ?>';"
 		name="id" <?= $cadena;?> required>
-		<? do{ 
-		if($id_usuario==$row_usuarios['id_usuario']){
-		?>
-		<option value="<? echo $row_usuarios['id_usuario']?>" selected><? echo $row_usuarios['usuario']?></option>
-		<?}else{?>
+		<? do{ ?>
 		<option value="<? echo $row_usuarios['id_usuario']?>"><? echo $row_usuarios['usuario']?></option>
-		<?} 
-		} while($row_usuarios=mysql_fetch_array($usuarios));?>
+		<? } while($row_usuarios=mysql_fetch_array($usuarios));?>
 		</select>
 	</td>
 	
@@ -293,17 +285,28 @@ if(!isset($fecha_inicio)){
 		<li <?= $classcadena;?>><a href="usuario.php?id=<?= $id_usuario;?>&buscar=<?= 1;?>&fecha_final=<?= $fecha_final; ?>&fecha_inicio=<?= $fecha_inicio; ?>"  title="Refresh" <? if(!isset($fecha_final)){ ?> disabled<? } ?>><i class="icon-refresh"></i> Refresh</a></li>
 		<li <?= $classcadena;?>><a href="javascript:imprSelec('muestra')"><i class="icon-print"></i> Imprimir</a></li>
 		<li <?= $classcadena;?>><a onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</a></li>
-		<li class="divider"></li>
-		<li><a href="genco-usuarios/index.php" title="Usuarios"><i class="icon-folder-open"></i> Usuarios</a></li>
-		<li><a href="index.php" title="Inicio" ><i class="icon-home"></i> Inicio</a></li>	
+		<li><a href="#myModal" role="button" data-toggle="modal"><i class="icon-question-sign"></i> Ayuda</a></li>
 	  </ul>
 	</div>
 	</td>
-	
-	
-	
+
 	</tr>
 	</table>
+	
+	<!-- Ayuda -->
+	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	<h3 id="myModalLabel"><i class="icon-question-sign"></i> Ayuda</h3>
+	</div>
+	<div class="modal-body">
+	<p>Esta tabla muestra la sumatoria de las horas trabajadas para cada usuario en un intervalo de fechas.</p>
+	<p>Si un usuario se desea eliminar o agregar a la lista se puede hacer desde la edición de usuarios.</p>
+	</div>
+	<div class="modal-footer">
+	<button class="btn" data-dismiss="modal" aria-hidden="true">Aceptar</button>
+	</div>
+	</div>
 
 
 <!--------------------------------------------------------------------
@@ -323,18 +326,34 @@ if($fecha_inicio>$fecha_final){
 ?>
 
 <div id="muestra">
+
+<div class="carga">
+<p>Cargando datos</p>
+<img  src="imagenes/loading.gif" />
+</div>
+
+<table  class="tablad" border="1">
+	<tr>
+		<th>Fecha inicio</th>
+		<td><? echo date( "d-m-Y", strtotime($fecha_inicio))?></td>
+		<th>Fecha final</th>
+		<td><? echo date( "d-m-Y", strtotime($fecha_final))?></td>
+	</tr>
+</table>
+<br>
+
 <table class="table table-hover" border ="1" id="example">
 <thead>
 	<th title="Legajo del usuario">Legajo</th>
 	<th title="Usuario">Usuario</th>
-	<th title="Fecha de inicio">desde</th>
-	<th title="Fecha final">hasta</th>
-	<th title="Horas normales">Horas</th>
+	<th title="Fecha de ingreso">Ingreso</th>
+	<th title="Hora que debe cumplir en el mes">Normales</th>
+	<th title="Resultado de Horas mensuales-Horas trabajadas">50%</th>
+	<th title="Horas extras que van al 100%, feriados, domingos y sábado pasado el convenio">100%</th>
 	<? do{ ?>
 	<th title=""><?= $row_tipootra['tipootra'];?></th>
 	<? }while($row_tipootra=mysql_fetch_array($tipootra))?>
-	<th title="Horas que van al 50%">50%</th>
-	<th title="Horas que van al 100%">100%</th>
+	<th title="Total de horas trabajadas en el mes">Total</th>
 </thead>
 
 <tbody>
@@ -342,57 +361,79 @@ if($fecha_inicio>$fecha_final){
 //recorremos todos los usuarios
 do{
 $total=0;
-$totalotras;
+$totalotras=0;
 $id_usuario=$row_usuarios2['id_usuario'];
-?>
-<tr>
-	<td><?= $row_usuarios2['legajo'];?></td>
-	<td><?= $row_usuarios2['usuario'];?></td>
-	<td><?= $fecha_inicio;?></td>
-	<td><?= $fecha_final;?></td>
-<?
+$semana=$row_usuarios2['semana'];
+$sabado=$row_usuarios2['sabado'];
+$salida_sabado=$row_usuarios2['salida_sabado'];
+$total_cincuenta=0;
+$total_normales=0;
+$total_cien=0;
+$subtotal=0;
+$otrahoras=array();
+
 foreach($arrayFechas as $valor){
+
+		list ($clase, $title, $esferiado) = esferiado($valor);
+		$dia=devuelve_dia($valor);
+		
+		if($dia=="Domingo" || $esferiado==1){
+		}else{
+			if($dia!="Sábado"){
+				$total_normales=$total_normales+$semana;
+			}else{
+				$total_normales=$total_normales+$sabado;
+			}
+		}
+
+		$me=0;
+		$ms=0;
+		$te=0;
+		$ts=0;
+		
+		$canme=0;
+		$canms=0;
+		$cante=0;
+		$cants=0;
 	
-		for ($i = 0; $i <= 4; $i++) {
-				$query="SELECT * 
+		$query="SELECT * 
 				FROM temp 
 				WHERE
 				DATE_FORMAT(entrada, '%Y-%m-%d') like '$valor'
-				AND id_parametros=$i
 				AND id_usuario=$id_usuario";   
-			$marcacion=mysql_query($query) or die(mysql_error());
-			$row_marcacion = mysql_fetch_assoc($marcacion);
-			$cantidad_parametros=mysql_num_rows($marcacion);
-			
-			// Esta funcion redondea segun los la tabla limites de la base de datos, se pidio que se sacara
-			//$redondear_minutos=redondear_minutos(date('H:i', strtotime($row_marcacion['entrada'])));
-
-			if($cantidad_parametros==0){
-				 
+		$marcacion=mysql_query($query) or die(mysql_error());
+		$row_marcacion = mysql_fetch_assoc($marcacion);
+		$cantidad_parametros=mysql_num_rows($marcacion);
+		
+		if($cantidad_parametros>0){
+		do{
+		$i=$row_marcacion['id_parametros'];
 				if($i==1){
-					$me=0;
-				} else if($i==2){ 
-					$ms=0;
-				} else if($i==3){ 
-					$te=0;
-				} else if($i==4){ 
-					$ts=0;
-				}
-
-			}else{
-						
-				if($i==1){
+					$canme=$canme+1;
+					if($canme==1){
 					$me=date('H:i', strtotime($row_marcacion['entrada']));
+					}
 				} else if($i==2){ 
+					$canms=$canms+1;
+					if($canms==1){
 					$ms=date('H:i', strtotime($row_marcacion['entrada']));
+
+					}
 				} else if($i==3){ 
+					$cante=$cante+1;
+					if($cante==1){
 					$te=date('H:i', strtotime($row_marcacion['entrada']));
+					}
 				} else if($i==4){ 
+					$cants=$cants+1;
+					if($cants==1){
 					$ts=date('H:i', strtotime($row_marcacion['entrada']));
+					}
 				}
-						
-			}//cierra el else
-		}//cierra el for
+		}while($row_marcacion=mysql_fetch_array($marcacion));	
+		}
+			
+		
 		 if($me>0 && $ms>0){
 			$m=intervalo_tiempo($me,$ms);
 			}else{
@@ -411,51 +452,118 @@ foreach($arrayFechas as $valor){
 			}else{
 			$subtotal=0;
 			}
-		
-} 
-if($total>0){ ?>
-<td><?= pasar_hora($total); ?></td>
-<? } else { ?>
-<td> - </td>
+			
+		$i=$subtotal;
 
-<?}			$query="SELECT *				
-					FROM `tipootra` 
-					ORDER BY tipootra.id_tipootra";   
-			$tipootra2=mysql_query($query) or die(mysql_error());
-			$row_tipootra2 = mysql_fetch_assoc($tipootra2);
+		if($dia=="Domingo" || $esferiado==1){
+			$total_cien=$total_cien+$i;	
+		}else{
+			if($dia!="Sábado"){
+				$i=$i-$semana;
+				$total_cincuenta=$total_cincuenta+$i;
+			}else{
+				$i=$i-$sabado;
+				$rest = substr($ms, 0, 2);
+				
+				if($rest>=$salida_sabado && $i>0){
+					$total_cien=$total_cien+$i;	
+				}else{
+				$total_cincuenta=$total_cincuenta+$i;
+				}
+			}
+			}
+
+		
+	list ($resta, $signo) = pasar_hora_resta($total_cincuenta);
+	if($signo==0){
+		$resta="-".$resta;
+	}
+		
+}
+
+	$tipootra2=getTipootra();
+	$row_tipootra2 = mysql_fetch_assoc($tipootra2);
 	
 	$total_otrahora=0;
-	do{
-	$suma_otrahora=0;
-	$id_tipootra=$row_tipootra2['id_tipootra'];
-			
-			$query="SELECT * 
-				FROM tempotra 
-				INNER JOIN tipootra ON(tempotra.id_tipootra=tipootra.id_tipootra)
-				WHERE
-				id_usuario='$id_usuario' AND
-				tempotra.id_tipootra='$id_tipootra'";   
-			$otrahora=mysql_query($query) or die(mysql_error());
-			$row_otrahora = mysql_fetch_assoc($otrahora);
-			$cantidad=mysql_num_rows($otrahora);
-	do{
-	$suma_otrahora=$suma_otrahora+$row_otrahora['horas'];
-	}while($row_otrahora=mysql_fetch_array($otrahora));
-	$total_otrahora=$total_otrahora+$suma_otrahora;
-	if($suma_otrahora==0){ ?>
-	<td> - </td>		
-	<?}else{?>
-	<td><?= $suma_otrahora;?></td>		
-<? 	}
-	}while($row_tipootra2=mysql_fetch_array($tipootra2));
+	$total_otrahora_cien=0;
 
-	if($total_otrahora==0){ ?>
-	<td> - </td>		
-	<?}else{?>
-	<td><?= $total_otrahora;?></td>		
-<? 	} ?>
-		<td> - </td>	
-		</tr>
+	$i=0;
+	do{
+		$suma_otrahora=0;
+		$total_cienotra=0;
+		$subtotal=0;
+		
+		$id_tipootra=$row_tipootra2['id_tipootra'];
+				
+				$query="SELECT * 
+					FROM tempotra 
+					INNER JOIN tipootra ON(tempotra.id_tipootra=tipootra.id_tipootra)
+					WHERE
+					id_usuario='$id_usuario' AND
+					tempotra.id_tipootra='$id_tipootra'";   
+				$otrahora=mysql_query($query) or die(mysql_error());
+				$row_otrahora = mysql_fetch_assoc($otrahora);
+				$cantidad=mysql_num_rows($otrahora);
+		
+		if($cantidad>0){
+			do{
+				list ($clase, $title, $esferiado) = esferiado($row_otrahora['fecha']);
+				$dia=devuelve_dia($row_otrahora['fecha']);
+				
+				if($dia=="Domingo" || $esferiado==1){
+					$total_cienotra=$total_cienotra+$row_otrahora['horas'];
+				}else{
+					$suma_otrahora=$suma_otrahora+$row_otrahora['horas'];
+				}
+			}while($row_otrahora=mysql_fetch_array($otrahora));
+			$total_otrahora=$total_otrahora+$suma_otrahora+$total_cienotra;
+			$total_otrahora_cien=$total_otrahora_cien+$total_cienotra;
+			$otrahoras[$i] = $suma_otrahora+$total_cienotra;
+		}else{
+			$otrahoras[$i] = "-";
+		}
+		$i=$i+1;		
+	}while($row_tipootra2=mysql_fetch_array($tipootra2));
+	
+	$total_cincuenta=$total_cincuenta+$total_otrahora-$total_otrahora_cien;
+		
+	list ($resta, $signo) = pasar_hora_resta($total_cincuenta);
+	?>
+	
+	<tr>
+		<td><?= $row_usuarios2['legajo'];?></td>
+		<td><?= $row_usuarios2['usuario'];?></td>
+
+		<? if($row_usuarios2['fecha_ingreso']!=0){ ?>
+		<td><?= date( "d-m-Y", strtotime($row_usuarios2['fecha_ingreso']));?></td>
+		<? }else{ ?>
+		<td> - </td>
+		<? } ?>
+
+		<td><?= $total_normales;?></td>
+	
+		<? if($signo==0){ ?>
+		<td title="Horas que el empleado debe recuperar para alcanzar el minimo de horas trabajadas">- <?= $resta;?></td>	
+		<? }else{ ?>
+		<td title="Suma total de las horas extra al 50%"><p  class="dia label label-info"><?= $resta;?></p></td>	
+		<? } ?>
+	
+		<? if($total_cien+$total_otrahora_cien>0){?>
+		<td title="Suma total de las horas extra al 100%, suma de horas trabajadas domingos, sábado pasado el convenio o feriados"	><p  class="dia label label-info"><? echo pasar_hora($total_cien+$total_otrahora_cien);?></p></td>
+		<?}else{?>
+		<td> - </td>
+		<? } ?>
+		
+		<?foreach($otrahoras as $otra_hora){?>
+		<td><? echo $otra_hora;?></td>
+		<? }?>
+			
+		<? $total=$total+$total_otrahora;
+		if($total>0){ ?>
+		<td><?= pasar_hora($total); ?></td>
+		<? } else { ?>
+		<td> - </td>
+		<? } ?>
 <?}while($row_usuarios2=mysql_fetch_array($usuarios2));
 
 

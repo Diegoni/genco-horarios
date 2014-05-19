@@ -1,6 +1,8 @@
 ﻿<? 
 //configuracion de base de datos
 include_once("config/database.php");
+include_once("config/config.php");
+
 date_default_timezone_set('America/Argentina/Mendoza');  
 ?>
 <html>
@@ -23,17 +25,8 @@ date_default_timezone_set('America/Argentina/Mendoza');
 
 <!-- Necesario para que funcione Jquery UI y Bootstrap -->
 
-
-
-
-
-		
-
-
-
-
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" language="javascript" src="jquery.dataTables.js"></script>
+<script src="<?= $librerias_url?>js/jquery.min.js" type="text/javascript"></script>
+<script src="<?= $librerias_url?>jquery.dataTables.js" type="text/javascript" language="javascript"></script>
 
 <script type="text/javascript" charset="utf-8">
 function imprSelec(muestra){
@@ -47,13 +40,26 @@ function imprSelec(muestra){
 
 <!--------------------------------------------------------------------
 ----------------------------------------------------------------------
+						Bootstrap
+----------------------------------------------------------------------
+--------------------------------------------------------------------->
+
+<link href="<?= $librerias_url?>bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+<link href="<?= $librerias_url?>bootstrap/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+<link href="<?= $librerias_url?>font/css/font-awesome.css" rel="stylesheet">
+
+<script src="<?= $librerias_url?>bootstrap/js/jquery.js"></script>
+<script src="<?= $librerias_url?>bootstrap/js/bootstrap.js"></script>
+
+<!--------------------------------------------------------------------
+----------------------------------------------------------------------
 						Css y Js creados 
 ----------------------------------------------------------------------
 --------------------------------------------------------------------->
-<link rel="stylesheet" href="css/style.css" />
-<script type="text/javascript" src="js/script.js"></script>
-<link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
-<script src="js/main.js"></script>
+<link href="<?= $librerias_url?>css/style.css" rel="stylesheet">
+<link href="<?= $librerias_url?>css/main.css" rel="stylesheet" type="text/css"  media="screen" />
+<script src="<?= $librerias_url?>js/script.js" type="text/javascript"></script>
+<script src="<?= $librerias_url?>js/main.js"></script>
 
 
 
@@ -63,23 +69,13 @@ function imprSelec(muestra){
 ----------------------------------------------------------------------
 --------------------------------------------------------------------->
 
-<link rel="stylesheet" href="ui/jquery-ui.css" />
+<link href="<?= $librerias_url?>ui/jquery-ui.css"  rel="stylesheet" />
 
-<script src="ui/jquery-ui.js"></script>
-<script src="js/jquery.tabs.pack.js" type="text/javascript"></script>
+<script src="<?= $librerias_url?>ui/jquery-ui.js"></script>
+<script src="<?= $librerias_url?>js/jquery.tabs.pack.js" type="text/javascript"></script>
 
 
-<!--------------------------------------------------------------------
-----------------------------------------------------------------------
-						Bootstrap
-----------------------------------------------------------------------
---------------------------------------------------------------------->
 
-<link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
-<link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
-<link href="font/css/font-awesome.css" rel="stylesheet">
-
-<script src="bootstrap/js/bootstrap.js"></script>
 
 
 <!--------------------------------------------------------------------
@@ -87,7 +83,7 @@ function imprSelec(muestra){
 						Funciones
 ----------------------------------------------------------------------
 --------------------------------------------------------------------->	
-<script type="text/javascript" language="javascript" src="js/jquery.dataTables.js"></script>
+<script src="<?= $librerias_url?>js/jquery.dataTables.js" type="text/javascript" language="javascript"></script>
 <script type="text/javascript" charset="utf-8">
 			$(document).ready(function() {
 				 $('#example').dataTable( {
@@ -101,9 +97,8 @@ function imprSelec(muestra){
 
 </head>
 
-<div class="carga">
-Cargando, por favor espere
-</div>
 
 
 <center>
+<div class="container">	
+	

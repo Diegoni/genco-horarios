@@ -1,74 +1,66 @@
 <? include_once("head.php");?>
-<body >
-<div class="container">
-
+<body>
 <!--------------------------------------------------------------------
 ----------------------------------------------------------------------
-							Cabecera
+							Menú principal
 ----------------------------------------------------------------------
 --------------------------------------------------------------------->
-	
-		<div class="row cabecera">
-	
-			<div class="span3">
-				<a href="index.php"><img width="106" height="40" class="imagenlogo" src="imagenes/genco.png"></a>
+<div class="row">	
+	<div class="span12">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="brand" href="./index.php">
+					<img width="106" height="40"  src="imagenes/genco.png"></a>
+					<div class="nav-collapse collapse">
+						<ul class="nav">
+							<li class="opcion">
+								<a href="index.php">Inicio</a>
+							</li>
+							<li class="">
+								<a href="usuario.php">Total usuario</a>
+							</li>
+							<li class="">
+								<a href="usuario2.php">Total usuarios</a>
+							</li>
+							<li class="">
+								<a href="usuarios.php">Usuarios</a>
+							</li>
+							<li class="">
+								<a href="departamentos.php">Departamentos</a>
+							</li>
+							<li class="">
+								<a href="empresas.php">Empresas</a>
+							</li>
+							<li class="">
+								<div class="btn-group">
+								  <a class="negro dropdown-toggle" data-toggle="dropdown" href="#">
+										<i class="icon-cogs"></i>
+								  </a>
+									<ul class="dropdown-menu">
+										<li><a href="feriados.php">Feriados</a></li>
+										<li><a href="convenios.php">Convenios</a></li>							
+										<li><a href="log.php">Logs</a></li>
+										<li><a href="exportar/Genco-Horarios.pdf" target="_blank">Ayuda</a></li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+						
+						<ul class="nav pull-right">
+							<a class="brand" href="#"><?=$_SESSION['usuario_nombre']?></a>
+							<li class="">
+								<a title="Cerrar sessión de usuario" href="login/logout.php">Cerrar Sesión</a> 
+							</li>
+						</ul>
+					</div>
+				</div>
 			</div>
-			
-			<div class="span6 title">
-				<center>
-				<p>Sistema de marcación horaria</p>
-				</center>
-			</div>
-			
-			<div class="span3 session">
-				<strong><?=$_SESSION['usuario_nombre']?></strong> 
-				<a title="Cerrar sessión de usuario" href="login/logout.php">Cerrar Sesión</a> 
-			</div>
-			<!--<a href='#' class='show_hide' title='Ayuda' id="ayuda-boton"><i class='icon-question-sign'></i></a>-->
-			
 		</div>
-		
-
-<!--------------------------------------------------------------------
-----------------------------------------------------------------------
-							Menu principal
-----------------------------------------------------------------------
---------------------------------------------------------------------->		
-		
-		<div class="row">	
-		<div class="span12">
-			<!-- antiguo menu
-			<ul class="nav nav-pills nav-stacked">
-				<li></li>
-				<li class="dropdown">
-                <a class="dropdown-toggle opciones" data-toggle="dropdown" href="#"><i class="icon-plus-sign-alt"></i> Nuevo <i class="icon-angle-right"></i></a>
-					<ul class="dropdown-menu">
-					  <li><a href="ente.php"><i class="icon-user"></i> Ente</a></li>
-					  <li><a href="empresa.php"><i class="icon-suitcase"></i> Empresa</a></li>
-					</ul>
-				</li>		
-				<li><a  class="opciones" href="entes.php"><i class="icon-group"></i> Entes</a></li>
-				<li><a  class="opciones" href="empresas.php"><i class="icon-suitcase"></i> Empresas</a></li>
-				<li><a  class="opciones" href="index.php"><i class="icon-usd"></i> Movimiento</a></li>
-				<li class="dropdown">
-                <a class="dropdown-toggle opciones" data-toggle="dropdown" href="#"><i class="icon-eye-open"></i> Ver <i class="icon-angle-right"></i></a>
-					<ul class="dropdown-menu">
-					  <li><a href="log.php"><i class="icon-list-ol"></i>  Movimientos</a></li>
-					  <li><a href="archivo.php"><i class="icon-folder-open"></i>  Archivos</a></li>
-					</ul>
-				</li>				
-			</ul>
-			
-		
-			<ul class="nav nav-tabs">
-			  <li><a href="index.php">Inicio</a></li>
-			  <li><a href="#">...</a></li>
-			  <li><a href="#">...</a></li>
-			</ul>
-			-->
-
-        </div>
-		</div>
-		
-		
-
+	</div>
+</div>

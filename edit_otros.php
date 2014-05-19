@@ -1,4 +1,6 @@
-<?php include_once("head.php");      
+<?php 
+include_once("head.php");      
+include_once($models_url."otrahora_model.php");      
 
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------
@@ -11,13 +13,7 @@
 	$bandera=1;
 	
 	//Query para traer todas las entradas correspondiente al dia y id de usuario
- 	$query="SELECT * 
-		FROM otrahora 
-		INNER JOIN tipootra ON(otrahora.id_tipootra=tipootra.id_tipootra)
-		INNER JOIN nota ON(otrahora.id_nota=nota.id_nota)
-		WHERE fecha = '$fecha' 
-		AND otrahora.id_usuario='$id'";   
-	$otrahora=mysql_query($query) or die(mysql_error());
+ 	$otrahora=getOtrahora($id, $fecha);
 	$row_otrahora = mysql_fetch_assoc($otrahora);
 	$numero_otrahora = mysql_num_rows($otrahora);
 	
@@ -29,25 +25,19 @@
 --------------------------------------------------------------------*/	
 	
 	if (isset($_GET['modificar'])){
+	updateOtrahora(	$_GET['id_tipootra'],
+									$_GET['horas'],
+									$_GET['fecha'],
+									$_GET['nota'],
+									$_GET['id_nota'],
+									$_GET['id_otrahora']);
 
-	mysql_query("UPDATE `otrahora` SET 
-						id_tipootra='$_GET[id_tipootra]',
-						horas = '$_GET[horas]',
-						fecha = '$_GET[fecha]'
-						WHERE id_otrahora='$_GET[id_otrahora]'
-						") or die(mysql_error());
-						
-	
-	mysql_query("UPDATE `nota` SET 
-						nota='$_GET[nota]'
-						WHERE id_nota='$_GET[id_nota]'
-						") or die(mysql_error());
 	
 	//cierro ventana
 	?>
 		<script>
 		<!--alert("Las entradas fueron modificadas con éxito");-->
-		window.parent.location.reload()
+		opener.location.reload();
 		window.close();
 		</script>
 		
@@ -60,18 +50,18 @@
 --------------------------------------------------------------------*/	
 	
 	if (isset($_GET['agregar'])){
-	mysql_query("INSERT INTO `nota` (nota) 
-				VALUES ('$_GET[nota]')") or die(mysql_error());
-				$id_nota=mysql_insert_id();
-				
-	mysql_query("INSERT INTO `otrahora` (id_usuario, id_tipootra, id_nota, horas, fecha) 
-				VALUES ('$_GET[id]', '$_GET[id_tipootra]', '$id_nota', '$_GET[horas]', '$_GET[fecha]')") or die(mysql_error());				
+	insertOtrahora(	$_GET['id'], 
+									$_GET['id_tipootra'], 
+									$_GET['nota'], 
+									$_GET['horas'], 
+									$_GET['fecha']);
 
 	
 	//cierro ventana
 	?>
 		<script>
 		<!--alert("La entrada fue ingresada con éxito");-->
+		opener.location.reload();
 		window.close();
 		</script>								
 									
@@ -99,8 +89,7 @@
 	<td>
 		<select name="id_tipootra" class="input-medium">
 		<?
-		$query="SELECT * FROM tipootra";   
-		$tipootra=mysql_query($query) or die(mysql_error());
+		$tipootra=getTipootra();
 		$row_tipootra = mysql_fetch_assoc($tipootra);
 		$id_tipootra=$row_otrahora['id_tipootra'];
 		
@@ -168,8 +157,7 @@
 		<select name="id_tipootra" class="input-medium" required>
 		<option value="">--ingrese tipo--</option>
 		<?
-		$query="SELECT * FROM tipootra";   
-		$tipootra=mysql_query($query) or die(mysql_error());
+		$tipootra=getTipootra();
 		$row_tipootra = mysql_fetch_assoc($tipootra);
 		$id_tipootra=$row_otrahora['id_tipootra'];
 		

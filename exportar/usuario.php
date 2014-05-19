@@ -32,8 +32,8 @@ header("content-disposition: attachment;filename=Usuario.xls");
 </head>
 <body>
 <?php
-		$username="diegonieto";
-		$password="Diego2013";
+		$username="root";
+		$password="";
 		$database="controlfinal2";
 		$url="localhost";
 		mysql_connect($url,$username,$password);
@@ -155,10 +155,6 @@ $query_ins = "INSERT INTO temp VALUES ('$row_marcacion[id_marcada]', '$row_marca
 $res_ins = mysql_query($query_ins) or die(mysql_error());
 }while ($row_marcacion = mysql_fetch_array($marcacion));
 
-
-
-
-
 ?>
 
 <!--------------------------------------------------------------------
@@ -167,7 +163,21 @@ $res_ins = mysql_query($query_ins) or die(mysql_error());
 ----------------------------------------------------------------------			
 --------------------------------------------------------------------->	
 <center>
-<? foreach($arrayFechas as $valor){?>
+<? 
+	foreach($arrayFechas as $valor){
+
+	$query="SELECT * 
+		FROM temp 
+		WHERE
+		DATE_FORMAT(entrada, '%Y-%m-%d') like '$valor'";   
+	$marcacion=mysql_query($query) or die(mysql_error());
+	$cantidad_parametros=mysql_num_rows($marcacion);
+	
+	if($cantidad_parametros>0){
+
+?>
+
+
 <table border="1">
 <tr>
 	<td class="titulo" colspan="5"><?= $row_usuario['empresa']?> - C.U.I.L. N <? echo $row_usuario['cuil_empresa']?></td>
@@ -194,8 +204,7 @@ $res_ins = mysql_query($query_ins) or die(mysql_error());
 </tr>
 <tr>
 	<td class="hora" colspan="2"><? echo date( "d-m-Y", strtotime($valor));?></td>
-
-		
+	
 		<? 
 		for ($i = 1; $i <= 4; $i++) {
 				$query="SELECT * 
@@ -208,19 +217,21 @@ $res_ins = mysql_query($query_ins) or die(mysql_error());
 			$cantidad_parametros=mysql_num_rows($marcacion);
 			
 			$redondear_minutos=redondear_minutos(date('H:i', strtotime($row_marcacion['entrada'])));
-			?>
+	?>
+	<?
+	if($cantidad_parametros==0){?>
+	<td class="hora" colspan="2"> - </td>
 
-			<?
-			if($cantidad_parametros==0){?>
-				<td class="hora" colspan="2"> - </td>
-			
-			<?}else{?>
-				<td class="hora" colspan="2"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></td>
-			<?}
-		}?>
+	<?}else{?>
+	<td class="hora" colspan="2"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></td>
+	<?}
+	
+	}?>
 
 </tr>
 </table>	
+
+<? } //cierra el if($cantidad_parametros>0)?>
 <br>	
 <br>	
 <? } ?>		

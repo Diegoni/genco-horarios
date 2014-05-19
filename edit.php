@@ -1,5 +1,7 @@
-<?php include_once("head.php");    
-
+<?php 
+include_once("head.php");    
+include_once($models_url."marcadas_model.php");     
+include_once($models_url."parametros_model.php");    
 /*--------------------------------------------------------------------
 ----------------------------------------------------------------------
 					Borrar Marcada
@@ -7,14 +9,7 @@
 --------------------------------------------------------------------*/	
 	
 if (isset($_GET['delete'])){
-
-$delete=$_GET['delete'];
-
-mysql_query("UPDATE `marcada` SET 
-						id_estado=0
-						WHERE id_marcada='$delete'
-						") or die(mysql_error());
-
+	deleteMarcada($_GET['delete']);
 }	 
 
 //----------------------------------------------------------------------
@@ -28,6 +23,7 @@ mysql_query("UPDATE `marcada` SET
 	$bandera=1;
 	
 	//Query para traer todas las entradas correspondiente al dia y id de usuario
+	 	
  	$query="SELECT *	
 		FROM marcada 
 		INNER JOIN parametros ON(marcada.id_parametros=parametros.id_parametros)
@@ -62,22 +58,6 @@ mysql_query("UPDATE `marcada` SET
 	}
 	}
 
-/*--------------------------------------------------------------------
-----------------------------------------------------------------------
-					Borrar Marcada
-----------------------------------------------------------------------
---------------------------------------------------------------------*/	
-	
-if (isset($_GET['delete'])){
-
-$delete=$_GET['delete'];
-
-mysql_query("UPDATE `marcada` SET 
-						id_estado=0
-						WHERE id_marcada='$delete'
-						") or die(mysql_error());
-
-}	
 	
 /*--------------------------------------------------------------------
 ----------------------------------------------------------------------
@@ -88,7 +68,7 @@ mysql_query("UPDATE `marcada` SET
 	if (isset($_GET['modificar'])){
 		$bandera=1;
 	//recorro el query modificando los parametros
-	do {
+	do{
 	$id_parametros=$_GET['id_parametro'.$row_marcacion['id_marcada']];
 	$entrada=$_GET['entrada'.$row_marcacion['id_marcada']];
 	$registro=date("H:i", strtotime($row_marcacion['entrada']));
@@ -103,13 +83,7 @@ mysql_query("UPDATE `marcada` SET
 	$id_estado=$row_marcacion['id_estado'];
 
 	if($control_parametros==0){
-	$query="SELECT * FROM parametros
-			INNER JOIN
-			tipo ON(parametros.id_tipo=tipo.id_tipo)
-			INNER JOIN
-			turno ON(parametros.id_turno=turno.id_turno)
-			WHERE id_parametros='$id_parametros'";   
-	$parametros=mysql_query($query) or die(mysql_error());
+	$parametros=getParametro($id_parametros);
 	$row_parametros = mysql_fetch_assoc($parametros);
 	
 		echo 	"<div class='container; celeste'>
@@ -133,13 +107,8 @@ mysql_query("UPDATE `marcada` SET
 	if($id_estado==1){
 		$id_estado=3;//estado editado de access
 	}
-	
-	mysql_query("UPDATE `marcada` SET 
-						id_parametros='$id_parametros',
-						entrada = '$fecha $entrada:00',
-						id_estado = '$id_estado'
-						WHERE id_marcada='$id_marcada'
-						") or die(mysql_error());
+		updateMarcada($id_parametros, $fecha, $entrada, $id_estado, $id_marcada);
+
 	}
 	}
 	}while ($row_marcacion = mysql_fetch_array($marcacion));
@@ -148,34 +117,23 @@ mysql_query("UPDATE `marcada` SET
 	?>
 		<script>
 		<!--alert("Las entradas fueron modificadas con éxito");-->
-		window.parent.location.reload()
+		opener.location.reload();
 		window.close();
 		</script>
 		
 	<? }} 
 	
 	if (isset($_GET['confirmar_edit'])){
-	
-	$id_parametros=$_GET['id_parametros'];
-	$fecha=$_GET['fecha'];
-	$entrada=$_GET['entrada'];
-	$id_marcada=$_GET['id_marcada'];
+		
 	$id_estado=$_GET['id_estado'];
 	if($id_estado==1){
 		$id_estado=3;//estado editado de access
 	}
-
-
-	mysql_query("UPDATE `marcada` SET 
-						id_parametros='$id_parametros',
-						entrada = '$fecha $entrada:00',
-						id_estado = '$id_estado'
-						WHERE id_marcada='$id_marcada'
-						") or die(mysql_error());
+		updateMarcada($_GET['id_parametros'], $_GET['fecha'], $_GET['entrada'], $id_estado, $_GET['id_marcada']);
 	?>
 		<script>
 		<!--alert("Las entradas fueron modificadas con éxito");-->
-		window.parent.location.reload()
+		opener.location.reload();
 		window.close();
 		</script>
 		
@@ -190,74 +148,92 @@ mysql_query("UPDATE `marcada` SET
 --------------------------------------------------------------------*/	
 	
 	if (isset($_GET['nuevo'])){
-	$id_parametro=$_GET['id_parametro'];
-	$entrada=$_GET['entrada'];
-	$control_parametros=control_parametros($id_parametro,$entrada);
+	$bandera=1;
+	$parametros = array();
+	$id_max=getParametroMax();
 	
-	//verificar si la entrada esta dentro de los parametros permitidos	
-	if($control_parametros==0){
-	$query="SELECT * FROM parametros
-			INNER JOIN
-			tipo ON(parametros.id_tipo=tipo.id_tipo)
-			INNER JOIN
-			turno ON(parametros.id_turno=turno.id_turno)
-			WHERE id_parametros='$id_parametro'";   
-	$parametros=mysql_query($query) or die(mysql_error());
-	$row_parametros = mysql_fetch_assoc($parametros);
-	
-		echo 	"<div class='container; celeste'>
-				Por favor controle los horarios ingresados, no está dentro de los parámetros.<br>
-				Marcada:<b>".$entrada."</b><br>
-				Parametro:<b>".$row_parametros['tipo']." ".$row_parametros['turno']."</b><br>
-				<form action='edit.php' method='get'>
-				<input type='hidden' name='id_parametro' value=".$id_parametro.">
-				<input type='hidden' name='fecha' value=".$fecha.">
-				<input type='hidden' name='entrada' value=".$entrada.">
-				<input type='hidden' name='id' value=".$id.">
-				<button value='confirmar' name='confirmar_update' title='confirmar cambios realizados'>Confirmar</button>
-				<a class='btn btn-danger' href='' title='no guarda los cambios realizados' onClick='cerrarse()'>Volver</a>
-				</form>
-				</div>";
+	for ($i = 1; $i <= $id_max; $i++) {
+		if($_GET['entrada'.$i]!=""){
+				$id_parametros=$_GET['id_parametro'.$i];
+				$entrada=$_GET['entrada'.$i];
+				$control_parametros=control_parametros($id_parametros,$entrada);
+					
 				
-		$bandera=0;
-	}else{
-	mysql_query("INSERT INTO `marcada` (id_parametros, entrada, id_usuario, id_estado) 
-				VALUES ('$id_parametro', '$fecha $entrada:00', '$id', 2)") or die(mysql_error());
-	
-	//cierro ventana
-	?>
-		<script>
-		<!--alert("La entrada fue ingresada con éxito");-->
-		window.close();
-		</script>								
-		
-								
-	<?}
-	
+				//verificar si la entrada esta dentro de los parametros permitidos	
+				if($control_parametros==0){
+					array_push($parametros, $id_parametros,$entrada);					
+					$bandera=0;
+				}else{
+					insertMarcada($id_parametros, $fecha, $entrada, $id);
+				}
+			
+			}
+			
 	}
+	if($bandera==0){
+	$j=1;
+	echo 	"<div class='container; celeste'>
+				Por favor controle los horarios ingresados, no está dentro de los parámetros.<br>
+				<form action='edit.php' method='get'>";
+				
+	foreach($parametros as $entrada){
+		if($j%2!=0){	
+			$id_parametro=$entrada;
+			
+			$parametros=getParametro($id_parametro);   
+			$parametros=mysql_query($query) or die(mysql_error());
+			$row_parametros = mysql_fetch_assoc($parametros);
+			
+			echo"Parametro:<b>".$row_parametros['tipo']." ".$row_parametros['turno']."</b><br>
+					<input type='hidden' name='id_parametro".$id_parametro."' value=".$id_parametro.">";
+		}else{									
+			echo"Marcada:<b>".$entrada."</b><br>							
+					<input type='hidden' name='entrada".$id_parametro."' value=".$entrada."<br>";
+		}
+		$j=$j+1;
+	}
+		echo"	<input type='hidden' name='fecha' value=".$fecha.">
+					<input type='hidden' name='id' value=".$id.">
+					<button value='confirmar' name='confirmar_update' title='confirmar cambios realizados'>Confirmar</button>
+					<a class='btn btn-danger' href='' title='no guarda los cambios realizados' onClick='cerrarse()'>Volver</a>
+					</form>
+					</div>";
 	
-	if (isset($_GET['confirmar_update'])){
-	
-	$id_parametro=$_GET['id_parametro'];
-	$entrada=$_GET['entrada'];
-	$fecha=$_GET['fecha'];
-	$id=$_GET['id'];
-	
-	mysql_query("INSERT INTO `marcada` (id_parametros, entrada, id_usuario, id_estado) 
-				VALUES ('$id_parametro', '$fecha $entrada:00', '$id', 2)") or die(mysql_error());
+	}else{
 	?>
-		<script>
-		<!--alert("La entrada fue ingresada con éxito");-->
-		window.close();
-		</script>								
-		
-								
+				<script>
+				<!--alert("La entrada fue ingresada con éxito");-->
+				opener.location.reload();
+				window.close();
+				</script>																
 	<?}
+	}//cierra ifsset nuevo
+			
+	if (isset($_GET['confirmar_update'])){
+			
+	$bandera=1;
 	
+	$id_max = getParametroMax();
 	
-	
+	for ($i = 1; $i <= $id_max; $i++) {
+		if($_GET['entrada'.$i]!=""){
+				$id_parametros=$_GET['id_parametro'.$i];
+				$entrada=$_GET['entrada'.$i];
+
+				insertMarcada($id_parametros, $fecha, $entrada, $id);
+				}
+			
+			}
+			
 	?>
-	
+				<script>
+				<!--alert("La entrada fue ingresada con éxito");-->
+				opener.location.reload();
+				window.close();
+				</script>																
+	<? } ?>
+
+
 	<?if ($bandera==1){?>
 	<body>
 	<div class="container; celeste">
@@ -282,10 +258,7 @@ mysql_query("UPDATE `marcada` SET
 		<select name="id_parametro<?echo $id_marcada?>" class="input-medium">
 		<?
 		$id_parametros=$row_marcacion['id_parametros'];
-		$query="SELECT * FROM parametros 		
-				INNER JOIN turno ON(parametros.id_turno=turno.id_turno)
-				INNER JOIN tipo ON(parametros.id_tipo=tipo.id_tipo)";   
-		$parametros=mysql_query($query) or die(mysql_error());
+		$parametros=getParametros();
 		$row_parametros = mysql_fetch_assoc($parametros);
 		do{
 			if($id_parametros==$row_parametros['id_parametros']){		
@@ -351,33 +324,33 @@ mysql_query("UPDATE `marcada` SET
 		<fieldset>
 		<legend>Nueva marcación:</legend>
 		<table>
-		<tr>
-		<td>
-			<select name="id_parametro" class="input-medium">
+		
 			<?
-			$query="SELECT * FROM parametros 		
-					INNER JOIN turno ON(parametros.id_turno=turno.id_turno)
-					INNER JOIN tipo ON(parametros.id_tipo=tipo.id_tipo)";   
-			$parametros2=mysql_query($query) or die(mysql_error());
+			$parametros2=getParametros();
 			$row_parametros2 = mysql_fetch_assoc($parametros2);
+			
+			$k=0;
 			do{
 			$comparacion=0;
-				foreach ($stack as $valor) {
+				if(empty($stack)){
+				}else{
+				foreach($stack as $valor){
 					if($valor==$row_parametros2['id_parametros']){
 							$comparacion=1;
 					}
 					}
-				if($comparacion==0){?>
-				<option value="<? echo $row_parametros2['id_parametros']?>">
-					<? echo $row_parametros2['turno']?> : <? echo $row_parametros2['tipo']?>
-				</option>
-			<?	}				
-			}while ($row_parametros2 = mysql_fetch_array($parametros2))	?>
-			</select>
-		</td>
-		<td><input type="time" class="input-medium" name="entrada" value="" required></td>
-		</tr>	
-		<tr>
+				}
+				if($comparacion==0 && $row_parametros2['id_parametros']!=0){?>
+				<tr>				
+				<input  type="hidden" value="<?= $row_parametros2['id_parametros']?>" name="id_parametro<?= $row_parametros2['id_parametros']?>">
+				<td><label><?= $row_parametros2['turno']?> : <? echo $row_parametros2['tipo']?></label></td>
+				<td><input type="time" class="input-medium" name="entrada<?= $row_parametros2['id_parametros']?>" value=""></td>	
+				</tr>
+			<?
+			$k=$k+1;
+			}				
+			}while ($row_parametros2 = mysql_fetch_array($parametros2));
+			if($k>0){ ?>
 		<td colspan="5">
 			<center>
 				<input type="hidden" name="id" value="<?echo $_GET['id']?>">
@@ -386,6 +359,16 @@ mysql_query("UPDATE `marcada` SET
 				<a href='#' class='show_hide btn btn-danger' title='cancelar'>cancelar</a>
 			</center>
 		</td>
+			
+			<? }else{	?>
+		<td colspan="5">
+			<center>
+				<input type="submit" class="btn" name="nuevo" title="todas las marcaciones ya están dadas de alta" value="aceptar"  id="nuevo" disabled>
+				<a href='#' class='show_hide btn btn-danger' title='cancelar'>cancelar</a>
+			</center>
+		</td>
+		<?}?>
+		
 		</tr>
 		</table>
 		</fieldset>
@@ -396,7 +379,3 @@ mysql_query("UPDATE `marcada` SET
 	</div><!--Cierra el div class="celeste"-->
 	</body>
 	<?}?>
-	
-
-	
- 

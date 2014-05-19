@@ -1,3 +1,17 @@
-Versión 1.0.0
+﻿Versión 1.2.0
 
 La primera línea aparece en el footer de la pagina
+
+15/05/2014
+
+* Tabla exportar de usuarios no aparescan las fechas que no tengan marcaciones
+* Cambio en el formulario de busqueda de marcaciones por usuario y por grupo de usuarios
+* Agrego campo fecha ingreso en usuario
+* Cambio orden de valores de la tabla total usuarios
+* Se agrego la columna Ingreso, Normales con sus calculos correspondientes
+* Se agrego fecha de inicio y fecha final en total usuarios
+
+Mejoras, 
+ver porque cuando se cargan los modelos en la vista usuarios.php se demora tanto en cargar, usuarios_new.php esta con los modelos cargados
+Si el número de resultados es "cero", no debería haber botones de paginación
+No hay versión de la aplicación visible. Habría que ponerle un número a la versión y modificarla con cada commit del git
