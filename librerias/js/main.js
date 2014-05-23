@@ -139,7 +139,6 @@ function controlCBU(){
 function isNumberKey(evt)
       {
          var charCode = (evt.which) ? evt.which : event.keyCode
-		 <!--Solo numero hasta el 31, con espacios en blanco hasta el 33 -->
          if (charCode > 33 && (charCode < 48 || charCode > 57))
             return false;
  
