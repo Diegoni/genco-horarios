@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="../<?= $librerias_url?>css/login.css">
 <head>
 <body>
-<?	
+<?php	
     if(empty($_SESSION['usuario_nombre'])) { // comprobamos que las variables de sesión estén vacías         
 ?> 
 
