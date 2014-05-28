@@ -73,7 +73,7 @@ if (isset($_GET['nuevo'])){
 	<center>
 
 	<!-- si hay modificacion o eliminacion de convenio se da aviso que se realizado exitosamente -->
-	<? 
+	<?php 
 	if($bandera==1 && isset($_GET['nuevo'])){
 		echo getMensajes('insert', 'ok', 'Convenio', $_GET['convenio']);
 	}else if($bandera==0 && isset($_GET['nuevo'])) { 
@@ -150,22 +150,22 @@ if (isset($_GET['nuevo'])){
 	</tr>
 	</thead>	
 	<tbody>
-	<? do{ ?>
+	<?php do{ ?>
 	<tr>
-		<td><?= $row_convenio['convenio'];?></td>
-		<td><?= $row_convenio['semana'];?></td>
-		<td><?= $row_convenio['sabado'];?></td>
-		<td><?= $row_convenio['salida_sabado'];?></td>
+		<td><?php echo $row_convenio['convenio'];?></td>
+		<td><?php echo $row_convenio['semana'];?></td>
+		<td><?php echo $row_convenio['sabado'];?></td>
+		<td><?php echo $row_convenio['salida_sabado'];?></td>
 		<td>
-		<A class="btn btn-primary" title="Editar convenio" HREF="modificar_convenio.php?id=<? echo $row_convenio['id_convenio'];?>&action=1"><i class="icon-edit"></i></A>
-		<?if ($row_convenio['id_estado']==0) {?>
+		<A class="btn btn-primary" title="Editar convenio" HREF="modificar_convenio.php?id=<?php echo $row_convenio['id_convenio'];?>&action=1"><i class="icon-edit"></i></A>
+		<?php if ($row_convenio['id_estado']==0) {?>
 		<A type="submit" class="btn btn-danger disabled"  title="El convenio ya esta dado de baja"><i class="icon-minus-sign"></i></i></A>
-		<? } else { ?>
-		<a href="convenios.php?eliminar=<?= $row_convenio['id_convenio'];?>" onclick="return confirm('Esta seguro de eliminar este item?');" class="btn btn-danger"><i class="icon-minus-sign"></i></a>
-		<? } ?>
+		<?php } else { ?>
+		<a href="convenios.php?eliminar=<?php echo $row_convenio['id_convenio'];?>" onclick="return confirm('Esta seguro de eliminar este item?');" class="btn btn-danger"><i class="icon-minus-sign"></i></a>
+		<?php } ?>
 		</td>
 	</tr>
-	<? }while($row_convenio=mysql_fetch_assoc($convenio));?> 
+	<?php }while($row_convenio=mysql_fetch_assoc($convenio));?> 
 	</tbody>
 	</table>
 	</div>

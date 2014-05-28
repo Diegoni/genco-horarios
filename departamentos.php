@@ -57,7 +57,7 @@ if(isset($_GET['buscar'])){
 <center>
 
 <!-- si hay modificacion o eliminacion de departamento se da aviso que se realizado exitosamente -->
-<? if($_GET['modificar']==1){
+<?php if($_GET['modificar']==1){
 	echo getMensajes('update', 'ok', 'Departamento', $_GET['departamento']);
 }else if($_GET['eliminar']==1){
 	echo getMensajes('delete', 'ok', 'Departamento', $_GET['departamento']);
@@ -128,25 +128,25 @@ if(isset($_GET['buscar'])){
 </thead>
 
 <tbody>
-<? do{ ?>
+<?php do{ ?>
 <tr>
-<td><? echo $row_departamento['nombre'];?></td>
+<td><?php echo $row_departamento['nombre'];?></td>
 <td>
-		<?if ($row_departamento['id_estado']==0) {?>
+		<?php if ($row_departamento['id_estado']==0) {?>
 		baja
-	<? } else { ?>
+	<?php } else { ?>
 		activo
-	<? } ?>
+	<?php } ?>
 </td>
-<td><A class="btn btn-primary" title="Editar departamento" HREF="modificar_departamento.php?id=<? echo $row_departamento['id_departamento'];?>&action=1"><i class="icon-edit"></i></A>
-	<?if ($row_departamento['id_estado']==0) {?>
+<td><A class="btn btn-primary" title="Editar departamento" HREF="modificar_departamento.php?id=<?php echo $row_departamento['id_departamento'];?>&action=1"><i class="icon-edit"></i></A>
+	<?php if ($row_departamento['id_estado']==0) {?>
 	<A type="submit" class="btn btn-danger disabled"  title="El departamento partamento ya esta dada de baja"><i class="icon-minus-sign"></i></i></A>
-	<? } else { ?>
-	<A type="submit" class="btn btn-danger"  title="Dar de baja" HREF="modificar_departamento.php?id=<? echo $row_departamento['id_departamento'];?>&action=0"><i class="icon-minus-sign"></i></i></A>
-	<? } ?>
+	<?php } else { ?>
+	<A type="submit" class="btn btn-danger"  title="Dar de baja" HREF="modificar_departamento.php?id=<?php echo $row_departamento['id_departamento'];?>&action=0"><i class="icon-minus-sign"></i></i></A>
+	<?php } ?>
 	</td>
 </tr>
-<? }while ($row_departamento = mysql_fetch_array($departamento )) ?>
+<?php }while ($row_departamento = mysql_fetch_array($departamento )) ?>
 </tbody>
 
 
@@ -156,4 +156,4 @@ if(isset($_GET['buscar'])){
 </div>
 
 
-<? include_once("footer.php");?>
+<?php include_once("footer.php");?>

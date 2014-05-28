@@ -1,4 +1,8 @@
 <?php 
+session_start();
+	if(!isset($_SESSION['usuario_nombre'])){
+	header("Location: ../login/acceso.php");
+	}
 include_once("menu.php");    
 include_once($models_url."feriados_model.php");    
 include_once($models_url."mensajes_model.php");    
@@ -50,7 +54,7 @@ if (isset($_GET['nuevo'])){
 	<center>
 
 	<!-- si hay modificacion o eliminacion de usuario se da aviso que se realizado exitosamente -->
-	<? 
+	<?php 
 	if($bandera==1 && isset($_GET['nuevo'])){
 		echo getMensajes('insert', 'ok', 'Feriado', $_GET['feriado']);
 	}else if($bandera==0 && isset($_GET['nuevo'])) {
@@ -112,13 +116,13 @@ if (isset($_GET['nuevo'])){
 	</tr>
 	</thead>	
 	<tbody>
-	<? do{ ?>
+	<?php do{ ?>
 	<tr>
-		<td><?= $row_feriado['dia'];?></td>
-		<td><?= $row_feriado['feriado'];?></td>
-		<td><a href="feriados.php?eliminar=<?= $row_feriado['id_feriado'];?>" onclick="return confirm('Esta seguro de eliminar este item?');" class="btn btn-danger"><i class="icon-minus-sign"></i></a></td>
+		<td><?php echo $row_feriado['dia'];?></td>
+		<td><?php echo $row_feriado['feriado'];?></td>
+		<td><a href="feriados.php?eliminar=<?php echo $row_feriado['id_feriado'];?>" onclick="return confirm('Esta seguro de eliminar este item?');" class="btn btn-danger"><i class="icon-minus-sign"></i></a></td>
 	</tr>
-	<? }while($row_feriado=mysql_fetch_assoc($feriado));?> 
+	<?php }while($row_feriado=mysql_fetch_assoc($feriado));?> 
 	</tbody>
 	</table>
 	</div>

@@ -25,15 +25,15 @@ if($action==0){
 <form class="form-inline" action="departamentos.php">
 <table class="table table-hover">
 <tr>
-<input type="hidden" name="id" class="span4" value="<? echo $row_departamento['id_departamento'];?>">
+<input type="hidden" name="id" class="span4" value="<?php echo $row_departamento['id_departamento'];?>">
 
 
 <tr>
 <td>Departamento</td>
-<td><input type="text" name="departamento" class="span4" value="<? echo $row_departamento['nombre'];?>" <?= $input_action; ?> required></td>
+<td><input type="text" name="departamento" class="span4" value="<?php echo $row_departamento['nombre'];?>" <?php echo $input_action; ?> required></td>
 </tr>
 
-<? if($action==0){?>
+<?php if($action==0){?>
 <tr>
 <td>Estado</td>
 <td>
@@ -48,7 +48,7 @@ if($action==0){
 <tr>
 <td></td>
 <td>
-<button type="submit" onclick="return confirm('Esta seguro de eliminar este item?');" class="btn btn-primary" name="modificar" value="1" title="Dar de baja al departamento <? echo $row_departamento['nombre'];?>"><i class="icon-minus-sign"></i> Eliminar</button>
+<button type="submit" onclick="return confirm('Esta seguro de eliminar este item?');" class="btn btn-primary" name="modificar" value="1" title="Dar de baja al departamento <?php echo $row_departamento['nombre'];?>"><i class="icon-minus-sign"></i> Eliminar</button>
 <A class="btn btn-danger"  HREF="departamentos.php" title="Cancelar la baja"> <i class="icon-ban-circle"></i> Cancelar</A></td>
 </tr>  
 
@@ -72,7 +72,7 @@ if($action==0){
 </div>
 </div>
 
-<?}else{?>
+<?php }else{?>
 
 
 <tr>
@@ -89,13 +89,13 @@ if($action==0){
 <tr>
 <td></td>
 <td>
-<button type="submit" class="btn btn-primary" name="modificar" value="1" title="Editar departamento <? echo $row_departamento['nombre'];?>"><i class="icon-edit"></i> Editar</button>
+<button type="submit" class="btn btn-primary" name="modificar" value="1" title="Editar departamento <?php echo $row_departamento['nombre'];?>"><i class="icon-edit"></i> Editar</button>
 <A class="btn btn-danger"  title="Cancelar la edición" HREF="empresas.php"><i class="icon-ban-circle"></i> Cancelar</A></td>
 </tr> 
 
 </table>
 </form> 
-<?}?>
+<?php }?>
 
 
 
@@ -105,4 +105,4 @@ if($action==0){
 </div>
 
 
-<? include_once("footer.php");?>
+<?php include_once("footer.php");?>

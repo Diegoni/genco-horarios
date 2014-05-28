@@ -65,7 +65,7 @@ if(isset($_GET['buscar'])){
 <center>
 
 <!-- si hay modificacion o eliminacion de usuario se da aviso que se realizado exitosamente -->
-<? if($_GET['modificar']==1){
+<?php if($_GET['modificar']==1){
 	echo getMensajes('update', 'ok', 'Empresa', $_GET['empresa']);
 }else if($_GET['eliminar']==1){
 	echo getMensajes('delete', 'ok', 'Empresa', $_GET['empresa']);
@@ -150,27 +150,27 @@ if(isset($_GET['buscar'])){
 	</tr>
 <thead>
 <tbody>
-<? do{ ?>
+<?php do{ ?>
 <tr>
-<td><? echo $row_empresa['empresa'];?></td>
-<td><? echo $row_empresa['cod_empresa'];?></td>
-<td><? echo $row_empresa['cuil'];?></td>
+<td><?php echo $row_empresa['empresa'];?></td>
+<td><?php echo $row_empresa['cod_empresa'];?></td>
+<td><?php echo $row_empresa['cuil'];?></td>
 <td>
-		<?if ($row_empresa['id_estado']==0) {?>
+		<?php if ($row_empresa['id_estado']==0) {?>
 		baja
-	<? } else { ?>
+	<?php } else { ?>
 		activa
-	<? } ?>
+	<?php } ?>
 </td>
-<td><A class="btn btn-primary" title="Editar empresa" HREF="modificar_empresa.php?id=<? echo $row_empresa['id_empresa'];?>&action=1"><i class="icon-edit"></i></A>
-	<?if ($row_empresa['id_estado']==0) {?>
+<td><A class="btn btn-primary" title="Editar empresa" HREF="modificar_empresa.php?id=<?php echo $row_empresa['id_empresa'];?>&action=1"><i class="icon-edit"></i></A>
+	<?php if ($row_empresa['id_estado']==0) {?>
 	<A type="submit" class="btn btn-danger disabled"  title="La empresa ya esta dada de baja"><i class="icon-minus-sign"></i></i></A>
-	<? } else { ?>
-	<A type="submit" class="btn btn-danger"  title="Dar de baja" HREF="modificar_empresa.php?id=<? echo $row_empresa['id_empresa'];?>&action=0"><i class="icon-minus-sign"></i></i></A>
-	<? } ?>
+	<?php } else { ?>
+	<A type="submit" class="btn btn-danger"  title="Dar de baja" HREF="modificar_empresa.php?id=<?php echo $row_empresa['id_empresa'];?>&action=0"><i class="icon-minus-sign"></i></i></A>
+	<?php } ?>
 	</td>
 </tr>
-<? }while ($row_empresa = mysql_fetch_array($empresa)) ?>
+<?php }while ($row_empresa = mysql_fetch_array($empresa)) ?>
 </tbody>
 
 </table>
@@ -179,4 +179,4 @@ if(isset($_GET['buscar'])){
 </div>
 
 
-<? include_once("footer.php");?>
+<?php include_once("footer.php");?>

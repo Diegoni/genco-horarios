@@ -197,7 +197,7 @@ if(isset($_GET['empleado'])){
 		<h2>Parámetros de configuración</h2>
 		<p>Estos son los valores que filtran las entradas y salidas</p>
 		<p>
-	<?
+	<?php
 	$parametros=getParametros();
 	$row_parametros = mysql_fetch_assoc($parametros);
 	?>
@@ -214,43 +214,43 @@ if(isset($_GET['empleado'])){
 	<td>Considerar</td>
 	</tr>
 	</thead>
-	<?
+	<?php
 	do{ ?>	
 	<tr>
-	<td><?
+	<td><?php
 		$turno=getTurnos();
 		$row_turno = mysql_fetch_assoc($turno);
 		do{
 		if($row_turno['id_turno']==$row_parametros['id_turno']){
 		?>
-		<input type="hidden" value="<? echo $row_turno['id_turno']?>" name="id_turno<?echo $row_parametros['id_parametros']?>">
-		<? echo $row_turno['turno']?>
-		<?} 
+		<input type="hidden" value="<?php echo $row_turno['id_turno']?>" name="id_turno<?php echo $row_parametros['id_parametros']?>">
+		<?php echo $row_turno['turno']?>
+		<?php } 
 		}while ($row_turno = mysql_fetch_array($turno))
 		?>
 	</td>
-	<td><?
+	<td><?php
 		$tipo=getTipos();
 		$row_tipo = mysql_fetch_assoc($tipo);
 		do{
 		if($row_tipo['id_tipo']==$row_parametros['id_tipo']){
 		?>
-		<input type="hidden" value="<? echo $row_tipo['id_tipo']?>" name="id_tipo<?echo $row_parametros['id_parametros']?>">
-		<? echo $row_tipo['tipo']?>
-		<?}
+		<input type="hidden" value="<?php echo $row_tipo['id_tipo']?>" name="id_tipo<?php echo $row_parametros['id_parametros']?>">
+		<?php echo $row_tipo['tipo']?>
+		<?php }
 		}while ($row_tipo = mysql_fetch_array($tipo))
 		?>
 	</td>
-	<td><input type="time" class="input-inter" name="inicio<?echo $row_parametros['id_parametros']?>" value="<?echo $row_parametros['inicio']?>" required></td>
-	<td><input type="time" class="input-inter" name="final<?echo $row_parametros['id_parametros']?>" value="<?echo $row_parametros['final']?>" required></td>
-	<td><input type="range" class="input-small" name="considerar<?echo $row_parametros['id_parametros']?>" value="<?echo $row_parametros['considerar']?>" min="1" max="30" id="slider<?echo $row_parametros['id_parametros']?>" onchange="printValue('slider<?echo $row_parametros['id_parametros']?>','rangeValue<?echo $row_parametros['id_parametros']?>')" required>
-		<input id="rangeValue<?echo $row_parametros['id_parametros']?>" type="text" class="input-minimini" disabled>min.</td>
+	<td><input type="time" class="input-inter" name="inicio<?php echo $row_parametros['id_parametros']?>" value="<?php echo $row_parametros['inicio']?>" required></td>
+	<td><input type="time" class="input-inter" name="final<?php echo $row_parametros['id_parametros']?>" value="<?php echo $row_parametros['final']?>" required></td>
+	<td><input type="range" class="input-small" name="considerar<?php echo $row_parametros['id_parametros']?>" value="<?php echo $row_parametros['considerar']?>" min="1" max="30" id="slider<?php echo $row_parametros['id_parametros']?>" onchange="printValue('slider<?php echo $row_parametros['id_parametros']?>','rangeValue<?php echo $row_parametros['id_parametros']?>')" required>
+		<input id="rangeValue<?php echo $row_parametros['id_parametros']?>" type="text" class="input-minimini" disabled>min.</td>
 	</tr>
-	<? 	}while ($row_parametros = mysql_fetch_array($parametros))?>
+	<?php 	}while ($row_parametros = mysql_fetch_array($parametros))?>
 	<tr>
 	<td colspan="5">
 			<center>
-			<input type="hidden" name="id" value="<?echo $id?>">
+			<input type="hidden" name="id" value="<?php echo $id?>">
 			<input type="submit" class="btn" name="parametros" value="Modificar"  id="parametros">
 			<a class="btn btn-danger" href="" title="no guarda los cambios realizados" onClick="cerrarse()">Cancelar</a>
 			</center>
@@ -275,9 +275,9 @@ if(isset($_GET['empleado'])){
 ----------------------------------------------------------------------			
 --------------------------------------------------------------------->
 
-<?if($bandera==1){ ?>
+<?php if($bandera==1){ ?>
 Por favor actualice la base de datos
-<? }?>
+<?php }?>
 
 
 
@@ -287,7 +287,7 @@ Por favor actualice la base de datos
 		<b>Marcaciones del día</b>
 	</td>
 	<td>
-		<p class="fecha" title="Fecha con la que se esta trabajando"><? echo  $fecha;?></p>
+		<p class="fecha" title="Fecha con la que se esta trabajando"><?php echo  $fecha;?></p>
 	</td>
 	<td>
 		<form class="form-inline" action="index.php" name="ente">
@@ -313,15 +313,15 @@ Por favor actualice la base de datos
 	  </a>
 	  <ul class="dropdown-menu">
 		<li><a href="#openModal" title="Parametros"><i class="icon-time"></i> Parametros</a></li>
-		<li><a href="index.php?fecha=<? echo $fecha;?>" title="Refresh" ><i class="icon-refresh"></i> Refresh</a></li>
-		<?if($bandera==1){ ?>
+		<li><a href="index.php?fecha=<?php echo $fecha;?>" title="Refresh" ><i class="icon-refresh"></i> Refresh</a></li>
+		<?php if($bandera==1){ ?>
 			<form class="form-inline" action="index.php" name="importar">
-			<input type="hidden" name="fecha" value="<? echo $fecha;?>">
+			<input type="hidden" name="fecha" value="<?php echo $fecha;?>">
 			<li><button type="submit" title="Actualice la base de datos" name="actualizar" value="1"><i class="icon-download-alt"></i> Actualizar</button></li>
 			<form class="form-inline" action="index.php" name="importar">
-		<?}else{?>
+		<?php }else{?>
 			<li class="disabled"><a href="" title="Los datos ya estan actalizados" name="actualizar" value="1"><i class="icon-download-alt"></i> Actualizar</a></li>
-		<?}?>
+		<?php }?>
 		<!--<li><a href='#' class='show_hide' title='Más detalles en la búsqueda'><i class="icon-chevron-sign-down"></i> Búsqueda</a></li>-->
 		<li><a href="#myModal" role="button" data-toggle="modal"><i class="icon-question-sign"></i> Ayuda</a></li>
 		</form>
@@ -359,24 +359,24 @@ Por favor actualice la base de datos
 						Formulario busqueda
 ----------------------------------------------------------------------			
 --------------------------------------------------------------------->
-<?
+<?php
 	$usuario_lista=getUsuarios();
 	$row_usuario_lista = mysql_fetch_assoc($usuario_lista);
 ?>
 <datalist id="usuario">
-<? do{ ?>
-  <option value="<?= $row_usuario_lista['usuario'];?>">
-<? }while($row_usuario_lista=mysql_fetch_array($usuario_lista));?>
+<?php do{ ?>
+  <option value="<?php echo $row_usuario_lista['usuario'];?>">
+<?php }while($row_usuario_lista=mysql_fetch_array($usuario_lista));?>
 </datalist>
 
-<?
+<?php
 	$departamento_lista=getDepartamentos();
 	$row_departamento_lista = mysql_fetch_assoc($departamento_lista);
 ?>
 <datalist id="departamento">
-<? do{ ?>
-  <option value="<?= $row_departamento_lista['nombre'];?>">
-<? }while($row_departamento_lista=mysql_fetch_array($departamento_lista));?>
+<?php do{ ?>
+  <option value="<?php echo $row_departamento_lista['nombre'];?>">
+<?php }while($row_departamento_lista=mysql_fetch_array($departamento_lista));?>
 </datalist>
 
 <div class="slidingDiv">
@@ -402,7 +402,7 @@ Por favor actualice la base de datos
 		<input type="text" list="departamento" class="span2" name="departamento" placeholder="departamento" autocomplete="off" id="departamento2">
 		</div>
 	</td>
-	<input type="hidden" name="fecha" value="<? echo $fecha;?>">
+	<input type="hidden" name="fecha" value="<?php echo $fecha;?>">
 	<td colspan="8"><button type="submit" class="btn" title="buscar" name="empleado" value="1">Aceptar</button></td>
 	</tr>
 	</form>
@@ -433,7 +433,7 @@ Por favor actualice la base de datos
 </thead>
 
 <tbody>
-<?
+<?php
 # Creo y completo tabla temporal para horas
 $query_create = "CREATE TEMPORARY TABLE temp (id_marcada int, entrada datetime, id_usuario int, id_parametros int, id_estado int)";
 $res_create = mysql_query($query_create) or die(mysql_error());
@@ -461,10 +461,10 @@ do{
 
 do{?>
 	<tr>
-	<td><? echo $row_usuario['legajo']?></td>
-	<td><a href="usuario.php?id=<?= $row_usuario['id_usuario']?>&fecha=<?= $fecha;?>&buscar=2" class="ayuda-boton btn"><? echo $row_usuario['usuario']?></a></td>
-	<td><? echo $row_usuario['departamento']?></td>
-		<? 
+	<td><?php echo $row_usuario['legajo']?></td>
+	<td><a href="usuario.php?id=<?php echo $row_usuario['id_usuario']?>&fecha=<?php echo $fecha;?>&buscar=2" class="ayuda-boton btn"><?php echo $row_usuario['usuario']?></a></td>
+	<td><?php echo $row_usuario['departamento']?></td>
+		<?php 
 		for ($i = 0; $i <= 4; $i++) {
 				$query="SELECT * 
 				FROM temp 
@@ -477,25 +477,25 @@ do{?>
 
 			if($cantidad_parametros==0){?>
 				<td><p class="insert_access"> - </p></td>
-			<?}else if($cantidad_parametros>1){?>
-				<td><p class="label label-important" title="Registro duplicado, por favor modificarlo"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
-			<?}else{
+			<?php }else if($cantidad_parametros>1){?>
+				<td><p class="label label-important" title="Registro duplicado, por favor modificarlo"><?php echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
+			<?php }else{
 				if($row_marcacion['id_estado']==3){
 				
 				$log_auditoria_marcada=getLog($row_marcacion['id_marcada']);
 				$row_log_auditoria_marcada = mysql_fetch_assoc($log_auditoria_marcada);
 				?>
-				<td><p class="label label-success" title="Registro modificado, original :<? echo date('H:i', strtotime($row_log_auditoria_marcada['entrada_old']));?>"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
-				<?}else if($row_marcacion['id_estado']==2){?>
-				<td><p class="label" title="Registro dado de alta por sistema"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
-				<?}else if($row_marcacion['id_parametros']==0){?>
-				<td><p class="label label-important" title="Registro sin definir, por favor modificarlo"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
-				<?}else{?>
-				<td><p class="insert_access"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
-				<?}?>
-			<?}//cierra el else?>
-		<?}//cierra el for?>
-		<?
+				<td><p class="label label-success" title="Registro modificado, original :<?php echo date('H:i', strtotime($row_log_auditoria_marcada['entrada_old']));?>"><?php echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
+				<?php }else if($row_marcacion['id_estado']==2){?>
+				<td><p class="label" title="Registro dado de alta por sistema"><?php echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
+				<?php }else if($row_marcacion['id_parametros']==0){?>
+				<td><p class="label label-important" title="Registro sin definir, por favor modificarlo"><?php echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
+				<?php }else{?>
+				<td><p class="insert_access"><?php echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
+				<?php }?>
+			<?php }//cierra el else?>
+		<?php }//cierra el for?>
+		<?php
 		$query="SELECT * 
 				FROM tempotra 
 				INNER JOIN tipootra ON(tempotra.id_tipootra=tipootra.id_tipootra)
@@ -507,13 +507,13 @@ do{?>
 			$cantidad=mysql_num_rows($otrahora);
 			if($cantidad>0){
 		?>
-		<td><p class="insert_access"><a href="#" class="btn" title="<? echo $row_otrahora['nota'];?>" onClick="abrirVentana('edit_otros.php?id=<?echo $row_usuario['id_usuario']?>&fecha=<?echo $fecha_americana?>')"><? echo $row_otrahora['tipootra'];?> : <? echo $row_otrahora['horas'];?></a></p></td>
-		<?}else{?>
-		<td><p class="insert_access"><a href="#" class="btn" title="Agregar" onClick="abrirVentana('edit_otros.php?id=<?echo $row_usuario['id_usuario']?>&fecha=<?echo $fecha_americana?>')"><i class="icon-plus-sign-alt"></i></a></p></td>
-		<?}?>
-	<td><a href="#" class="btn" title="Parametros" onClick="abrirVentana('edit.php?id=<?echo $row_usuario['id_usuario']?>&fecha=<?echo $fecha_americana?>')"><i class="icon-edit-sign"></i></a></td>
+		<td><p class="insert_access"><a href="#" class="btn" title="<?php echo $row_otrahora['nota'];?>" onClick="abrirVentana('edit_otros.php?id=<?php echo $row_usuario['id_usuario']?>&fecha=<?php echo $fecha_americana?>')"><?php echo $row_otrahora['tipootra'];?> : <?php echo $row_otrahora['horas'];?></a></p></td>
+		<?php }else{?>
+		<td><p class="insert_access"><a href="#" class="btn" title="Agregar" onClick="abrirVentana('edit_otros.php?id=<?php echo $row_usuario['id_usuario']?>&fecha=<?php echo $fecha_americana?>')"><i class="icon-plus-sign-alt"></i></a></p></td>
+		<?php } ?>
+	<td><a href="#" class="btn" title="Parametros" onClick="abrirVentana('edit.php?id=<?php echo $row_usuario['id_usuario']?>&fecha=<?php echo $fecha_americana?>')"><i class="icon-edit-sign"></i></a></td>
 	</tr>
-<? }while ($row_usuario = mysql_fetch_array($usuario));
+<?php }while ($row_usuario = mysql_fetch_array($usuario));
 
 //elimino las tablas temporaria
 $query_drop = "DROP TABLE temp";
@@ -528,7 +528,7 @@ $res_drop = mysql_query($query_drop) or die(mysql_error());
 </div>
 
  
-<? include_once("footer.php");?>
+<?php include_once("footer.php");?>
 
 </center>
 </div><!--cierra el class="span12" -->

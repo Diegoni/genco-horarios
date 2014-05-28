@@ -123,7 +123,7 @@ $numero_convenio = mysql_num_rows($convenio);
 <center>
 
 <!-- si hay modificacion o eliminacion de usuario se da aviso que se realizado exitosamente -->
-<? 
+<?php 
 if($_GET['modificar']==1){
 	echo getMensajes('updete', 'ok', 'Usuario', $_GET['usuario']);
 }else if($_GET['eliminar']==1){
@@ -193,9 +193,9 @@ if($_GET['modificar']==1){
 <td>Empresa</td>
 <td><select class="span4" name="empresa" required>
 		<option></option>
-	<? do{ ?>	
-		<option value="<? echo $row_empresa['id_empresa'];?>"><? echo $row_empresa['empresa'];?></option>
-	<? }while ($row_empresa = mysql_fetch_array($empresa)) ?>
+	<?php do{ ?>	
+		<option value="<?php echo $row_empresa['id_empresa'];?>"><?php echo $row_empresa['empresa'];?></option>
+	<?php }while ($row_empresa = mysql_fetch_array($empresa)) ?>
 	</select>
 </td>
 </tr>  
@@ -204,9 +204,9 @@ if($_GET['modificar']==1){
 <td>Departamento</td>
 <td><select class="span4" name="departamento" required>
 		<option></option>
-	<? do{ ?>	
-		<option value="<? echo $row_departamento2['id_departamento'];?>"><? echo $row_departamento2['nombre'];?></option>
-	<? }while ($row_departamento2 = mysql_fetch_array($departamento2)) ?>
+	<?php do{ ?>	
+		<option value="<?php echo $row_departamento2['id_departamento'];?>"><?php echo $row_departamento2['nombre'];?></option>
+	<?php }while ($row_departamento2 = mysql_fetch_array($departamento2)) ?>
 	</select>
 </td>
 </tr>  
@@ -216,9 +216,9 @@ if($_GET['modificar']==1){
 <td>Convenio</td>
 <td><select class="span4" name="convenio" required>
 		<option></option>
-	<? do{ ?>	
-		<option value="<? echo $row_convenio['id_convenio'];?>"><? echo $row_convenio['convenio'];?></option>
-	<? }while ($row_convenio = mysql_fetch_array($convenio)) ?>
+	<?php do{ ?>	
+		<option value="<?php echo $row_convenio['id_convenio'];?>"><?php echo $row_convenio['convenio'];?></option>
+	<?php }while ($row_convenio = mysql_fetch_array($convenio)) ?>
 	</select>
 </td>
 </tr>  
@@ -257,27 +257,27 @@ if($_GET['modificar']==1){
 </thead>
 
 <tbody>
-<?do{ ?>
+<?php do{ ?>
 <tr>
-<td><? echo $row_usuario['usuario'];?></td>
-<td><? echo $row_usuario['legajo'];?></td>
-<td><? echo $row_usuario['departamento'];?></td>
+<td><?php echo $row_usuario['usuario'];?></td>
+<td><?php echo $row_usuario['legajo'];?></td>
+<td><?php echo $row_usuario['departamento'];?></td>
 <td>
-		<?if ($row_usuario['id_estado']==0) {?>
+		<?php if ($row_usuario['id_estado']==0) {?>
 		baja
-	<? } else { ?>
+	<?php } else { ?>
 		activo
-	<? } ?>
+	<?php } ?>
 </td>
-<td><A class="btn btn-primary" title="Editar usuario" HREF="modificar.php?id=<? echo $row_usuario['id_usuario'];?>"><i class="icon-edit"></i></A>
-	<?if ($row_usuario['id_estado']==0) {?>
+<td><A class="btn btn-primary" title="Editar usuario" HREF="modificar.php?id=<?php echo $row_usuario['id_usuario'];?>"><i class="icon-edit"></i></A>
+	<?php if ($row_usuario['id_estado']==0) {?>
 	<A type="submit" class="btn btn-danger disabled"  title="El usuario ya esta dado de baja"><i class="icon-minus-sign"></i></i></A>
-	<? } else { ?>
-	<A type="submit" class="btn btn-danger"  title="Dar de baja" HREF="eliminar.php?id=<? echo $row_usuario['id_usuario'];?>"><i class="icon-minus-sign"></i></i></A>
-	<? } ?>
+	<?php } else { ?>
+	<A type="submit" class="btn btn-danger"  title="Dar de baja" HREF="eliminar.php?id=<?php echo $row_usuario['id_usuario'];?>"><i class="icon-minus-sign"></i></i></A>
+	<?php } ?>
 	</td>
 </tr>
-<? }while ($row_usuario = mysql_fetch_array($usuario)) ?>
+<?php }while ($row_usuario = mysql_fetch_array($usuario)) ?>
 </tbody>
 
 </table>
@@ -288,4 +288,4 @@ if($_GET['modificar']==1){
 </center>
 </div>
 
-<? include_once("footer.php");?>
+<?php include_once("footer.php");?>
