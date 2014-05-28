@@ -48,9 +48,10 @@ $i=0;
  
 do{ 
 
-$i=$i+1; 
-if($row_CHECKTIME['USERID']!=0){ 
  
+if($row_CHECKTIME['USERID']!=0){
+	 
+$i=$i+1;
 $hora=date('H:i', strtotime($row_CHECKTIME['CHECKTIME'])); 
  
 //CONTROLO QUE TIPO ES I=IN,ENTRADA Y O=OUT,SALIDA 
@@ -94,8 +95,9 @@ mysql_query("INSERT INTO marcada
  
 //GUARDO REGISTRO DE LA ULTIMA FECHA 
 $fecha_hoy=date("Y-m-d H:m:s"); 
- 
-mysql_query("INSERT INTO  `update` ( 
+
+if(isset($USERID2)){
+	mysql_query("INSERT INTO  `update` ( 
                 `ultima_fecha` , 
                 `ultimo_id` , 
                 `fecha` , 
@@ -109,11 +111,11 @@ mysql_query("INSERT INTO  `update` (
                 );")  
                     or die(mysql_error()); 
                     //('$CHECKTIME','$USERID','$fecha_hoy','$i')")  
-if($i>0){
+
 	echo 'cantidad de registros '.$i.'<br>';
 	echo 'fecha '.$CHECKTIME2.'<br>';
 	echo "id ".$USERID2."<br>";
-}else{
+}else{ 
 	echo "no hay registros nuevos";
 }
 
