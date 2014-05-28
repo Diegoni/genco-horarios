@@ -1,13 +1,13 @@
-<?php header('Content-type: text/html; charset=utf-8'); 
+<?php  header('Content-type: text/html; charset=utf-8'); 
     session_start(); 
     include('../config/database.php');
     include('../config/config.php');?>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="stylesheet" href="../<?= $librerias_url?>css/login.css">
+<link rel="stylesheet" href="../<?php echo $librerias_url?>css/login.css">
 <head>
 <body>
-<?php	
+<?php 	
     if(empty($_SESSION['usuario_nombre'])) { // comprobamos que las variables de sesión estén vacías         
 ?> 
 
@@ -46,7 +46,7 @@
                         
 		</div>	
 		</div>			
-<?php 
+<?php  
     }else { 
 ?> 
 		<div id="firstboxlogin">
@@ -59,7 +59,7 @@
 				<label>Usuario :  </label>
 			</span>
 			<span class="label">
-				<?=$_SESSION['usuario_nombre']?>
+				<?php echo $_SESSION['usuario_nombre']?>
 			</span>
 		</div>
 		</fieldset>
@@ -68,7 +68,7 @@
 		document.login.usuario_nombre.focus();
 		</script>
 		</form>    
-<?php 
+<?php  
     } 
 ?>
 </body>

@@ -265,7 +265,8 @@ if(!isset($fecha_inicio)){
 	</td>
 	
 	<td>
-		<select 
+		<select
+		data-placeholder="Seleccione un usuario..." class="chosen-select" tabindex="2"		
 		onChange="javascript:window.location.href='usuario.php?id='+this.value+'&buscar=<?= 1;?>&fecha_final=<?= $fecha_final; ?>&fecha_inicio=<?= $fecha_inicio; ?>';"
 		name="id" <?= $cadena;?> required>
 		<? do{ ?>

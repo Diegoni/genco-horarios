@@ -8,9 +8,9 @@
 			// comprobamos que los campos usuarios_nombre y usuario_clave no estén vacíos 
 		if(empty($_POST['usuario_nombre']) || empty($_POST['usuario_clave'])) {?> 
 		<div id="boxlogin">
-			<? echo "El usuario o el password no han sido ingresados. <a href='javascript:history.back();'>Reintentar</a>"; ?>
+			<?php echo "El usuario o el password no han sido ingresados. <a href='javascript:history.back();'>Reintentar</a>"; ?>
 		</div>
-		<? }else { 
+		<?php }else { 
 				// "limpiamos" los campos del formulario de posibles códigos maliciosos 
 				$usuario_nombre = mysql_real_escape_string($_POST['usuario_nombre']); 
 				$usuario_clave = mysql_real_escape_string($_POST['usuario_clave']); 

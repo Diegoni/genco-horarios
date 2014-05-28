@@ -1,4 +1,4 @@
-﻿<? 
+﻿<?php 
 //configuracion de base de datos
 include_once("config/database.php");
 include_once("config/config.php");
@@ -25,8 +25,8 @@ date_default_timezone_set('America/Argentina/Mendoza');
 
 <!-- Necesario para que funcione Jquery UI y Bootstrap -->
 
-<script src="<?= $librerias_url?>js/jquery.min.js" type="text/javascript"></script>
-<script src="<?= $librerias_url?>jquery.dataTables.js" type="text/javascript" language="javascript"></script>
+<script src="<?php echo $librerias_url?>js/jquery.min.js" type="text/javascript"></script>
+<script src="<?php echo $librerias_url?>jquery.dataTables.js" type="text/javascript" language="javascript"></script>
 
 <script type="text/javascript" charset="utf-8">
 function imprSelec(muestra){
@@ -44,22 +44,22 @@ function imprSelec(muestra){
 ----------------------------------------------------------------------
 --------------------------------------------------------------------->
 
-<link href="<?= $librerias_url?>bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
-<link href="<?= $librerias_url?>bootstrap/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
-<link href="<?= $librerias_url?>font/css/font-awesome.css" rel="stylesheet">
+<link href="<?php echo $librerias_url?>bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+<link href="<?php echo $librerias_url?>bootstrap/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+<link href="<?php echo $librerias_url?>font/css/font-awesome.css" rel="stylesheet">
 
-<script src="<?= $librerias_url?>bootstrap/js/jquery.js"></script>
-<script src="<?= $librerias_url?>bootstrap/js/bootstrap.js"></script>
+<script src="<?php echo $librerias_url?>bootstrap/js/jquery.js"></script>
+<script src="<?php echo $librerias_url?>bootstrap/js/bootstrap.js"></script>
 
 <!--------------------------------------------------------------------
 ----------------------------------------------------------------------
 						Css y Js creados 
 ----------------------------------------------------------------------
 --------------------------------------------------------------------->
-<link href="<?= $librerias_url?>css/style.css" rel="stylesheet">
-<link href="<?= $librerias_url?>css/main.css" rel="stylesheet" type="text/css"  media="screen" />
-<script src="<?= $librerias_url?>js/script.js" type="text/javascript"></script>
-<script src="<?= $librerias_url?>js/main.js"></script>
+<link href="<?php echo $librerias_url?>css/style.css" rel="stylesheet">
+<link href="<?php echo $librerias_url?>css/main.css" rel="stylesheet" type="text/css"  media="screen" />
+<script src="<?php echo $librerias_url?>js/script.js" type="text/javascript"></script>
+<script src="<?php echo $librerias_url?>js/main.js"></script>
 
 
 
@@ -69,12 +69,22 @@ function imprSelec(muestra){
 ----------------------------------------------------------------------
 --------------------------------------------------------------------->
 
-<link href="<?= $librerias_url?>ui/jquery-ui.css"  rel="stylesheet" />
+<link href="<?php echo $librerias_url?>ui/jquery-ui.css"  rel="stylesheet" />
 
-<script src="<?= $librerias_url?>ui/jquery-ui.js"></script>
-<script src="<?= $librerias_url?>js/jquery.tabs.pack.js" type="text/javascript"></script>
+<script src="<?php echo $librerias_url?>ui/jquery-ui.js"></script>
+<script src="<?php echo $librerias_url?>js/jquery.tabs.pack.js" type="text/javascript"></script>
 
+<!--------------------------------------------------------------------
+----------------------------------------------------------------------
+						Chosen
+----------------------------------------------------------------------
+--------------------------------------------------------------------->
 
+<link rel="stylesheet" href="<?php echo $librerias_url?>chosen/chosen.css">
+  <style type="text/css" media="all">
+    /* fix rtl for demo */
+    .chosen-rtl .chosen-drop { left: -9000px; }
+  </style>
 
 
 
@@ -83,7 +93,7 @@ function imprSelec(muestra){
 						Funciones
 ----------------------------------------------------------------------
 --------------------------------------------------------------------->	
-<script src="<?= $librerias_url?>js/jquery.dataTables.js" type="text/javascript" language="javascript"></script>
+<script src="<?php echo $librerias_url?>js/jquery.dataTables.js" type="text/javascript" language="javascript"></script>
 <script type="text/javascript" charset="utf-8">
 			$(document).ready(function() {
 				 $('#example').dataTable( {
