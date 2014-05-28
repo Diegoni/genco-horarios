@@ -1,7 +1,7 @@
 <? 
 // seguir el siguiente tutorial
 // http://stefano.salvatori.cl/blog/2010/12/03/leer-archivo-mdb-access-de-php-en-ubuntu/
-ini_set('display_errors','Off'); 
+ini_set('display_errors','On'); 
 //local a phpmyadmin 
         $username="root"; 
         $password="bluepill"; 
