@@ -11,10 +11,10 @@ $query="SELECT * FROM `update`
 $update=mysql_query($query) or die(mysql_error()); 
 $row_update = mysql_fetch_assoc($update); 
  
-$fecha_americana=date("Y-m-d H:m:s", strtotime($row_update['ultima_fecha'])); 
+$ultima_fecha=$row_update['ultima_fecha']; 
  
  
-$sql="SELECT * FROM CHECKINOUT WHERE CHECKTIME>'$fecha_americana'"; 
+$sql="SELECT * FROM CHECKINOUT"; 
 $checkinout=odbc_exec($ODBC,$sql)or die(exit("Error en odbc_exec")); 
 
 
@@ -36,7 +36,8 @@ do{
 	$k=$k+1;
 }while (odbc_fetch_row($checkinout));
 
-$query="SELECT * FROM `CHECKTIME `  
+$query="SELECT * FROM CHECKTIME 
+		WHERE CHECKTIME>'$ultima_fecha' 
         ORDER BY CHECKTIME";    
 $CHECKTIME=mysql_query($query) or die(mysql_error()); 
 $row_CHECKTIME = mysql_fetch_assoc($CHECKTIME); 
@@ -81,7 +82,8 @@ mysql_query("INSERT INTO marcada
         ('$row_CHECKTIME[CHECKTIME]','$row_CHECKTIME[USERID]','$row_CHECKTIME[CHECKTYPE]','$id_parametros',1)")  
                     or die(mysql_error());
  
-                     
+  $CHECKTIME2=$row_CHECKTIME['CHECKTIME'];
+  $USERID2=$row_CHECKTIME['USERID'];                   
 } 
 }while ($row_CHECKTIME = mysql_fetch_array($CHECKTIME));                     
                      
@@ -100,8 +102,8 @@ mysql_query("INSERT INTO  `update` (
                 `registros` 
                 ) 
                 VALUES ( 
-                '$tabla[CHECKTIME]',   
-                '$row_CHECKTIME[USERID]',   
+                '$CHECKTIME2',   
+                '$USERID2',   
                 '$fecha_hoy',   
                 '$i' 
                 );")  
@@ -109,8 +111,8 @@ mysql_query("INSERT INTO  `update` (
                     //('$CHECKTIME','$USERID','$fecha_hoy','$i')")  
 if($i>0){
 	echo 'cantidad de registros '.$i.'<br>';
-	echo 'fecha '.$row_CHECKTIME['CHECKTIME'].'<br>';
-	echo "id ".$row_CHECKTIME['USERID']."<br>";
+	echo 'fecha '.$CHECKTIME2.'<br>';
+	echo "id ".$USERID2."<br>";
 }else{
 	echo "no hay registros nuevos";
 }
