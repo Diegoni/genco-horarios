@@ -1,4 +1,8 @@
-<?php  
+<?php
+session_start();
+	if(!isset($_SESSION['usuario_nombre'])){
+	header("Location: ../login/acceso.php");
+	}
 include_once("menu.php"); 
 //---------------------------------------------------------------------- 
 //---------------------------------------------------------------------- 
