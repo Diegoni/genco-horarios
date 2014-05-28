@@ -40,41 +40,41 @@ $numero_convenio = mysql_num_rows($convenio);
 <form class="form-inline" action="usuarios.php">
 <table class="table table-hover">
 <tr>
-<input type="hidden" name="id" class="span4" value="<? echo $row_usuario['id_usuario'];?>">
+<input type="hidden" name="id" class="span4" value="<?php echo $row_usuario['id_usuario'];?>">
 
 
 <tr>
 <td>Nombre</td>
-<td><input type="text" name="usuario" class="span4" value="<? echo $row_usuario['usuario'];?>" disabled></td>
+<td><input type="text" name="usuario" class="span4" value="<?php echo $row_usuario['usuario'];?>" disabled></td>
 </tr>
 
 <tr>
 <td>Nombre</td>
-<td><input type="text" name="nombre" class="span4" value="<? echo $row_usuario['nombre'];?>" disabled></td>
+<td><input type="text" name="nombre" class="span4" value="<?php echo $row_usuario['nombre'];?>" disabled></td>
 </tr>
 
 <tr>
 <td>Apellido</td>
-<td><input type="text" name="apellido" class="span4" value="<? echo $row_usuario['apellido'];?>" disabled></td>
+<td><input type="text" name="apellido" class="span4" value="<?php echo $row_usuario['apellido'];?>" disabled></td>
 </tr>
 
 <tr>
 <td>DNI</td>
-<td><input type="text" name="dni" onkeypress="return isNumberKey(event)" maxlength="8" class="span4" value="<? echo $row_usuario['dni'];?>" disabled></td>
+<td><input type="text" name="dni" onkeypress="return isNumberKey(event)" maxlength="8" class="span4" value="<?php echo $row_usuario['dni'];?>" disabled></td>
 </tr>
 
 <tr>
 <td>Cuil</td>
 <td>
-	<input type="text" name="cuil1" onkeypress="return isNumberKey(event)" maxlength="2" class="span1" value="<? echo substr($row_usuario['cuil'], 0, 2);?>" disabled>-
-	<input type="text" name="cuil2" onkeypress="return isNumberKey(event)" maxlength="8" class="span2" value="<? echo substr($row_usuario['cuil'], 3, 8);?>" disabled>-
-	<input type="text" name="cuil3" onkeypress="return isNumberKey(event)" maxlength="1" class="span1" value="<? echo substr($row_usuario['cuil'], 12, 1);?>" disabled>
+	<input type="text" name="cuil1" onkeypress="return isNumberKey(event)" maxlength="2" class="span1" value="<?php echo substr($row_usuario['cuil'], 0, 2);?>" disabled>-
+	<input type="text" name="cuil2" onkeypress="return isNumberKey(event)" maxlength="8" class="span2" value="<?php echo substr($row_usuario['cuil'], 3, 8);?>" disabled>-
+	<input type="text" name="cuil3" onkeypress="return isNumberKey(event)" maxlength="1" class="span1" value="<?php echo substr($row_usuario['cuil'], 12, 1);?>" disabled>
 </td>
 </tr>
 
 <tr>
 <td>Legajo</td>
-<td><input type="text" name="legajo" class="span4" onkeypress="return isNumberKey(event)" value="<? echo $row_usuario['legajo'];?>" disabled></td>
+<td><input type="text" name="legajo" class="span4" onkeypress="return isNumberKey(event)" value="<?php echo $row_usuario['legajo'];?>" disabled></td>
 </tr>
 
 <tr>
@@ -88,13 +88,13 @@ $numero_convenio = mysql_num_rows($convenio);
 <tr>
 <td>Empresa</td>
 <td><select class="span4" name="empresa" disabled>
-	<? 	do{ 
+	<?php 	do{ 
 		if ($row_usuario['id_empresa']==$row_empresa['id_empresa']){?>	
-		 <option value="<? echo $row_empresa['id_empresa'];?>" selected><? echo $row_empresa['empresa'];?></option>
-	<?	 }else{ ?>
-	  <option value="<? echo $row_empresa['id_empresa'];?>"><? echo $row_empresa['empresa'];?></option>
-	<? }?>
-	<? } while ($row_empresa = mysql_fetch_array($empresa))?>
+		 <option value="<?php echo $row_empresa['id_empresa'];?>" selected><?php echo $row_empresa['empresa'];?></option>
+	<?php	 }else{ ?>
+	  <option value="<?php echo $row_empresa['id_empresa'];?>"><?php echo $row_empresa['empresa'];?></option>
+	<?php }?>
+	<?php } while ($row_empresa = mysql_fetch_array($empresa))?>
 	</select>
 </td>
 </tr>  
@@ -103,12 +103,12 @@ $numero_convenio = mysql_num_rows($convenio);
 <td>Departamento</td>
 <td><select class="span4" name="departamento" disabled>
 	<!-- Busca los departamentos y selecciona el que es del cliente -->
-	<? 	do{ 
+	<?php 	do{ 
 		if ($row_usuario['id_departamento']==$row_departamento['id_departamento']){?>	
-		 <option value="<? echo $row_departamento['id_departamento'];?>" selected><? echo $row_departamento['nombre'];?></option>
-	<?	 }else{ ?>
-	  <option value="<? echo $row_departamento['id_departamento'];?>"><? echo $row_departamento['nombre'];?></option>
-	<? }
+		 <option value="<?php echo $row_departamento['id_departamento'];?>" selected><?php echo $row_departamento['nombre'];?></option>
+	<?php	 }else{ ?>
+	  <option value="<?php echo $row_departamento['id_departamento'];?>"><?php echo $row_departamento['nombre'];?></option>
+	<?php }
 		}while ($row_departamento = mysql_fetch_array($departamento))?>
 	</select>
 </td>
@@ -117,13 +117,13 @@ $numero_convenio = mysql_num_rows($convenio);
 <tr>
 <td>Convenio</td>
 <td><select class="span4" name="convenio" disabled>
-	<? 	do{ 
+	<?php 	do{ 
 		if ($row_usuario['id_convenio']==$row_convenio['id_convenio']){?>	
-		 <option value="<? echo $row_convenio['id_convenio'];?>" selected><? echo $row_convenio['convenio'];?></option>
-	<?	 }else{ ?>
-	  <option value="<? echo $row_convenio['id_convenio'];?>"><? echo $row_convenio['convenio'];?></option>
-	<? }?>
-	<? } while ($row_convenio = mysql_fetch_array($convenio))?>
+		 <option value="<?php echo $row_convenio['id_convenio'];?>" selected><?php echo $row_convenio['convenio'];?></option>
+	<?php	 }else{ ?>
+	  <option value="<?php echo $row_convenio['id_convenio'];?>"><?php echo $row_convenio['convenio'];?></option>
+	<?php }?>
+	<?php } while ($row_convenio = mysql_fetch_array($convenio))?>
 	</select>
 </td>
 </tr>
@@ -131,7 +131,7 @@ $numero_convenio = mysql_num_rows($convenio);
 <tr>
 <td></td>
 <td>
-<button type="submit" onclick="return confirm('Esta seguro de eliminar este item?');" class="btn btn-primary" name="eliminar" value="1" title="Dar de baja al usuario <? echo $row_usuario['nombre'];?>"><i class="icon-minus-sign"></i> Eliminar</button>
+<button type="submit" onclick="return confirm('Esta seguro de eliminar este item?');" class="btn btn-primary" name="eliminar" value="1" title="Dar de baja al usuario <?php echo $row_usuario['nombre'];?>"><i class="icon-minus-sign"></i> Eliminar</button>
 <A class="btn btn-danger"  HREF="usuarios.php" title="Cancelar la baja"> <i class="icon-ban-circle"></i> Cancelar</A>
 </td>
 </tr>  
@@ -164,4 +164,4 @@ $numero_convenio = mysql_num_rows($convenio);
 </div>
 
 
-<? include_once("footer.php");?>
+<?php include_once("footer.php");?>

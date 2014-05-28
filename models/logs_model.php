@@ -1,4 +1,4 @@
-<?
+<?php
 function getLog($id){
 	$query="SELECT * 
 					FROM log_auditoria_marcada

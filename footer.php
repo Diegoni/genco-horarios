@@ -1,5 +1,5 @@
-  <script src="<?= $librerias_url?>chosen/chosen.jquery.js" type="text/javascript"></script>
-  <script src="<?= $librerias_url?>chosen/docsupport/prism.js" type="text/javascript" charset="utf-8"></script>
+  <script src="<?php echo $librerias_url?>chosen/chosen.jquery.js" type="text/javascript"></script>
+  <script src="<?php echo $librerias_url?>chosen/docsupport/prism.js" type="text/javascript" charset="utf-8"></script>
   <script type="text/javascript">
     var config = {
       '.chosen-select'           : {},

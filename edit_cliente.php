@@ -1,4 +1,4 @@
-<?php
+<?php 
 include_once("head.php");      
 
 	//asigno las variables
@@ -17,7 +17,7 @@ include_once("head.php");
 	<table class="table table-hover">
 	<tr>
 	<td><b>Accion</b></td>
-	<td><?echo $rows['Accion']?></td>
+	<td><?php echo $rows['Accion']?></td>
 	</tr>
 	<tr>
 	<td></td>
@@ -26,23 +26,23 @@ include_once("head.php");
 	</tr>
 	<tr>
 	<td><b>Nombre</b></td>
-	<td><?echo $rows['nombre_old']?></td>
-	<td><?echo $rows['nombre_new']?></td>
+	<td><?php echo $rows['nombre_old']?></td>
+	<td><?php echo $rows['nombre_new']?></td>
 	</tr>
 	<tr>
 	<td><b>Legajo</b></td>
-	<td><?echo $rows['legajo_old']?></td>
-	<td><?echo $rows['legajo_new']?></td>
+	<td><?php echo $rows['legajo_old']?></td>
+	<td><?php echo $rows['legajo_new']?></td>
 	</tr>
 	<tr>
 	<td><b>Dept.</b></td>
-	<td><?echo $rows['departamento_iddepartamento_old']?></td>
-	<td><?echo $rows['departamento_iddepartamento_new']?></td>
+	<td><?php echo $rows['departamento_iddepartamento_old']?></td>
+	<td><?php echo $rows['departamento_iddepartamento_new']?></td>
 	</tr>
 	<tr>
 	<td><b>Estado</b></td>
-	<td><?echo $rows['activo_old']?></td>
-	<td><?echo $rows['activo_new']?></td>
+	<td><?php echo $rows['activo_old']?></td>
+	<td><?php echo $rows['activo_new']?></td>
 	</tr>
 	</table>
 	<button type="button" onClick="window.close()" class="btn btn-info">Cerrar</button>
@@ -51,5 +51,5 @@ include_once("head.php");
 		
 		
 	</div> 
- 	<? 	} // cierra el while ?>
+ 	<?php  	} // cierra el while ?>
  

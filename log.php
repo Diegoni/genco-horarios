@@ -36,9 +36,9 @@ $numero_filas = mysql_num_rows($usuario);
 <thead>
 
 <tbody>
-<? do{ ?>
+<?php do{ ?>
 <tr>
-<?
+<?php
 if($row_usuario['Accion']=="Insert"){
 	$action="Alta";
 }else if($row_usuario['Accion']=="Delete"){
@@ -49,14 +49,14 @@ if($row_usuario['Accion']=="Insert"){
 
 
 ?>
-<td><? echo date( "d-m-Y", strtotime( $row_usuario['Creacion'] ) );  ?></td><!-- Cambio de formato de fecha -->
-<td><? echo date( "H:i:s", strtotime( $row_usuario['Creacion'] ) );  ?></td><!-- Cambio de formato de hora  -->
-<td><? echo $action;?></td>
-<td><? echo $row_usuario['Usuario'];?></td>
-<td><? echo $row_usuario['idusuario'];?></td>
-<td><A class="btn btn-primary" title="Ver accion" onClick="abrirVentana('edit_cliente.php?id=<?echo $row_usuario['id_log_usuario'];?>')"><i class="icon-circle-arrow-right"></i> </A></td>
+<td><?php echo date( "d-m-Y", strtotime( $row_usuario['Creacion'] ) );  ?></td><!-- Cambio de formato de fecha -->
+<td><?php echo date( "H:i:s", strtotime( $row_usuario['Creacion'] ) );  ?></td><!-- Cambio de formato de hora  -->
+<td><?php echo $action;?></td>
+<td><?php echo $row_usuario['Usuario'];?></td>
+<td><?php echo $row_usuario['idusuario'];?></td>
+<td><A class="btn btn-primary" title="Ver accion" onClick="abrirVentana('edit_cliente.php?id=<?php echo $row_usuario['id_log_usuario'];?>')"><i class="icon-circle-arrow-right"></i> </A></td>
 </tr>
-<? }while ($row_usuario = mysql_fetch_array($usuario)) ?>
+<?php }while ($row_usuario = mysql_fetch_array($usuario)) ?>
 </tbody>
 
 </table>
@@ -65,4 +65,4 @@ if($row_usuario['Accion']=="Insert"){
 </div>
 
 
-<? include_once("footer.php");?>
+<?php include_once("footer.php");?>

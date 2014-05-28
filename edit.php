@@ -1,4 +1,4 @@
-<?php 
+<?php  
 include_once("head.php");    
 include_once($models_url."marcadas_model.php");     
 include_once($models_url."parametros_model.php");    
@@ -121,7 +121,7 @@ if (isset($_GET['delete'])){
 		window.close();
 		</script>
 		
-	<? }} 
+	<?php  }} 
 	
 	if (isset($_GET['confirmar_edit'])){
 		
@@ -137,7 +137,7 @@ if (isset($_GET['delete'])){
 		window.close();
 		</script>
 		
-	<? } 
+	<?php  } 
 	
 	
 	
@@ -206,7 +206,7 @@ if (isset($_GET['delete'])){
 				opener.location.reload();
 				window.close();
 				</script>																
-	<?}
+	<?php }
 	}//cierra ifsset nuevo
 			
 	if (isset($_GET['confirmar_update'])){
@@ -231,10 +231,10 @@ if (isset($_GET['delete'])){
 				opener.location.reload();
 				window.close();
 				</script>																
-	<? } ?>
+	<?php  } ?>
 
 
-	<?if ($bandera==1){?>
+	<?php if ($bandera==1){?>
 	<body>
 	<div class="container; celeste">
 	
@@ -248,15 +248,15 @@ if (isset($_GET['delete'])){
 	<fieldset>
 	<legend>Marcaciones:</legend>
 	<table>
-	<? if($numero_marcacion>0){
+	<?php  if($numero_marcacion>0){
 	$stack = array();
 	do{ 
 	$id_marcada=$row_marcacion['id_marcada'];
 	?>	
 	<tr>
 	<td>
-		<select name="id_parametro<?echo $id_marcada?>" class="input-medium">
-		<?
+		<select name="id_parametro<?php echo $id_marcada?>" class="input-medium">
+		<?php 
 		$id_parametros=$row_marcacion['id_parametros'];
 		$parametros=getParametros();
 		$row_parametros = mysql_fetch_assoc($parametros);
@@ -271,40 +271,40 @@ if (isset($_GET['delete'])){
 					array_push($stack, $row_parametros['id_parametros']);
 				?>
 				
-				<option value="<? echo $row_parametros['id_parametros']?>" selected>
-				<? echo $row_parametros['turno']?> : <? echo $row_parametros['tipo']?></option>
-			<?} else {?>
-				<option value="<? echo $row_parametros['id_parametros']?>">
-				<? echo $row_parametros['turno']?> : <? echo $row_parametros['tipo']?></option>
-			<?}
+				<option value="<?php  echo $row_parametros['id_parametros']?>" selected>
+				<?php  echo $row_parametros['turno']?> : <?php  echo $row_parametros['tipo']?></option>
+			<?php } else {?>
+				<option value="<?php  echo $row_parametros['id_parametros']?>">
+				<?php  echo $row_parametros['turno']?> : <?php  echo $row_parametros['tipo']?></option>
+			<?php }
 		}while ($row_parametros = mysql_fetch_array($parametros));?>
 		
 		</select>
 	</td>
 	
-	<td><input type="time" class="input-medium" name="entrada<?echo $row_marcacion['id_marcada']?>" value="<?echo date("H:i", strtotime($row_marcacion['entrada']))?>" required></td>
-	<td><a href="edit.php?delete=<?echo $row_marcacion['id_marcada']?>&fecha=<?= $fecha?>&id=<?= $id?>" onclick="return confirm('Esta seguro que quiere borrar');" class="btn btn-danger" name="delete">X</td>
+	<td><input type="time" class="input-medium" name="entrada<?php echo $row_marcacion['id_marcada']?>" value="<?php echo date("H:i", strtotime($row_marcacion['entrada']))?>" required></td>
+	<td><a href="edit.php?delete=<?php echo $row_marcacion['id_marcada']?>&fecha=<?php echo $fecha?>&id=<?php echo $id?>" onclick="return confirm('Esta seguro que quiere borrar');" class="btn btn-danger" name="delete">X</td>
 	</tr>
-	<? 	}while ($row_marcacion = mysql_fetch_array($marcacion));
+	<?php  	}while ($row_marcacion = mysql_fetch_array($marcacion));
 	if($comparacion==1){?>
 				
 				<script>
 				alert("Hay horarios repetidos");
 				</script>
-	<?} 
+	<?php } 
 	}else{
 	echo "No hay elementos para editar";}?>
 	<tr>
 	<td colspan="5">
 			<center>
-			<input type="hidden" name="id" value="<?echo $_GET['id']?>">
-			<input type="hidden" name="fecha" value="<?echo $_GET['fecha']?>">
+			<input type="hidden" name="id" value="<?php echo $_GET['id']?>">
+			<input type="hidden" name="fecha" value="<?php echo $_GET['fecha']?>">
 			<a href='#' class='show_hide btn' title='Nuevo'>nuevo</a>
-			<?if($numero_marcacion>0){?>
+			<?php if($numero_marcacion>0){?>
 			<input type="submit" class="btn" name="modificar" title="guardar las modificaciones realizadas" value="modificar" id="modificar">
-			<?}else{?>
+			<?php }else{?>
 			<input type="submit" class="btn" name="modificar" title="no se pueden realizar modificaciones" value="modificar" id="modificar" disabled>
-			<?}?>
+			<?php }?>
 			<a class="btn btn-danger" href="" title="no guarda los cambios realizados" onClick="cerrarse()">volver</a>
 			</center>
 	</td>
@@ -325,7 +325,7 @@ if (isset($_GET['delete'])){
 		<legend>Nueva marcación:</legend>
 		<table>
 		
-			<?
+			<?php 
 			$parametros2=getParametros();
 			$row_parametros2 = mysql_fetch_assoc($parametros2);
 			
@@ -342,32 +342,32 @@ if (isset($_GET['delete'])){
 				}
 				if($comparacion==0 && $row_parametros2['id_parametros']!=0){?>
 				<tr>				
-				<input  type="hidden" value="<?= $row_parametros2['id_parametros']?>" name="id_parametro<?= $row_parametros2['id_parametros']?>">
-				<td><label><?= $row_parametros2['turno']?> : <? echo $row_parametros2['tipo']?></label></td>
-				<td><input type="time" class="input-medium" name="entrada<?= $row_parametros2['id_parametros']?>" value=""></td>	
+				<input  type="hidden" value="<?php echo $row_parametros2['id_parametros']?>" name="id_parametro<?php echo $row_parametros2['id_parametros']?>">
+				<td><label><?php echo $row_parametros2['turno']?> : <?php  echo $row_parametros2['tipo']?></label></td>
+				<td><input type="time" class="input-medium" name="entrada<?php echo $row_parametros2['id_parametros']?>" value=""></td>	
 				</tr>
-			<?
+			<?php 
 			$k=$k+1;
 			}				
 			}while ($row_parametros2 = mysql_fetch_array($parametros2));
 			if($k>0){ ?>
 		<td colspan="5">
 			<center>
-				<input type="hidden" name="id" value="<?echo $_GET['id']?>">
-				<input type="hidden" name="fecha" value="<?echo $_GET['fecha']?>">
+				<input type="hidden" name="id" value="<?php echo $_GET['id']?>">
+				<input type="hidden" name="fecha" value="<?php echo $_GET['fecha']?>">
 				<input type="submit" class="btn" name="nuevo" value="aceptar"  id="nuevo">
 				<a href='#' class='show_hide btn btn-danger' title='cancelar'>cancelar</a>
 			</center>
 		</td>
 			
-			<? }else{	?>
+			<?php  }else{	?>
 		<td colspan="5">
 			<center>
 				<input type="submit" class="btn" name="nuevo" title="todas las marcaciones ya están dadas de alta" value="aceptar"  id="nuevo" disabled>
 				<a href='#' class='show_hide btn btn-danger' title='cancelar'>cancelar</a>
 			</center>
 		</td>
-		<?}?>
+		<?php }?>
 		
 		</tr>
 		</table>
@@ -378,4 +378,4 @@ if (isset($_GET['delete'])){
 	
 	</div><!--Cierra el div class="celeste"-->
 	</body>
-	<?}?>
+	<?php }?>
