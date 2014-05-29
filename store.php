@@ -1,4 +1,4 @@
-<? 
+<?php 
 include_once("config/database.php");
 	
 function SumarHoras($fecha_inicial, $fecha_final, $id){
