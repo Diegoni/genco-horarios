@@ -30,7 +30,7 @@ do{
 	$USERID=odbc_result($checkinout,"USERID");
 	$CHECKTIME=odbc_result($checkinout,"CHECKTIME"); 
 	$CHECKTYPE=odbc_result($checkinout,"CHECKTYPE");
-	$marcada_formato=date("Y-m-d H:m:s", strtotime($CHECKTIME));
+	$marcada_formato=date("Y-m-d H:i:s", strtotime($CHECKTIME));
 	
 	mysql_query("INSERT INTO CHECKTIME  
 	        (USERID, CHECKTIME, CHECKTYPE)  
