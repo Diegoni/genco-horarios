@@ -4,41 +4,60 @@ session_start();
 	header("Location: ../login/acceso.php");
 	}
 include_once("menu.php");    
-include_once($models_url."feriados_model.php");    
-include_once($models_url."mensajes_model.php");    
+include_once($models_url."convenios_model.php");   
+include_once($models_url."mensajes_model.php");   
 
 /*--------------------------------------------------------------------
 ----------------------------------------------------------------------
-					Borrar Feriado
+					Borrar Convenio
 ----------------------------------------------------------------------
 --------------------------------------------------------------------*/	
 	
 if (isset($_GET['eliminar'])){
-	deleteFeriado($_GET['eliminar']);
+	deleteConvenio($_GET['eliminar']);
 }	 
+
+
+/*--------------------------------------------------------------------
+----------------------------------------------------------------------
+					Editar Convenio
+----------------------------------------------------------------------
+--------------------------------------------------------------------*/	
+	
+if (isset($_GET['modificar'])){
+	updateConvenio(
+			$_GET['id'],
+			$_GET['convenio'],
+			$_GET['semana'],
+			$_GET['sabado'],
+			$_GET['salida_sabado'],
+			$_GET['estado']
+	);
+}	 
+	
 	
 	
 /*--------------------------------------------------------------------
 ----------------------------------------------------------------------
-					Nuevo Feriado
+					Nuevo Convenio
 ----------------------------------------------------------------------
 --------------------------------------------------------------------*/	
 	
 if (isset($_GET['nuevo'])){
-	$dia=date("Y-m-d", strtotime($_GET['dia']));
-	$motivo=$_GET['feriado'];
-	
-	$feriado=getFeriados($dia);
-	$row_feriado = mysql_fetch_assoc($feriado);
-	$numero_feriados = mysql_num_rows($feriado);
-	
-	if($numero_feriados==0){
-		insertFeriado($dia, $motivo);
+		
+	$convenio=getConvenios($_GET['convenio'], 'convenio');
+	$row_convenio = mysql_fetch_assoc($convenio);
+	$numero_convenios = mysql_num_rows($convenio);
+		
+	if($numero_convenios==0){	
+		insertConvenio(	$_GET['convenio'],
+										$_GET['semana'],
+										$_GET['sabado'],
+										$_GET['salida_sabado']);
 		$bandera=1;
 	}else{
 		$bandera=0;
 	}
-
 }
 /*--------------------------------------------------------------------
 ----------------------------------------------------------------------
@@ -46,22 +65,27 @@ if (isset($_GET['nuevo'])){
 ----------------------------------------------------------------------
 --------------------------------------------------------------------*/
 
- 	$feriado=getFeriados();
-	$row_feriado = mysql_fetch_assoc($feriado);
-	$numero_feriados = mysql_num_rows($feriado);
+	$convenio=getConvenios();
+	$row_convenio = mysql_fetch_assoc($convenio);
+	$numero_convenios = mysql_num_rows($convenio);
 	?>
 	<div class="span9">
 	<center>
 
-	<!-- si hay modificacion o eliminacion de usuario se da aviso que se realizado exitosamente -->
+	<!-- si hay modificacion o eliminacion de convenio se da aviso que se realizado exitosamente -->
 	<?php 
 	if(isset($_GET['nuevo'])){
 		if($bandera==1){
-			echo getMensajes('insert', 'ok', 'Feriado', $_GET['feriado']);	
+			echo getMensajes('insert', 'ok', 'Convenio', $_GET['convenio']);	
 		}else{
-			echo getMensajes('insert', 'error', 'Feriado', $_GET['feriado']);	
+			echo getMensajes('insert', 'error', 'Convenio', $_GET['convenio']);	
 		}
-	}?>
+	}else if(isset($_GET['modificar'])){
+		echo getMensajes('update', 'ok', 'Convenio', $_GET['convenio']);
+	}else if(isset($_GET['eliminar'])){
+		echo getMensajes('delete', 'ok', 'Convenio', $_GET['convenio']);
+	}
+	?>
 	
 	<div ALIGN=left>
 	<a href='#' class='show_hide btn btn-primary' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
@@ -78,15 +102,19 @@ if (isset($_GET['nuevo'])){
 --------------------------------------------------------------------->		
 	<div class='slidingDiv'>
 	<div class="span9">
-	<form action="feriados.php" method="get" > 
+	<form action="convenios.php" method="get" > 
 	<table class="table table-hover">
 	<tr>
-		<td>Ingrese día</td>
-		<td><input type="text" name="dia" id="datepicker" placeholder="ingrese fecha" autocomplete="off" required></td>
+		<td>Convenio</td>
+		<td><input type="text" name="convenio" placeholder="ingrese convenio" required></td>
 	</tr>
 	<tr>
-		<td>Ingrese motivo del feriado</td>
-		<td><input type="text" name="feriado" placeholder="ingrese feriado"></td>		
+		<td>Horas semana</td>
+		<td><input type="number" name="semana" placeholder="hs diarias que trabaja semanalmente" required></td>
+	</tr>
+	<tr>
+		<td>Horas sábado</td>
+		<td><input type="number" name="sabado" placeholder="hs que debe trabajar los sábados" required></td>
 	</tr>
 	<tr>
 		<td></td>
@@ -112,19 +140,28 @@ if (isset($_GET['nuevo'])){
 	<table border="1" class="table table-hover" id="example">
 	<thead>
 	<tr>
-		<td>Día</td>
-		<td>Feriado</td>
+		<td>Convenio</td>
+		<td>Semanales</td>
+		<td>Sábado</td>
 		<td>Eliminar</td>
 	</tr>
 	</thead>	
 	<tbody>
 	<?php do{ ?>
 	<tr>
-		<td><?php echo $row_feriado['dia'];?></td>
-		<td><?php echo $row_feriado['feriado'];?></td>
-		<td><a href="feriados.php?eliminar=<?php echo $row_feriado['id_feriado'];?>" onclick="return confirm('Esta seguro de eliminar este item?');" class="btn btn-danger"><i class="icon-minus-sign"></i></a></td>
+		<td><?php echo $row_convenio['convenio'];?></td>
+		<td><?php echo $row_convenio['semana'];?></td>
+		<td><?php echo $row_convenio['sabado'];?></td>
+		<td>
+		<A class="btn btn-primary" title="Editar convenio" HREF="modificar_convenio.php?id=<?php echo $row_convenio['id_convenio'];?>&action=1"><i class="icon-edit"></i></A>
+		<?php if ($row_convenio['id_estado']==0) {?>
+		<A type="submit" class="btn btn-danger disabled"  title="El convenio ya esta dado de baja"><i class="icon-minus-sign"></i></i></A>
+		<?php } else { ?>
+		<a href="convenios.php?eliminar=<?php echo $row_convenio['id_convenio'];?>" onclick="return confirm('Esta seguro de eliminar este item?');" class="btn btn-danger"><i class="icon-minus-sign"></i></a>
+		<?php } ?>
+		</td>
 	</tr>
-	<?php }while($row_feriado=mysql_fetch_assoc($feriado));?> 
+	<?php }while($row_convenio=mysql_fetch_assoc($convenio));?> 
 	</tbody>
 	</table>
 	</div>

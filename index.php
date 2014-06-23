@@ -13,6 +13,7 @@ include_once($models_url."usuarios_model.php");
 include_once($models_url."departamentos_model.php"); 
 include_once($models_url."otrahora_model.php"); 
 include_once($models_url."logs_model.php"); 
+$bandera=0;
 
 //Funcion para saber si se debe actualizar la pagina
 function actualizar ($fecha_americana,$fecha_access2){

@@ -65,9 +65,9 @@ if(isset($_GET['buscar'])){
 <center>
 
 <!-- si hay modificacion o eliminacion de usuario se da aviso que se realizado exitosamente -->
-<?php if($_GET['modificar']==1){
+<?php if(isset($_GET['modificar'])){
 	echo getMensajes('update', 'ok', 'Empresa', $_GET['empresa']);
-}else if($_GET['eliminar']==1){
+}else if(isset($_GET['eliminar'])){
 	echo getMensajes('delete', 'ok', 'Empresa', $_GET['empresa']);
 }?>
 

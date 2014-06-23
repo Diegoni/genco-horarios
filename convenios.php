@@ -6,6 +6,7 @@ session_start();
 include_once("menu.php");    
 include_once($models_url."convenios_model.php");   
 include_once($models_url."mensajes_model.php");   
+$bandera=0;
 
 /*--------------------------------------------------------------------
 ----------------------------------------------------------------------
@@ -146,6 +147,7 @@ if (isset($_GET['nuevo'])){
 		<td>Semanales</td>
 		<td>Sábado</td>
 		<td>Salida sábado</td>
+		<td>Turnos</td>
 		<td>Eliminar</td>
 	</tr>
 	</thead>	
@@ -156,6 +158,11 @@ if (isset($_GET['nuevo'])){
 		<td><?php echo $row_convenio['semana'];?></td>
 		<td><?php echo $row_convenio['sabado'];?></td>
 		<td><?php echo $row_convenio['salida_sabado'];?></td>
+		<td>
+			<a class="btn btn-default" href="convenios_new.php?id=<?php echo $row_convenio['id_convenio']?>"><i class="icon-plus-sign-alt"></i> Nuevo</a>
+			<a class="btn btn-default" href="convenios_turno.php?id=<?php echo $row_convenio['id_convenio']?>"><i class="icon-folder-open-alt"></i> Ver</a>
+			
+		</td>
 		<td>
 		<A class="btn btn-primary" title="Editar convenio" HREF="modificar_convenio.php?id=<?php echo $row_convenio['id_convenio'];?>&action=1"><i class="icon-edit"></i></A>
 		<?php if ($row_convenio['id_estado']==0) {?>

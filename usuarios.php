@@ -124,9 +124,9 @@ $numero_convenio = mysql_num_rows($convenio);
 
 <!-- si hay modificacion o eliminacion de usuario se da aviso que se realizado exitosamente -->
 <?php 
-if($_GET['modificar']==1){
+if(isset($_GET['modificar'])){
 	echo getMensajes('updete', 'ok', 'Usuario', $_GET['usuario']);
-}else if($_GET['eliminar']==1){
+}else if(isset($_GET['eliminar'])){
 	echo getMensajes('delete', 'ok', 'Usuario', $_GET['usuario']);
 } 
 ?>

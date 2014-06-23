@@ -14,7 +14,9 @@ include_once($models_url."marcadas_model.php");
 //						Valores iniciales
 //----------------------------------------------------------------------			
 //--------------------------------------------------------------------->
-$id_usuario=$_GET['id'];
+if(isset($_GET['id'])){
+	$id_usuario=$_GET['id'];	
+}
 $totalotras=0;
 $fecha=date("d-m-Y");
 

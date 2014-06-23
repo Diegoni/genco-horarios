@@ -51,6 +51,11 @@ function imprSelec(muestra){
 <script src="<?php echo $librerias_url?>bootstrap/js/jquery.js"></script>
 <script src="<?php echo $librerias_url?>bootstrap/js/bootstrap.js"></script>
 
+
+<link href="<?php echo $librerias_url?>bootstrap/css/bootstrap-switch.css" rel="stylesheet"/>
+<script src="<?php echo $librerias_url?>bootstrap/js/bootstrap-switch.js"></script>
+<script src="<?php echo $librerias_url?>bootstrap/js/index.js"></script>
+
 <!--------------------------------------------------------------------
 ----------------------------------------------------------------------
 						Css y Js creados 
@@ -74,6 +79,13 @@ function imprSelec(muestra){
 <script src="<?php echo $librerias_url?>ui/jquery-ui.js"></script>
 <script src="<?php echo $librerias_url?>js/jquery.tabs.pack.js" type="text/javascript"></script>
 
+
+
+
+<link href="<?php echo $librerias_url?>ui/jquery.ui.timepicker.css?v=0.3.3" rel="stylesheet" type="text/css" />
+<script src="<?php echo $librerias_url?>ui/jquery.ui.core.min.js" type="text/javascript" ></script>
+<script src="<?php echo $librerias_url?>ui/jquery.ui.timepicker.js?v=0.3.3" type="text/javascript"></script>
+
 <!--------------------------------------------------------------------
 ----------------------------------------------------------------------
 						Chosen
@@ -85,7 +97,6 @@ function imprSelec(muestra){
     /* fix rtl for demo */
     .chosen-rtl .chosen-drop { left: -9000px; }
   </style>
-
 
 
 <!--------------------------------------------------------------------

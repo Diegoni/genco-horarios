@@ -5722,6 +5722,12 @@ a.badge:focus {
   color:#000;
 }
 
+.label-verde,
+.badge-verde {
+  background-color: #468847;
+  color:#FFF;
+}
+
 .label-success[href],
 .badge-success[href] {
   background-color: #356635;

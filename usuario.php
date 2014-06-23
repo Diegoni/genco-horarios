@@ -459,6 +459,10 @@ if($fecha_inicio>$fecha_final){
 <tbody>
 <?php   
 $total_normales=0;
+$total_cien=0;
+$total_cincuenta=0;
+$subtotal=0;
+$total=0;
 foreach($arrayFechas as $valor){?>
 
 	<tr>	

@@ -1,7 +1,26 @@
+// Para select
+  
+  $().ready(function() {  
+   $('#add').click(function() {  
+    return !$('#select1 option:selected').remove().appendTo('#select2');  
+   });  
+   $('#remove').click(function() {  
+    return !$('#select2 option:selected').remove().appendTo('#select1');  
+   });  
+  });  
+
+
+  $().ready(function() {  
+   $('#add2').click(function() {  
+    return !$('#select3 option:selected').remove().appendTo('#select4');  
+   });  
+   $('#remove2').click(function() {  
+    return !$('#select4 option:selected').remove().appendTo('#select3');  
+   });  
+  }); 
+
 // Funcion que controla que no sean mas de 3 caracteres en el input buscar 
 // Para el datapicker, es una funcion de jquery ui 
-
-
 
 $(document).ready(function(){
          $(".carga").hide();
