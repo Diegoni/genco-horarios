@@ -22,8 +22,26 @@ function intervalo_tiempo($init,$finish)
     return $diferencia;
 }
 
+function pasar_hora($num){
+	$num=$num*60;
+	$hora_cd = $num*0.01666666667; //hora sin decimales
+	$hora = floor($num*0.01666666667);//hora sin decimales
+	$resto = $hora_cd-$hora;
+	$minutos = round($resto*60);
+	if($minutos<10){
+		$minutos="0".$minutos;
+	}
+	$final= "".$hora.":".$minutos."";	
+	
+	return $final;
+}
+
 
 	$total=0;
+	$sabados=0;
+	$semana=0;
+	$semanal=0;
+
 	
 	$convenio=getConvenio($_GET['id']);
 	$row_convenio = mysql_fetch_assoc($convenio);
@@ -50,12 +68,15 @@ function intervalo_tiempo($init,$finish)
 				<td title="Viernes" class="table-center">V</td>
 				<td title="Sábado" class="table-center">S</td>
 				<td title="Domingo" class="table-center">D</td>
-				<td>Horas</td>
+				<td>Intervalo</td>
+				<td>Semanal</td>
 				<td></td>
 			</tr>
 			</thead>
 			<tbody>
-			<?php do{ ?>
+			<?php do{ 
+				$cantidad=0;
+				?>
 			<tr>
 				<td class="table-center">
 					<?php if($row_convenio_turno['redondeo']==1){
@@ -68,36 +89,43 @@ function intervalo_tiempo($init,$finish)
 				<td class="table-center">
 					<?php if($row_convenio_turno['lunes']==1){
 						echo "<span class='label label-verde'><i class='icon-ok'></i></span>";
+						$cantidad=$cantidad+1;
 					};?>
 				</td>
 				<td class="table-center">
 					<?php if($row_convenio_turno['martes']==1){
 						echo "<span class='label label-verde'><i class='icon-ok'></i></span>";
+						$cantidad=$cantidad+1;
 					};?>
 				</td>
 				<td class="table-center">
 					<?php if($row_convenio_turno['miercoles']==1){
 						echo "<span class='label label-verde'><i class='icon-ok'></i></span>";
+						$cantidad=$cantidad+1;
 					};?>
 				</td>
 				<td class="table-center">
 					<?php if($row_convenio_turno['jueves']==1){
 						echo "<span class='label label-verde'><i class='icon-ok'></i></span>";
+						$cantidad=$cantidad+1;
 					};?>
 				</td>
 				<td class="table-center">
 					<?php if($row_convenio_turno['viernes']==1){
 						echo "<span class='label label-verde'><i class='icon-ok'></i></span>";
+						$cantidad=$cantidad+1;
 					};?>
 				</td>
 				<td class="table-center">
 					<?php if($row_convenio_turno['sabado']==1){
 						echo "<span class='label label-info'><i class='icon-ok'></i></span>";
+						$cantidad=$cantidad+1;
 					};?>
 				</td>
 				<td class="table-center">
 					<?php if($row_convenio_turno['domingo']==1){
 						echo "<span class='label label-important'><i class='icon-ok'></i></span>";
+						$cantidad=$cantidad+1;
 					};?>
 				</td>
 				<td>
@@ -105,9 +133,21 @@ function intervalo_tiempo($init,$finish)
 						$e=date("H:i", strtotime($row_convenio_turno['entrada']));
 						$s=date("H:i", strtotime($row_convenio_turno['salida']));
 						$m=intervalo_tiempo($e,$s);
-						$total=$total+$m;
-						echo $m;
+						echo pasar_hora($m);
+						
+						
+						if($row_convenio_turno['sabado']==1){
+							$sabados=$sabados+$m;
+						}else{
+							$semana=$semana+$m;
+						}
+						$semanal=$cantidad*$m;
+						$total=$total+$semanal;
+						
 					?>
+				</td>
+				<td>
+					<?php echo pasar_hora($semanal);?>
 				</td>		
 				<td>
 					<a class="btn btn-primary" title="Editar turno" href="modificar_convenio_turno.php?id=<?php echo $row_convenio_turno['id_convenio_turno'];?>"><i class="icon-edit"></i></a>
@@ -116,9 +156,20 @@ function intervalo_tiempo($init,$finish)
 
 			</tr>
 			<?php }while($row_convenio_turno=mysql_fetch_assoc($convenio_turno))?>
+		
 			<tr>
-				<td colspan="11">Total de horas semanales</td>
-				<td><?php echo $total;?></td>
+				<td colspan="12">Total de horas semanales</td>
+				<th><?php echo pasar_hora($total);?></th>
+				<td></td>
+			</tr>
+			<tr>
+				<td colspan="12">Total de horas de lunes a viernes</td>
+				<th><?php echo pasar_hora($semana);?></th>
+				<td></td>
+			</tr>
+			<tr>
+				<td colspan="12">Total de horas sabados</td>
+				<th><?php echo pasar_hora($sabados);?></th>
 				<td></td>
 			</tr>
 			</tbody>

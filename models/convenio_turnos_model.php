@@ -32,10 +32,13 @@ function getConvenioturnos($dato=NULL, $campo=NULL){
 }
 
 function getConvenioturno($id){
-	$query="SELECT * FROM `convenio` WHERE id_convenio='$id'";   
-	$convenio=mysql_query($query) or die(mysql_error());
+	$query="SELECT * FROM 
+			`convenio_turno` 
+
+			WHERE id_convenio_turno='$id'";   
+	$convenio_turno=mysql_query($query) or die(mysql_error());
 	
-	return $convenio;
+	return $convenio_turno;
 }
 
 

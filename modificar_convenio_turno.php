@@ -9,8 +9,9 @@ include_once($models_url."convenio_turnos_model.php");
 include_once($models_url."mensajes_model.php");
 
 
-	$convenio=getConvenio($_GET['id']);
-	$row_convenio = mysql_fetch_assoc($convenio);
+	$convenio_turno=getConvenioturno($_GET['id']);
+	$row_convenio_turno = mysql_fetch_assoc($convenio_turno);
+	
 	
 if(isset($_GET['insert'])){
 	$lunes=0;
@@ -71,54 +72,59 @@ if(isset($_GET['insert'])){
 ?>
 
 <div class="well">
+	<?php do{ ?>
 	<form name="franja" method="get">
 		<table class="table">
 			<tr>
 				<td>Convenio</td>
 				<td>
-					<input name="id" type="hidden" value="<?php echo $row_convenio['id_convenio']?>" />
+					<?php
+					$convenio=getConvenio($row_convenio_turno['id_convenio']);
+					$row_convenio = mysql_fetch_assoc($convenio);
+					?>
+					<input name="id" type="hidden" value="<?php echo $row_convenio['idconvenio']?>" />
 					<input name="convenio" type="text" value="<?php echo $row_convenio['convenio']?>" readonly/>
 					
 				</td>
 			</tr>
 			<tr>
 				<td>Lunes</td>
-				<td><input class="" type="checkbox" name="lunes" data-on="success" data-off="danger"/></td>
+				<td><input type="checkbox" <?php if($row_convenio_turno['lunes']==1){echo "checked";}?> name="lunes" data-on="success" data-off="danger"/></td>
 			</tr>
 			<tr>
 				<td>Martes</td>
-				<td><input type="checkbox" name="martes" data-on="success" data-off="danger"/></td>
+				<td><input type="checkbox" <?php if($row_convenio_turno['martes']==1){echo "checked";}?> name="martes" data-on="success" data-off="danger"/></td>
 			</tr>
 			<tr>
 				<td>Miercoles</td>
-				<td><input type="checkbox" name="miercoles" data-on="success" data-off="danger"/></td>
+				<td><input type="checkbox" <?php if($row_convenio_turno['miercoles']==1){echo "checked";}?> name="miercoles" data-on="success" data-off="danger"/></td>
 			</tr>
 			<tr>
 				<td>Jueves</td>
-				<td><input type="checkbox" name="jueves" data-on="success" data-off="danger"/></td>
+				<td><input type="checkbox" <?php if($row_convenio_turno['jueves']==1){echo "checked";}?> name="jueves" data-on="success" data-off="danger"/></td>
 			</tr>
 			<tr>
 				<td>Viernes</td>
-				<td><input type="checkbox" name="viernes" data-on="success" data-off="danger"/></td>
+				<td><input type="checkbox" <?php if($row_convenio_turno['viernes']==1){echo "checked";}?> name="viernes" data-on="success" data-off="danger"/></td>
 			</tr>
 			<tr>
 				<td>Sabado</td>
-				<td><input type="checkbox" name="sabado" data-on="success" data-off="danger"/></td>
+				<td><input type="checkbox" <?php if($row_convenio_turno['sabado']==1){echo "checked";}?> name="sabado" data-on="success" data-off="danger"/></td>
 			</tr>
 			<tr>
 				<td>Domingo</td>
-				<td><input type="checkbox" name="domingo" data-on="success" data-off="danger"/></td>
+				<td><input type="checkbox" <?php if($row_convenio_turno['domingo']==1){echo "checked";}?> name="domingo" data-on="success" data-off="danger"/></td>
 			</tr>
 			<tr>				
 				<td>Redondeo</td>
-				<td><input type="checkbox" checked data-on="success" data-off="danger" name="redondeo" /></td>
+				<td><input type="checkbox" <?php if($row_convenio_turno['redondeo']==1){echo "checked";}?> checked data-on="success" data-off="danger" name="redondeo" /></td>
 			</tr>
 			<tr>
 				<td>Entrada</td>
 				<td>
 					<div class="input-prepend">
 						<span class="timepicker_button_trigger add-on"><i class="icon-time"></i></span>
-					  	<input type="text"  id="entrada" placeholder="ingrese entrada" onkeypress="return false" name="entrada" required/>
+					  	<input type="text"  id="entrada" placeholder="ingrese entrada" onkeypress="return false" name="entrada" required value="<?php echo date("H:i", strtotime($row_convenio_turno['entrada']));?>"/>
 					</div>
 					
 			        <script type="text/javascript">
@@ -135,7 +141,7 @@ if(isset($_GET['insert'])){
 				<td>
 					<div class="input-prepend">
 						<span class="salida_button add-on"><i class="icon-time"></i></span>
-					  	<input type="text"  id="salida" name="salida" placeholder="ingrese salida" onkeypress="return false" required />
+					  	<input type="text"  id="salida" name="salida" placeholder="ingrese salida" onkeypress="return false" required value="<?php echo date("H:i", strtotime($row_convenio_turno['salida']));?>"/>
 					</div>
 			        <script type="text/javascript">
 						$('#salida').timepicker({
@@ -151,7 +157,7 @@ if(isset($_GET['insert'])){
 				<td>
 					<div class="input-prepend">
 						<span class="salida_button add-on"><i class="icon-wrench"></i></span>
-					  	<input type="number" name="limite" step="1" max="30" min="1" placeholder="ingrese límite">
+					  	<input type="number" name="limite" step="1" max="30" min="1" placeholder="ingrese límite" value="<?php echo $row_convenio_turno['limite'];?>">
 					</div>
     			</td>
 			</tr>
@@ -163,5 +169,6 @@ if(isset($_GET['insert'])){
 			</tr>
 		</table>
 	</form>
+	<?php }while($row_convenio_turno=mysql_fetch_assoc($convenio_turno)); ?>
 </div>		
 	
