@@ -26,14 +26,7 @@ if (isset($_GET['eliminar'])){
 --------------------------------------------------------------------*/	
 	
 if (isset($_GET['modificar'])){
-	updateConvenio(
-			$_GET['id'],
-			$_GET['convenio'],
-			$_GET['semana'],
-			$_GET['sabado'],
-			$_GET['salida_sabado'],
-			$_GET['estado']
-	);
+	updateConvenio($_GET['id'], $_GET['convenio']);
 }	 
 	
 	
@@ -82,7 +75,7 @@ if (isset($_GET['nuevo'])){
 	}else if(isset($_GET['modificar'])){
 		echo getMensajes('update', 'ok', 'Convenio', $_GET['convenio']);
 	}else if(isset($_GET['eliminar'])){
-		echo getMensajes('delete', 'ok', 'Convenio', $_GET['convenio']);
+		echo getMensajes('delete', 'ok', 'Convenio', $_GET['eliminar']);
 	}
 	?>
 	
@@ -159,9 +152,7 @@ if (isset($_GET['nuevo'])){
 		<td><?php echo $row_convenio['sabado'];?></td>
 		<td><?php echo $row_convenio['salida_sabado'];?></td>
 		<td>
-			<a class="btn btn-default" href="convenios_new.php?id=<?php echo $row_convenio['id_convenio']?>"><i class="icon-plus-sign-alt"></i> Nuevo</a>
-			<a class="btn btn-default" href="convenios_turno.php?id=<?php echo $row_convenio['id_convenio']?>"><i class="icon-folder-open-alt"></i> Ver</a>
-			
+			<a class="btn btn-default" href="convenios_turno.php?id=<?php echo $row_convenio['id_convenio']?>"><i class="icon-folder-open-alt"></i> Ver</a>		
 		</td>
 		<td>
 		<A class="btn btn-primary" title="Editar convenio" HREF="modificar_convenio.php?id=<?php echo $row_convenio['id_convenio'];?>&action=1"><i class="icon-edit"></i></A>

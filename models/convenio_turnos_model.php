@@ -1,27 +1,29 @@
 <?php
 function deleteConvenioturno($id){
-	mysql_query("UPDATE `convenio` SET id_estado=0 WHERE id_convenio='$id'") or die(mysql_error());
+	mysql_query("UPDATE `convenio_turno` SET id_estado=0 WHERE id_convenio_turno='$id'") or die(mysql_error());
 }
 
-function updateConvenioturno($id_convenio, 
-												$convenio, 
-												$semana,
-												$sabado,
-												$salida_sabado,
-												$id_estado){
-	mysql_query("UPDATE `convenio` SET 
-								convenio='$convenio',
-								semana='$semana',
-								sabado='$sabado',
-								salida_sabado='$salida_sabado',
-								id_estado='$id_estado'
-								WHERE id_convenio='$id_convenio'") or die(mysql_error());
+function updateConvenioturno($datos){
+	mysql_query("UPDATE `convenio_turno` SET 
+					entrada='$datos[entrada]',
+					salida='$datos[salida]',
+					limite='$datos[limite]',
+					id_estado='$datos[id_estado]',
+					lunes='$datos[lunes]',
+					martes='$datos[martes]',
+					miercoles='$datos[miercoles]',
+					jueves='$datos[jueves]',
+					viernes='$datos[viernes]',
+					sabado='$datos[sabado]',
+					domingo='$datos[domingo]',
+					redondeo='$datos[redondeo]'	
+					WHERE id_convenio_turno ='$datos[id_convenio_turno]'") or die(mysql_error());
 
 }
 
 function getConvenioturnos($dato=NULL, $campo=NULL){
 	if(isset($dato, $campo)){
-	 	$query="SELECT * FROM convenio_turno WHERE convenio_turno.$campo='$dato'";   
+	 	$query="SELECT * FROM convenio_turno WHERE convenio_turno.$campo='$dato' AND id_estado=1";   
 		$convenio_turno=mysql_query($query) or die(mysql_error());
 	}else{
 		$query="SELECT * FROM convenio_turno WHERE id_estado=1 ORDER BY convenio";   
@@ -34,7 +36,6 @@ function getConvenioturnos($dato=NULL, $campo=NULL){
 function getConvenioturno($id){
 	$query="SELECT * FROM 
 			`convenio_turno` 
-
 			WHERE id_convenio_turno='$id'";   
 	$convenio_turno=mysql_query($query) or die(mysql_error());
 	
