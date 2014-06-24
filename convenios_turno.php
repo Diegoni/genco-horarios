@@ -313,6 +313,7 @@ if (isset($_GET['delete'])){
 				<td class="table-center">Redondeo</td>
 				<td>Entrada</td>
 				<td>Salida</td>
+				<td>Turno</td>
 				<td>Límite</td>
 				<td title="Lunes" class="table-center">L</td>
 				<td title="Martes" class="table-center">M</td>
@@ -338,6 +339,7 @@ if (isset($_GET['delete'])){
 				</td>
 				<td><?php echo date("H:i", strtotime($row_convenio_turno['entrada'])) ;?></td>
 				<td><?php echo date("H:i", strtotime($row_convenio_turno['salida'])) ;?></td>
+				<td><?php echo $row_convenio_turno['turno']?></td>
 				<td><?php echo $row_convenio_turno['limite'];?> min</td>
 				<td class="table-center">
 					<?php if($row_convenio_turno['lunes']==1){
@@ -414,17 +416,17 @@ if (isset($_GET['delete'])){
 			<?php }while($row_convenio_turno=mysql_fetch_assoc($convenio_turno))?>
 		
 			<tr>
-				<td colspan="12">Total de horas semanales</td>
+				<td colspan="13">Total de horas semanales</td>
 				<th><?php echo pasar_hora($total);?></th>
 				<td></td>
 			</tr>
 			<tr>
-				<td colspan="12">Total de horas de lunes a viernes</td>
+				<td colspan="13">Total de horas de lunes a viernes</td>
 				<th><?php echo pasar_hora($semana);?></th>
 				<td></td>
 			</tr>
 			<tr>
-				<td colspan="12">Total de horas sabados</td>
+				<td colspan="13">Total de horas sabados</td>
 				<th><?php echo pasar_hora($sabados);?></th>
 				<td></td>
 			</tr>

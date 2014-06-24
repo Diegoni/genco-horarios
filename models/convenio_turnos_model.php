@@ -23,7 +23,10 @@ function updateConvenioturno($datos){
 
 function getConvenioturnos($dato=NULL, $campo=NULL){
 	if(isset($dato, $campo)){
-	 	$query="SELECT * FROM convenio_turno WHERE convenio_turno.$campo='$dato' AND id_estado=1";   
+	 	$query="SELECT * FROM convenio_turno
+	 			INNER JOIN
+	 			turno ON(turno.id_turno=convenio_turno.id_turno) 
+	 			WHERE convenio_turno.$campo='$dato' AND id_estado=1";   
 		$convenio_turno=mysql_query($query) or die(mysql_error());
 	}else{
 		$query="SELECT * FROM convenio_turno WHERE id_estado=1 ORDER BY convenio";   

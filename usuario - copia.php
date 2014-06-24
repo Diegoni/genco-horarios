@@ -36,8 +36,8 @@ $row_usuarios = mysql_fetch_assoc($usuarios);
 //--------------------------------------------------------------------->
 	$convenio_turno=getConvenioturnos($row_usuario['id_convenio'], 'id_convenio');
 	$row_convenio_turno = mysql_fetch_assoc($convenio_turno);
-	$cantidad_turno=mysql_num_rows($convenio_turno);
-	
+	$cantidad_turno=mysql_num_rows($convenio_turno);?>
+	<?php
 	if($cantidad_turno<1){
 		echo "
 		<script>
@@ -50,12 +50,7 @@ $row_usuarios = mysql_fetch_assoc($usuarios);
 		  <h4>Atención!</h4>
 		  Agregar turnos <a href='convenios_turno.php?id=".$row_usuario['id_convenio']."'> aqui</a>
 		</div>";
-	}else{
-		
-		
 	}
-	
-	
 
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------
@@ -247,7 +242,7 @@ if(!isset($fecha_inicio)){
 
 <!--------------------------------------------------------------------
 ----------------------------------------------------------------------
-						Tabla usuario
+						Tabla
 ----------------------------------------------------------------------			
 --------------------------------------------------------------------->	
 
@@ -294,13 +289,6 @@ if($fecha_inicio>$fecha_final){
 <img  src="imagenes/loading.gif" />
 </div>
 
-
-<!--------------------------------------------------------------------
-----------------------------------------------------------------------
-						Tabla marcaciones
-----------------------------------------------------------------------			
---------------------------------------------------------------------->	
-
 <table border="1" class="table table-hover" id="example">
 <thead>
 	
@@ -313,7 +301,6 @@ if($fecha_inicio>$fecha_final){
 	<th title="Tarde - Salida">t-s</th>
 	<th title="Subtotales">Subtotal</th>
 	<th title="Calculo de horas laborales">Horas</th>
-	<th title="Calculo de horas laborales">Redondeo</th>
 	<th title="Otro tipo">Otros</th>
 	<th title="Editar las entradas">Editar</th>
 </thead>
@@ -325,7 +312,6 @@ $total_cien=0;
 $total_cincuenta=0;
 $subtotal=0;
 $total=0;
-$limite=5;
 foreach($arrayFechas as $valor){?>
 
 	<tr>	
@@ -430,9 +416,7 @@ foreach($arrayFechas as $valor){?>
 		?>
 		<td><?php   echo pasar_hora($m)." + ".pasar_hora($t) ?></td>
 		<td><?php   echo pasar_hora($subtotal); ?></td>
-		<td><?php   echo redondear_minutos(pasar_hora($subtotal)); ?></td>
 		<?php   } else {?>
-		<td> - </td>
 		<td> - </td>
 		<td> - </td>
 		<?php  }
@@ -505,13 +489,6 @@ $res_drop = mysql_query($query_drop) or die(mysql_error());
 </center>
 <center>
 <br>
-
-
-<!--------------------------------------------------------------------
-----------------------------------------------------------------------
-						Tabla totales
-----------------------------------------------------------------------			
---------------------------------------------------------------------->	
 <div class="span12">
 <table class="tablad">
 <tr>

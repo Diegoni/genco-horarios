@@ -22,6 +22,7 @@ function getUsuario($id){
 	
 	return $usuario;
 }
+
 function getUsuarios($dato=NULL, $campo=NULL){
 	if($dato=='all'){
 		$query="SELECT 	usuario.id_usuario,
@@ -57,6 +58,7 @@ function getUsuarios($dato=NULL, $campo=NULL){
 					usuario.legajo as legajo,
 					usuario.id_estado as id_estado,
 					usuario.fecha_ingreso as fecha_ingreso,
+					usuario.id_convenio as id_convenio,
 					departamento.nombre as departamento,
 					convenio.semana as semana,								
 					convenio.sabado as sabado,								
@@ -140,6 +142,13 @@ function insertUsusario($datos){
 			") or die(mysql_error());
 
 }
+
+
+
+
+
+
+
 
 
 

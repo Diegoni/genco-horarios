@@ -39,12 +39,25 @@ function getConvenio($id){
 }
 
 
-function insertConvenio($convenio,
-												$semana,
-												$sabado,
-												$salida_sabado){
-	mysql_query("INSERT INTO `convenio` (convenio, semana, sabado, salida_sabado, id_estado) 
-				VALUES ('$convenio', '$semana', '$sabado', '$salida_sabado', 1)") or die(mysql_error());
+function insertConvenio($convenio){
+	mysql_query("INSERT INTO `convenio` (convenio) 
+				VALUES ('$convenio')") or die(mysql_error());
+	$id_convenio=mysql_insert_id();
+	
+	mysql_query("INSERT INTO `convenio_turno` 
+				(id_convenio, id_turno, lunes, martes, miercoles, jueves, viernes, redondeo, limite) 
+				VALUES 
+				('$id_convenio', 1,1,1,1,1,1,1,5)") or die(mysql_error());
+	
+	mysql_query("INSERT INTO `convenio_turno` 
+				(id_convenio, id_turno, lunes, martes, miercoles, jueves, viernes, redondeo, limite) 
+				VALUES 
+				('$id_convenio', 2,1,1,1,1,1,1,5)") or die(mysql_error());
+	
+	mysql_query("INSERT INTO `convenio_turno` 
+				(id_convenio, id_turno, sabado, redondeo, limite) 
+				VALUES 
+				('$id_convenio', 1,1,1,5)") or die(mysql_error());
 }
 
 ?>

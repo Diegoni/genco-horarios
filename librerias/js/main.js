@@ -1,9 +1,3 @@
-// Para select
-  
-$('.estado').on('switch-change', function () {
-    $('.estado').bootstrapSwitch('toggleRadioStateAllowUncheck', true);
-});
-
 // Funcion que controla que no sean mas de 3 caracteres en el input buscar 
 // Para el datapicker, es una funcion de jquery ui 
 

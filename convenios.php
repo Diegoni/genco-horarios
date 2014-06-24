@@ -44,10 +44,7 @@ if (isset($_GET['nuevo'])){
 	$numero_convenios = mysql_num_rows($convenio);
 		
 	if($numero_convenios==0){	
-		insertConvenio(	$_GET['convenio'],
-										$_GET['semana'],
-										$_GET['sabado'],
-										$_GET['salida_sabado']);
+		$id=insertConvenio(	$_GET['convenio']);
 		$bandera=1;
 	}else{
 		$bandera=0;
@@ -99,18 +96,6 @@ if (isset($_GET['nuevo'])){
 	<tr>
 		<td>Convenio</td>
 		<td><input type="text" name="convenio" placeholder="ingrese convenio" required></td>
-	</tr>
-	<tr>
-		<td>Horas semana</td>
-		<td><input type="number" name="semana" placeholder="hs diarias que trabaja semanalmente" required></td>
-	</tr>
-	<tr>
-		<td>Horas sábado</td>
-		<td><input type="number" name="sabado" placeholder="hs que debe trabajar los sábados" required></td>
-	</tr>
-	<tr>
-		<td>Horario salida sábado</td>
-		<td><input type="number" name="salida_sabado" placeholder="hora debe salir el sábado" required></td>
 	</tr>
 	<tr>
 		<td></td>
