@@ -5,52 +5,171 @@ session_start();
 	}
 	
 include_once("menu.php"); 
-include_once("helpers.php");
-set_time_limit(120);
+include_once($models_url."usuarios_model.php"); 
+include_once($models_url."otrahora_model.php"); 
+include_once($models_url."marcadas_model.php");
+set_time_limit(120); 
 
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------
 //						Valores iniciales
 //----------------------------------------------------------------------			
 //--------------------------------------------------------------------->
-if(isset($_GET['id'])){
-	$id_usuario=$_GET['id'];	
-}
 $totalotras=0;
 $fecha=date("d-m-Y");
 
-/*
-$query="SELECT 	usuario.id_usuario,
-				usuario.usuario as usuario,
-				usuario.legajo as legajo
-		FROM `usuario` 
-		WHERE usuario.id_estado=1
-		ORDER BY usuario.usuario";   
-$usuarios=mysql_query($query) or die(mysql_error());
+$usuarios=getUsuarios();
 $row_usuarios = mysql_fetch_assoc($usuarios);
-*/
 
-$query="SELECT 	usuario.id_usuario,
-				usuario.usuario as usuario,
-				usuario.legajo as legajo,
-				usuario.fecha_ingreso as fecha_ingreso,
-				convenio.sabado as sabado,
-				convenio.semana as semana,
-				convenio.salida_sabado as salida_sabado				
-		FROM `usuario` 
-		INNER JOIN
-		convenio on(convenio.id_convenio=usuario.id_convenio)		
-		WHERE usuario.id_estado=1
-		ORDER BY usuario.usuario";   
-$usuarios2=mysql_query($query) or die(mysql_error());
+$usuarios2=getUsuarios();
 $row_usuarios2 = mysql_fetch_assoc($usuarios2);
 
 
-$query="SELECT *				
-		FROM `tipootra` 
-		ORDER BY tipootra.id_tipootra";   
-$tipootra=mysql_query($query) or die(mysql_error());
+$tipootra=getTipootra();
 $row_tipootra = mysql_fetch_assoc($tipootra);
+
+
+
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+//						Funciones php
+//----------------------------------------------------------------------			
+//--------------------------------------------------------------------->
+
+
+function devuelveArrayFechasEntreOtrasDos($fechaInicio, $fechaFin){
+	$arrayFechas=array();
+	$fechaMostrar = $fechaInicio;
+
+	while(strtotime($fechaMostrar) <= strtotime($fechaFin)) {
+	$arrayFechas[]=$fechaMostrar;
+	$fechaMostrar = date("Y-m-d", strtotime($fechaMostrar . " + 1 day"));
+	}
+
+	return $arrayFechas;
+} 
+
+function redondear_minutos($hora){
+	$horas=date("H", strtotime($hora));
+	$minutos=date("i", strtotime($hora));
+
+	$query="SELECT *
+			FROM `limite` 
+			ORDER BY limite";   
+	$limite=mysql_query($query) or die(mysql_error());
+	$row_limite = mysql_fetch_assoc($limite);
+
+
+	do{
+	if($minutos<$row_limite['limite']){
+		$minutos=$row_limite['redondeo'];
+		$horas=$horas+$row_limite['suma_hora'];
+		return "$horas:$minutos";
+		break;
+	}
+	}while($row_limite= mysql_fetch_array($limite));
+
+
+}
+
+function intervalo_tiempo($init,$finish)
+{
+	$diferencia = strtotime($finish) - strtotime($init);
+	$diferencia=round($diferencia/60);
+	$diferencia=$diferencia/60;
+	if($diferencia<0){
+		$diferencia="ERROR";
+	}
+    return $diferencia;
+}
+
+function pasar_hora($num){
+	$num=$num*60;
+	$hora_cd = $num*0.01666666667; //hora sin decimales
+	$hora = floor($num*0.01666666667);//hora sin decimales
+	$resto = $hora_cd-$hora;
+	$minutos = round($resto*60);
+	if($minutos<10){
+		$minutos="0".$minutos;
+	}
+	$final= "".$hora.":".$minutos."";	
+	
+	return $final;
+}
+
+function pasar_hora_resta($num){
+	$signo=1;
+	if($num<0){
+		$num=$num*-1;
+		$signo=0;
+	}
+	$num=$num*60;
+	$hora_cd = $num*0.01666666667; //hora sin decimales
+	$hora = floor($num*0.01666666667);//hora sin decimales
+	$resto = $hora_cd-$hora;
+	$minutos = round($resto*60);
+	if($minutos<10){
+		$minutos="0".$minutos;
+	}
+	$final= "".$hora.":".$minutos."";	
+	
+	return array($final,$signo);
+}
+
+function devuelve_dia($fecha){
+	$i = strtotime($fecha); 
+	$nro = jddayofweek(cal_to_jd(CAL_GREGORIAN, date("m",$i),date("d",$i), date("Y",$i)));
+	switch ($nro) {
+	case 0:
+         $dia="Domingo";
+         break;
+	case 1:
+         $dia="Lunes";
+         break;
+	case 2:
+         $dia="Martes";
+         break;
+	case 3:
+         $dia="Miércoles";
+         break;
+	case 4:
+         $dia="Jueves";
+         break;
+	case 5:
+         $dia="Viernes";
+         break;
+	case 6:
+         $dia="Sábado";
+         break;
+	}
+	
+	return $dia;
+}
+
+
+function esferiado($valor){
+
+$query="SELECT * 
+		FROM feriado 
+		WHERE 
+		DATE_FORMAT(dia, '%Y-%m-%d') = '$valor'";   
+		$feriado=mysql_query($query) or die(mysql_error());
+		$row_feriado = mysql_fetch_assoc($feriado);   
+$cantidad_feriado = mysql_num_rows($feriado);
+
+if($cantidad_feriado>0){
+	$i="label label-important";
+	$j=$row_feriado['feriado'];
+	$k=1;
+	return array($i,$j,$k);
+} else{
+	$i="";
+	$j="";
+	$k=0;
+	return array($i,$j,$k);
+}
+
+}
 
 
 
@@ -62,46 +181,38 @@ $row_tipootra = mysql_fetch_assoc($tipootra);
 
 if(isset($_GET['buscar'])){
 
-	$fecha_inicio=date( "Y-m-d", strtotime($_GET['fecha_inicio']));
-	$fecha_final=date( "Y-m-d", strtotime($_GET['fecha_final']));
-	$arrayFechas=devuelveArrayFechasEntreOtrasDos($fecha_inicio, $fecha_final);
-	
-	# Creo y completo tabla temporal para horas
-	$query_create = "CREATE TEMPORARY TABLE temp (id_marcada int, entrada datetime, id_usuario int, id_parametros int, id_estado int)";
-	$res_create = mysql_query($query_create) or die(mysql_error());
+$fecha_inicio=date( "Y-m-d", strtotime($_GET['fecha_inicio']));
+$fecha_final=date( "Y-m-d", strtotime($_GET['fecha_final']));
 
-	$query="SELECT * 
-		FROM marcada 
-		WHERE 
-		DATE_FORMAT(entrada, '%Y-%m-%d') >= '$fecha_inicio' AND
-		DATE_FORMAT(entrada, '%Y-%m-%d') <= '$fecha_final' AND
-		id_estado!=0";   
-	$marcacion=mysql_query($query) or die(mysql_error());
+$arrayFechas=devuelveArrayFechasEntreOtrasDos($fecha_inicio, $fecha_final);
+
+# Creo y completo tabla temporal para horas
+$query_create = "CREATE TEMPORARY TABLE temp (id_marcada int, entrada datetime, id_usuario int, id_parametros int, id_estado int)";
+$res_create = mysql_query($query_create) or die(mysql_error());
+
+	$marcacion=getMarcaciones(NULL, $fecha_inicio, $fecha_final);
 	$row_marcacion = mysql_fetch_assoc($marcacion);   
 	$cantidad_marcacion = mysql_num_rows($marcacion);
+
 		
-	do{
-		$query_ins = "INSERT INTO temp VALUES ('$row_marcacion[id_marcada]', '$row_marcacion[entrada]', '$row_marcacion[id_usuario]', '$row_marcacion[id_parametros]', '$row_marcacion[id_estado]')";
-		$res_ins = mysql_query($query_ins) or die(mysql_error());
-	}while ($row_marcacion = mysql_fetch_array($marcacion));
+do{
+$query_ins = "INSERT INTO temp VALUES ('$row_marcacion[id_marcada]', '$row_marcacion[entrada]', '$row_marcacion[id_usuario]', '$row_marcacion[id_parametros]', '$row_marcacion[id_estado]')";
+$res_ins = mysql_query($query_ins) or die(mysql_error());
+}while ($row_marcacion = mysql_fetch_array($marcacion));
 
-	# Creo y completo tabla temporal para otras
-	$query_create = "CREATE TEMPORARY TABLE tempotra (id_usuario int, id_tipootra int, id_nota int, horas int, fecha date)";
-	$res_create = mysql_query($query_create) or die(mysql_error());
 
-	$query="SELECT * 
-		FROM otrahora 
-		WHERE 
-		fecha >= '$fecha_inicio' AND
-		fecha <= '$fecha_final'";   
-	$otrahora=mysql_query($query) or die(mysql_error());
-	$row_otrahora = mysql_fetch_assoc($otrahora);
-	$row_otrahora = mysql_fetch_assoc($otrahora);
 
-	do{
-		$query_ins = "INSERT INTO tempotra VALUES ('$row_otrahora[id_usuario]', '$row_otrahora[id_tipootra]', '$row_otrahora[id_nota]', '$row_otrahora[horas]', '$row_otrahora[fecha]')";
-		$res_ins = mysql_query($query_ins) or die(mysql_error());
-	}while ($row_otrahora = mysql_fetch_array($otrahora));			
+# Creo y completo tabla temporal para otras
+$query_create = "CREATE TEMPORARY TABLE tempotra (id_usuario int, id_tipootra int, id_nota int, horas int, fecha date)";
+$res_create = mysql_query($query_create) or die(mysql_error());
+
+		$otrahora=getOtrahora(NULL, $fecha_inicio, $fecha_final);
+		$row_otrahora = mysql_fetch_assoc($otrahora);
+
+do{
+$query_ins = "INSERT INTO tempotra VALUES ('$row_otrahora[id_usuario]', '$row_otrahora[id_tipootra]', '$row_otrahora[id_nota]', '$row_otrahora[horas]', '$row_otrahora[fecha]')";
+$res_ins = mysql_query($query_ins) or die(mysql_error());
+}while ($row_otrahora = mysql_fetch_array($otrahora));			
 }
 
 /*--------------------------------------------------------------------
@@ -147,11 +258,11 @@ if(!isset($fecha_inicio)){
 		<button type="submit" class="btn" title="Buscar" name="buscar" value="1"><i class="icon-search"></i> Buscar</button>
 		</form>
 	</td>
-
-	<!--
+	
 	<td>
 		<b>Usuario</b>
 	</td>
+	
 	<td>
 		<select
 		data-placeholder="Seleccione un usuario..." class="chosen-select" tabindex="2"		
@@ -162,7 +273,7 @@ if(!isset($fecha_inicio)){
 		<?php } while($row_usuarios=mysql_fetch_array($usuarios));?>
 		</select>
 	</td>
-	-->
+	
 	
 	<td>
 	<div class="btn-group">
@@ -205,7 +316,8 @@ if(!isset($fecha_inicio)){
 --------------------------------------------------------------------->	
 
 
-<?php if(isset($_GET['buscar'])){
+<?php
+if(isset($_GET['buscar'])){
 if($fecha_inicio>$fecha_final){
 	echo 	"<div class='alert alert-error'> 
 			<button type='button' class='close' data-dismiss='alert'>&times;</button>
@@ -263,82 +375,99 @@ $otrahoras=array();
 
 foreach($arrayFechas as $valor){
 
-	list ($clase, $title, $esferiado) = esferiado($valor);
-	$dia=devuelve_dia($valor);
+		list ($clase, $title, $esferiado) = esferiado($valor);
+		$dia=devuelve_dia($valor);
 		
-	if($dia=="Domingo" || $esferiado==1){
-	}else{
-		if($dia!="Sábado"){
-			$total_normales=$total_normales+$semana;
+		if($dia=="Domingo" || $esferiado==1){
 		}else{
-			$total_normales=$total_normales+$sabado;
+			if($dia!="Sábado"){
+				$total_normales=$total_normales+$semana;
+			}else{
+				$total_normales=$total_normales+$sabado;
+			}
 		}
-	}
 
-	$query="SELECT * 
-		FROM temp 
-		WHERE
-		DATE_FORMAT(entrada, '%Y-%m-%d') like '$valor'
-		AND id_usuario=$id_usuario";   
-	$marcacion=mysql_query($query) or die(mysql_error());
-	$row_marcacion = mysql_fetch_assoc($marcacion);
-	$cantidad_parametros=mysql_num_rows($marcacion);
-		
-	if($cantidad_parametros>0){
-			
 		$me=0;
 		$ms=0;
 		$te=0;
 		$ts=0;
-	
+		
 		$canme=0;
 		$canms=0;
 		$cante=0;
 		$cants=0;
-			
-		do{
-			$i=$row_marcacion['id_parametros'];
-			if($i==1){
-				$canme=$canme+1;
-				if($canme==1){
-					$me=date('H:i', strtotime($row_marcacion['entrada']));
-				}
-			} else if($i==2){ 
-				$canms=$canms+1;
-				if($canms==1){
-					$ms=date('H:i', strtotime($row_marcacion['entrada']));
-				}
-			} else if($i==3){ 
-				$cante=$cante+1;
-				if($cante==1){
-					$te=date('H:i', strtotime($row_marcacion['entrada']));
-				}
-			} else if($i==4){ 
-				$cants=$cants+1;
-				if($cants==1){
-					$ts=date('H:i', strtotime($row_marcacion['entrada']));
-				}
-			}
-		}while($row_marcacion=mysql_fetch_array($marcacion));	
 	
-		if($me>0 && $ms>0){
+		$query="SELECT * 
+				FROM temp 
+				WHERE
+				DATE_FORMAT(entrada, '%Y-%m-%d') like '$valor'
+				AND id_usuario=$id_usuario";   
+		$marcacion=mysql_query($query) or die(mysql_error());
+		$row_marcacion = mysql_fetch_assoc($marcacion);
+		$cantidad_parametros=mysql_num_rows($marcacion);
+		
+		if($cantidad_parametros>0){
+		do{
+		$i=$row_marcacion['id_parametros'];
+				if($i==1){
+					$canme=$canme+1;
+					if($canme==1){
+						if($aplicar_redondeo==0){
+							$me=date('H:i', strtotime($row_marcacion['entrada']));		
+						}else{
+							$me= date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));		
+						}					
+					}
+				} else if($i==2){ 
+					$canms=$canms+1;
+					if($canms==1){
+						if($aplicar_redondeo==0){
+							$ms=date('H:i', strtotime($row_marcacion['entrada']));		
+						}else{
+							$ms= date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));		
+						}
+					}
+				} else if($i==3){ 
+					$cante=$cante+1;
+					if($cante==1){
+						if($aplicar_redondeo==0){
+							$te=date('H:i', strtotime($row_marcacion['entrada']));		
+						}else{
+							$te= date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));		
+						}
+					}
+				} else if($i==4){ 
+					$cants=$cants+1;
+					if($cants==1){
+						if($aplicar_redondeo==0){
+							$ts=date('H:i', strtotime($row_marcacion['entrada']));		
+						}else{
+							$ts= date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));		
+						}
+					}
+				}
+		}while($row_marcacion=mysql_fetch_array($marcacion));	
+		}
+			
+		
+		 if($me>0 && $ms>0){
 			$m=intervalo_tiempo($me,$ms);
-		}else{
+			}else{
 			$m=0;
-		}
+			}
 			
-		if($te>0 && $ts>0){
+			if($te>0 && $ts>0){
 			$t=intervalo_tiempo($te,$ts);
-		}else{
+			}else{
 			$t=0;
-		}
+			}
 			
-		if($t>0 || $m>0){
+			if($t>0 || $m>0){
 			$subtotal=$m+$t;
 			$total=$total+$subtotal;
-		}else{
+			}else{
 			$subtotal=0;
-		}
+			}
 			
 		$i=$subtotal;
 
@@ -355,11 +484,11 @@ foreach($arrayFechas as $valor){
 				if($rest>=$salida_sabado && $i>0){
 					$total_cien=$total_cien+$i;	
 				}else{
-					$total_cincuenta=$total_cincuenta+$i;
+				$total_cincuenta=$total_cincuenta+$i;
 				}
 			}
-		}	
-	}
+			}
+
 		
 	list ($resta, $signo) = pasar_hora_resta($total_cincuenta);
 	if($signo==0){
@@ -368,10 +497,7 @@ foreach($arrayFechas as $valor){
 		
 }
 
-	$query="SELECT *				
-					FROM `tipootra` 
-					ORDER BY tipootra.id_tipootra";   
-	$tipootra2=mysql_query($query) or die(mysql_error());
+	$tipootra2=getTipootra();
 	$row_tipootra2 = mysql_fetch_assoc($tipootra2);
 	
 	$total_otrahora=0;
@@ -385,15 +511,15 @@ foreach($arrayFechas as $valor){
 		
 		$id_tipootra=$row_tipootra2['id_tipootra'];
 				
-		$query="SELECT * 
-			FROM tempotra 
-			INNER JOIN tipootra ON(tempotra.id_tipootra=tipootra.id_tipootra)
-			WHERE
-			id_usuario='$id_usuario' AND
-			tempotra.id_tipootra='$id_tipootra'";   
-		$otrahora=mysql_query($query) or die(mysql_error());
-		$row_otrahora = mysql_fetch_assoc($otrahora);
-		$cantidad=mysql_num_rows($otrahora);
+				$query="SELECT * 
+					FROM tempotra 
+					INNER JOIN tipootra ON(tempotra.id_tipootra=tipootra.id_tipootra)
+					WHERE
+					id_usuario='$id_usuario' AND
+					tempotra.id_tipootra='$id_tipootra'";   
+				$otrahora=mysql_query($query) or die(mysql_error());
+				$row_otrahora = mysql_fetch_assoc($otrahora);
+				$cantidad=mysql_num_rows($otrahora);
 		
 		if($cantidad>0){
 			do{
@@ -425,7 +551,7 @@ foreach($arrayFechas as $valor){
 		<td><?php echo $row_usuarios2['usuario'];?></td>
 
 		<?php if($row_usuarios2['fecha_ingreso']!=0){ ?>
-		<td><?php echo date( "d-m-Y", strtotime($row_usuarios2['fecha_ingreso']));?></td>
+		<td><?php date( "d-m-Y", strtotime($row_usuarios2['fecha_ingreso']));?></td>
 		<?php }else{ ?>
 		<td> - </td>
 		<?php } ?>
@@ -454,9 +580,7 @@ foreach($arrayFechas as $valor){
 		<?php } else { ?>
 		<td> - </td>
 		<?php } ?>
-<?php 
-	mysql_query("DELETE FROM temp WHERE id_usuario=$id_usuario") or die(mysql_error());
-}while($row_usuarios2=mysql_fetch_array($usuarios2));
+<?php }while($row_usuarios2=mysql_fetch_array($usuarios2));
 
 
 //elimino las tablas temporaria

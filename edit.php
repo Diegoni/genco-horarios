@@ -342,7 +342,7 @@ if (isset($_GET['delete'])){
 				}
 				if($comparacion==0 && $row_parametros2['id_parametros']!=0){?>
 				<tr>				
-				<input  type="hidden" value="<?php echo $row_parametros2['id_parametros']?>" name="id_parametro<?php echo "string"; $row_parametros2['id_parametros']?>">
+				<input  type="hidden" value="<?php echo $row_parametros2['id_parametros']?>" name="id_parametro<?php echo $row_parametros2['id_parametros']?>">
 				<td><label><?php echo $row_parametros2['turno']?> : <?php  echo $row_parametros2['tipo']?></label></td>
 				<td><input type="time" class="input-medium" name="entrada<?php echo $row_parametros2['id_parametros']?>" value=""></td>	
 				</tr>
