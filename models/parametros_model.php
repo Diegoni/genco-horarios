@@ -22,7 +22,7 @@ function getParametro($id){
 			tipo ON(parametros.id_tipo=tipo.id_tipo)
 			INNER JOIN
 			turno ON(parametros.id_turno=turno.id_turno)
-			WHERE id_parametros='$id_parametros'"; 
+			WHERE id_parametros='$id'"; 
 	$parametros=mysql_query($query) or die(mysql_error());
 
 	return $parametros;

@@ -191,20 +191,17 @@ if(!isset($fecha_inicio)){
 		<input type="hidden" name="id" value="<?php   echo $id_usuario?>">
 		<b><div class="input-prepend">
 			<span class="add-on" onclick="document.getElementById('datepicker2').focus();"><i class="icon-calendar"></i></span>
-			<input value="<?php echo date('d-m-Y', strtotime($fecha_inicio)); ?>" type="text" name="fecha_inicio" id="datepicker2" placeholder="fecha de inicio" autocomplete="off" required>
+			<input value="<?php echo date('d-m-Y', strtotime($fecha_inicio)); ?>" type="text" name="fecha_inicio" id="datepicker2" placeholder="fecha de inicio" class="input-small" autocomplete="off" required>
 		</div></b>
 		<b><div class="input-prepend">
 			<span class="add-on" onclick="document.getElementById('datepicker').focus();"><i class="icon-calendar"></i></span>
-			<input value="<?php   echo date('d-m-Y', strtotime($fecha_final)); ?>"	type="text" name="fecha_final" id="datepicker" placeholder="fecha final" autocomplete="off" required>
+			<input value="<?php   echo date('d-m-Y', strtotime($fecha_final)); ?>"	type="text" name="fecha_final" id="datepicker" placeholder="fecha final" class="input-small" autocomplete="off" required>
 		</div></b>
 		<button type="submit" class="btn" title="Buscar" name="buscar" value="1">
 			<i class="icon-search"></i> Buscar
 		</button>
 		</form>
 	</td>
-	
-
-	
 	<td>
 		
 	<div class="btn-group">
@@ -215,7 +212,15 @@ if(!isset($fecha_inicio)){
 	  <ul class="dropdown-menu">
 		<li <?php echo  $classcadena;?>><a href="usuario.php?id=<?php echo  $id_usuario;?>&buscar=<?php echo  1;?>&fecha_final=<?php echo  $fecha_final; ?>&fecha_inicio=<?php echo  $fecha_inicio; ?>"  title="Refresh" <?php   if(!isset($fecha_final)){ ?> disabled<?php   } ?>><i class="icon-refresh"></i> Refresh</a></li>
 		<li <?php echo  $classcadena;?>><a href="javascript:imprSelec('muestra')"><i class="icon-print"></i> Imprimir</a></li>
-		<li <?php echo  $classcadena;?>><a href="exportar/usuario.php?id=<?php echo  $id_usuario;?>&nombre=<?php echo  $id_usuario;?>&buscar=<?php echo  1;?>&fecha_final=<?php echo  $fecha_final; ?>&fecha_inicio=<?php echo  $fecha_inicio; ?>" title="Exportar" target="_blank" <?php   if(!isset($fecha_final)){ ?> disabled<?php   } ?>><i class="icon-upload-alt"></i> Exportar</a></li>
+		<li <?php echo  $classcadena;?>>
+			<a href="exportar/usuario.php?
+			id=<?php echo $id_usuario;?>&
+			nombre=<?php echo $id_usuario;?>&
+			buscar=<?php echo  1;?>&
+			fecha_final=<?php echo  $fecha_final; ?>&
+			fecha_inicio=<?php echo $fecha_inicio; ?>" 
+			title="Exportar" target="_blank" <?php if(!isset($fecha_final)){ ?> disabled <?php } ?> >
+			<i class="icon-upload-alt"></i> Exportar</a></li>
 		<li <?php echo  $classcadena;?>><a href="#" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-table"></i> Tabla</a></li>
 		<li><a href="#myModal" role="button" data-toggle="modal"><i class="icon-question-sign"></i> Ayuda</a></li>
 	  </ul>
@@ -326,8 +331,15 @@ $total_cincuenta=0;
 $subtotal=0;
 $total=0;
 $limite=5;
-foreach($arrayFechas as $valor){?>
 
+
+$total_redondeo=0;
+$total_cien_redondeo=0;
+$total_cincuenta_redondeo=0;
+$hora_redondeo=0;
+$minuto_redondeo=0;
+
+foreach($arrayFechas as $valor){?>
 	<tr>	
 		<?php  list ($clase, $title,$esferiado) = esferiado($valor);
 			$dia=devuelve_dia($valor);
@@ -421,6 +433,10 @@ foreach($arrayFechas as $valor){?>
 			if($t>0 || $m>0){
 			$subtotal=$m+$t;
 			$total=$total+$subtotal;
+			$hora_redondeo =$hora_redondeo+ date('H', strtotime(redondear_minutos(pasar_hora($subtotal))));
+			$minuto_redondeo = $minuto_redondeo + date('i', strtotime(redondear_minutos(pasar_hora($subtotal))));
+			
+
 			}else{
 			$subtotal=0;
 			}
@@ -431,6 +447,7 @@ foreach($arrayFechas as $valor){?>
 		<td><?php   echo pasar_hora($m)." + ".pasar_hora($t) ?></td>
 		<td><?php   echo pasar_hora($subtotal); ?></td>
 		<td><?php   echo redondear_minutos(pasar_hora($subtotal)); ?></td>
+		
 		<?php   } else {?>
 		<td> - </td>
 		<td> - </td>
@@ -461,9 +478,12 @@ foreach($arrayFechas as $valor){?>
 		<?php  }?>
 	<?php  
 		$i=$subtotal+$row_otrahora['horas'];
+		$j=redondear_minutos(pasar_hora($i));
+		
+		
 
 		if($dia=="Domingo" || $esferiado==1 ){
-			$total_cien=$total_cien+$i;	
+			$total_cien=$total_cien+$i;
 		}else{
 			if(devuelve_dia($valor)!="Sábado"){
 				$i=$i-$row_usuario['semana'];
@@ -477,14 +497,27 @@ foreach($arrayFechas as $valor){?>
 				$total_cincuenta=$total_cincuenta+$i;
 				}
 			}
+		}
+		
+		if($dia=="Domingo" || $esferiado==1 ){
+			$total_cien_redondeo=$total_cien_redondeo+$j;
+		}else{
+			if(devuelve_dia($valor)!="Sábado"){
+				$j=$j-$row_usuario['semana'];
+				$total_cincuenta_redondeo=$total_cincuenta_redondeo+$j;
+			}else{
+				$j=$j-$row_usuario['sabado'];
+				$rest = substr($ms, 0, 2);
+				if($rest>=$row_usuario['salida_sabado'] && $j>0){
+					$total_cien_redondeo=$total_cien_redondeo+$j;	
+				}else{
+				$total_cincuenta_redondeo=$total_cincuenta_redondeo+$j;
+				}
 			}
-
-	list ($resta, $signo) = pasar_hora_resta($total_cincuenta);
-	if($signo==0){
-		$resta="-".$resta;
-	}
+		}
+	
 	?>	
-	<td><a href="#" class="btn" title="Parametros" onClick="abrirVentana('edit.php?id=<?php  echo $row_usuario['id_usuario']?>&fecha=<?php  echo $valor?>')"><i class="icon-edit-sign"></i></a></td>
+	<td><a href="#" class="btn" title="Parametros" onClick="abrirVentana('edit.php?id=<?php echo $id_usuario; ?>&fecha=<?php  echo $valor?>')"><i class="icon-edit-sign"></i></a></td>
 	</tr>
 <?php   }
 
@@ -515,10 +548,11 @@ $res_drop = mysql_query($query_drop) or die(mysql_error());
 <div class="span12">
 <table class="tablad">
 <tr>
-	
 	<?php  
 	list ($resta, $signo) = pasar_hora_resta($total_cincuenta);
 	?>
+	
+
 	<tr>
 	<td title="Suma total de las horas normales">Horas a cumplir</td>
 	<th><?php   echo $total_normales;?></th>	
@@ -526,9 +560,9 @@ $res_drop = mysql_query($query_drop) or die(mysql_error());
 	<th><?php   echo round($totalotras,2);?></th>
 	<td title="Suma total de las horas normales">Horas normales</td>
 	<th><?php   echo pasar_hora($total);?></th>
-	</tr>
+</tr>
 	
-	<tr>
+<tr>
 	<?php   if($signo==0){?>
 	<td title="Horas que el empleado debe recuperar para alcanzar el minimo de horas trabajadas">A favor de la empresa</td>	
 	<?php  }else{?>
@@ -539,8 +573,44 @@ $res_drop = mysql_query($query_drop) or die(mysql_error());
 	<th class="cien"><?php   echo pasar_hora($total_cien);?></th>
 	<td title="Suma total de las horas normales">Total de horas</td>
 	<th><?php   echo pasar_hora($total+round($totalotras,2));?></th>
+</tr>
+<tr>
+	<td colspan="6"><br></td>
+	
+<tr>
+	
+	<?php
+	
+	$cociente=$minuto_redondeo/60;
+	;
+	$hora_redondeo =$hora_redondeo+ date('H', strtotime(pasar_hora($cociente)));
+	$minuto_redondeo = date('i', strtotime(pasar_hora($cociente)));
+	
+	$resta_redondeo=$hora_redondeo-round($total_normales,2)-$total_cien_redondeo;
+
+	if($resta_redondeo<0){
+		$resta_redondeo=$resta_redondeo*-1;
+		$resta=1;	
+	}else{
+		$resta=0;
+	}
+
 	
 	
+	$resta_redondeo=$resta_redondeo.":".$minuto_redondeo;
+	
+	?>
+	<?php if($resta==1){ 
+	?>
+	<td title="Horas que el empleado debe recuperar para alcanzar el minimo de horas trabajadas">A favor de la empresa</td>	
+	<?php }else{ ?>
+	<td title="Suma total de las horas extra al 50%">A favor del empleado</td>	
+	<?php } ?>
+	<th><?php echo $resta_redondeo;?></th>
+	<td title="Suma total de las horas extra al 100%, suma de horas trabajadas domingos, sabado pasado el convenio o feriados">Horas extra 100%</td>
+	<th class="cien"><?php   echo pasar_hora($total_cien_redondeo);?></th>
+	<td title="Suma total de las horas normales">Total de horas</td>
+	<th><?php echo $hora_redondeo+round($totalotras,2).":".$minuto_redondeo;?></th>
 </tr>
 </table>	
 </div>

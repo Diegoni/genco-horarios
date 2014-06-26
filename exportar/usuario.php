@@ -163,7 +163,7 @@ $res_ins = mysql_query($query_ins) or die(mysql_error());
 ----------------------------------------------------------------------			
 --------------------------------------------------------------------->	
 <center>
-<? 
+<?php 
 	foreach($arrayFechas as $valor){
 
 	$query="SELECT * 
@@ -180,20 +180,20 @@ $res_ins = mysql_query($query_ins) or die(mysql_error());
 
 <table border="1">
 <tr>
-	<td class="titulo" colspan="5"><?= $row_usuario['empresa']?> - C.U.I.L. N <? echo $row_usuario['cuil_empresa']?></td>
+	<td class="titulo" colspan="5"><?php echo $row_usuario['empresa']?> - C.U.I.L. N <?php echo $row_usuario['cuil_empresa']?></td>
 	<td class="titulo" colspan="2">Fecha Emision</td>
-	<td class="texto"><? echo date( "d-m-Y", strtotime($valor));?></td>
+	<td class="texto"><?php echo date( "d-m-Y", strtotime($valor));?></td>
 	<td class="titulo">Legajo</td>
-	<td class="texto"><?= $row_usuario['legajo']?></td>
+	<td class="texto"><?php echo $row_usuario['legajo']?></td>
 	<td class="texto" colspan="3" rowspan="4">Firma Empleado</td>
 </tr>
 <tr>
 	<td class="titulo" colspan="2">Apellido y Nombre</th>
-	<td class="texto" colspan="3"><? echo $row_usuario['apellido']?>, <? echo $row_usuario['nombre']?></td>
+	<td class="texto" colspan="3"><?php echo $row_usuario['apellido']?>, <?php echo $row_usuario['nombre']?></td>
 	<td class="titulo">DNI</td>
 	<td class="texto"><? echo $row_usuario['dni']?></td>
 	<td class="titulo">C.U.I.L.</td>
-	<td class="texto" colspan="2"><? echo $row_usuario['cuil']?></td>
+	<td class="texto" colspan="2"><?php echo $row_usuario['cuil']?></td>
 </tr>
 <tr>
 	<td class="titulo" colspan="2">Fecha</td>
@@ -203,9 +203,9 @@ $res_ins = mysql_query($query_ins) or die(mysql_error());
 	<td class="titulo" colspan="2">Salida</td>
 </tr>
 <tr>
-	<td class="hora" colspan="2"><? echo date( "d-m-Y", strtotime($valor));?></td>
+	<td class="hora" colspan="2"><?php echo date( "d-m-Y", strtotime($valor));?></td>
 	
-		<? 
+		<?php 
 		for ($i = 1; $i <= 4; $i++) {
 				$query="SELECT * 
 				FROM temp 
@@ -218,26 +218,26 @@ $res_ins = mysql_query($query_ins) or die(mysql_error());
 			
 			$redondear_minutos=redondear_minutos(date('H:i', strtotime($row_marcacion['entrada'])));
 	?>
-	<?
+	<?php
 	if($cantidad_parametros==0){?>
 	<td class="hora" colspan="2"> - </td>
 
-	<?}else{?>
-	<td class="hora" colspan="2"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></td>
-	<?}
+	<?php }else{ ?>
+	<td class="hora" colspan="2"><?php echo date('H:i', strtotime($row_marcacion['entrada']));?></td>
+	<?php }
 	
-	}?>
+	} ?>
 
 </tr>
 </table>	
 
-<? } //cierra el if($cantidad_parametros>0)?>
+<?php } //cierra el if($cantidad_parametros>0)?>
 <br>	
 <br>	
-<? } ?>		
+<?php } ?>		
 </center>
 
-<?
+<?php
 //elimino las tablas temporaria
 $query_drop = "DROP TABLE temp";
 $res_drop = mysql_query($query_drop) or die(mysql_error());

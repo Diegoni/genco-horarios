@@ -1,7 +1,8 @@
 <?php  
 include_once("head.php");    
 include_once($models_url."marcadas_model.php");     
-include_once($models_url."parametros_model.php");    
+include_once($models_url."parametros_model.php");   
+$comparacion=0; 
 /*--------------------------------------------------------------------
 ----------------------------------------------------------------------
 					Borrar Marcada
@@ -287,7 +288,6 @@ if (isset($_GET['delete'])){
 	</tr>
 	<?php  	}while ($row_marcacion = mysql_fetch_array($marcacion));
 	if($comparacion==1){?>
-				
 				<script>
 				alert("Hay horarios repetidos");
 				</script>
