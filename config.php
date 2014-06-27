@@ -8,7 +8,11 @@ include_once($models_url."configs_model.php");
 include_once($models_url."mensajes_model.php"); 
 
 if(isset($_GET['update'])){
-	echo getMensajes('update', 'ok', 'Config', 1);	
+	if($_GET['update']==1){
+		echo "<script>alert('Si no se van a aplicar los redondeos se deben “Mostar marcadas sin redondeos”')</script>";	
+	}	
+	
+	echo getMensajes('update', 'ok', 'Config', 1);
 }
  
 

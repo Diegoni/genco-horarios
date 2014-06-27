@@ -18,8 +18,10 @@ if(isset($_GET['update'])){
 	}
 	
 	if($mostrar_marcada==0 && $aplicar_redondeo==0){
-		echo "<script>alert('Si no se van a aplicar los redondeos se deben “Mostar marcadas sin redondeos”')</script>";
+		$bandera=1;
 		$mostrar_marcada=1;
+	}else{
+		$bandera=0;
 	}
 	
 	$datos=array('id_config'=>$_GET['id'],
@@ -30,6 +32,6 @@ if(isset($_GET['update'])){
 	updateConfig($datos);
 		
 	
-	$extra='config.php?update=1';
+	$extra='config.php?update='.$bandera;
 	header("location: $extra");
 }
