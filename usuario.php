@@ -193,11 +193,15 @@ if(!isset($fecha_inicio)){
 			<span class="add-on" onclick="document.getElementById('datepicker2').focus();"><i class="icon-calendar"></i></span>
 			<input value="<?php echo date('d-m-Y', strtotime($fecha_inicio)); ?>" type="text" name="fecha_inicio" id="datepicker2" placeholder="fecha de inicio" class="input-small" autocomplete="off" required>
 		</div></b>
+	</td>
+	<td>
 		<b><div class="input-prepend">
 			<span class="add-on" onclick="document.getElementById('datepicker').focus();"><i class="icon-calendar"></i></span>
 			<input value="<?php   echo date('d-m-Y', strtotime($fecha_final)); ?>"	type="text" name="fecha_final" id="datepicker" placeholder="fecha final" class="input-small" autocomplete="off" required>
 		</div></b>
-		<button type="submit" class="btn" title="Buscar" name="buscar" value="1">
+	</td>
+	<td>
+		<button type="submit" class="btn btn-default" title="Buscar" name="buscar" value="1">
 			<i class="icon-search"></i> Buscar
 		</button>
 		</form>
@@ -245,7 +249,7 @@ if(!isset($fecha_inicio)){
 	<p>Todas las tablas se pueden imprimir y exportar a Excel.</p>
 	</div>
 	<div class="modal-footer">
-	<button class="btn" data-dismiss="modal" aria-hidden="true">Aceptar</button>
+	<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Aceptar</button>
 	</div>
 	</div>
 
@@ -403,8 +407,19 @@ foreach($arrayFechas as $valor){?>
 			if($cantidad_parametros==0){ ?>
 				<td><p class="insert_access"> - </p></td>
 			<?php  }else if($cantidad_parametros>1){?>
-				<td><p class="label label-important" title="Registro duplicado, por favor modificarlo"><?php   echo date('H:i', strtotime($row_marcacion['entrada']));?> - 
-					<?php echo date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));?></p>
+				<td>
+					<p class="label label-important" title="Registro duplicado, por favor modificarlo">
+					<?php 
+					if(!($mostar_marcada==0 && $aplicar_redondeo==1)){
+						echo date('H:i', strtotime($row_marcacion['entrada']));	
+					}
+					if($aplicar_redondeo==1 && $mostar_marcada){
+						echo " - ";
+					}
+					if($aplicar_redondeo==1){
+						echo date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));	
+					}?>
+					</p>
 				</td>
 			<?php  }else{	
 		
@@ -420,13 +435,63 @@ foreach($arrayFechas as $valor){?>
 				$row_log_auditoria_marcada = mysql_fetch_assoc($log_auditoria_marcada);
 			
 				?>
-				<td><p class="label label-success" title="Registro modificado, original :<?php   echo date('H:i', strtotime($row_log_auditoria_marcada['entrada_old']));?>"><?php   echo date('H:i', strtotime($row_marcacion['entrada']));?> - <?php echo date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));?></p></td>
+				<td>
+					<p class="label label-success" title="Registro modificado, original :<?php echo date('H:i', strtotime($row_log_auditoria_marcada['entrada_old']));?>">
+					<?php 
+					if(!($mostar_marcada==0 && $aplicar_redondeo==1)){
+						echo date('H:i', strtotime($row_marcacion['entrada']));	
+					}
+					if($aplicar_redondeo==1 && $mostar_marcada){
+						echo " - ";
+					}
+					if($aplicar_redondeo==1){
+						echo date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));	
+					} ?>
+					</p>
+				</td>
 				<?php  }else if($row_marcacion['id_estado']==2){?>
-				<td><p class="label" title="Registro dado de alta por sistema"><?php   echo date('H:i', strtotime($row_marcacion['entrada']));?> - <?php echo date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));?></p></td>
+				<td><p class="label" title="Registro dado de alta por sistema">
+					<?php 
+					if(!($mostar_marcada==0 && $aplicar_redondeo==1)){
+						echo date('H:i', strtotime($row_marcacion['entrada']));	
+					}
+					if($aplicar_redondeo==1 && $mostar_marcada){
+						echo " - ";
+					}
+					if($aplicar_redondeo==1){
+						echo date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));	
+					} ?>
+					</p>
+				</td>
 				<?php  }else if($row_marcacion['id_parametros']==0){?>
-				<td><p class="label label-important" title="Registro sin definir, por favor modificarlo"><?php   echo date('H:i', strtotime($row_marcacion['entrada']));?> - <?php echo date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));?></p></td>
+				<td>
+					<p class="label label-important" title="Registro sin definir, por favor modificarlo">
+					<?php 
+					if(!($mostar_marcada==0 && $aplicar_redondeo==1)){
+						echo date('H:i', strtotime($row_marcacion['entrada']));	
+					}
+					if($aplicar_redondeo==1 && $mostar_marcada){
+						echo " - ";
+					}
+					if($aplicar_redondeo==1){
+						echo date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));	
+					} ?>
+					</p>
+				</td>
 				<?php  }else{?>
-				<td><p class="insert_access"><?php   echo date('H:i', strtotime($row_marcacion['entrada']));?> - <?php echo date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));?></p></td>
+				<td><p class="insert_access">
+					<?php 
+					if(!($mostar_marcada==0 && $aplicar_redondeo==1)){
+						echo date('H:i', strtotime($row_marcacion['entrada']));	
+					}
+					if($aplicar_redondeo==1 && $mostar_marcada){
+						echo " - ";
+					}
+					if($aplicar_redondeo==1){
+						echo date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));	
+					} ?>
+					</p>					
+				</td>
 				<?php  }
 			}//cierra el else
 		}//cierra el for
@@ -482,9 +547,9 @@ foreach($arrayFechas as $valor){?>
 			window.close();
 		}
 		</script>
-		<td><p class="insert_access"><a href="#" class="btn" title="<?php   echo $row_otrahora['nota'];?>" onClick="abrirVentana('edit_otros.php?id=<?php  echo $id_usuario?>&fecha=<?php  echo $valor?>')"><?php   echo $row_otrahora['tipootra'];?> : <?php   echo $row_otrahora['horas'];?></a></p></td>
+		<td><p class="insert_access"><a href="#" class="btn btn-default" title="<?php   echo $row_otrahora['nota'];?>" onClick="abrirVentana('edit_otros.php?id=<?php  echo $id_usuario?>&fecha=<?php  echo $valor?>')"><?php   echo $row_otrahora['tipootra'];?> : <?php   echo $row_otrahora['horas'];?></a></p></td>
 		<?php  }else{?>
-		<td><p class="insert_access"><a href="#" class="btn" title="Agregar" onClick="abrirVentana('edit_otros.php?id=<?php  echo $id_usuario?>&fecha=<?php  echo $valor?>')"><i class="icon-plus-sign-alt"></i></a></p></td>
+		<td><p class="insert_access"><a href="#" class="btn btn-default" title="Agregar" onClick="abrirVentana('edit_otros.php?id=<?php  echo $id_usuario?>&fecha=<?php  echo $valor?>')"><i class="icon-plus-sign-alt"></i></a></p></td>
 		<?php  }?>
 	<?php  
 		$i=$subtotal+$row_otrahora['horas'];
@@ -507,7 +572,7 @@ foreach($arrayFechas as $valor){?>
 		}
 		
 	?>	
-	<td><a href="#" class="btn" title="Parametros" onClick="abrirVentana('edit.php?id=<?php echo $id_usuario; ?>&fecha=<?php  echo $valor?>')"><i class="icon-edit-sign"></i></a></td>
+	<td><a href="#" class="btn btn-default" title="Parametros" onClick="abrirVentana('edit.php?id=<?php echo $id_usuario; ?>&fecha=<?php  echo $valor?>')"><i class="icon-edit-sign"></i></a></td>
 	</tr>
 <?php   }
 

@@ -46,6 +46,7 @@
 										<li><a href="feriados.php">Feriados</a></li>
 										<li><a href="convenios.php">Convenios</a></li>							
 										<li><a href="limites.php">Limites</a></li>
+										<li><a href="config.php">Config</a></li>
 										<li><a href="log.php">Logs</a></li>
 										<li><a href="exportar/Genco-Horarios.pdf" target="_blank">Ayuda</a></li>
 									</ul>

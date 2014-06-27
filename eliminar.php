@@ -140,7 +140,7 @@ $numero_convenio = mysql_num_rows($convenio);
 </table>
 </form>
 
-<a href="#myModal" role="button" class="btn" id="opener" data-toggle="modal"><i class="icon-question-sign"></i></a>
+<a href="#myModal" role="button" class="btn btn-default" id="opener" data-toggle="modal"><i class="icon-question-sign"></i></a>
  
 <!-- Modal -->
 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -153,7 +153,7 @@ $numero_convenio = mysql_num_rows($convenio);
 <p>El usuario no se borra de la base de datos solo se cambia su estado, se puede recuperar el usuario si se elimina.</p>
 </div>
 <div class="modal-footer">
-<button class="btn" data-dismiss="modal" aria-hidden="true">Aceptar</button>
+<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Aceptar</button>
 </div>
 </div>
  

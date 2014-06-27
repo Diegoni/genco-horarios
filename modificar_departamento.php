@@ -53,7 +53,7 @@ if($action==0){
 </table>
 </form>
 
-<a href="#myModal" role="button" class="btn" id="opener" data-toggle="modal"><i class="icon-question-sign"></i></a>
+<a href="#myModal" role="button" class="btn btn-default" id="opener" data-toggle="modal"><i class="icon-question-sign"></i></a>
  
 <!-- Modal -->
 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -66,7 +66,7 @@ if($action==0){
 <p>El departamento no se borra de la base de datos solo se cambia su estado, se puede recuperar el departamento si se elimina.</p>
 </div>
 <div class="modal-footer">
-<button class="btn" data-dismiss="modal" aria-hidden="true">Aceptar</button>
+<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Aceptar</button>
 </div>
 </div>
 

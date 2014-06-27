@@ -301,9 +301,9 @@ if (isset($_GET['delete'])){
 			<input type="hidden" name="fecha" value="<?php echo $_GET['fecha']?>">
 			<a href='#' class='show_hide btn' title='Nuevo'>nuevo</a>
 			<?php if($numero_marcacion>0){?>
-			<input type="submit" class="btn" name="modificar" title="guardar las modificaciones realizadas" value="modificar" id="modificar">
+			<input type="submit" class="btn btn-default" name="modificar" title="guardar las modificaciones realizadas" value="modificar" id="modificar">
 			<?php }else{?>
-			<input type="submit" class="btn" name="modificar" title="no se pueden realizar modificaciones" value="modificar" id="modificar" disabled>
+			<input type="submit" class="btn btn-default" name="modificar" title="no se pueden realizar modificaciones" value="modificar" id="modificar" disabled>
 			<?php }?>
 			<a class="btn btn-danger" href="" title="no guarda los cambios realizados" onClick="cerrarse()">volver</a>
 			</center>
@@ -355,7 +355,7 @@ if (isset($_GET['delete'])){
 			<center>
 				<input type="hidden" name="id" value="<?php echo $_GET['id']?>">
 				<input type="hidden" name="fecha" value="<?php echo $_GET['fecha']?>">
-				<input type="submit" class="btn" name="nuevo" value="aceptar"  id="nuevo">
+				<input type="submit" class="btn btn-default" name="nuevo" value="aceptar"  id="nuevo">
 				<a href='#' class='show_hide btn btn-danger' title='cancelar'>cancelar</a>
 			</center>
 		</td>
@@ -363,7 +363,7 @@ if (isset($_GET['delete'])){
 			<?php  }else{	?>
 		<td colspan="5">
 			<center>
-				<input type="submit" class="btn" name="nuevo" title="todas las marcaciones ya están dadas de alta" value="aceptar"  id="nuevo" disabled>
+				<input type="submit" class="btn btn-default" name="nuevo" title="todas las marcaciones ya están dadas de alta" value="aceptar"  id="nuevo" disabled>
 				<a href='#' class='show_hide btn btn-danger' title='cancelar'>cancelar</a>
 			</center>
 		</td>

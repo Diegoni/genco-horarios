@@ -251,11 +251,15 @@ if(!isset($fecha_inicio)){
 			<span class="add-on" onclick="document.getElementById('datepicker2').focus();"><i class="icon-calendar"></i></span>
 			<input value="" type="text" name="fecha_inicio" id="datepicker2" placeholder="fecha de inicio" autocomplete="off" required>
 		</div></b>
+	</td>
+	<td>
 		<b><div class="input-prepend">
 			<span class="add-on" onclick="document.getElementById('datepicker').focus();"><i class="icon-calendar"></i></span>
 			<input value=""	type="text" name="fecha_final" id="datepicker" placeholder="fecha final" autocomplete="off" required>
 		</div></b>
-		<button type="submit" class="btn" title="Buscar" name="buscar" value="1"><i class="icon-search"></i> Buscar</button>
+	</td>
+	<td>
+		<button type="submit" class="btn btn-default" title="Buscar" name="buscar" value="1"><i class="icon-search"></i> Buscar</button>
 		</form>
 	</td>
 	
@@ -304,7 +308,7 @@ if(!isset($fecha_inicio)){
 	<p>Si un usuario se desea eliminar o agregar a la lista se puede hacer desde la edición de usuarios.</p>
 	</div>
 	<div class="modal-footer">
-	<button class="btn" data-dismiss="modal" aria-hidden="true">Aceptar</button>
+	<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Aceptar</button>
 	</div>
 	</div>
 

@@ -44,7 +44,7 @@ function imprSelec(muestra){
 ----------------------------------------------------------------------
 --------------------------------------------------------------------->
 
-<link href="<?php echo $librerias_url?>bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+<link href="<?php echo $librerias_url?>bootstrap/css/<?php echo $css?>.css" rel="stylesheet" media="screen">
 <link href="<?php echo $librerias_url?>bootstrap/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
 <link href="<?php echo $librerias_url?>font/css/font-awesome.css" rel="stylesheet">
 

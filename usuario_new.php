@@ -284,7 +284,7 @@ if(!isset($fecha_inicio)){
 			<span class="add-on" onclick="document.getElementById('datepicker').focus();"><i class="icon-calendar"></i></span>
 			<input value="<? echo date('d-m-Y', strtotime($fecha_final)); ?>"	type="text" name="fecha_final" id="datepicker" placeholder="fecha final" autocomplete="off" required>
 		</div></b>
-		<button type="submit" class="btn" title="Buscar" name="buscar" value="1"><i class="icon-search"></i></button>
+		<button type="submit" class="btn btn-default" title="Buscar" name="buscar" value="1"><i class="icon-search"></i></button>
 		</form>
 	</td>
 	
@@ -338,7 +338,7 @@ if(!isset($fecha_inicio)){
 	<p>Todas las tablas se pueden imprimir y exportar a Excel.</p>
 	</div>
 	<div class="modal-footer">
-	<button class="btn" data-dismiss="modal" aria-hidden="true">Aceptar</button>
+	<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Aceptar</button>
 	</div>
 	</div>
 
@@ -531,9 +531,9 @@ foreach($arrayFechas as $valor){?>
 			window.close();
 		}
 		</script>
-		<td><p class="insert_access"><a href="#" class="btn" title="<? echo $row_otrahora['nota'];?>" onClick="abrirVentana('edit_otros.php?id=<?echo $row_usuario['id_usuario']?>&fecha=<?echo $valor?>')"><? echo $row_otrahora['tipootra'];?> : <? echo $row_otrahora['horas'];?></a></p></td>
+		<td><p class="insert_access"><a href="#" class="btn btn-default" title="<? echo $row_otrahora['nota'];?>" onClick="abrirVentana('edit_otros.php?id=<?echo $row_usuario['id_usuario']?>&fecha=<?echo $valor?>')"><? echo $row_otrahora['tipootra'];?> : <? echo $row_otrahora['horas'];?></a></p></td>
 		<?}else{?>
-		<td><p class="insert_access"><a href="#" class="btn" title="Agregar" onClick="abrirVentana('edit_otros.php?id=<?echo $row_usuario['id_usuario']?>&fecha=<?echo $valor?>')"><i class="icon-plus-sign-alt"></i></a></p></td>
+		<td><p class="insert_access"><a href="#" class="btn btn-default" title="Agregar" onClick="abrirVentana('edit_otros.php?id=<?echo $row_usuario['id_usuario']?>&fecha=<?echo $valor?>')"><i class="icon-plus-sign-alt"></i></a></p></td>
 		<?}?>
 	<?
 		$i=$subtotal+$row_otrahora['horas'];
@@ -560,7 +560,7 @@ foreach($arrayFechas as $valor){?>
 		$resta="-".$resta;
 	}
 	?>	
-	<td><a href="#" class="btn" title="Parametros" onClick="abrirVentana('edit.php?id=<?echo $row_usuario['id_usuario']?>&fecha=<?echo $valor?>')"><i class="icon-edit-sign"></i></a></td>
+	<td><a href="#" class="btn btn-default" title="Parametros" onClick="abrirVentana('edit.php?id=<?echo $row_usuario['id_usuario']?>&fecha=<?echo $valor?>')"><i class="icon-edit-sign"></i></a></td>
 	</tr>
 <? }
 

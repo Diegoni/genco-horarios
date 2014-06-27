@@ -252,7 +252,7 @@ if(isset($_GET['empleado'])){
 	<td colspan="5">
 			<center>
 			<input type="hidden" name="id" value="<?php echo $id?>">
-			<input type="submit" class="btn" name="parametros" value="Modificar"  id="parametros">
+			<input type="submit" class="btn btn-default" name="parametros" value="Modificar"  id="parametros">
 			<a class="btn btn-danger" href="" title="no guarda los cambios realizados" onClick="cerrarse()">Cancelar</a>
 			</center>
 	</td>
@@ -297,14 +297,14 @@ Por favor actualice la base de datos
 			<span class="add-on" onclick="document.getElementById('datepicker').focus();"><i class="icon-calendar"></i></span>
 			<input type="text" name="fecha" id="datepicker" placeholder="ingrese fecha"  autocomplete="off" required>
 		</div></b>
-		<button type="submit" class="btn" title="Buscar"><i class="icon-search"></i></button>
+		<button type="submit" class="btn btn-default" title="Buscar"><i class="icon-search"></i></button>
 		</form>
 		
 	</td>
 	<td>
 
 	<a href="javascript:imprSelec('muestra')" class='btn'><i class="icon-print"></i> Imprimir</a>
-	<button class="btn" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
+	<button class="btn btn-default" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
 
 	
 	<div class="btn-group">
@@ -352,7 +352,7 @@ Por favor actualice la base de datos
 	<p>Para ver las de un usuario determinado, solo debe seleccionar al usuario.</p>
 	</div>
 	<div class="modal-footer">
-	<button class="btn" data-dismiss="modal" aria-hidden="true">Aceptar</button>
+	<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Aceptar</button>
 	</div>
 	</div>
 <!--------------------------------------------------------------------
@@ -404,7 +404,7 @@ Por favor actualice la base de datos
 		</div>
 	</td>
 	<input type="hidden" name="fecha" value="<?php echo $fecha;?>">
-	<td colspan="8"><button type="submit" class="btn" title="buscar" name="empleado" value="1">Aceptar</button></td>
+	<td colspan="8"><button type="submit" class="btn btn-default" title="buscar" name="empleado" value="1">Aceptar</button></td>
 	</tr>
 	</form>
 </div>
@@ -508,11 +508,11 @@ do{?>
 			$cantidad=mysql_num_rows($otrahora);
 			if($cantidad>0){
 		?>
-		<td><p class="insert_access"><a href="#" class="btn" title="<?php echo $row_otrahora['nota'];?>" onClick="abrirVentana('edit_otros.php?id=<?php echo $row_usuario['id_usuario']?>&fecha=<?php echo $fecha_americana?>')"><?php echo $row_otrahora['tipootra'];?> : <?php echo $row_otrahora['horas'];?></a></p></td>
+		<td><p class="insert_access"><a href="#" class="btn btn-default" title="<?php echo $row_otrahora['nota'];?>" onClick="abrirVentana('edit_otros.php?id=<?php echo $row_usuario['id_usuario']?>&fecha=<?php echo $fecha_americana?>')"><?php echo $row_otrahora['tipootra'];?> : <?php echo $row_otrahora['horas'];?></a></p></td>
 		<?php }else{?>
-		<td><p class="insert_access"><a href="#" class="btn" title="Agregar" onClick="abrirVentana('edit_otros.php?id=<?php echo $row_usuario['id_usuario']?>&fecha=<?php echo $fecha_americana?>')"><i class="icon-plus-sign-alt"></i></a></p></td>
+		<td><p class="insert_access"><a href="#" class="btn btn-default" title="Agregar" onClick="abrirVentana('edit_otros.php?id=<?php echo $row_usuario['id_usuario']?>&fecha=<?php echo $fecha_americana?>')"><i class="icon-plus-sign-alt"></i></a></p></td>
 		<?php } ?>
-	<td><a href="#" class="btn" title="Parametros" onClick="abrirVentana('edit.php?id=<?php echo $row_usuario['id_usuario']?>&fecha=<?php echo $fecha_americana?>')"><i class="icon-edit-sign"></i></a></td>
+	<td><a href="#" class="btn btn-default" title="Parametros" onClick="abrirVentana('edit.php?id=<?php echo $row_usuario['id_usuario']?>&fecha=<?php echo $fecha_americana?>')"><i class="icon-edit-sign"></i></a></td>
 	</tr>
 <?php }while ($row_usuario = mysql_fetch_array($usuario));
 

@@ -19,7 +19,7 @@ $numero_filas = mysql_num_rows($usuario);
 	
 <div ALIGN=left class="well">
 <a href="javascript:imprSelec('muestra')" class='btn'><i class="icon-print"></i> Imprimir</a>
-<button class="btn" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
+<button class="btn btn-default" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
 <div class="pull-right"><h4>Logs</h4></div>
 </div>
 <br>
