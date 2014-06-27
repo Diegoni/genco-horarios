@@ -14,8 +14,13 @@ include_once($models_url."mensajes_model.php");
 ----------------------------------------------------------------------			
 --------------------------------------------------------------------*/
 //modifica al usuario segun el formulario de modificar.php
+if(isset($_GET['delete'])){
+	deleteDepartamento($_GET['id']);
+}
+
+//modifica al usuario segun el formulario de modificar.php
 if(isset($_GET['modificar'])){
-	updateDepartamento($_GET['departamento'],$_GET['estado'],$_GET['id']);
+	updateDepartamento($_GET['departamento'],$_GET['id']);
 }
 
 //modifica al usuario segun el formulario de modificar.php
@@ -53,20 +58,22 @@ if(isset($_GET['buscar'])){
 
 
 ?>
-<div class="span9">
+<div class="row">
+<div class="span12">
 <center>
 
 <!-- si hay modificacion o eliminacion de departamento se da aviso que se realizado exitosamente -->
 <?php if(isset($_GET['modificar'])){
 	echo getMensajes('update', 'ok', 'Departamento', $_GET['departamento']);
-}else if(isset($_GET['eliminar'])){
+}else if(isset($_GET['delete'])){
 	echo getMensajes('delete', 'ok', 'Departamento', $_GET['departamento']);
 }?>
 
-<div ALIGN=left>
+<div ALIGN=left class="well">
 <a href='#' class='show_hide btn btn-primary' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
 <a href="javascript:imprSelec('muestra')" class='btn'><i class="icon-print"></i> Imprimir</a>
 <button class="btn" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
+<div class="pull-right"><h4>Departamentos</h4></div>
 </div>
 <br>
 
@@ -86,17 +93,7 @@ if(isset($_GET['buscar'])){
 		<td>Departamento</td>
 		<td><input type="text" name="departamento" class="span4" placeholder="ingrese departamento" required></td>
 	</tr>
-
-	<tr>
-		<td>Estado</td>
-		<td>
-		<input type="radio" name="estado" id="alta" value="1" checked>
-		 Alta
-		<input type="radio" name="estado" id="baja" value="0" >
-		 Baja
-		</td>
-	</tr>
-
+	
 	<tr>
 		<td></td>
 		<td>

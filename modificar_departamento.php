@@ -37,8 +37,6 @@ if($action==0){
 <tr>
 <td>Estado</td>
 <td>
-<input type="radio" name="estado" id="alta" value="1" >
- Alta
 <input type="radio" name="estado" id="baja" value="0" checked>
  Baja
 </td>
@@ -48,7 +46,7 @@ if($action==0){
 <tr>
 <td></td>
 <td>
-<button type="submit" onclick="return confirm('Esta seguro de eliminar este item?');" class="btn btn-primary" name="modificar" value="1" title="Dar de baja al departamento <?php echo $row_departamento['nombre'];?>"><i class="icon-minus-sign"></i> Eliminar</button>
+<button type="submit" onclick="return confirm('Esta seguro de eliminar este item?');" class="btn btn-primary" name="delete" value="1" title="Dar de baja al departamento <?php echo $row_departamento['nombre'];?>"><i class="icon-minus-sign"></i> Eliminar</button>
 <A class="btn btn-danger"  HREF="departamentos.php" title="Cancelar la baja"> <i class="icon-ban-circle"></i> Cancelar</A></td>
 </tr>  
 
@@ -73,19 +71,6 @@ if($action==0){
 </div>
 
 <?php }else{?>
-
-
-<tr>
-<td>Estado</td>
-<td>
-<input type="radio" name="estado" id="alta" value="1" checked>
- Alta
-<input type="radio" name="estado" id="baja" value="0">
- Baja
-</td>
-</tr>
-
-
 <tr>
 <td></td>
 <td>

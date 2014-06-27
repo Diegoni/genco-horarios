@@ -37,6 +37,10 @@ function updateEmpresa(	$empresa,
 				WHERE id_empresa='$id'") or die(mysql_error());
 }
 
+function deleteEmpresa($id){
+	mysql_query("UPDATE `empresa` SET id_estado=0 WHERE id_empresa='$id'") or die(mysql_error());
+}
+
 function insertEmpresa(	$empresa,
 												$cod_empresa,
 												$cuil1,

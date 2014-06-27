@@ -3,10 +3,10 @@ function deleteDepartamento($id){
 	mysql_query("UPDATE `departamento` SET id_estado=0 WHERE id_departamento='$id'") or die(mysql_error());
 }
 
-function updateDepartamento($departamento,$estado,$id){
+function updateDepartamento($departamento,$id){
 	mysql_query("UPDATE `departamento` SET	
 				nombre='$departamento',
-				id_estado='$estado'		
+				id_estado=1		
 				WHERE id_departamento='$id'			
 				") or die(mysql_error());
 }

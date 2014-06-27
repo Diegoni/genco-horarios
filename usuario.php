@@ -23,7 +23,7 @@ if(isset($_GET['id'])){
 $totalotras=0;
 $fecha=date("d-m-Y");
 
-$usuario=getUsuarios();
+$usuario=getUsuario($id_usuario);
 $row_usuario = mysql_fetch_assoc($usuario);
 
 $usuarios=getUsuarios();
@@ -384,7 +384,7 @@ foreach($arrayFechas as $valor){?>
 					}	
 				}else{
 					if($i==1){
-					$me= date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));
+						$me= date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));
 					} else if($i==2){ 
 						$ms= date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));
 					} else if($i==3){ 

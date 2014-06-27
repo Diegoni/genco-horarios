@@ -45,6 +45,7 @@
 									<ul class="dropdown-menu">
 										<li><a href="feriados.php">Feriados</a></li>
 										<li><a href="convenios.php">Convenios</a></li>							
+										<li><a href="limites.php">Limites</a></li>
 										<li><a href="log.php">Logs</a></li>
 										<li><a href="exportar/Genco-Horarios.pdf" target="_blank">Ayuda</a></li>
 									</ul>
@@ -52,10 +53,16 @@
 							</li>
 						</ul>
 						
-						<ul class="nav pull-right">
-							<a class="brand" href="#"><?=$_SESSION['usuario_nombre']?></a>
+						<ul class="nav pull-right">						
 							<li class="">
-								<a title="Cerrar sessión de usuario" href="login/logout.php">Cerrar Sesión</a> 
+								<div class="btn-group">
+								  <a class="negro dropdown-toggle" data-toggle="dropdown" href="#">
+										<a class="brand" href="#"><?=$_SESSION['usuario_nombre']?></a>
+								  </a>
+									<ul class="dropdown-menu">
+										<li><a title="Cerrar sessión de usuario" href="login/logout.php">Cerrar Sesión</a></li>
+									</ul>
+								</div>
 							</li>
 						</ul>
 					</div>

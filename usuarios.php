@@ -25,7 +25,7 @@ if(isset($_GET['modificar'])){
 								'cuil1'=>$_GET['cuil1'],
 								'cuil2'=>$_GET['cuil2'],
 								'cuil3'=>$_GET['cuil3'],
-								'estado'=>$_GET['estado'],
+								'estado'=>1,
 								'empresa'=>$_GET['empresa'],
 								'departamento'=>$_GET['departamento'],
 								'convenio'=>$_GET['convenio'],
@@ -49,7 +49,8 @@ if(isset($_GET['nuevo'])){
 	$usuario=getUsuarios($_GET['usuario'], 'usuario');
 	$row_usuario = mysql_fetch_assoc($usuario);
 	$numero_usuarios = mysql_num_rows($usuario);
-	if($nuevo_usuario>0){
+	
+	if($numero_usuarios>0){
 		$usuario=getUsuarios($_GET['legajo'], 'legajo');
 		$row_usuario = mysql_fetch_assoc($usuario);
 		$numero_usuarios = mysql_num_rows($usuario);
@@ -65,13 +66,12 @@ if(isset($_GET['nuevo'])){
 								'cuil1'=>$_GET['cuil1'],
 								'cuil2'=>$_GET['cuil2'],
 								'cuil3'=>$_GET['cuil3'],
-								'estado'=>$_GET['estado'],
+								'estado'=>1,
 								'empresa'=>$_GET['empresa'],
 								'departamento'=>$_GET['departamento'],
 								'convenio'=>$_GET['convenio'],
 								'legajo'=>$_GET['legajo'],
-								'fecha_ingreso'=>$_GET['fecha_ingreso'],
-								'id'=>$_GET['id']);
+								'fecha_ingreso'=>$_GET['fecha_ingreso']);
 	
 		insertUsusario($datos);
 		echo getMensajes('insert', 'ok', 'Usuario', $_GET['usuario']);	
@@ -119,22 +119,24 @@ $numero_convenio = mysql_num_rows($convenio);
 
 
 ?>
-<div class="span9">
+<div class="row">
+<div class="span12">
 <center>
 
 <!-- si hay modificacion o eliminacion de usuario se da aviso que se realizado exitosamente -->
 <?php 
 if(isset($_GET['modificar'])){
-	echo getMensajes('updete', 'ok', 'Usuario', $_GET['usuario']);
+	echo getMensajes('update', 'ok', 'Usuario', $_GET['usuario']);
 }else if(isset($_GET['eliminar'])){
-	echo getMensajes('delete', 'ok', 'Usuario', $_GET['usuario']);
+	echo getMensajes('delete', 'ok', 'Usuario', $_GET['id']);
 } 
 ?>
 
-<div ALIGN=left>
+<div ALIGN=left class="well">
 <a href='#' class='show_hide btn btn-primary' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
 <a href="javascript:imprSelec('muestra')" class='btn'><i class="icon-print"></i> Imprimir</a>
 <button class="btn" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
+<div class="pull-right"><h4>Usuarios</h4></div>
 </div>
 <br>
 

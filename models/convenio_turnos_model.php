@@ -29,7 +29,7 @@ function getConvenioturnos($dato=NULL, $campo=NULL){
 	 			WHERE convenio_turno.$campo='$dato' AND id_estado=1";   
 		$convenio_turno=mysql_query($query) or die(mysql_error());
 	}else{
-		$query="SELECT * FROM convenio_turno WHERE id_estado=1 ORDER BY convenio";   
+		$query="SELECT * FROM convenio_turno WHERE id_estado=1";   
 		$convenio_turno=mysql_query($query) or die(mysql_error());
 	}
 			

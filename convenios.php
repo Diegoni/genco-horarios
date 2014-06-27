@@ -60,7 +60,8 @@ if (isset($_GET['nuevo'])){
 	$row_convenio = mysql_fetch_assoc($convenio);
 	$numero_convenios = mysql_num_rows($convenio);
 	?>
-	<div class="span9">
+<div class="row">
+	<div class="span12">
 	<center>
 
 	<!-- si hay modificacion o eliminacion de convenio se da aviso que se realizado exitosamente -->
@@ -76,10 +77,11 @@ if (isset($_GET['nuevo'])){
 	}
 	?>
 	
-	<div ALIGN=left>
+	<div ALIGN=left class="well">
 	<a href='#' class='show_hide btn btn-primary' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
 	<a href="javascript:imprSelec('muestra')" class='btn'><i class="icon-print"></i> Imprimir</a>
 	<button class="btn" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
+	<div class="pull-right"><h4>Convenios</h4></div>
 	</div>
 	<br>
 
@@ -162,4 +164,4 @@ if (isset($_GET['nuevo'])){
 	
 
 	
- 
+<?php include_once("footer.php");?>

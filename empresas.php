@@ -13,6 +13,11 @@ include_once($models_url."mensajes_model.php");
 			ABM empresas
 ----------------------------------------------------------------------			
 --------------------------------------------------------------------*/
+if(isset($_GET['delete'])){
+	deleteEmpresa($_GET['id']);
+	echo getMensajes('delete', 'ok', 'Empresa', $_GET['id']);
+}
+
 //modifica al usuario segun el formulario de modificar.php
 if(isset($_GET['modificar'])){
 	updateEmpresa($_GET['empresa'],
@@ -20,8 +25,9 @@ if(isset($_GET['modificar'])){
 								$_GET['cuil1'],
 								$_GET['cuil2'],
 								$_GET['cuil3'],
-								$_GET['estado'],
+								1,
 								$_GET['id']);
+	echo getMensajes('update', 'ok', 'Empresa', $_GET['empresa']);
 }
 
 //modifica al usuario segun el formulario de modificar.php
@@ -38,8 +44,8 @@ if(isset($_GET['nuevo'])){
 									$_GET['cuil1'],
 									$_GET['cuil2'],
 									$_GET['cuil3'],
-									$_GET['estado']);
-	
+									1);
+		echo getMensajes('insert', 'ok', 'Empresa', $_GET['empresa']);
 	}
 }
 
@@ -61,7 +67,8 @@ if(isset($_GET['buscar'])){
 
 
 ?>
-<div class="span9">
+<div class="row">
+<div class="span12">
 <center>
 
 <!-- si hay modificacion o eliminacion de usuario se da aviso que se realizado exitosamente -->
@@ -71,10 +78,11 @@ if(isset($_GET['buscar'])){
 	echo getMensajes('delete', 'ok', 'Empresa', $_GET['empresa']);
 }?>
 
-<div ALIGN=left>
+<div ALIGN=left class="well">
 <a href='#' class='show_hide btn btn-primary' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
 <a href="javascript:imprSelec('muestra')" class='btn'><i class="icon-print"></i> Imprimir</a>
 <button class="btn" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
+<div class="pull-right"><h4>Empresas</h4></div>
 </div>
 <br>
 
@@ -106,16 +114,6 @@ if(isset($_GET['buscar'])){
 			<input type="text" name="cuil1" onkeypress="return isNumberKey(event)" maxlength="2" class="span1" required>-
 			<input type="text" name="cuil2" onkeypress="return isNumberKey(event)" maxlength="8" class="span2" required>-
 			<input type="text" name="cuil3" onkeypress="return isNumberKey(event)" maxlength="1" class="span1" required>
-		</td>
-	</tr>
-
-	<tr>
-		<td>Estado</td>
-		<td>
-			<input type="radio" name="estado" id="alta" value="1" checked>
-			Alta
-			<input type="radio" name="estado" id="baja" value="0">
-			Baja
 		</td>
 	</tr>
 
@@ -177,6 +175,5 @@ if(isset($_GET['buscar'])){
 </div>
 </center>
 </div>
-
 
 <?php include_once("footer.php");?>

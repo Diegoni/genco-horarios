@@ -81,16 +81,6 @@ $numero_convenio = mysql_num_rows($convenio);
 </tr>
 
 <tr>
-<td>Estado</td>
-<td>
-<input type="radio" name="estado" id="alta" value="1" checked>
- Alta
-<input type="radio" name="estado" id="baja" value="0">
- Baja
-</td>
-</tr>
-
-<tr>
 <td>Empresa</td>
 <td><select class="span4" name="empresa">
 	<?php 	do{ 

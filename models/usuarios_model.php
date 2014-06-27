@@ -10,7 +10,8 @@ function getUsuario($id){
 				usuario.fecha_ingreso as fecha_ingreso,
 				departamento.nombre as departamento,
 				convenio.semana as semana,				
-				convenio.sabado as sabado,				
+				convenio.sabado as sabado,	
+				convenio.id_convenio as id_convenio,			
 				convenio.salida_sabado as salida_sabado				
 		FROM `usuario` 
 		INNER JOIN

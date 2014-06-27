@@ -122,3 +122,4 @@ include_once($models_url."mensajes_model.php");
 	<?php }while($row_convenio_turno=mysql_fetch_assoc($convenio_turno)); ?>
 </div>		
 	
+	<?php include_once("footer.php");?>

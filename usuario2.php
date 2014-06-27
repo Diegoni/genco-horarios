@@ -375,119 +375,134 @@ $otrahoras=array();
 
 foreach($arrayFechas as $valor){
 
-		list ($clase, $title, $esferiado) = esferiado($valor);
-		$dia=devuelve_dia($valor);
+	list ($clase, $title, $esferiado) = esferiado($valor);
+	$dia=devuelve_dia($valor);
 		
-		if($dia=="Domingo" || $esferiado==1){
+	if($dia=="Domingo" || $esferiado==1){
+	}else{
+		if($dia!="Sábado"){
+			$total_normales=$total_normales+$semana;
 		}else{
-			if($dia!="Sábado"){
-				$total_normales=$total_normales+$semana;
-			}else{
-				$total_normales=$total_normales+$sabado;
-			}
+			$total_normales=$total_normales+$sabado;
 		}
+	}
 
-		$me=0;
-		$ms=0;
-		$te=0;
-		$ts=0;
-		
-		$canme=0;
-		$canms=0;
-		$cante=0;
-		$cants=0;
+	$me=0;
+	$ms=0;
+	$te=0;
+	$ts=0;
 	
-		$query="SELECT * 
-				FROM temp 
-				WHERE
-				DATE_FORMAT(entrada, '%Y-%m-%d') like '$valor'
-				AND id_usuario=$id_usuario";   
-		$marcacion=mysql_query($query) or die(mysql_error());
-		$row_marcacion = mysql_fetch_assoc($marcacion);
-		$cantidad_parametros=mysql_num_rows($marcacion);
+	$canme=0;
+	$canms=0;
+	$cante=0;
+	$cants=0;
+	
+	
+	$query="SELECT * 
+			FROM temp 
+			WHERE
+			DATE_FORMAT(entrada, '%Y-%m-%d') like '$valor'
+			AND id_usuario=$id_usuario";   
+	$marcacion=mysql_query($query) or die(mysql_error());
+	$row_marcacion = mysql_fetch_assoc($marcacion);
+	$cantidad_parametros=mysql_num_rows($marcacion);
 		
-		if($cantidad_parametros>0){
+		
+	if($cantidad_parametros>0){
+		if($aplicar_redondeo==0){
 		do{
 		$i=$row_marcacion['id_parametros'];
 				if($i==1){
 					$canme=$canme+1;
 					if($canme==1){
-						if($aplicar_redondeo==0){
-							$me=date('H:i', strtotime($row_marcacion['entrada']));		
-						}else{
-							$me= date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));		
-						}					
+					$me=date('H:i', strtotime($row_marcacion['entrada']));
 					}
 				} else if($i==2){ 
 					$canms=$canms+1;
 					if($canms==1){
-						if($aplicar_redondeo==0){
-							$ms=date('H:i', strtotime($row_marcacion['entrada']));		
-						}else{
-							$ms= date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));		
-						}
+					$ms=date('H:i', strtotime($row_marcacion['entrada']));
+
 					}
 				} else if($i==3){ 
 					$cante=$cante+1;
 					if($cante==1){
-						if($aplicar_redondeo==0){
-							$te=date('H:i', strtotime($row_marcacion['entrada']));		
-						}else{
-							$te= date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));		
-						}
+					$te=date('H:i', strtotime($row_marcacion['entrada']));
 					}
 				} else if($i==4){ 
 					$cants=$cants+1;
 					if($cants==1){
-						if($aplicar_redondeo==0){
-							$ts=date('H:i', strtotime($row_marcacion['entrada']));		
-						}else{
-							$ts= date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));		
-						}
+					$ts=date('H:i', strtotime($row_marcacion['entrada']));
 					}
 				}
-		}while($row_marcacion=mysql_fetch_array($marcacion));	
-		}
+		}while($row_marcacion=mysql_fetch_array($marcacion));
+		}else{do{
+		$i=$row_marcacion['id_parametros'];
+				if($i==1){
+					$canme=$canme+1;
+					if($canme==1){
+					$me= date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));
+					}
+				} else if($i==2){ 
+					$canms=$canms+1;
+					if($canms==1){
+					$ms= date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));
+					}
+				} else if($i==3){ 
+					$cante=$cante+1;
+					if($cante==1){
+					$te= date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));
+					}
+				} else if($i==4){ 
+					$cants=$cants+1;
+					if($cants==1){
+					$ts= date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));
+					}
+				}
+		}while($row_marcacion=mysql_fetch_array($marcacion));
+		}	
+	}
 			
 		
-		 if($me>0 && $ms>0){
-			$m=intervalo_tiempo($me,$ms);
-			}else{
-			$m=0;
-			}
+		
+	if($me>0 && $ms>0){
+		$m=intervalo_tiempo($me,$ms);
+	}else{
+		$m=0;
+	}
 			
-			if($te>0 && $ts>0){
-			$t=intervalo_tiempo($te,$ts);
-			}else{
-			$t=0;
-			}
+	if($te>0 && $ts>0){
+		$t=intervalo_tiempo($te,$ts);
+	}else{
+		$t=0;
+	}
 			
-			if($t>0 || $m>0){
-			$subtotal=$m+$t;
-			$total=$total+$subtotal;
-			}else{
-			$subtotal=0;
-			}
+	if($t>0 || $m>0){
+		$subtotal=$m+$t;
+		$total=$total+$subtotal;
+	}else{
+		$subtotal=0;
+	}
 			
-		$i=$subtotal;
+	$i=$subtotal;
 
-		if($dia=="Domingo" || $esferiado==1){
-			$total_cien=$total_cien+$i;	
+
+
+	if($dia=="Domingo" || $esferiado==1){
+		$total_cien=$total_cien+$i;	
+	}else{
+		if($dia!="Sábado"){
+			$i=$i-$semana;
+			$total_cincuenta=$total_cincuenta+$i;
 		}else{
-			if($dia!="Sábado"){
-				$i=$i-$semana;
-				$total_cincuenta=$total_cincuenta+$i;
+			$i=$i-$sabado;
+			$rest = substr($ms, 0, 2);
+			if($rest>=$salida_sabado && $i>0){
+				$total_cien=$total_cien+$i;	
 			}else{
-				$i=$i-$sabado;
-				$rest = substr($ms, 0, 2);
-				
-				if($rest>=$salida_sabado && $i>0){
-					$total_cien=$total_cien+$i;	
-				}else{
 				$total_cincuenta=$total_cincuenta+$i;
-				}
 			}
-			}
+		}
+	}
 
 		
 	list ($resta, $signo) = pasar_hora_resta($total_cincuenta);
