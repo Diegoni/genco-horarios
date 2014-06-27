@@ -134,7 +134,7 @@ if(isset($_GET['modificar'])){
 
 <div ALIGN=left class="well">
 <a href='#' class='show_hide btn btn-primary' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
-<a href="javascript:imprSelec('muestra')" class='btn'><i class="icon-print"></i> Imprimir</a>
+<a class='btn btn-default' href="javascript:imprSelec('muestra')" ><i class="icon-print"></i> Imprimir</a>
 <button class="btn btn-default" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
 <div class="pull-right"><h4>Usuarios</h4></div>
 </div>
