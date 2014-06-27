@@ -45,7 +45,7 @@ if(isset($_GET['update'])){
     <div class="tab-pane active" id="tab1">
 		<table class="table table-hover">
 		
-		<input type="hidden" name="id" value="<?php echo $id_config?>"
+		<input type="hidden" name="id" value="<?php echo $id_config?>">
 		<tr>
 		<td>Aplicar Redondeo</td>
 		<td><input type="checkbox" name="aplicar_redondeo" <?php if($aplicar_redondeo==1){ echo "checked";}?>></td>
@@ -59,7 +59,15 @@ if(isset($_GET['update'])){
 		</table>
     </div>
     <div class="tab-pane" id="tab2">
-      <p>Sistema</p>
+      	<table class="table table-hover">
+		
+
+		<tr>
+		<td>Título</td>
+		<td><input type="text" name="title" value="<?php echo $title;?>" required></td>
+		</tr>
+	
+		</table>
     </div>
     <div class="tab-pane" id="tab3">
      	<table class="table table-hover">

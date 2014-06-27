@@ -7,7 +7,7 @@ date_default_timezone_set('America/Argentina/Mendoza');
 ?>
 <html>
 <head>
-<title>Sistema de horario Genco</title>
+<title><?php echo $title;?></title>
 <!--BEGIN META TAGS-->
 <META NAME="keywords" CONTENT="">
 <META NAME="description" CONTENT="Sistema de horario Genco by TMS Group">
