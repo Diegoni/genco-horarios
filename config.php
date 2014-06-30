@@ -6,6 +6,7 @@ session_start();
 include_once("menu.php");
 include_once($models_url."configs_model.php");
 include_once($models_url."mensajes_model.php"); 
+include_once($models_url."imagenes_model.php");
 
 if(isset($_GET['update'])){
 	if($_GET['update']==1){
@@ -14,6 +15,27 @@ if(isset($_GET['update'])){
 	
 	echo getMensajes('update', 'ok', 'Config', 1);
 }
+
+if(isset($_FILES['foto'])){
+	
+	$extension = pathinfo($_FILES['foto']['name']); 
+	$extension = ".".$extension['extension']; 		
+	$_FILES['foto']['name']='logo_menu'.$extension;
+  
+  copy($_FILES['foto']['tmp_name'],'imagenes/'.$_FILES['foto']['name']);
+  
+  $foto_nombre=$_FILES['foto']['name'];
+  $foto_tipo=$_FILES['foto']['type'];
+  $foto_size=$_FILES['foto']['size'];
+  
+  $foto=array('foto_nombre'=> $foto_nombre,
+              'foto_tipo'=>$foto_tipo,
+              'foto_size'=>$foto_size,
+              'id_config'=>1);
+  updateFotologo($foto);
+} 
+
+
  
 
 	$config=getConfig();
@@ -23,7 +45,9 @@ if(isset($_GET['update'])){
 		$aplicar_redondeo=$row_config['aplicar_redondeo'];
 		$mostrar_marcada=$row_config['mostrar_marcada'];
 		$css=$row_config['css'];
-	 }while($row_config=mysql_fetch_array($config)); 
+	 }while($row_config=mysql_fetch_array($config));
+	 
+	 
 
 ?>
 <div class="row">
@@ -47,13 +71,13 @@ if(isset($_GET['update'])){
 		
 		<input type="hidden" name="id" value="<?php echo $id_config?>">
 		<tr>
-		<td>Aplicar Redondeo</td>
-		<td><input type="checkbox" name="aplicar_redondeo" <?php if($aplicar_redondeo==1){ echo "checked";}?>></td>
+			<td>Aplicar Redondeo</td>
+			<td><input type="checkbox" name="aplicar_redondeo" <?php if($aplicar_redondeo==1){ echo "checked";}?>></td>
 		</tr>
 		
 		<tr>
-		<td>Mostrar marcada sin redondeo</td>
-		<td><input type="checkbox" name="mostrar_marcada" <?php if($mostrar_marcada==1){ echo "checked";}?>></td>
+			<td>Mostrar marcada sin redondeo</td>
+			<td><input type="checkbox" name="mostrar_marcada" <?php if($mostrar_marcada==1){ echo "checked";}?>></td>
 		</tr>
 		
 		</table>
@@ -63,8 +87,13 @@ if(isset($_GET['update'])){
 		
 
 		<tr>
-		<td>Título</td>
-		<td><input type="text" name="title" value="<?php echo $title;?>" required></td>
+			<td>Título</td>
+			<td><input type="text" name="title" value="<?php echo $title;?>" required></td>
+		</tr>
+		
+		<tr>
+			<td>Logo</td>
+			<td><img width="106" height="40"  src="<?php echo $logo;?>"> <a href='#' class='show_hide btn'>Cambiar</a></td>
 		</tr>
 	
 		</table>
@@ -74,7 +103,7 @@ if(isset($_GET['update'])){
 
 		<tr>
 		<td>Colores</td>
-		<td>
+			<td>
 			<select name="css">
 				<?php for($i=0;$i<21;$i++){ 
 						if($i==$css){ ?>
@@ -84,17 +113,20 @@ if(isset($_GET['update'])){
 				<?php 	} ?>
 				<?php }?>
 			</select>
-		</td>
+			</td>
 		</tr>
 		
 		</table>
     </div>
   </div>
 </div>
-
-
-
-</form> 
+</form>
+<div class="slidingDiv">
+			<form action="config.php" method="post" enctype="multipart/form-data">
+			<input type="file" name="foto"><br>	
+			<input type="submit" class ="btn btn-default" value="Enviar">
+			</form>
+		</div> 
 </center>
 </div>
 
