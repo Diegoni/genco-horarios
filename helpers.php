@@ -1,10 +1,48 @@
 <?php
+error_reporting(0);
+
+
 include_once("config/database.php");
+
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------
 //						Funciones php
 //----------------------------------------------------------------------			
 //--------------------------------------------------------------------->
+function devuelve_icono($extension, $iconos_url){
+	if(	$extension=='.png' || 
+		$extension=='.gif' ||
+		$extension=='.jpg' ||
+		$extension=='.jpeg'){
+		$icono=$iconos_url."imagen.png";	
+	}else if(	
+		$extension=='.xls' || 
+		$extension=='.xlsx'){
+		$icono=$iconos_url."excel.png";	
+	}else if(	
+		$extension=='.doc' || 
+		$extension=='.docx'){
+		$icono=$iconos_url."word.png";	
+	}else if(	
+		$extension=='.ppt' || 
+		$extension=='.pptx'){
+		$icono=$iconos_url."ppt.png";	
+	}else if(	
+		$extension=='.pdf'){
+		$icono=$iconos_url."ppt.png";
+	}else if(	
+		$extension=='.rar'){
+		$icono=$iconos_url."rar.png";
+	}else if(	
+		$extension=='.zip'){
+		$icono=$iconos_url."zip.png";
+	}else{
+		$icono=$iconos_url."guardar.png";
+	}
+	
+	return $icono;
+	
+}
 
 
 function devuelveArrayFechasEntreOtrasDos($fechaInicio, $fechaFin){
@@ -146,6 +184,31 @@ if($cantidad_feriado>0){
 }
 
 }
+
+function gestorErrores($numerr, $menserr, $nombrearchivo, $numlinea, $vars){
+	$tipoerror= array(	E_WARNING=>'Alerta', 
+						E_NOTICE=> 'Nota', 
+						E_USER_ERROR=>'Error de Usuario', 
+						E_USER_WARNING=> 'Alerta de Usuario',
+						E_USER_NOTICE=>'Nota de Usuario');
+	$errores_usuario= array(
+						E_USER_ERROR, 
+						E_USER_WARNING, 
+						E_USER_NOTICE);
+	$fecha=date("H:i d/m/Y");
+	
+	$err="<registro>\n";
+	$err.="\t<tipo>".$tipoerror[$numerr]."</tipo>\n";
+	$err.="\t<mensaje>".$menserr."</mensaje>\n";
+	$err.="\t<archivo>".$nombrearchivo."</archivo>\n";
+	$err.="\t<num_linea>".$numlinea."</num_linea>\n";
+	$err.="\t<fecha>".$fecha."</fecha>\n";
+	$err.="</registro>\n\n";
+	
+	error_log($err,3,"user_error_log");
+}
+
+$gestor_error_antiguo=set_error_handler("gestorErrores");//manejador de errores
 
 ?>
  

@@ -1,11 +1,6 @@
 <?php
 function getUsuario($id){
-	if(!(is_numeric($id))){
-		trigger_error("Envió de Id que no es número", E_USER_WARNING);
-		
-		return FALSE;
-	}else{
-		$query="SELECT 	usuario.id_usuario,
+	$query="SELECT 	usuario.id_usuario,
 				usuario.usuario as usuario,
 				usuario.legajo as legajo,
 				usuario.nombre as nombre,
@@ -13,7 +8,6 @@ function getUsuario($id){
 				usuario.dni as dni,
 				usuario.cuil as cuil,
 				usuario.fecha_ingreso as fecha_ingreso,
-    			usuario.foto_nombre as foto_nombre,
 				departamento.nombre as departamento,
 				convenio.semana as semana,				
 				convenio.sabado as sabado,	
@@ -25,10 +19,9 @@ function getUsuario($id){
 		INNER JOIN
 		convenio on(usuario.id_convenio=convenio.id_convenio)
 		WHERE id_usuario='$id'";   
-		$usuario=mysql_query($query) or die(mysql_error());
-		
-		return $usuario;
-	}	
+	$usuario=mysql_query($query) or die(mysql_error());
+	
+	return $usuario;
 }
 
 function getUsuarios($dato=NULL, $campo=NULL){
@@ -86,11 +79,11 @@ function getUsuarios($dato=NULL, $campo=NULL){
 }
 
 function updateUsuario($datos){
-	if(is_array($datos)){
-		$cuil=$datos['cuil1']."-".$datos['cuil2']."-".$datos['cuil3'];
-		$fecha=date( "Y-m-d", strtotime($datos['fecha_ingreso']));
+		
+	$cuil=$datos['cuil1']."-".$datos['cuil2']."-".$datos['cuil3'];
+	$fecha=date( "Y-m-d", strtotime($datos['fecha_ingreso']));
 	
-		mysql_query("UPDATE `usuario` SET	
+	mysql_query("UPDATE `usuario` SET	
 								usuario='$datos[usuario]',
 								nombre='$datos[nombre]',
 								apellido='$datos[apellido]',
@@ -103,38 +96,10 @@ function updateUsuario($datos){
 								fecha_ingreso='$fecha',
 								legajo='$datos[legajo]'	
 								WHERE id_usuario='$datos[id]'") or die(mysql_error());
-	}else{
-		trigger_error("No se envió un array en updateUsuario", E_USER_WARNING);
-	}	
-
-}
-
-function updateFoto($foto){
-	$error=1;	
-	
-	if(!(is_array($foto))){
-		trigger_error("No se envió un array en updateFoto", E_USER_WARNING);
-		$error=0;		
-	}else if(!(	$foto['foto_tipo']=='image/png' || 
-				$foto['foto_tipo']=='image/gif' ||
-				$foto['foto_tipo']=='image/jpg' ||
-				$foto['foto_tipo']=='image/jpeg')) {
-		trigger_error("Formato de foto no valido", E_USER_ERROR);
-		$error=0;		
-	}
-	
-	if($error==1){
-		mysql_query("UPDATE `usuario` SET	
-								foto_nombre='$foto[foto_nombre]',
-								foto_tipo='$foto[foto_tipo]',
-								foto_size='$foto[foto_size]'
-								WHERE id_usuario='$foto[id_usuario]'") or die(mysql_error());
-			
-	}
 }
 
 function deleteUsuario($id){
-	mysql_query("UPDATE `usuario` SET id_estado=0 WHERE id_usuario='$id'") or die(mysql_error());
+	mysql_query("UPDATE `usuario` SET	id_estado=0	WHERE id_usuario='$id'") or die(mysql_error());
 }
 
 function insertUsusario($datos){

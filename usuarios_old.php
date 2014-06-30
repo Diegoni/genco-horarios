@@ -34,13 +34,11 @@ if(isset($_GET['modificar'])){
 								'id'=>$_GET['id']);
 
 	updateUsuario($datos);
-	echo getMensajes('update', 'ok', 'Usuario', $_GET['usuario']);
 }
 
 //da de baja al usuario segun el formulario de eliminar.php
 if(!(empty($_GET['eliminar']))){
 	deleteUsuario($_GET['id']);
-	echo getMensajes('delete', 'ok', 'Usuario', $_GET['id']);
 }
 
 
@@ -125,12 +123,20 @@ $numero_convenio = mysql_num_rows($convenio);
 <div class="span12">
 <center>
 
+<!-- si hay modificacion o eliminacion de usuario se da aviso que se realizado exitosamente -->
+<?php 
+if(isset($_GET['modificar'])){
+	echo getMensajes('update', 'ok', 'Usuario', $_GET['usuario']);
+}else if(isset($_GET['eliminar'])){
+	echo getMensajes('delete', 'ok', 'Usuario', $_GET['id']);
+} 
+?>
 
 <div ALIGN=left class="well">
-	<a href='#' class='show_hide btn btn-primary' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
-	<a class='btn btn-default' href="javascript:imprSelec('muestra')" ><i class="icon-print"></i> Imprimir</a>
-	<button class="btn btn-default" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
-	<div class="pull-right"><h4>Usuarios</h4></div>
+<a href='#' class='show_hide btn btn-primary' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
+<a class='btn btn-default' href="javascript:imprSelec('muestra')" ><i class="icon-print"></i> Imprimir</a>
+<button class="btn btn-default" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
+<div class="pull-right"><h4>Usuarios</h4></div>
 </div>
 <br>
 

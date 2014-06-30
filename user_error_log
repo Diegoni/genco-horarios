@@ -1,0 +1,696 @@
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>163</num_linea>
+	<fecha>12:38 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>61</num_linea>
+	<fecha>12:38 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>61</num_linea>
+	<fecha>12:38 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: otrahora</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\otrahora_model.php</archivo>
+	<num_linea>37</num_linea>
+	<fecha>12:38 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_fetch_assoc() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>62</num_linea>
+	<fecha>12:38 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_num_rows() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>63</num_linea>
+	<fecha>12:38 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>255</num_linea>
+	<fecha>12:38 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>256</num_linea>
+	<fecha>12:38 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>164</num_linea>
+	<fecha>12:41 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>62</num_linea>
+	<fecha>12:41 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>62</num_linea>
+	<fecha>12:41 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: otrahora</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\otrahora_model.php</archivo>
+	<num_linea>37</num_linea>
+	<fecha>12:41 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_fetch_assoc() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>63</num_linea>
+	<fecha>12:41 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_num_rows() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>64</num_linea>
+	<fecha>12:41 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>256</num_linea>
+	<fecha>12:41 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>257</num_linea>
+	<fecha>12:41 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>unlink(imagenes/otra_hora/28.xlsx): No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>30</num_linea>
+	<fecha>12:41 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>164</num_linea>
+	<fecha>12:41 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>62</num_linea>
+	<fecha>12:41 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>62</num_linea>
+	<fecha>12:41 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: otrahora</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\otrahora_model.php</archivo>
+	<num_linea>37</num_linea>
+	<fecha>12:41 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_fetch_assoc() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>63</num_linea>
+	<fecha>12:41 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_num_rows() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>64</num_linea>
+	<fecha>12:41 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>256</num_linea>
+	<fecha>12:41 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>257</num_linea>
+	<fecha>12:41 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>164</num_linea>
+	<fecha>12:41 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>62</num_linea>
+	<fecha>12:41 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>62</num_linea>
+	<fecha>12:41 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: otrahora</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\otrahora_model.php</archivo>
+	<num_linea>37</num_linea>
+	<fecha>12:41 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_fetch_assoc() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>63</num_linea>
+	<fecha>12:41 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_num_rows() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>64</num_linea>
+	<fecha>12:41 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>256</num_linea>
+	<fecha>12:41 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>257</num_linea>
+	<fecha>12:41 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>164</num_linea>
+	<fecha>12:42 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>62</num_linea>
+	<fecha>12:42 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>62</num_linea>
+	<fecha>12:42 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: otrahora</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\otrahora_model.php</archivo>
+	<num_linea>37</num_linea>
+	<fecha>12:42 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_fetch_assoc() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>63</num_linea>
+	<fecha>12:42 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_num_rows() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>64</num_linea>
+	<fecha>12:42 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>256</num_linea>
+	<fecha>12:42 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>257</num_linea>
+	<fecha>12:42 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>164</num_linea>
+	<fecha>12:42 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>62</num_linea>
+	<fecha>12:42 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>62</num_linea>
+	<fecha>12:42 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: otrahora</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\otrahora_model.php</archivo>
+	<num_linea>37</num_linea>
+	<fecha>12:42 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_fetch_assoc() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>63</num_linea>
+	<fecha>12:42 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_num_rows() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>64</num_linea>
+	<fecha>12:42 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>256</num_linea>
+	<fecha>12:42 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>257</num_linea>
+	<fecha>12:42 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>170</num_linea>
+	<fecha>12:50 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>183</num_linea>
+	<fecha>12:55 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>183</num_linea>
+	<fecha>12:55 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>81</num_linea>
+	<fecha>12:55 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>81</num_linea>
+	<fecha>12:55 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: otrahora</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\otrahora_model.php</archivo>
+	<num_linea>37</num_linea>
+	<fecha>12:55 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_fetch_assoc() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>82</num_linea>
+	<fecha>12:55 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_num_rows() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>83</num_linea>
+	<fecha>12:55 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>275</num_linea>
+	<fecha>12:55 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>276</num_linea>
+	<fecha>12:55 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>183</num_linea>
+	<fecha>12:55 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>81</num_linea>
+	<fecha>12:55 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>81</num_linea>
+	<fecha>12:55 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: otrahora</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\otrahora_model.php</archivo>
+	<num_linea>37</num_linea>
+	<fecha>12:55 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_fetch_assoc() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>82</num_linea>
+	<fecha>12:55 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_num_rows() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>83</num_linea>
+	<fecha>12:55 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>275</num_linea>
+	<fecha>12:55 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>276</num_linea>
+	<fecha>12:55 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>183</num_linea>
+	<fecha>12:56 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>81</num_linea>
+	<fecha>12:56 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>81</num_linea>
+	<fecha>12:56 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: otrahora</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\otrahora_model.php</archivo>
+	<num_linea>37</num_linea>
+	<fecha>12:56 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_fetch_assoc() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>82</num_linea>
+	<fecha>12:56 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_num_rows() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>83</num_linea>
+	<fecha>12:56 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>275</num_linea>
+	<fecha>12:56 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>276</num_linea>
+	<fecha>12:56 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: extension</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>36</num_linea>
+	<fecha>12:56 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>copy(): Filename cannot be empty</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>54</num_linea>
+	<fecha>12:56 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>183</num_linea>
+	<fecha>12:56 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>unlink(imagenes/otra_hora/2.): No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>30</num_linea>
+	<fecha>12:56 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>183</num_linea>
+	<fecha>12:56 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>81</num_linea>
+	<fecha>12:56 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>81</num_linea>
+	<fecha>12:56 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: otrahora</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\otrahora_model.php</archivo>
+	<num_linea>37</num_linea>
+	<fecha>12:56 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_fetch_assoc() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>82</num_linea>
+	<fecha>12:56 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_num_rows() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>83</num_linea>
+	<fecha>12:56 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>275</num_linea>
+	<fecha>12:56 30/06/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>276</num_linea>
+	<fecha>12:56 30/06/2014</fecha>
+</registro>
+
