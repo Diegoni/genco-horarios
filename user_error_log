@@ -694,3 +694,11 @@
 	<fecha>12:56 30/06/2014</fecha>
 </registro>
 
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: cadena</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\convenios_turno.php</archivo>
+	<num_linea>180</num_linea>
+	<fecha>13:38 30/06/2014</fecha>
+</registro>
+

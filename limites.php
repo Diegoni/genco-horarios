@@ -85,7 +85,7 @@ $numero_limites = mysql_num_rows($limite);
 ----------------------------------------------------------------------
 --------------------------------------------------------------------->		
 <div class='slidingDiv'>
-	<div class="span9">
+	<div class="well">
 	<form action="limites.php" method="get" > 
 	<table class="table table-hover">
 	<tr>

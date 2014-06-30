@@ -141,7 +141,7 @@ $numero_convenio = mysql_num_rows($convenio);
 --------------------------------------------------------------------->
 
 <div class='slidingDiv'>
-<div class="span9">
+<div class="well">
 		
 <!-- Formulario de alta usuario -->
 <form class="form-inline" action="usuarios.php" >
@@ -259,7 +259,7 @@ $numero_convenio = mysql_num_rows($convenio);
 <td><?php echo $row_usuario['legajo'];?></td>
 <td><?php echo $row_usuario['departamento'];?></td>
 <td>
-		<?php if ($row_usuario['id_estado']==0) {?>
+	<?php if ($row_usuario['id_estado']==0) {?>
 		baja
 	<?php } else { ?>
 		activo

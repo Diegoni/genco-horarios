@@ -92,7 +92,7 @@ if (isset($_GET['nuevo'])){
 ----------------------------------------------------------------------
 --------------------------------------------------------------------->		
 	<div class='slidingDiv'>
-	<div class="span9">
+	<div class="well">
 	<form action="convenios.php" method="get" > 
 	<table class="table table-hover">
 	<tr>

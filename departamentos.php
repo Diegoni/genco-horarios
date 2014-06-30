@@ -84,7 +84,7 @@ if(isset($_GET['buscar'])){
 --------------------------------------------------------------------->
 
 <div class='slidingDiv'>
-<div class="span9">
+<div class="well">
 		
 <form class="form-inline" action="departamentos.php">
 	<table class="table table-hover">
