@@ -58,11 +58,8 @@
 							<li class="">
 								<div class="btn-group">
 								  <a class="negro dropdown-toggle" data-toggle="dropdown" href="#">
-										<a class="brand" href="#"><?=$_SESSION['usuario_nombre']?></a>
+										<a class="brand" title="Cerrar sessión de usuario" href="login/logout.php"><?=$_SESSION['usuario_nombre']?> <i class="icon-signout"></i></a>
 								  </a>
-									<ul class="dropdown-menu">
-										<li><a title="Cerrar sessión de usuario" href="login/logout.php">Cerrar Sesión</a></li>
-									</ul>
 								</div>
 							</li>
 						</ul>

@@ -4,7 +4,7 @@ function getUsuario($id){
 		trigger_error("Envió de Id que no es número", E_USER_WARNING);
 		
 		return FALSE;
-	}else{
+	}else if(isset($id)){
 		$query="SELECT 	usuario.id_usuario,
 				usuario.usuario as usuario,
 				usuario.legajo as legajo,
@@ -14,6 +14,7 @@ function getUsuario($id){
 				usuario.cuil as cuil,
 				usuario.fecha_ingreso as fecha_ingreso,
     			usuario.foto_nombre as foto_nombre,
+    			empresa.empresa as empresa,
 				departamento.nombre as departamento,
 				convenio.semana as semana,				
 				convenio.sabado as sabado,	
@@ -24,11 +25,40 @@ function getUsuario($id){
 		departamento on(usuario.id_departamento=departamento.id_departamento)
 		INNER JOIN
 		convenio on(usuario.id_convenio=convenio.id_convenio)
+		INNER JOIN
+		empresa on(usuario.id_empresa=empresa.id_empresa)
 		WHERE id_usuario='$id'";   
 		$usuario=mysql_query($query) or die(mysql_error());
 		
 		return $usuario;
-	}	
+	}else{
+		$query="SELECT 	usuario.id_usuario,
+				usuario.usuario as usuario,
+				usuario.legajo as legajo,
+				usuario.nombre as nombre,
+				usuario.apellido as apellido,
+				usuario.dni as dni,
+				usuario.cuil as cuil,
+				usuario.fecha_ingreso as fecha_ingreso,
+    			usuario.foto_nombre as foto_nombre,
+    			empresa.empresa as empresa,
+				departamento.nombre as departamento,
+				convenio.semana as semana,				
+				convenio.sabado as sabado,	
+				convenio.id_convenio as id_convenio,			
+				convenio.salida_sabado as salida_sabado				
+		FROM `usuario` 
+		INNER JOIN
+		departamento on(usuario.id_departamento=departamento.id_departamento)
+		INNER JOIN
+		convenio on(usuario.id_convenio=convenio.id_convenio)
+		INNER JOIN
+		empresa on(usuario.id_empresa=empresa.id_empresa)
+		WHERE usuario.id_estado=1";   
+		$usuario=mysql_query($query) or die(mysql_error());
+		
+		return $usuario;
+	}
 }
 
 function getUsuarios($dato=NULL, $campo=NULL){

@@ -1,3 +1,15 @@
+.texto{
+	text-align:center;
+	height: 30px; 
+	vertical-align: middle;
+	font-size:11px;
+}
+.hora{
+	text-align:center;
+	height: 40px; 
+	vertical-align: middle;
+	font-size:14px;
+}
 .negro{
   display: inline-block;
   padding: 8px 12px;

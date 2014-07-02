@@ -1,0 +1,16 @@
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(footer.php): failed to open stream: No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\imprimir\usuario_reporte.php</archivo>
+	<num_linea>662</num_linea>
+	<fecha>10:10 02/07/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(): Failed opening 'footer.php' for inclusion (include_path='.;C:\xampp2\php\PEAR')</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\imprimir\usuario_reporte.php</archivo>
+	<num_linea>662</num_linea>
+	<fecha>10:10 02/07/2014</fecha>
+</registro>
+

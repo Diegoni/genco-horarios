@@ -215,7 +215,15 @@ if(!isset($fecha_inicio)){
 	  </a>
 	  <ul class="dropdown-menu">
 		<li <?php echo  $classcadena;?>><a href="usuario.php?id=<?php echo  $id_usuario;?>&buscar=<?php echo  1;?>&fecha_final=<?php echo  $fecha_final; ?>&fecha_inicio=<?php echo  $fecha_inicio; ?>"  title="Refresh" <?php   if(!isset($fecha_final)){ ?> disabled<?php   } ?>><i class="icon-refresh"></i> Refresh</a></li>
-		<li <?php echo  $classcadena;?>><a href="javascript:imprSelec('muestra')"><i class="icon-print"></i> Imprimir</a></li>
+		<li <?php echo  $classcadena;?>>
+			<a href="usuario_reporte.php?
+			id=<?php echo $id_usuario;?>&
+			nombre=<?php echo $id_usuario;?>&
+			buscar=<?php echo  1;?>&
+			fecha_final=<?php echo  $fecha_final; ?>&
+			fecha_inicio=<?php echo $fecha_inicio; ?>" 
+			title="Exportar" target="_blank" <?php if(!isset($fecha_final)){ ?> disabled <?php } ?> >
+			<i class="icon-print"></i> Imprimir</a></li>
 		<li <?php echo  $classcadena;?>>
 			<a href="exportar/usuario.php?
 			id=<?php echo $id_usuario;?>&
