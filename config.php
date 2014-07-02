@@ -92,12 +92,12 @@ if(isset($_FILES['firma'])){
 		<input type="hidden" name="id" value="<?php echo $id_config?>">
 		<tr>
 			<td>Aplicar Redondeo</td>
-			<td><input type="checkbox" name="aplicar_redondeo" <?php if($aplicar_redondeo==1){ echo "checked";}?>></td>
+			<td><input type="checkbox" name="aplicar_redondeo" <?php if($aplicar_redondeo==1){ echo "checked";}?> data-on="success" data-off="danger" ></td>
 		</tr>
 		
 		<tr>
 			<td>Mostrar marcada sin redondeo</td>
-			<td><input type="checkbox" name="mostrar_marcada" <?php if($mostrar_marcada==1){ echo "checked";}?>></td>
+			<td><input type="checkbox" name="mostrar_marcada" <?php if($mostrar_marcada==1){ echo "checked";}?> data-on="success" data-off="danger" ></td>
 		</tr>
 		
 		</table>
@@ -113,12 +113,12 @@ if(isset($_FILES['firma'])){
 		
 		<tr>
 			<td>Logo</td>
-			<td><img width="106" height="40"  src="<?php echo $logo;?>"> <a href='#' class='show_hide btn'>Cambiar</a></td>
+			<td><img width="106" height="40"  src="<?php echo $logo;?>"> <a href='#' class='show_hide btn btn-default'>Cambiar</a></td>
 		</tr>
 		
 		<tr>
 			<td>Firma</td>
-			<td><img width="106" height="40"  src="<?php echo $firma;?>"> <a href='#' class='show_hide2 btn'>Cambiar</a></td>
+			<td><img width="106" height="40"  src="<?php echo $firma;?>"> <a href='#' class='show_hide2 btn btn-default'>Cambiar</a></td>
 		</tr>
 	
 		</table>
@@ -151,6 +151,7 @@ if(isset($_FILES['firma'])){
 			<form action="config.php" method="post" enctype="multipart/form-data">
 			<input type="file" name="foto"><br>	
 			<input type="submit" class ="btn btn-default" value="Enviar">
+			<a href='#' class='show_hide btn btn-danger'>Cancelar</a>
 			</form>
 </div>
  
@@ -159,6 +160,7 @@ if(isset($_FILES['firma'])){
 			<form action="config.php" method="post" enctype="multipart/form-data">
 			<input type="file" name="firma"><br>	
 			<input type="submit" class ="btn btn-default" value="Enviar">
+			<a href='#' class='show_hide2 btn btn-danger'>Cancelar</a>
 			</form>
 </div>
 </center>

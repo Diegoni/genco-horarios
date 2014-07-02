@@ -80,7 +80,7 @@ $numero_convenio = mysql_num_rows($convenio);
 <tr>
 <td>Estado</td>
 <td>
-<input type="radio" name="estado" id="alta" value="0" checked>
+<input type="radio" name="estado" id="alta" value="0" checked data-on="success" data-off="danger" >
  Baja
 </td>
 </tr>

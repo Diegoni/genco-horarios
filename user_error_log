@@ -24550,3 +24550,11 @@
 	<fecha>12:50 02/07/2014</fecha>
 </registro>
 
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: cadena</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\convenios_turno.php</archivo>
+	<num_linea>180</num_linea>
+	<fecha>12:55 02/07/2014</fecha>
+</registro>
+
