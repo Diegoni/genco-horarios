@@ -45,4 +45,28 @@ function updateFotologo($foto){
 			
 	}
 }
+
+
+function updateFirma($foto){
+	$error=1;	
+	
+	if(!(is_array($foto))){
+		trigger_error("No se envió un array en updateFoto", E_USER_WARNING);
+		$error=0;		
+	}else if(!(	$foto['foto_tipo']=='image/png' || 
+				$foto['foto_tipo']=='image/gif' ||
+				$foto['foto_tipo']=='image/jpg' ||
+				$foto['foto_tipo']=='image/jpeg')) {
+		trigger_error("Formato de foto no valido", E_USER_ERROR);
+		$error=0;		
+	}
+	$logo='imagenes/'.$foto['foto_nombre'];
+	
+	if($error==1){
+		mysql_query("UPDATE `config` SET	
+								firma='$logo'
+								WHERE id_config='$foto[id_config]'") or die(mysql_error());
+			
+	}
+}
 ?>

@@ -13,6 +13,7 @@
 		$mostar_marcada=$row_config['mostrar_marcada'];
 		$css=$row_config['css'];
 		$logo=$row_config['logo'];
+		$firma=$row_config['firma'];
 		$title=$row_config['title'];
 	}while($row_config=mysql_fetch_array($config))
 ?>

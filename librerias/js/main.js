@@ -159,6 +159,19 @@ $(document).ready(function(){
 });
 
 
+$(document).ready(function(){
+ 
+        $(".slidingDiv2").hide();
+        $(".show_hide2").show();
+ 
+    $('.show_hide2').click(function(){
+    $(".slidingDiv2").slideToggle();
+    });
+ 
+});
+
+
+
 // Funcion para abrir y cerrar ventana 
 
 

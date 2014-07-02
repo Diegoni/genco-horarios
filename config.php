@@ -36,6 +36,26 @@ if(isset($_FILES['foto'])){
 } 
 
 
+if(isset($_FILES['firma'])){
+	
+	$extension = pathinfo($_FILES['firma']['name']); 
+	$extension = ".".$extension['extension']; 		
+	$_FILES['firma']['name']='firma'.$extension;
+  
+  copy($_FILES['firma']['tmp_name'],'imagenes/'.$_FILES['firma']['name']);
+  
+  $foto_nombre=$_FILES['firma']['name'];
+  $foto_tipo=$_FILES['firma']['type'];
+  $foto_size=$_FILES['firma']['size'];
+  
+  $foto=array('foto_nombre'=> $foto_nombre,
+              'foto_tipo'=>$foto_tipo,
+              'foto_size'=>$foto_size,
+              'id_config'=>1);
+  updateFirma($foto);
+} 
+
+
  
 
 	$config=getConfig();
@@ -95,6 +115,11 @@ if(isset($_FILES['foto'])){
 			<td>Logo</td>
 			<td><img width="106" height="40"  src="<?php echo $logo;?>"> <a href='#' class='show_hide btn'>Cambiar</a></td>
 		</tr>
+		
+		<tr>
+			<td>Firma</td>
+			<td><img width="106" height="40"  src="<?php echo $firma;?>"> <a href='#' class='show_hide2 btn'>Cambiar</a></td>
+		</tr>
 	
 		</table>
     </div>
@@ -122,11 +147,20 @@ if(isset($_FILES['foto'])){
 </div>
 </form>
 <div class="slidingDiv">
+			<h4>Logo</h4>
 			<form action="config.php" method="post" enctype="multipart/form-data">
 			<input type="file" name="foto"><br>	
 			<input type="submit" class ="btn btn-default" value="Enviar">
 			</form>
-		</div> 
+</div>
+ 
+<div class="slidingDiv2">
+			<h4>Firma</h4>
+			<form action="config.php" method="post" enctype="multipart/form-data">
+			<input type="file" name="firma"><br>	
+			<input type="submit" class ="btn btn-default" value="Enviar">
+			</form>
+</div>
 </center>
 </div>
 

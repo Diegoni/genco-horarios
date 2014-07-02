@@ -194,7 +194,7 @@ if($cantidad_parametros>0){
 	<td class="texto"><?php echo date( "d-m-Y", strtotime($valor));?></td>
 	<td class="titulo">Legajo</td>
 	<td class="texto"><?php echo $row_usuario['legajo']?></td>
-	<td class="texto" width="25%" colspan="3" rowspan="4"><img src="<?php echo 'imagenes/firma.jpg';?>" width="120" height="90"></td>
+	<td class="texto" width="25%" colspan="3" rowspan="4"><img src="<?php echo $firma;?>" width="120" height="90"></td>
 </tr>
 <tr>
 	<td class="titulo" colspan="2">Apellido y Nombre</th>
