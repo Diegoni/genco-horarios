@@ -8,6 +8,7 @@ include_once("menu.php");
 include_once($models_url."usuarios_model.php"); 
 include_once($models_url."otrahora_model.php"); 
 include_once($models_url."marcadas_model.php");
+include_once("helpers.php");
 set_time_limit(120); 
 
 //----------------------------------------------------------------------
@@ -27,151 +28,6 @@ $row_usuarios2 = mysql_fetch_assoc($usuarios2);
 
 $tipootra=getTipootra();
 $row_tipootra = mysql_fetch_assoc($tipootra);
-
-
-
-//----------------------------------------------------------------------
-//----------------------------------------------------------------------
-//						Funciones php
-//----------------------------------------------------------------------			
-//--------------------------------------------------------------------->
-
-
-function devuelveArrayFechasEntreOtrasDos($fechaInicio, $fechaFin){
-	$arrayFechas=array();
-	$fechaMostrar = $fechaInicio;
-
-	while(strtotime($fechaMostrar) <= strtotime($fechaFin)) {
-	$arrayFechas[]=$fechaMostrar;
-	$fechaMostrar = date("Y-m-d", strtotime($fechaMostrar . " + 1 day"));
-	}
-
-	return $arrayFechas;
-} 
-
-function redondear_minutos($hora){
-	$horas=date("H", strtotime($hora));
-	$minutos=date("i", strtotime($hora));
-
-	$query="SELECT *
-			FROM `limite` 
-			ORDER BY limite";   
-	$limite=mysql_query($query) or die(mysql_error());
-	$row_limite = mysql_fetch_assoc($limite);
-
-
-	do{
-	if($minutos<$row_limite['limite']){
-		$minutos=$row_limite['redondeo'];
-		$horas=$horas+$row_limite['suma_hora'];
-		return "$horas:$minutos";
-		break;
-	}
-	}while($row_limite= mysql_fetch_array($limite));
-
-
-}
-
-function intervalo_tiempo($init,$finish)
-{
-	$diferencia = strtotime($finish) - strtotime($init);
-	$diferencia=round($diferencia/60);
-	$diferencia=$diferencia/60;
-	if($diferencia<0){
-		$diferencia="ERROR";
-	}
-    return $diferencia;
-}
-
-function pasar_hora($num){
-	$num=$num*60;
-	$hora_cd = $num*0.01666666667; //hora sin decimales
-	$hora = floor($num*0.01666666667);//hora sin decimales
-	$resto = $hora_cd-$hora;
-	$minutos = round($resto*60);
-	if($minutos<10){
-		$minutos="0".$minutos;
-	}
-	$final= "".$hora.":".$minutos."";	
-	
-	return $final;
-}
-
-function pasar_hora_resta($num){
-	$signo=1;
-	if($num<0){
-		$num=$num*-1;
-		$signo=0;
-	}
-	$num=$num*60;
-	$hora_cd = $num*0.01666666667; //hora sin decimales
-	$hora = floor($num*0.01666666667);//hora sin decimales
-	$resto = $hora_cd-$hora;
-	$minutos = round($resto*60);
-	if($minutos<10){
-		$minutos="0".$minutos;
-	}
-	$final= "".$hora.":".$minutos."";	
-	
-	return array($final,$signo);
-}
-
-function devuelve_dia($fecha){
-	$i = strtotime($fecha); 
-	$nro = jddayofweek(cal_to_jd(CAL_GREGORIAN, date("m",$i),date("d",$i), date("Y",$i)));
-	switch ($nro) {
-	case 0:
-         $dia="Domingo";
-         break;
-	case 1:
-         $dia="Lunes";
-         break;
-	case 2:
-         $dia="Martes";
-         break;
-	case 3:
-         $dia="Miércoles";
-         break;
-	case 4:
-         $dia="Jueves";
-         break;
-	case 5:
-         $dia="Viernes";
-         break;
-	case 6:
-         $dia="Sábado";
-         break;
-	}
-	
-	return $dia;
-}
-
-
-function esferiado($valor){
-
-$query="SELECT * 
-		FROM feriado 
-		WHERE 
-		DATE_FORMAT(dia, '%Y-%m-%d') = '$valor'";   
-		$feriado=mysql_query($query) or die(mysql_error());
-		$row_feriado = mysql_fetch_assoc($feriado);   
-$cantidad_feriado = mysql_num_rows($feriado);
-
-if($cantidad_feriado>0){
-	$i="label label-important";
-	$j=$row_feriado['feriado'];
-	$k=1;
-	return array($i,$j,$k);
-} else{
-	$i="";
-	$j="";
-	$k=0;
-	return array($i,$j,$k);
-}
-
-}
-
-
 
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------
@@ -413,7 +269,6 @@ foreach($arrayFechas as $valor){
 		
 		
 	if($cantidad_parametros>0){
-		if($aplicar_redondeo==0){
 		do{
 		$i=$row_marcacion['id_parametros'];
 				if($i==1){
@@ -439,31 +294,6 @@ foreach($arrayFechas as $valor){
 					}
 				}
 		}while($row_marcacion=mysql_fetch_array($marcacion));
-		}else{do{
-		$i=$row_marcacion['id_parametros'];
-				if($i==1){
-					$canme=$canme+1;
-					if($canme==1){
-					$me= date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));
-					}
-				} else if($i==2){ 
-					$canms=$canms+1;
-					if($canms==1){
-					$ms= date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));
-					}
-				} else if($i==3){ 
-					$cante=$cante+1;
-					if($cante==1){
-					$te= date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));
-					}
-				} else if($i==4){ 
-					$cants=$cants+1;
-					if($cants==1){
-					$ts= date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));
-					}
-				}
-		}while($row_marcacion=mysql_fetch_array($marcacion));
-		}	
 	}
 			
 		
@@ -482,7 +312,11 @@ foreach($arrayFechas as $valor){
 			
 	if($t>0 || $m>0){
 		$subtotal=$m+$t;
-		$total=$total+$subtotal;
+		if($aplicar_redondeo==1){
+			$subtotal=segundos_a_hora(redondear_minutos(pasar_hora($subtotal)))/60/60;	
+		}
+		
+		$total=$total+$subtotal;	
 	}else{
 		$subtotal=0;
 	}

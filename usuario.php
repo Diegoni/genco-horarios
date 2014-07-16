@@ -329,7 +329,12 @@ if($fecha_inicio>$fecha_final){
 	<th title="Tarde - Entrada">t-e</th>
 	<th title="Tarde - Salida">t-s</th>
 	<th title="Subtotales">Subtotal</th>
+	<?php if($mostar_marcada==1 && $aplicar_redondeo==1){ ?>
 	<th title="Calculo de horas laborales">Horas</th>
+	<?php } ?>
+	<?php if($aplicar_redondeo==1){ ?>
+	<th title="Redondeo de horas">R</th>
+	<?php } ?>
 	<th title="Otro tipo">Otros</th>
 	<th title="Editar las entradas">Editar</th>
 </thead>
@@ -384,7 +389,6 @@ foreach($arrayFechas as $valor){?>
 			$cantidad_parametros=mysql_num_rows($marcacion);
 			
 			if($cantidad_parametros>0){
-				if($aplicar_redondeo==0){
 					if($i==1){
 						$me=date('H:i', strtotime($row_marcacion['entrada']));
 					} else if($i==2){ 
@@ -394,18 +398,6 @@ foreach($arrayFechas as $valor){?>
 					} else if($i==4){ 
 						$ts=date('H:i', strtotime($row_marcacion['entrada']));
 					}	
-				}else{
-					if($i==1){
-						$me= date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));
-					} else if($i==2){ 
-						$ms= date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));
-					} else if($i==3){ 
-						$te= date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));
-					} else if($i==4){ 
-						$ts= date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));
-					}
-				}
-				
 			}
 
 			
@@ -417,16 +409,7 @@ foreach($arrayFechas as $valor){?>
 			<?php  }else if($cantidad_parametros>1){?>
 				<td>
 					<p class="label label-important" title="Registro duplicado, por favor modificarlo">
-					<?php 
-					if(!($mostar_marcada==0 && $aplicar_redondeo==1)){
-						echo date('H:i', strtotime($row_marcacion['entrada']));	
-					}
-					if($aplicar_redondeo==1 && $mostar_marcada){
-						echo " - ";
-					}
-					if($aplicar_redondeo==1){
-						echo date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));	
-					}?>
+					<?php echo date('H:i', strtotime($row_marcacion['entrada']));	?>
 					</p>
 				</td>
 			<?php  }else{	
@@ -445,59 +428,23 @@ foreach($arrayFechas as $valor){?>
 				?>
 				<td>
 					<p class="label label-success" title="Registro modificado, original :<?php echo date('H:i', strtotime($row_log_auditoria_marcada['entrada_old']));?>">
-					<?php 
-					if(!($mostar_marcada==0 && $aplicar_redondeo==1)){
-						echo date('H:i', strtotime($row_marcacion['entrada']));	
-					}
-					if($aplicar_redondeo==1 && $mostar_marcada){
-						echo " - ";
-					}
-					if($aplicar_redondeo==1){
-						echo date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));	
-					} ?>
+						<?php echo date('H:i', strtotime($row_marcacion['entrada']));?>
 					</p>
 				</td>
-				<?php  }else if($row_marcacion['id_estado']==2){?>
+				<?php  }else if($row_marcacion['id_estado']==2){ ?>
 				<td><p class="label" title="Registro dado de alta por sistema">
-					<?php 
-					if(!($mostar_marcada==0 && $aplicar_redondeo==1)){
-						echo date('H:i', strtotime($row_marcacion['entrada']));	
-					}
-					if($aplicar_redondeo==1 && $mostar_marcada){
-						echo " - ";
-					}
-					if($aplicar_redondeo==1){
-						echo date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));	
-					} ?>
+						<?php echo date('H:i', strtotime($row_marcacion['entrada'])); ?>
 					</p>
 				</td>
-				<?php  }else if($row_marcacion['id_parametros']==0){?>
+				<?php  }else if($row_marcacion['id_parametros']==0){ ?>
 				<td>
 					<p class="label label-important" title="Registro sin definir, por favor modificarlo">
-					<?php 
-					if(!($mostar_marcada==0 && $aplicar_redondeo==1)){
-						echo date('H:i', strtotime($row_marcacion['entrada']));	
-					}
-					if($aplicar_redondeo==1 && $mostar_marcada){
-						echo " - ";
-					}
-					if($aplicar_redondeo==1){
-						echo date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));	
-					} ?>
+						<?php echo date('H:i', strtotime($row_marcacion['entrada']));	?>
 					</p>
 				</td>
-				<?php  }else{?>
+				<?php  }else{ ?>
 				<td><p class="insert_access">
-					<?php 
-					if(!($mostar_marcada==0 && $aplicar_redondeo==1)){
-						echo date('H:i', strtotime($row_marcacion['entrada']));	
-					}
-					if($aplicar_redondeo==1 && $mostar_marcada){
-						echo " - ";
-					}
-					if($aplicar_redondeo==1){
-						echo date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));	
-					} ?>
+						<?php echo date('H:i', strtotime($row_marcacion['entrada']));	?>
 					</p>					
 				</td>
 				<?php  }
@@ -518,22 +465,38 @@ foreach($arrayFechas as $valor){?>
 			}
 			
 			if($t>0 || $m>0){
-			$subtotal=$m+$t;
-			$total=$total+$subtotal;
-
+				$subtotal=$m+$t;
+			
+				if($aplicar_redondeo==1){
+					$total=$total+segundos_a_hora(redondear_minutos(pasar_hora($subtotal)))/60/60;	
+				}else{
+					$total=$total+$subtotal;	
+				}
+			
 			}else{
-			$subtotal=0;
+				$subtotal=0;
 			}
-			if($subtotal>0){
-		
-				
+			
+		if($subtotal>0){
+			
 		?>
-		<td><?php   echo pasar_hora($m)." + ".pasar_hora($t) ?></td>
-		<td><?php   echo pasar_hora($subtotal); ?></td>
-		
-		<?php   } else {?>
-		<td> - </td>
-		<td> - </td>
+			<td><?php   echo pasar_hora($m)." + ".pasar_hora($t) ?></td>
+			<?php if($mostar_marcada==1 && $aplicar_redondeo==1){ ?>
+				<td><?php   echo pasar_hora($subtotal); ?></td>	
+			<?php }  
+				 if($aplicar_redondeo==1){ ?>
+			<td><?php echo redondear_minutos(pasar_hora($subtotal)); ?></td>
+			<?php 
+				 $subtotal=segundos_a_hora(redondear_minutos(pasar_hora($subtotal)))/60/60;
+				 } 
+		} else {?>
+			<td> - </td>
+			<?php if($mostar_marcada==1 && $aplicar_redondeo==1){ ?>
+			<td> - </td>
+			<?php }  
+				 if($aplicar_redondeo==1){ ?>
+			<td> - </td>
+			<?php } ?> 
 
 		<?php  }
 		$query="SELECT * 

@@ -82,7 +82,7 @@ function redondear_minutos($hora){
 
 function intervalo_tiempo($init,$finish)
 {
-	$diferencia = strtotime($finish) - strtotime($init);
+	$diferencia = segundos_a_hora($finish) - segundos_a_hora($init);
 	$diferencia = round($diferencia/60);
 	$diferencia = $diferencia/60;
 	
@@ -106,6 +106,12 @@ function pasar_hora($num){
 	
 	return $final;
 }
+
+
+function segundos_a_hora($hora) { 
+    list($h, $m, $s) = explode(':', $hora); 
+    return ($h * 3600) + ($m * 60) + $s; 
+} 
 
 
 function pasar_hora_resta($num){
