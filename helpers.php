@@ -109,8 +109,8 @@ function pasar_hora($num){
 
 
 function segundos_a_hora($hora) { 
-    list($h, $m, $s) = explode(':', $hora); 
-    return ($h * 3600) + ($m * 60) + $s; 
+    list($h, $m) = explode(':', $hora); 
+    return ($h * 3600) + ($m * 60) ; 
 } 
 
 
