@@ -448,14 +448,16 @@ do{
 }while ($row_marcacion = mysql_fetch_array($marcacion));
 
 # Creo y completo tabla temporal para otras
-$query_create = "CREATE TEMPORARY TABLE tempotra (id_usuario int, id_tipootra int, id_nota int, horas int, fecha date)";
+//$query_create = "CREATE TEMPORARY TABLE tempotra (id_usuario int, id_tipootra int, id_nota int, horas int, fecha date)";
+$query_create = "CREATE TEMPORARY TABLE tempotra (id_usuario int, id_tipootra int, id_nota int, horas int, fecha date, id_archivo int)";
 $res_create = mysql_query($query_create) or die(mysql_error());
 
 		$otrahora=getOtrahoras($fecha_americana);
 		$row_otrahora = mysql_fetch_assoc($otrahora);
 
 do{
-	$query_ins = "INSERT INTO tempotra VALUES ('$row_otrahora[id_usuario]', '$row_otrahora[id_tipootra]', '$row_otrahora[id_nota]', '$row_otrahora[horas]', '$row_otrahora[fecha]')";
+	//$query_ins = "INSERT INTO tempotra VALUES ('$row_otrahora[id_usuario]', '$row_otrahora[id_tipootra]', '$row_otrahora[id_nota]', '$row_otrahora[horas]', '$row_otrahora[fecha]')";
+	$query_ins = "INSERT INTO tempotra VALUES ('$row_otrahora[id_usuario]', '$row_otrahora[id_tipootra]', '$row_otrahora[id_nota]', '$row_otrahora[horas]', '$row_otrahora[fecha]', '$row_otrahora[id_archivo]')";
 	$res_ins = mysql_query($query_ins) or die(mysql_error());
 }while ($row_otrahora = mysql_fetch_array($otrahora));			
 
@@ -508,7 +510,15 @@ do{?>
 			$cantidad=mysql_num_rows($otrahora);
 			if($cantidad>0){
 		?>
-		<td><p class="insert_access"><a href="#" class="btn btn-default" title="<?php echo $row_otrahora['nota'];?>" onClick="abrirVentana('edit_otros.php?id=<?php echo $row_usuario['id_usuario']?>&fecha=<?php echo $fecha_americana?>')"><?php echo $row_otrahora['tipootra'];?> : <?php echo $row_otrahora['horas'];?></a></p></td>
+		<td><p class="insert_access">
+				<a href="#" class="btn btn-default" title="<?php echo $row_otrahora['nota'];?>" onClick="abrirVentana('edit_otros.php?id=<?php echo $row_usuario['id_usuario']?>&fecha=<?php echo $fecha_americana?>')">
+					<?php echo $row_otrahora['tipootra'];?> : <?php echo $row_otrahora['horas'];?>
+					<?php if($row_otrahora['id_archivo']!=0){
+						echo " <i class='icon-paper-clip'></i>";
+					}?>
+				</a>
+			</p>
+		</td>
 		<?php }else{?>
 		<td><p class="insert_access"><a href="#" class="btn btn-default" title="Agregar" onClick="abrirVentana('edit_otros.php?id=<?php echo $row_usuario['id_usuario']?>&fecha=<?php echo $fecha_americana?>')"><i class="icon-plus-sign-alt"></i></a></p></td>
 		<?php } ?>

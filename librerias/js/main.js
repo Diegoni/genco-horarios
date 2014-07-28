@@ -148,7 +148,6 @@ function isNumberKey(evt)
 // Funcion esconder o mostrar un div mediante un href, utilizado para ver facturas 
 
 $(document).ready(function(){
- 
         $(".slidingDiv").hide();
         $(".show_hide").show();
  
