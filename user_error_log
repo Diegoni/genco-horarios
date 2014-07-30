@@ -118,3 +118,75 @@
 	<fecha>16:51 28/07/2014</fecha>
 </registro>
 
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: cadena</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\convenios_turno.php</archivo>
+	<num_linea>180</num_linea>
+	<fecha>09:26 29/07/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>191</num_linea>
+	<fecha>09:39 29/07/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>135</num_linea>
+	<fecha>09:39 29/07/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>135</num_linea>
+	<fecha>09:39 29/07/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: otrahora</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\otrahora_model.php</archivo>
+	<num_linea>37</num_linea>
+	<fecha>09:39 29/07/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_fetch_assoc() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>136</num_linea>
+	<fecha>09:39 29/07/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_num_rows() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>137</num_linea>
+	<fecha>09:39 29/07/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>283</num_linea>
+	<fecha>09:39 29/07/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>284</num_linea>
+	<fecha>09:39 29/07/2014</fecha>
+</registro>
+
