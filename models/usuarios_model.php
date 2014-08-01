@@ -15,6 +15,7 @@ function getUsuario($id){
 				usuario.fecha_ingreso as fecha_ingreso,
     			usuario.foto_nombre as foto_nombre,
     			empresa.empresa as empresa,
+    			empresa.cuil as cuil_empresa,
 				departamento.nombre as departamento,
 				convenio.semana as semana,				
 				convenio.sabado as sabado,	
@@ -91,7 +92,8 @@ function getUsuarios($dato=NULL, $campo=NULL){
 			ORDER BY usuario.usuario";   
 		$usuario=mysql_query($query) or die(mysql_error());
 	}else{
-		$query="SELECT 	usuario.id_usuario,
+		$query="SELECT 	
+					usuario.id_usuario,
 					usuario.usuario as usuario,
 					usuario.legajo as legajo,
 					usuario.id_estado as id_estado,

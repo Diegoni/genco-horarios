@@ -97,7 +97,12 @@ if($cantidad_parametros>0){
 <tr>
 	<td class="titulo" colspan="5"><?php echo $row_usuario['empresa']?> - C.U.I.L. N <?php echo $row_usuario['cuil_empresa']?></td>
 	<td class="titulo" colspan="2">Fecha Emision</td>
-	<td class="texto"><?php echo date( "d-m-Y", strtotime($valor));?></td>
+	<td class="texto"><?php 
+						if($fecha_actual==1){
+							echo date("d-m-Y");
+						}else{
+							echo date( "d-m-Y", strtotime ( '+'.$suma_dias.' day' , strtotime ( $valor ) ));	
+						}?></td>
 	<td class="titulo">Legajo</td>
 	<td class="texto"><?php echo $row_usuario['legajo']?></td>
 	<td class="texto" width="25%" colspan="3" rowspan="4" style="vertical-align:bottom;">Firma Empleado</td>

@@ -84,11 +84,11 @@ if(isset($_FILES['firma'])){
     <li class="active"><a href="#tab1" data-toggle="tab">Redondeo</a></li>
     <li><a href="#tab2" data-toggle="tab">Sistema</a></li>
     <li><a href="#tab3" data-toggle="tab">Colores</a></li>
+    <li><a href="#tab4" data-toggle="tab">Impresión</a></li>
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="tab1">
 		<table class="table table-hover">
-		
 		<input type="hidden" name="id" value="<?php echo $id_config?>">
 		<tr>
 			<td>Aplicar Redondeo</td>
@@ -99,13 +99,10 @@ if(isset($_FILES['firma'])){
 			<td>Mostrar marcada sin redondeo</td>
 			<td><input type="checkbox" name="mostrar_marcada" <?php if($mostrar_marcada==1){ echo "checked";}?> data-on="success" data-off="danger" ></td>
 		</tr>
-		
 		</table>
     </div>
     <div class="tab-pane" id="tab2">
       	<table class="table table-hover">
-		
-
 		<tr>
 			<td>Título</td>
 			<td><input type="text" name="title" value="<?php echo $title;?>" required></td>
@@ -125,7 +122,6 @@ if(isset($_FILES['firma'])){
     </div>
     <div class="tab-pane" id="tab3">
      	<table class="table table-hover">
-
 		<tr>
 		<td>Colores</td>
 			<td>
@@ -140,7 +136,24 @@ if(isset($_FILES['firma'])){
 			</select>
 			</td>
 		</tr>
+		</table>
+    </div>
+    <div class="tab-pane" id="tab4">
+     	<table class="table table-hover">
+		<tr>
+			<td>Mostrar fecha actual</td>
+			<td><input type="checkbox" name="fecha_actual"  <?php if($fecha_actual==1){ echo "checked";}?> data-on="success" data-off="danger" ></td>
+		</tr>
 		
+		<tr>
+			<td>Mostrar fecha de marcación más </td>
+			<td>
+				<div class="input-append">
+				<input id="suma_dias" type="number" class="input-mini" name="suma_dias" value="<?php echo $suma_dias;?>" data-on="success" data-off="danger" >
+				<span class="add-on">días</span>
+				</div>
+			</td>
+		</tr>
 		</table>
     </div>
   </div>

@@ -24,9 +24,18 @@ if(isset($_GET['update'])){
 		$bandera=0;
 	}
 	
-	$datos=array('id_config'=>$_GET['id'],
+	if(isset($_GET['fecha_actual'])){
+		$fecha_actual=1;
+	}else{
+		$fecha_actual=0;
+	}
+	
+	$datos=array(
+				'id_config'=>$_GET['id'],
 				'aplicar_redondeo'=>$aplicar_redondeo,
 				'mostrar_marcada'=>$mostrar_marcada,
+				'fecha_actual'=>$fecha_actual,
+				'suma_dias'=>$_GET['suma_dias'],
 				'css'=>$_GET['css']);
 	
 	updateConfig($datos);

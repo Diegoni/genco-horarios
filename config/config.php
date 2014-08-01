@@ -15,5 +15,7 @@
 		$logo=$row_config['logo'];
 		$firma=$row_config['firma'];
 		$title=$row_config['title'];
+		$fecha_actual=$row_config['fecha_actual'];
+		$suma_dias=$row_config['suma_dias'];
 	}while($row_config=mysql_fetch_array($config))
 ?>
