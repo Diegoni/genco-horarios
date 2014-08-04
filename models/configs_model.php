@@ -15,6 +15,7 @@ function updateConfig($datos){
 				mostrar_marcada='$datos[mostrar_marcada]',
 				css='$datos[css]', 
 				suma_dias='$datos[suma_dias]',
+				marcaciones_x_hoja='$datos[marcaciones_x_hoja]',
 				fecha_actual='$datos[fecha_actual]'
 				WHERE id_config='$datos[id_config]'			
 				") or die(mysql_error());

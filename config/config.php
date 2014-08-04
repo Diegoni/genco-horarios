@@ -17,5 +17,6 @@
 		$title=$row_config['title'];
 		$fecha_actual=$row_config['fecha_actual'];
 		$suma_dias=$row_config['suma_dias'];
+		$marcaciones_x_hoja=$row_config['marcaciones_x_hoja'];
 	}while($row_config=mysql_fetch_array($config))
 ?>

@@ -21,12 +21,31 @@ include_once("helpers.php"); ?>
 	font-size:11px;
 }
 
+.texto-min{
+	text-align:center;
+	height: 30px; 
+	vertical-align: middle;
+	font-size:10px;
+}
+
 .hora{
 	text-align:center;
 	height: 40px; 
 	vertical-align: middle;
 	font-size:14px;
 }
+table {
+    border-collapse: collapse;
+}
+
+table, td, th {
+    border: 1px solid black;
+}
+
+ H1.SaltoDePagina
+ {
+     PAGE-BREAK-AFTER: always
+ }
 </style>
 </head>
 
@@ -79,6 +98,7 @@ $res_ins = mysql_query($query_ins) or die(mysql_error());
 --------------------------------------------------------------------->	
 <center>
 <?php 
+$contador=0;
 foreach($arrayFechas as $valor){
 
 	$query="SELECT * 
@@ -87,32 +107,43 @@ foreach($arrayFechas as $valor){
 		DATE_FORMAT(entrada, '%Y-%m-%d') like '$valor'";   
 	$marcacion=mysql_query($query) or die(mysql_error());
 	$cantidad_parametros=mysql_num_rows($marcacion);
+
+
 	
 if($cantidad_parametros>0){
 ?>
 
 
 
-<table border="1" style="margin: 16.6px;">
+<table style="margin: 16.6px;">
 <tr>
-	<td class="titulo" colspan="5"><?php echo $row_usuario['empresa']?> - C.U.I.L. N <?php echo $row_usuario['cuil_empresa']?></td>
-	<td class="titulo" colspan="2">Fecha Emision</td>
-	<td class="texto"><?php 
+	<td class="titulo" colspan="4"><?php echo $row_usuario['empresa']?> <br> C.U.I.L. N <?php echo $row_usuario['cuil_empresa']?></td>
+	<td class="titulo" colspan="2">Fecha Emisión</td>
+	<td class="texto-min"><?php 
 						if($fecha_actual==1){
 							echo date("d-m-Y");
 						}else{
 							echo date( "d-m-Y", strtotime ( '+'.$suma_dias.' day' , strtotime ( $valor ) ));	
 						}?></td>
 	<td class="titulo">Legajo</td>
-	<td class="texto"><?php echo $row_usuario['legajo']?></td>
+	<td class="texto" colspan="2"><?php echo $row_usuario['legajo']?></td>
 	<td class="texto" width="25%" colspan="3" rowspan="4" style="vertical-align:bottom;">Firma Empleado</td>
 </tr>
 <tr>
 	<td class="titulo" colspan="2">Apellido y Nombre</th>
-	<td class="texto" colspan="3"><?php echo $row_usuario['apellido']?>, <?php echo $row_usuario['nombre']?></td>
+		<?php
+		$cadena  = $row_usuario['apellido']." ".$row_usuario['nombre'];
+		$subcadena = explode(" ", $cadena);
+		if(count($subcadena)>3){
+			$cadena = $subcadena[0]." ".$subcadena[1]." ".$subcadena[2]; 
+		}else if(strlen($cadena)>25){
+			$cadena = substr('abcdef', 0, 22)."...";
+		};
+		?>
+	<td class="texto" colspan="2"><?php echo $cadena;?></td>
 	<td class="titulo">DNI</td>
 	<td class="texto"><?php echo $row_usuario['dni']?></td>
-	<td class="titulo">C.U.I.L.</td>
+	<td class="titulo" colspan="2">C.U.I.L.</td>
 	<td class="texto" colspan="2"><?php echo $row_usuario['cuil']?></td>
 </tr>
 <tr>
@@ -163,8 +194,15 @@ if($cantidad_parametros>0){
 </tr>
 </table>	
 
-<?php } //cierra el if($cantidad_parametros>0)?>
-<?php } ?>	
+<?php 
+$contador=$contador+1;
+		} //cierra el if($cantidad_parametros>0)
+	if($contador==$marcaciones_x_hoja){
+	$contador=0;
+	echo "<H1 class='SaltoDePagina'> </H1>";
+}		
+?>
+<?php 	} ?>	
 
 
 <!--------------------------------------------------------------------
@@ -172,15 +210,10 @@ if($cantidad_parametros>0){
 						Tabla
 ----------------------------------------------------------------------			
 --------------------------------------------------------------------->	
-
-<STYLE>
- H1.SaltoDePagina
- {
-     PAGE-BREAK-AFTER: always
- }
-</STYLE>
-<H1 class=SaltoDePagina> </H1>	
+<H1 class='SaltoDePagina'> </H1>	
+<center>
 <?php 
+$contador=0;
 foreach($arrayFechas as $valor){
 
 	$query="SELECT * 
@@ -189,24 +222,43 @@ foreach($arrayFechas as $valor){
 		DATE_FORMAT(entrada, '%Y-%m-%d') like '$valor'";   
 	$marcacion=mysql_query($query) or die(mysql_error());
 	$cantidad_parametros=mysql_num_rows($marcacion);
+
+
 	
 if($cantidad_parametros>0){
 ?>
-<table border="1" style="margin: 16.6px;">
+
+
+
+<table style="margin: 16.6px;">
 <tr>
-	<td class="titulo" colspan="5"><?php echo $row_usuario['empresa']?> - C.U.I.L. N <?php echo $row_usuario['cuil_empresa']?></td>
-	<td class="titulo" colspan="2">Fecha Emision</td>
-	<td class="texto"><?php echo date( "d-m-Y", strtotime($valor));?></td>
+	<td class="titulo" colspan="4"><?php echo $row_usuario['empresa']?> <br> C.U.I.L. N <?php echo $row_usuario['cuil_empresa']?></td>
+	<td class="titulo" colspan="2">Fecha Emisión</td>
+	<td class="texto-min"><?php 
+						if($fecha_actual==1){
+							echo date("d-m-Y");
+						}else{
+							echo date( "d-m-Y", strtotime ( '+'.$suma_dias.' day' , strtotime ( $valor ) ));	
+						}?></td>
 	<td class="titulo">Legajo</td>
-	<td class="texto"><?php echo $row_usuario['legajo']?></td>
-	<td class="texto" width="25%" colspan="3" rowspan="4"><img src="<?php echo $firma;?>" width="120" height="90"></td>
+	<td class="texto" colspan="2"><?php echo $row_usuario['legajo']?></td>
+	<td class="texto" width="25%" colspan="3" rowspan="4"><img src="<?php echo $firma;?>" width="120" height="90"></td> 
 </tr>
 <tr>
 	<td class="titulo" colspan="2">Apellido y Nombre</th>
-	<td class="texto" colspan="3"><?php echo $row_usuario['apellido']?>, <?php echo $row_usuario['nombre']?></td>
+	<?php
+		$cadena  = $row_usuario['apellido']." ".$row_usuario['nombre'];
+		$subcadena = explode(" ", $cadena);
+		if(count($subcadena)>3){
+			$cadena = $subcadena[0]." ".$subcadena[1]." ".$subcadena[2]; 
+		}else if(strlen($cadena)>25){
+			$cadena = substr('abcdef', 0, 22)."...";
+		};
+	?>
+	<td class="texto" colspan="2"><?php echo $cadena;?></td>
 	<td class="titulo">DNI</td>
 	<td class="texto"><?php echo $row_usuario['dni']?></td>
-	<td class="titulo">C.U.I.L.</td>
+	<td class="titulo" colspan="2">C.U.I.L.</td>
 	<td class="texto" colspan="2"><?php echo $row_usuario['cuil']?></td>
 </tr>
 <tr>
@@ -257,8 +309,15 @@ if($cantidad_parametros>0){
 </tr>
 </table>	
 
-<?php } //cierra el if($cantidad_parametros>0)?>
-<?php } ?>	
+<?php 
+$contador=$contador+1;
+		} //cierra el if($cantidad_parametros>0)
+	if($contador==$marcaciones_x_hoja){
+	$contador=0;
+	echo "<H1 class='SaltoDePagina'> </H1>";
+}		
+?>
+<?php 	} ?>	
 </center>
 <?php
 //elimino las tablas temporaria

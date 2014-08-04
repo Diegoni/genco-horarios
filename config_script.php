@@ -36,6 +36,7 @@ if(isset($_GET['update'])){
 				'mostrar_marcada'=>$mostrar_marcada,
 				'fecha_actual'=>$fecha_actual,
 				'suma_dias'=>$_GET['suma_dias'],
+				'marcaciones_x_hoja'=>$_GET['marcaciones_x_hoja'],
 				'css'=>$_GET['css']);
 	
 	updateConfig($datos);
