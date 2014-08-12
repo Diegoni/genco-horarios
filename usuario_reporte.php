@@ -252,7 +252,7 @@ if($cantidad_parametros>0){
 		if(count($subcadena)>3){
 			$cadena = $subcadena[0]." ".$subcadena[1]." ".$subcadena[2]; 
 		}else if(strlen($cadena)>25){
-			$cadena = substr('abcdef', 0, 22)."...";
+			$cadena = substr($cadena, 0, 22)."...";
 		};
 	?>
 	<td class="texto" colspan="2"><?php echo $cadena;?></td>

@@ -123,8 +123,11 @@ if(isset($_FILES['foto'])){
 
 <tr>
 <td>Departamento</td>
-<td><select class="span4" name="departamento">
-	<?php 	do{ 
+<td><?php echo $row_usuario['id_departamento'];?>
+	<select class="span4" name="departamento">
+	<?php 	
+	
+		do{ 
 		if ($row_usuario['id_departamento']==$row_departamento['id_departamento']){?>	
 		 <option value="<?php echo $row_departamento['id_departamento'];?>" selected><?php echo $row_departamento['nombre'];?></option>
 	<?php	 }else{ ?>
