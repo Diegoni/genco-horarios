@@ -251,8 +251,8 @@ if($cantidad_parametros>0){
 		$subcadena = explode(" ", $cadena);
 		if(count($subcadena)>3){
 			$cadena = $subcadena[0]." ".$subcadena[1]." ".$subcadena[2]; 
-		}else if(strlen($cadena)>25){
-			$cadena = substr($cadena, 0, 22)."...";
+		}else if(strlen($cadena)>40){
+			$cadena = substr($cadena, 0, 38)."...";
 		};
 	?>
 	<td class="texto" colspan="2"><?php echo $cadena;?></td>
