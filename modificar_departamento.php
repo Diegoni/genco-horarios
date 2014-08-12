@@ -75,7 +75,7 @@ if($action==0){
 <td></td>
 <td>
 <button type="submit" class="btn btn-primary" name="modificar" value="1" title="Editar departamento <?php echo $row_departamento['nombre'];?>"><i class="icon-edit"></i> Editar</button>
-<A class="btn btn-danger"  title="Cancelar la edición" HREF="empresas.php"><i class="icon-ban-circle"></i> Cancelar</A></td>
+<A class="btn btn-danger"  title="Cancelar la edición" HREF="departamentos.php"><i class="icon-ban-circle"></i> Cancelar</A></td>
 </tr> 
 
 </table>
