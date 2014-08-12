@@ -123,7 +123,7 @@ if(isset($_FILES['foto'])){
 
 <tr>
 <td>Departamento</td>
-<td><?php echo $row_usuario['id_departamento'];?>
+<td>
 	<select class="span4" name="departamento">
 	<?php 	
 	
