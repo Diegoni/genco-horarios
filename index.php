@@ -184,89 +184,7 @@ if(isset($_GET['empleado'])){
 
 ?>
 <div class="row">
-<div class="span12">
-<center>
-
-<!--------------------------------------------------------------------
-----------------------------------------------------------------------
-						Parametros
-----------------------------------------------------------------------			
---------------------------------------------------------------------->
-<div id="openModal" class="modalDialog">
-	<div>
-		<a href="#closes" title="Cerrar" class="closes">X</a>
-		<h2>Parámetros de configuración</h2>
-		<p>Estos son los valores que filtran las entradas y salidas</p>
-		<p>
-	<?php
-	$parametros=getParametros();
-	$row_parametros = mysql_fetch_assoc($parametros);
-	?>
-	
-	<div class="container; celeste">
-	<form action="index.php" method="post" > 
-	<table class="sortable">
-	<thead>
-	<tr>
-	<td>Turno</td>
-	<td>Tipo</td>
-	<td>Desde</td>
-	<td>Hasta</td>
-	<td>Considerar</td>
-	</tr>
-	</thead>
-	<?php
-	do{ ?>	
-	<tr>
-	<td><?php
-		$turno=getTurnos();
-		$row_turno = mysql_fetch_assoc($turno);
-		do{
-		if($row_turno['id_turno']==$row_parametros['id_turno']){
-		?>
-		<input type="hidden" value="<?php echo $row_turno['id_turno']?>" name="id_turno<?php echo $row_parametros['id_parametros']?>">
-		<?php echo $row_turno['turno']?>
-		<?php } 
-		}while ($row_turno = mysql_fetch_array($turno))
-		?>
-	</td>
-	<td><?php
-		$tipo=getTipos();
-		$row_tipo = mysql_fetch_assoc($tipo);
-		do{
-		if($row_tipo['id_tipo']==$row_parametros['id_tipo']){
-		?>
-		<input type="hidden" value="<?php echo $row_tipo['id_tipo']?>" name="id_tipo<?php echo $row_parametros['id_parametros']?>">
-		<?php echo $row_tipo['tipo']?>
-		<?php }
-		}while ($row_tipo = mysql_fetch_array($tipo))
-		?>
-	</td>
-	<td><input type="time" class="input-inter" name="inicio<?php echo $row_parametros['id_parametros']?>" value="<?php echo $row_parametros['inicio']?>" required></td>
-	<td><input type="time" class="input-inter" name="final<?php echo $row_parametros['id_parametros']?>" value="<?php echo $row_parametros['final']?>" required></td>
-	<td><input type="range" class="input-small" name="considerar<?php echo $row_parametros['id_parametros']?>" value="<?php echo $row_parametros['considerar']?>" min="1" max="30" id="slider<?php echo $row_parametros['id_parametros']?>" onchange="printValue('slider<?php echo $row_parametros['id_parametros']?>','rangeValue<?php echo $row_parametros['id_parametros']?>')" required>
-		<input id="rangeValue<?php echo $row_parametros['id_parametros']?>" type="text" class="input-minimini" disabled>min.</td>
-	</tr>
-	<?php 	}while ($row_parametros = mysql_fetch_array($parametros))?>
-	<tr>
-	<td colspan="5">
-			<center>
-			<input type="hidden" name="id" value="<?php echo $id?>">
-			<input type="submit" class="btn btn-default" name="parametros" value="Modificar"  id="parametros">
-			<a class="btn btn-danger" href="" title="no guarda los cambios realizados" onClick="cerrarse()">Cancelar</a>
-			</center>
-	</td>
-	</tr>
-	</table>
-	
-	</div>
-	</form>
-	</div> 
-		
-		</p>
-	</div>
-</div>
-
+	<div class="span12">
 
 
 
@@ -541,13 +459,96 @@ $res_drop = mysql_query($query_drop) or die(mysql_error());
  
 <?php include_once("footer.php");?>
 
-</center>
+
 </div><!--cierra el class="span12" -->
 </div><!--cierra el row -->
 
 
 </div><!--cierra el class="container"-->
 
-</body>
+<!--------------------------------------------------------------------
+----------------------------------------------------------------------
+						Parametros
+----------------------------------------------------------------------			
+--------------------------------------------------------------------->
+<div id="openModal" class="modalDialog">
+	<div>
+		<a href="#closes" title="Cerrar" class="closes">X</a>
+		<h2>Parámetros de configuración</h2>
+		<p>Estos son los valores que filtran las entradas y salidas</p>
+		<p>
+	<?php
+	$parametros=getParametros();
+	$row_parametros = mysql_fetch_assoc($parametros);
+	?>
+	
+	<div class="container; celeste">
+	<form action="index.php" method="post" > 
+	<table class="sortable">
+	<thead>
+	<tr>
+	<td>Turno</td>
+	<td>Tipo</td>
+	<td>Desde</td>
+	<td>Hasta</td>
+	<td>Considerar</td>
+	</tr>
+	</thead>
+	<?php
+	do{ ?>	
+	<tr>
+	<td><?php
+		$turno=getTurnos();
+		$row_turno = mysql_fetch_assoc($turno);
+		do{
+		if($row_turno['id_turno']==$row_parametros['id_turno']){
+		?>
+		<input type="hidden" value="<?php echo $row_turno['id_turno']?>" name="id_turno<?php echo $row_parametros['id_parametros']?>">
+		<?php echo $row_turno['turno']?>
+		<?php } 
+		}while ($row_turno = mysql_fetch_array($turno))
+		?>
+	</td>
+	<td><?php
+		$tipo=getTipos();
+		$row_tipo = mysql_fetch_assoc($tipo);
+		do{
+		if($row_tipo['id_tipo']==$row_parametros['id_tipo']){
+		?>
+		<input type="hidden" value="<?php echo $row_tipo['id_tipo']?>" name="id_tipo<?php echo $row_parametros['id_parametros']?>">
+		<?php echo $row_tipo['tipo']?>
+		<?php }
+		}while ($row_tipo = mysql_fetch_array($tipo))
+		?>
+	</td>
+	<td><input type="time" class="input-inter" name="inicio<?php echo $row_parametros['id_parametros']?>" value="<?php echo $row_parametros['inicio']?>" required></td>
+	<td><input type="time" class="input-inter" name="final<?php echo $row_parametros['id_parametros']?>" value="<?php echo $row_parametros['final']?>" required></td>
+	<td><input type="range" class="input-small" name="considerar<?php echo $row_parametros['id_parametros']?>" value="<?php echo $row_parametros['considerar']?>" min="1" max="30" id="slider<?php echo $row_parametros['id_parametros']?>" onchange="printValue('slider<?php echo $row_parametros['id_parametros']?>','rangeValue<?php echo $row_parametros['id_parametros']?>')" required>
+		<input id="rangeValue<?php echo $row_parametros['id_parametros']?>" type="text" class="input-minimini" disabled>min.</td>
+	</tr>
+	<?php 	}while ($row_parametros = mysql_fetch_array($parametros))?>
+	<tr>
+	<td colspan="5">
+			<center>
+			<input type="hidden" name="id" value="<?php echo $id?>">
+			<input type="submit" class="btn btn-default" name="parametros" value="Modificar"  id="parametros">
+			<a class="btn btn-danger" href="" title="no guarda los cambios realizados" onClick="cerrarse()">Cancelar</a>
+			</center>
+	</td>
+	</tr>
+	</table>
+	
+	</div>
+	</form>
+	</div> 
+		
+		</p>
+	</div>
+</div>
+
+
+
+
+
 
 

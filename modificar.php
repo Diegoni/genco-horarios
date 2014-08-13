@@ -109,8 +109,10 @@ if(isset($_FILES['foto'])){
 
 <tr>
 <td>Empresa</td>
-<td><select class="span4" name="empresa">
-	<?php 	do{ 
+<td>
+	<select class="span4" name="empresa">
+	<?php
+		do{ 
 		if ($row_usuario['id_empresa']==$row_empresa['id_empresa']){?>	
 		 <option value="<?php echo $row_empresa['id_empresa'];?>" selected><?php echo $row_empresa['empresa'];?></option>
 	<?php	 }else{ ?>
@@ -141,7 +143,8 @@ if(isset($_FILES['foto'])){
 
 <tr>
 <td>Convenio</td>
-<td><select class="span4" name="convenio">
+<td>
+	<select class="span4" name="convenio">
 	<?php 	do{ 
 		if ($row_usuario['id_convenio']==$row_convenio['id_convenio']){?>	
 		 <option value="<?php echo $row_convenio['id_convenio'];?>" selected><?php echo $row_convenio['convenio'];?></option>

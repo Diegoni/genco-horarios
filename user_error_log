@@ -270,3 +270,419 @@
 	<fecha>09:51 12/08/2014</fecha>
 </registro>
 
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: cadena</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\convenios_turno.php</archivo>
+	<num_linea>180</num_linea>
+	<fecha>11:52 12/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_final</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>129</num_linea>
+	<fecha>16:25 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_inicio</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>129</num_linea>
+	<fecha>16:25 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id_usuario</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>145</num_linea>
+	<fecha>16:25 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_final</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>145</num_linea>
+	<fecha>16:25 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_inicio</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>145</num_linea>
+	<fecha>16:25 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_final</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>129</num_linea>
+	<fecha>16:31 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_inicio</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>129</num_linea>
+	<fecha>16:31 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id_usuario</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>145</num_linea>
+	<fecha>16:31 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_final</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>145</num_linea>
+	<fecha>16:31 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_inicio</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>145</num_linea>
+	<fecha>16:31 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_final</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>129</num_linea>
+	<fecha>16:37 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_inicio</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>129</num_linea>
+	<fecha>16:37 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id_usuario</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>145</num_linea>
+	<fecha>16:37 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_final</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>145</num_linea>
+	<fecha>16:37 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_inicio</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>145</num_linea>
+	<fecha>16:37 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_final</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>129</num_linea>
+	<fecha>16:38 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_inicio</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>129</num_linea>
+	<fecha>16:38 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id_usuario</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>145</num_linea>
+	<fecha>16:38 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_final</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>145</num_linea>
+	<fecha>16:38 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_inicio</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>145</num_linea>
+	<fecha>16:38 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_final</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>129</num_linea>
+	<fecha>16:39 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_inicio</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>129</num_linea>
+	<fecha>16:39 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id_usuario</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>145</num_linea>
+	<fecha>16:39 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_final</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>145</num_linea>
+	<fecha>16:39 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_inicio</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>145</num_linea>
+	<fecha>16:39 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_final</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>130</num_linea>
+	<fecha>16:39 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_inicio</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>130</num_linea>
+	<fecha>16:39 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id_usuario</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>146</num_linea>
+	<fecha>16:39 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_final</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>146</num_linea>
+	<fecha>16:39 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_inicio</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>146</num_linea>
+	<fecha>16:39 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_final</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>130</num_linea>
+	<fecha>16:41 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_inicio</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>130</num_linea>
+	<fecha>16:41 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id_usuario</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>146</num_linea>
+	<fecha>16:41 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_final</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>146</num_linea>
+	<fecha>16:41 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_inicio</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>146</num_linea>
+	<fecha>16:41 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_final</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>130</num_linea>
+	<fecha>16:51 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_inicio</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>130</num_linea>
+	<fecha>16:51 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id_usuario</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>146</num_linea>
+	<fecha>16:51 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_final</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>146</num_linea>
+	<fecha>16:51 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_inicio</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>146</num_linea>
+	<fecha>16:51 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id_usuario</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>146</num_linea>
+	<fecha>16:51 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_final</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>130</num_linea>
+	<fecha>16:51 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_inicio</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>130</num_linea>
+	<fecha>16:51 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id_usuario</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>146</num_linea>
+	<fecha>16:51 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_final</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>146</num_linea>
+	<fecha>16:51 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_inicio</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>146</num_linea>
+	<fecha>16:51 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_final</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>130</num_linea>
+	<fecha>16:51 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_inicio</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>130</num_linea>
+	<fecha>16:51 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id_usuario</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>146</num_linea>
+	<fecha>16:51 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_final</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>146</num_linea>
+	<fecha>16:51 13/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_inicio</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>146</num_linea>
+	<fecha>16:51 13/08/2014</fecha>
+</registro>
+

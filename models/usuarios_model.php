@@ -15,6 +15,7 @@ function getUsuario($id){
 				usuario.fecha_ingreso as fecha_ingreso,
     			usuario.foto_nombre as foto_nombre,
     			usuario.id_departamento as id_departamento,
+    			usuario.id_empresa as id_empresa,
     			empresa.empresa as empresa,
     			empresa.cuil as cuil_empresa,
 				departamento.nombre as departamento,

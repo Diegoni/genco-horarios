@@ -120,6 +120,5 @@ function imprSelec(muestra){
 
 
 
-<center>
-<div class="container">	
+
 	
