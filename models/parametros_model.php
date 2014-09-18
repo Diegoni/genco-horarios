@@ -36,20 +36,14 @@ function getParametroMax(){
 	return $row_max_id['max'];
 }
 
-function updatePrametro($id_turno,
-												$id_tipo,
-												$inicio,
-												$final,
-												$considerar,
-												$id_parametros){
+function updatePrametro($registro){
 	mysql_query("UPDATE `parametros` SET 
-							id_turno='$id_turno',
-							id_tipo='$id_tipo',
-							inicio='$inicio',
-							final='$final',
-							considerar='$considerar'
-							WHERE id_parametros='$id_parametros'
-							") or die(mysql_error());
+					id_turno='$registro[id_turno]',
+					id_tipo='$registro[id_tipo]',
+					inicio='$registro[inicio]',
+					final='$registro[final]',
+					considerar='$registro[considerar]'
+				WHERE id_parametros='$registro[id_parametros]'") or die(mysql_error());
 }
 
 

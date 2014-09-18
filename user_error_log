@@ -1110,3 +1110,3875 @@
 	<fecha>17:17 13/08/2014</fecha>
 </registro>
 
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_final</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>130</num_linea>
+	<fecha>10:47 22/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_inicio</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>130</num_linea>
+	<fecha>10:47 22/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id_usuario</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>146</num_linea>
+	<fecha>10:47 22/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_final</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>146</num_linea>
+	<fecha>10:47 22/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_inicio</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>146</num_linea>
+	<fecha>10:47 22/08/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: cadena</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\convenios_turno.php</archivo>
+	<num_linea>180</num_linea>
+	<fecha>12:27 01/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_final</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>130</num_linea>
+	<fecha>13:04 10/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_inicio</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>130</num_linea>
+	<fecha>13:04 10/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id_usuario</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>146</num_linea>
+	<fecha>13:04 10/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_final</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>146</num_linea>
+	<fecha>13:04 10/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_inicio</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>146</num_linea>
+	<fecha>13:04 10/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id_usuario</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>146</num_linea>
+	<fecha>13:05 10/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\edit_otros.php</archivo>
+	<num_linea>191</num_linea>
+	<fecha>13:11 10/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_final</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>130</num_linea>
+	<fecha>09:49 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_inicio</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>130</num_linea>
+	<fecha>09:49 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id_usuario</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>146</num_linea>
+	<fecha>09:49 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_final</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>146</num_linea>
+	<fecha>09:49 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_inicio</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>146</num_linea>
+	<fecha>09:49 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: cadena</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\convenios_turno.php</archivo>
+	<num_linea>180</num_linea>
+	<fecha>09:51 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_final</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>130</num_linea>
+	<fecha>09:54 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_inicio</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>130</num_linea>
+	<fecha>09:54 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id_usuario</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>146</num_linea>
+	<fecha>09:54 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_final</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>146</num_linea>
+	<fecha>09:54 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_inicio</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>146</num_linea>
+	<fecha>09:54 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>345</num_linea>
+	<fecha>11:30 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>211</num_linea>
+	<fecha>11:42 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>353</num_linea>
+	<fecha>11:44 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>354</num_linea>
+	<fecha>11:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>216</num_linea>
+	<fecha>11:46 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>354</num_linea>
+	<fecha>11:47 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>333</num_linea>
+	<fecha>11:59 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>333</num_linea>
+	<fecha>12:00 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>333</num_linea>
+	<fecha>12:01 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: marcacion</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>33</num_linea>
+	<fecha>12:07 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_fetch_array() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>33</num_linea>
+	<fecha>12:07 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: otrahora</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>48</num_linea>
+	<fecha>12:07 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_fetch_array() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>48</num_linea>
+	<fecha>12:07 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: marcacion</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>33</num_linea>
+	<fecha>12:07 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_fetch_array() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>33</num_linea>
+	<fecha>12:07 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: otrahora</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>48</num_linea>
+	<fecha>12:07 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_fetch_array() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>48</num_linea>
+	<fecha>12:07 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>316</num_linea>
+	<fecha>12:07 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: marcacion</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>33</num_linea>
+	<fecha>12:07 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_fetch_array() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>33</num_linea>
+	<fecha>12:07 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: otrahora</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>48</num_linea>
+	<fecha>12:07 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_fetch_array() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>48</num_linea>
+	<fecha>12:07 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>316</num_linea>
+	<fecha>12:07 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: marcacion</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>33</num_linea>
+	<fecha>12:08 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_fetch_array() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>33</num_linea>
+	<fecha>12:08 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: otrahora</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>47</num_linea>
+	<fecha>12:08 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_fetch_array() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>47</num_linea>
+	<fecha>12:08 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>316</num_linea>
+	<fecha>12:08 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: marcacion</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>33</num_linea>
+	<fecha>12:08 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_fetch_array() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>33</num_linea>
+	<fecha>12:08 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: otrahora</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>47</num_linea>
+	<fecha>12:08 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_fetch_array() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>47</num_linea>
+	<fecha>12:08 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>316</num_linea>
+	<fecha>12:08 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: marcacion</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>33</num_linea>
+	<fecha>12:08 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_fetch_array() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>33</num_linea>
+	<fecha>12:08 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: otrahora</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>47</num_linea>
+	<fecha>12:08 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_fetch_array() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>47</num_linea>
+	<fecha>12:08 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>316</num_linea>
+	<fecha>12:08 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: marcacion</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>34</num_linea>
+	<fecha>12:09 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_fetch_array() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>34</num_linea>
+	<fecha>12:09 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: otrahora</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>51</num_linea>
+	<fecha>12:09 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_fetch_array() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>51</num_linea>
+	<fecha>12:09 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>316</num_linea>
+	<fecha>12:09 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: otrahora</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>51</num_linea>
+	<fecha>12:10 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_fetch_array() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>51</num_linea>
+	<fecha>12:10 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>322</num_linea>
+	<fecha>12:10 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: marcacion</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>34</num_linea>
+	<fecha>12:11 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_fetch_array() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>34</num_linea>
+	<fecha>12:11 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: otrahora</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>51</num_linea>
+	<fecha>12:11 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_fetch_array() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>51</num_linea>
+	<fecha>12:11 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>316</num_linea>
+	<fecha>12:11 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: otrahora</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>51</num_linea>
+	<fecha>12:11 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>mysql_fetch_array() expects parameter 1 to be resource, null given</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\temps_model.php</archivo>
+	<num_linea>51</num_linea>
+	<fecha>12:11 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>322</num_linea>
+	<fecha>12:11 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>330</num_linea>
+	<fecha>12:12 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>330</num_linea>
+	<fecha>12:13 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>346</num_linea>
+	<fecha>12:21 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id_parametros</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\parametros_model.php</archivo>
+	<num_linea>46</num_linea>
+	<fecha>12:21 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id_parametros</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\parametros_model.php</archivo>
+	<num_linea>46</num_linea>
+	<fecha>12:21 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id_parametros</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\parametros_model.php</archivo>
+	<num_linea>46</num_linea>
+	<fecha>12:21 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id_parametros</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\parametros_model.php</archivo>
+	<num_linea>46</num_linea>
+	<fecha>12:21 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id_parametros</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\parametros_model.php</archivo>
+	<num_linea>46</num_linea>
+	<fecha>12:21 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>346</num_linea>
+	<fecha>12:21 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id_parametros</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\parametros_model.php</archivo>
+	<num_linea>46</num_linea>
+	<fecha>12:22 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id_parametros</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\parametros_model.php</archivo>
+	<num_linea>46</num_linea>
+	<fecha>12:22 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id_parametros</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\parametros_model.php</archivo>
+	<num_linea>46</num_linea>
+	<fecha>12:22 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id_parametros</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\parametros_model.php</archivo>
+	<num_linea>46</num_linea>
+	<fecha>12:22 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id_parametros</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\parametros_model.php</archivo>
+	<num_linea>46</num_linea>
+	<fecha>12:22 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>348</num_linea>
+	<fecha>12:22 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id_parametros</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\parametros_model.php</archivo>
+	<num_linea>46</num_linea>
+	<fecha>12:24 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id_parametros</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\parametros_model.php</archivo>
+	<num_linea>46</num_linea>
+	<fecha>12:24 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id_parametros</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\parametros_model.php</archivo>
+	<num_linea>46</num_linea>
+	<fecha>12:24 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id_parametros</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\parametros_model.php</archivo>
+	<num_linea>46</num_linea>
+	<fecha>12:24 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: id_parametros</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\models\parametros_model.php</archivo>
+	<num_linea>46</num_linea>
+	<fecha>12:24 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>352</num_linea>
+	<fecha>12:24 18/09/2014</fecha>
+</registro>
+

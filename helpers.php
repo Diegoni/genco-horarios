@@ -3,6 +3,7 @@ error_reporting(0);
 
 
 include_once("config/database.php");
+include_once($models_url."logs_model.php"); 	
 
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------
@@ -169,25 +170,25 @@ function getUltimoDiaMes($elAnio,$elMes) {
 
 function esferiado($valor){
 
-$query="SELECT * 
-		FROM feriado 
-		WHERE 
-		DATE_FORMAT(dia, '%Y-%m-%d') = '$valor'";   
-		$feriado=mysql_query($query) or die(mysql_error());
-		$row_feriado = mysql_fetch_assoc($feriado);   
-$cantidad_feriado = mysql_num_rows($feriado);
-
-if($cantidad_feriado>0){
-	$i="label label-important";
-	$j=$row_feriado['feriado'];
-	$k=1;
-	return array($i,$j,$k);
-} else{
-	$i="";
-	$j="";
-	$k=0;
-	return array($i,$j,$k);
-}
+	$query="SELECT * 
+			FROM feriado 
+			WHERE 
+			DATE_FORMAT(dia, '%Y-%m-%d') = '$valor'";   
+			$feriado=mysql_query($query) or die(mysql_error());
+			$row_feriado = mysql_fetch_assoc($feriado);   
+	$cantidad_feriado = mysql_num_rows($feriado);
+	
+	if($cantidad_feriado>0){
+		$i="label label-important";
+		$j=$row_feriado['feriado'];
+		$k=1;
+		return array($i,$j,$k);
+	} else{
+		$i="";
+		$j="";
+		$k=0;
+		return array($i,$j,$k);
+	}
 
 }
 
@@ -216,5 +217,69 @@ function gestorErrores($numerr, $menserr, $nombrearchivo, $numlinea, $vars){
 
 $gestor_error_antiguo=set_error_handler("gestorErrores");//manejador de errores
 
+function tipoMarcacion($row_marcacion, $cantidad_parametros){
+	if($cantidad_parametros==0){//sin marcacion
+		$registro['label_class']='insert_access';
+		$registro['label_title']='';
+		$registro['a_class']='default';
+		$registro['marcacion']='-';
+		
+	}else if($cantidad_parametros>1){//mas de un registro
+			$registro['label_class']='label label-important';
+			$registro['label_title']='Registro duplicado, por favor modificarlo';
+			$registro['a_class']='error';
+			$registro['marcacion']=date('H:i', strtotime($row_marcacion['entrada']));
+			
+		}else{
+			$registro['marcacion']=date('H:i', strtotime($row_marcacion['entrada']));
+			
+			if($row_marcacion['id_estado']==3){//marcación modificada
+				$log_auditoria_marcada=getLog($row_marcacion['id_marcada']);
+				$row_log_auditoria_marcada = mysql_fetch_assoc($log_auditoria_marcada);
+					
+				$registro['label_class']='label label-success';
+				$registro['label_title']='Registro modificado, original :'.date('H:i', strtotime($row_log_auditoria_marcada['entrada_old']));
+				$registro['a_class']='update';
+				
+			}else if($row_marcacion['id_estado']==2){//marcación dada de alta por el sistema
+				$registro['label_class']='label';
+				$registro['label_title']='Registro dado de alta por sistema';
+				$registro['a_class']='insert';
+				
+			}else if($row_marcacion['id_parametros']==0){//marcacion con error
+				$registro['label_class']='label label-important';
+				$registro['label_title']='Registro sin definir, por favor modificarlo';
+				$registro['a_class']='error';
+				
+			}else{//marcacion normal
+				$registro['label_class']='insert_access';
+				$registro['label_title']='';
+				$registro['a_class']='default';
+			}
+		}
+	
+	return $registro;
+}
+
+function tipoOtra($row_otrahora, $cantidad){
+	if($cantidad>0){
+		$registro['label_class']='insert_access';
+		$registro['a_class']='btn btn-default';
+		$registro['a_title']=$row_otrahora['nota'];
+		$registro['marcacion']=$row_otrahora['tipootra']." : ".$row_otrahora['horas'];
+		
+		if($row_otrahora['id_archivo']!=0){
+			$registro['marcacion'].="<i class='icon-paper-clip'></i>";	
+		}
+		
+	}else{
+		$registro['label_class']='insert_access';
+		$registro['a_class']='btn btn-default';
+		$registro['a_title']='Agregar';
+		$registro['marcacion']="<i class='icon-plus-sign-alt'></i>";
+	}
+	
+	return $registro;
+}
 ?>
  
