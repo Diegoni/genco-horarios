@@ -1,8 +1,8 @@
 <?php
 include_once("config/database.php");
 include_once("config/config.php");
-include_once($models_url."configs_model.php");
-include_once($models_url."mensajes_model.php");  
+include_once($url['models_url']."configs_model.php");
+include_once($url['models_url']."mensajes_model.php");  
 
 if(isset($_GET['update'])){
 	if(isset($_GET['aplicar_redondeo'])){
@@ -31,13 +31,13 @@ if(isset($_GET['update'])){
 	}
 	
 	$datos=array(
-				'id_config'=>$_GET['id'],
-				'aplicar_redondeo'=>$aplicar_redondeo,
-				'mostrar_marcada'=>$mostrar_marcada,
-				'fecha_actual'=>$fecha_actual,
-				'suma_dias'=>$_GET['suma_dias'],
-				'marcaciones_x_hoja'=>$_GET['marcaciones_x_hoja'],
-				'css'=>$_GET['css']);
+				'id_config'			=> $_GET['id'],
+				'aplicar_redondeo'	=> $aplicar_redondeo,
+				'mostrar_marcada'	=> $mostrar_marcada,
+				'fecha_actual'		=> $fecha_actual,
+				'suma_dias'			=> $_GET['suma_dias'],
+				'marcaciones_x_hoja'=> $_GET['marcaciones_x_hoja'],
+				'css'				=> $_GET['css']);
 	
 	updateConfig($datos);
 		

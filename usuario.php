@@ -4,9 +4,9 @@ session_start();
 	header("Location: login/acceso.php");
 	}
 include_once("menu.php"); 
-include_once($models_url."usuarios_model.php");
-include_once($models_url."temps_model.php");
-include_once($models_url."convenio_turnos_model.php");
+include_once($url['models_url']."usuarios_model.php");
+include_once($url['models_url']."temps_model.php");
+include_once($url['models_url']."convenio_turnos_model.php");
 include_once("helpers.php");
 
 
@@ -333,10 +333,10 @@ if($fecha_inicio>$fecha_final){
 	<th title="Tarde - Entrada">t-e</th>
 	<th title="Tarde - Salida">t-s</th>
 	<th title="Subtotales">Subtotal</th>
-	<?php if($mostar_marcada==1 && $aplicar_redondeo==1){ ?>
+	<?php if($config['mostar_marcada']==1 && $config['aplicar_redondeo']==1){ ?>
 	<th title="Calculo de horas laborales">Horas</th>
 	<?php } ?>
-	<?php if($aplicar_redondeo==1){ ?>
+	<?php if($config['aplicar_redondeo']==1){ ?>
 	<th title="Redondeo de horas">R</th>
 	<?php } ?>
 	<th title="Otro tipo">Otros</th>
@@ -428,7 +428,7 @@ foreach($arrayFechas as $valor){?>
 			if($t>0 || $m>0){
 				$subtotal=$m+$t;
 			
-				if($aplicar_redondeo==1){
+				if($config['aplicar_redondeo']==1){
 					$total=$total+segundos_a_hora(redondear_minutos(pasar_hora($subtotal)))/60/60;	
 				}else{
 					$total=$total+$subtotal;	
@@ -441,19 +441,19 @@ foreach($arrayFechas as $valor){?>
 		if($subtotal>0){
 		?>
 			<td><?php   echo pasar_hora($m)." + ".pasar_hora($t) ?></td>
-			<?php if($mostar_marcada==1 && $aplicar_redondeo==1){ ?>
+			<?php if($config['mostar_marcada']==1 && $config['aplicar_redondeo']==1){ ?>
 			<td><?php   echo pasar_hora($subtotal); ?></td>	
 			<?php }  
-				 if($aplicar_redondeo==1){ ?>
+				 if($config['aplicar_redondeo']==1){ ?>
 			<td><?php echo redondear_minutos(pasar_hora($subtotal)); ?></td>
 			<?php $subtotal=segundos_a_hora(redondear_minutos(pasar_hora($subtotal)))/60/60;
 				 } 
 		} else {?>
 			<td> - </td>
-			<?php if($mostar_marcada==1 && $aplicar_redondeo==1){ ?>
+			<?php if($config['mostar_marcada']==1 && $config['aplicar_redondeo']==1){ ?>
 			<td> - </td>
 			<?php }  
-				 if($aplicar_redondeo==1){ ?>
+				 if($config['aplicar_redondeo']==1){ ?>
 			<td> - </td>
 			<?php } ?> 
 

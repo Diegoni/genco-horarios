@@ -5,9 +5,9 @@ session_start();
 	}
 	
 include_once("menu.php"); 
-include_once($models_url."usuarios_model.php"); 
-include_once($models_url."otrahora_model.php"); 
-include_once($models_url."marcadas_model.php");
+include_once($url['models_url']."usuarios_model.php"); 
+include_once($url['models_url']."otrahora_model.php"); 
+include_once($url['models_url']."marcadas_model.php");
 include_once("helpers.php");
 set_time_limit(120); 
 
@@ -313,7 +313,7 @@ foreach($arrayFechas as $valor){
 			
 	if($t>0 || $m>0){
 		$subtotal=$m+$t;
-		if($aplicar_redondeo==1){
+		if($config['aplicar_redondeo']==1){
 			$subtotal=segundos_a_hora(redondear_minutos(pasar_hora($subtotal)))/60/60;	
 		}
 		

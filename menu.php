@@ -17,7 +17,7 @@ include_once("helpers.php");
 						<span class="icon-bar"></span>
 					</button>
 					<a class="brand" href="./index.php">
-					<img width="106" height="40"  src="<?php echo $logo;?>"></a>
+					<img width="106" height="40"  src="<?php echo $config['logo'];?>"></a>
 					<div class="nav-collapse collapse">
 						<ul class="nav">
 							<li class="opcion">

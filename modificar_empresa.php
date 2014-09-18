@@ -4,7 +4,7 @@ session_start();
 	header("Location: ../login/acceso.php");
 	}
 include_once("menu.php");
-include_once($models_url."empresas_model.php");
+include_once($url['models_url']."empresas_model.php");
 
 //seleccion del usuario
 $empresa=getEmpresa($_GET['id']);   

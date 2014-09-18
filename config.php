@@ -4,9 +4,9 @@ session_start();
 	header("Location: ../login/acceso.php");
 	}
 include_once("menu.php");
-include_once($models_url."configs_model.php");
-include_once($models_url."mensajes_model.php"); 
-include_once($models_url."imagenes_model.php");
+include_once($url['models_url']."configs_model.php");
+include_once($url['models_url']."mensajes_model.php"); 
+include_once($url['models_url']."imagenes_model.php");
 
 if(isset($_GET['update'])){
 	if($_GET['update']==1){
@@ -55,17 +55,11 @@ if(isset($_FILES['firma'])){
   updateFirma($foto);
 } 
 
-
- 
-
-	$config=getConfig();
-	$row_config = mysql_fetch_assoc($config);	
+	$configs=getConfig();
+	$row_config = mysql_fetch_assoc($configs);	
 	do{
 		$id_config=$row_config['id_config'];
-		$aplicar_redondeo=$row_config['aplicar_redondeo'];
-		$mostrar_marcada=$row_config['mostrar_marcada'];
-		$css=$row_config['css'];
-	 }while($row_config=mysql_fetch_array($config));
+	 }while($row_config=mysql_fetch_array($configs));
 	 
 	 
 
@@ -90,19 +84,19 @@ if(isset($_FILES['firma'])){
 		<table class="table table-hover">
 		<tr>
 			<td>Título</td>
-			<td><input type="text" name="title" value="<?php echo $title;?>" required></td>
+			<td><input type="text" name="title" value="<?php echo $config['title'];?>" required></td>
 		</tr>
 		
 		<tr>
 			<td>Logo</td>
-			<td><img width="106" height="40"  src="<?php echo $logo;?>"> <a href='#' class='show_hide btn btn-default'>Cambiar</a></td>
+			<td><img width="106" height="40"  src="<?php echo $config['logo'];?>"> <a href='#' class='show_hide btn btn-default'>Cambiar</a></td>
 		</tr>
 		<tr>
 		<td>Colores</td>
 			<td>
 			<select name="css">
 				<?php for($i=0;$i<21;$i++){ 
-						if($i==$css){ ?>
+						if($i==$config['css']){ ?>
 							<option value="<?php echo $i?>" selected>Opción <?php echo $i+1;?></option>
 				<?php	}else{ ?>
 							<option value="<?php echo $i?>">Opción <?php echo $i+1;?></option>		
@@ -118,12 +112,12 @@ if(isset($_FILES['firma'])){
 		<input type="hidden" name="id" value="<?php echo $id_config?>">
 		<tr>
 			<td>Aplicar Redondeo</td>
-			<td><input type="checkbox" name="aplicar_redondeo" <?php if($aplicar_redondeo==1){ echo "checked";}?> data-on="success" data-off="danger" ></td>
+			<td><input type="checkbox" name="aplicar_redondeo" <?php if($config['aplicar_redondeo']==1){ echo "checked";}?> data-on="success" data-off="danger" ></td>
 		</tr>
 		
 		<tr>
 			<td>Mostrar marcada sin redondeo</td>
-			<td><input type="checkbox" name="mostrar_marcada" <?php if($mostrar_marcada==1){ echo "checked";}?> data-on="success" data-off="danger" ></td>
+			<td><input type="checkbox" name="mostrar_marcada" <?php if($config['mostrar_marcada']==1){ echo "checked";}?> data-on="success" data-off="danger" ></td>
 		</tr>
 		</table>      	
     </div>
@@ -131,14 +125,14 @@ if(isset($_FILES['firma'])){
        	<table class="table table-hover">
 		<tr>
 			<td>Mostrar fecha actual</td>
-			<td><input type="checkbox" name="fecha_actual"  <?php if($fecha_actual==1){ echo "checked";}?> data-on="success" data-off="danger" ></td>
+			<td><input type="checkbox" name="fecha_actual"  <?php if($config['fecha_actual']==1){ echo "checked";}?> data-on="success" data-off="danger" ></td>
 		</tr>
 			
 		<tr>
 			<td>Mostrar fecha de marcación más </td>
 			<td>
 				<div class="input-append">
-				<input id="suma_dias" type="number" class="input-mini" name="suma_dias" value="<?php echo $suma_dias;?>">
+				<input id="suma_dias" type="number" class="input-mini" name="suma_dias" value="<?php echo $config['suma_dias'];?>">
 				<span class="add-on">días</span>
 				</div>
 			</td>
@@ -148,14 +142,14 @@ if(isset($_FILES['firma'])){
 			<td>Cantidad de marcaciones por hoja </td>
 			<td>
 				<div class="input-append">
-				<input id="registros" type="number" class="input-mini" name="marcaciones_x_hoja" value="<?php echo $marcaciones_x_hoja;?>" max="6" min="1">
+				<input id="registros" type="number" class="input-mini" name="marcaciones_x_hoja" value="<?php echo $config['marcaciones_x_hoja'];?>" max="6" min="1">
 				<span class="add-on">Marcaciones</span>
 				</div>
 			</td>
 		</tr>
 		<tr>
 			<td>Firma</td>
-			<td><img width="106" height="40"  src="<?php echo $firma;?>"> <a href='#' class='show_hide2 btn btn-default'>Cambiar</a></td>
+			<td><img width="106" height="40"  src="<?php echo $config['firma'];?>"> <a href='#' class='show_hide2 btn btn-default'>Cambiar</a></td>
 		</tr>
 		</table>
     </div>

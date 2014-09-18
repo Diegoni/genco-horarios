@@ -1,7 +1,7 @@
 <?php  
 include_once("head.php");    
-include_once($models_url."marcadas_model.php");     
-include_once($models_url."parametros_model.php");   
+include_once($url['models_url']."marcadas_model.php");     
+include_once($url['models_url']."parametros_model.php");   
 $comparacion=0; 
 /*--------------------------------------------------------------------
 ----------------------------------------------------------------------

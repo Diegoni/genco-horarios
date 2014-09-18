@@ -4,7 +4,7 @@ session_start();
 	header("Location: ../login/acceso.php");
 	}
 include_once("menu.php");
-include_once($models_url."logs_model.php");
+include_once($url['models_url']."logs_model.php");
 
 //si no hay busqueda traemos los ultimos 50 movimientos
 $usuario=getLogs();

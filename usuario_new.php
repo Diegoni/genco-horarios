@@ -4,10 +4,10 @@ session_start();
 	header("Location: login/acceso.php");
 	}
 include_once("menu.php"); 
-include_once($models_url."usuarios_model.php"); 
-include_once($models_url."marcadas_model.php"); 
-include_once($models_url."otrahora_model.php"); 
-include_once($models_url."logs_model.php"); 
+include_once($url['models_url']."usuarios_model.php"); 
+include_once($url['models_url']."marcadas_model.php"); 
+include_once($url['models_url']."otrahora_model.php"); 
+include_once($url['models_url']."logs_model.php"); 
 
 
 //----------------------------------------------------------------------

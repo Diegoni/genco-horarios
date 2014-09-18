@@ -1,7 +1,7 @@
 <?php 
 include_once("head.php");      
-include_once($models_url."otrahora_model.php");
-include_once($models_url."archivos_model.php");
+include_once($url['models_url']."otrahora_model.php");
+include_once($url['models_url']."archivos_model.php");
 include_once("helpers.php");        
 
 //----------------------------------------------------------------------

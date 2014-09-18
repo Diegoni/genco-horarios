@@ -1,7 +1,7 @@
 <?php 
 include_once("head.php");
-include_once($models_url."usuarios_model.php");
-include_once($models_url."marcadas_model.php");
+include_once($url['models_url']."usuarios_model.php");
+include_once($url['models_url']."marcadas_model.php");
 include_once("helpers.php"); ?>
 <HTML LANG=”es”>
 <title>Reporte horario.</title>
@@ -120,10 +120,10 @@ if($cantidad_parametros>0){
 	<td class="titulo" colspan="4"><?php echo $row_usuario['empresa']?> <br> C.U.I.L. N <?php echo $row_usuario['cuil_empresa']?></td>
 	<td class="titulo" colspan="2">Fecha Emisión</td>
 	<td class="texto-min"><?php 
-						if($fecha_actual==1){
+						if($config['fecha_actual']==1){
 							echo date("d-m-Y");
 						}else{
-							echo date( "d-m-Y", strtotime ( '+'.$suma_dias.' day' , strtotime ( $valor ) ));	
+							echo date( "d-m-Y", strtotime ( '+'.$config['suma_dias'].' day' , strtotime ( $valor ) ));	
 						}?></td>
 	<td class="titulo">Legajo</td>
 	<td class="texto" colspan="2"><?php echo $row_usuario['legajo']?></td>
@@ -176,13 +176,13 @@ if($cantidad_parametros>0){
 	<?php }else{ ?>
 	<td class="hora" colspan="2">
 		<?php 
-			if(!($mostar_marcada==0 && $aplicar_redondeo==1)){
+			if(!($config['mostar_marcada']==0 && $config['aplicar_redondeo']==1)){
 				echo date('H:i', strtotime($row_marcacion['entrada']));	
 			}
-			if($aplicar_redondeo==1 && $mostar_marcada){
+			if($config['aplicar_redondeo']==1 && $config['mostar_marcada']){
 				echo " - ";
 			}
-			if($aplicar_redondeo==1){
+			if($config['aplicar_redondeo']==1){
 				echo date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));	
 			} 
 		?> 
@@ -197,7 +197,7 @@ if($cantidad_parametros>0){
 <?php 
 $contador=$contador+1;
 		} //cierra el if($cantidad_parametros>0)
-	if($contador==$marcaciones_x_hoja){
+	if($contador==$config['marcaciones_x_hoja']){
 	$contador=0;
 	echo "<H1 class='SaltoDePagina'> </H1>";
 }		
@@ -235,14 +235,14 @@ if($cantidad_parametros>0){
 	<td class="titulo" colspan="4"><?php echo $row_usuario['empresa']?> <br> C.U.I.L. N <?php echo $row_usuario['cuil_empresa']?></td>
 	<td class="titulo" colspan="2">Fecha Emisión</td>
 	<td class="texto-min"><?php 
-						if($fecha_actual==1){
+						if($config['fecha_actual']==1){
 							echo date("d-m-Y");
 						}else{
-							echo date( "d-m-Y", strtotime ( '+'.$suma_dias.' day' , strtotime ( $valor ) ));	
+							echo date( "d-m-Y", strtotime ( '+'.$config['suma_dias'].' day' , strtotime ( $valor ) ));	
 						}?></td>
 	<td class="titulo">Legajo</td>
 	<td class="texto" colspan="2"><?php echo $row_usuario['legajo']?></td>
-	<td class="texto" width="25%" colspan="3" rowspan="4"><img src="<?php echo $firma;?>" width="120" height="90"></td> 
+	<td class="texto" width="25%" colspan="3" rowspan="4"><img src="<?php echo $config['firma'];?>" width="120" height="90"></td> 
 </tr>
 <tr>
 	<td class="titulo" colspan="2">Apellido y Nombre</th>
@@ -291,13 +291,13 @@ if($cantidad_parametros>0){
 	<?php }else{ ?>
 	<td class="hora" colspan="2">
 		<?php 
-			if(!($mostar_marcada==0 && $aplicar_redondeo==1)){
+			if(!($config['mostar_marcada']==0 && $config['aplicar_redondeo']==1)){
 				echo date('H:i', strtotime($row_marcacion['entrada']));	
 			}
-			if($aplicar_redondeo==1 && $mostar_marcada){
+			if($config['aplicar_redondeo']==1 && $config['mostar_marcada']){
 				echo " - ";
 			}
-			if($aplicar_redondeo==1){
+			if($config['aplicar_redondeo']=1){
 				echo date('H:i', strtotime(redondear_minutos($row_marcacion['entrada'])));	
 			} 
 		?> 
@@ -312,7 +312,7 @@ if($cantidad_parametros>0){
 <?php 
 $contador=$contador+1;
 		} //cierra el if($cantidad_parametros>0)
-	if($contador==$marcaciones_x_hoja){
+	if($contador==$config['marcaciones_x_hoja']){
 	$contador=0;
 	echo "<H1 class='SaltoDePagina'> </H1>";
 }		

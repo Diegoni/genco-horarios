@@ -14102,3 +14102,1387 @@
 	<fecha>13:03 18/09/2014</fecha>
 </registro>
 
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: logo</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\menu.php</archivo>
+	<num_linea>20</num_linea>
+	<fecha>13:14 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: models_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>7</num_linea>
+	<fecha>13:14 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(usuarios_model.php): failed to open stream: No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>7</num_linea>
+	<fecha>13:14 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(): Failed opening 'usuarios_model.php' for inclusion (include_path='.;C:\xampp2\php\PEAR')</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>7</num_linea>
+	<fecha>13:14 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: models_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>8</num_linea>
+	<fecha>13:14 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(temps_model.php): failed to open stream: No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>8</num_linea>
+	<fecha>13:14 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(): Failed opening 'temps_model.php' for inclusion (include_path='.;C:\xampp2\php\PEAR')</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>8</num_linea>
+	<fecha>13:14 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: models_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>9</num_linea>
+	<fecha>13:14 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(convenio_turnos_model.php): failed to open stream: No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>9</num_linea>
+	<fecha>13:14 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(): Failed opening 'convenio_turnos_model.php' for inclusion (include_path='.;C:\xampp2\php\PEAR')</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>9</num_linea>
+	<fecha>13:14 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: logo</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\menu.php</archivo>
+	<num_linea>20</num_linea>
+	<fecha>13:14 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: models_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>7</num_linea>
+	<fecha>13:14 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(usuarios_model.php): failed to open stream: No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>7</num_linea>
+	<fecha>13:14 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(): Failed opening 'usuarios_model.php' for inclusion (include_path='.;C:\xampp2\php\PEAR')</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>7</num_linea>
+	<fecha>13:14 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: models_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>8</num_linea>
+	<fecha>13:14 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(temps_model.php): failed to open stream: No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>8</num_linea>
+	<fecha>13:14 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(): Failed opening 'temps_model.php' for inclusion (include_path='.;C:\xampp2\php\PEAR')</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>8</num_linea>
+	<fecha>13:14 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: models_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>9</num_linea>
+	<fecha>13:14 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(convenio_turnos_model.php): failed to open stream: No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>9</num_linea>
+	<fecha>13:14 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(): Failed opening 'convenio_turnos_model.php' for inclusion (include_path='.;C:\xampp2\php\PEAR')</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>9</num_linea>
+	<fecha>13:14 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: logo</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\menu.php</archivo>
+	<num_linea>20</num_linea>
+	<fecha>13:16 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: models_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>7</num_linea>
+	<fecha>13:16 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(usuarios_model.php): failed to open stream: No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>7</num_linea>
+	<fecha>13:16 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(): Failed opening 'usuarios_model.php' for inclusion (include_path='.;C:\xampp2\php\PEAR')</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>7</num_linea>
+	<fecha>13:16 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: models_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>8</num_linea>
+	<fecha>13:16 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(temps_model.php): failed to open stream: No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>8</num_linea>
+	<fecha>13:16 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(): Failed opening 'temps_model.php' for inclusion (include_path='.;C:\xampp2\php\PEAR')</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>8</num_linea>
+	<fecha>13:16 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: models_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>9</num_linea>
+	<fecha>13:16 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(convenio_turnos_model.php): failed to open stream: No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>9</num_linea>
+	<fecha>13:16 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(): Failed opening 'convenio_turnos_model.php' for inclusion (include_path='.;C:\xampp2\php\PEAR')</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>9</num_linea>
+	<fecha>13:16 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: logo</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\menu.php</archivo>
+	<num_linea>20</num_linea>
+	<fecha>13:16 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: models_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>7</num_linea>
+	<fecha>13:16 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(usuarios_model.php): failed to open stream: No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>7</num_linea>
+	<fecha>13:16 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(): Failed opening 'usuarios_model.php' for inclusion (include_path='.;C:\xampp2\php\PEAR')</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>7</num_linea>
+	<fecha>13:16 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: models_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>8</num_linea>
+	<fecha>13:16 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(temps_model.php): failed to open stream: No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>8</num_linea>
+	<fecha>13:16 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(): Failed opening 'temps_model.php' for inclusion (include_path='.;C:\xampp2\php\PEAR')</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>8</num_linea>
+	<fecha>13:16 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: models_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>9</num_linea>
+	<fecha>13:16 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(convenio_turnos_model.php): failed to open stream: No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>9</num_linea>
+	<fecha>13:16 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(): Failed opening 'convenio_turnos_model.php' for inclusion (include_path='.;C:\xampp2\php\PEAR')</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>9</num_linea>
+	<fecha>13:16 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: models_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>7</num_linea>
+	<fecha>13:16 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(usuarios_model.php): failed to open stream: No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>7</num_linea>
+	<fecha>13:16 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(): Failed opening 'usuarios_model.php' for inclusion (include_path='.;C:\xampp2\php\PEAR')</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>7</num_linea>
+	<fecha>13:16 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: models_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>8</num_linea>
+	<fecha>13:16 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(temps_model.php): failed to open stream: No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>8</num_linea>
+	<fecha>13:16 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(): Failed opening 'temps_model.php' for inclusion (include_path='.;C:\xampp2\php\PEAR')</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>8</num_linea>
+	<fecha>13:16 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: models_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>9</num_linea>
+	<fecha>13:16 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(convenio_turnos_model.php): failed to open stream: No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>9</num_linea>
+	<fecha>13:16 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(): Failed opening 'convenio_turnos_model.php' for inclusion (include_path='.;C:\xampp2\php\PEAR')</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>9</num_linea>
+	<fecha>13:16 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>1</num_linea>
+	<fecha>13:17 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>2</num_linea>
+	<fecha>13:17 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: models_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>7</num_linea>
+	<fecha>13:17 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(marcadas_model.php): failed to open stream: No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>7</num_linea>
+	<fecha>13:17 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(): Failed opening 'marcadas_model.php' for inclusion (include_path='.;C:\xampp2\php\PEAR')</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>7</num_linea>
+	<fecha>13:17 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: models_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>8</num_linea>
+	<fecha>13:17 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(parametros_model.php): failed to open stream: No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>8</num_linea>
+	<fecha>13:17 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(): Failed opening 'parametros_model.php' for inclusion (include_path='.;C:\xampp2\php\PEAR')</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>8</num_linea>
+	<fecha>13:17 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: models_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>9</num_linea>
+	<fecha>13:17 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(turnos_model.php): failed to open stream: No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>9</num_linea>
+	<fecha>13:17 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(): Failed opening 'turnos_model.php' for inclusion (include_path='.;C:\xampp2\php\PEAR')</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>9</num_linea>
+	<fecha>13:17 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: models_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>10</num_linea>
+	<fecha>13:17 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(tipos_model.php): failed to open stream: No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>10</num_linea>
+	<fecha>13:17 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(): Failed opening 'tipos_model.php' for inclusion (include_path='.;C:\xampp2\php\PEAR')</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>10</num_linea>
+	<fecha>13:17 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: models_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>11</num_linea>
+	<fecha>13:17 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(updates_model.php): failed to open stream: No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>11</num_linea>
+	<fecha>13:17 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(): Failed opening 'updates_model.php' for inclusion (include_path='.;C:\xampp2\php\PEAR')</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>11</num_linea>
+	<fecha>13:17 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: models_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>12</num_linea>
+	<fecha>13:17 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(usuarios_model.php): failed to open stream: No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>12</num_linea>
+	<fecha>13:17 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(): Failed opening 'usuarios_model.php' for inclusion (include_path='.;C:\xampp2\php\PEAR')</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>12</num_linea>
+	<fecha>13:17 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: models_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>13</num_linea>
+	<fecha>13:17 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(departamentos_model.php): failed to open stream: No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>13</num_linea>
+	<fecha>13:17 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(): Failed opening 'departamentos_model.php' for inclusion (include_path='.;C:\xampp2\php\PEAR')</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>13</num_linea>
+	<fecha>13:17 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: models_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>14</num_linea>
+	<fecha>13:17 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(otrahora_model.php): failed to open stream: No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>14</num_linea>
+	<fecha>13:17 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(): Failed opening 'otrahora_model.php' for inclusion (include_path='.;C:\xampp2\php\PEAR')</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>14</num_linea>
+	<fecha>13:17 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: models_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>15</num_linea>
+	<fecha>13:17 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(logs_model.php): failed to open stream: No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>15</num_linea>
+	<fecha>13:17 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(): Failed opening 'logs_model.php' for inclusion (include_path='.;C:\xampp2\php\PEAR')</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>15</num_linea>
+	<fecha>13:17 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: models_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>16</num_linea>
+	<fecha>13:17 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(temps_model.php): failed to open stream: No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>16</num_linea>
+	<fecha>13:17 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(): Failed opening 'temps_model.php' for inclusion (include_path='.;C:\xampp2\php\PEAR')</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>16</num_linea>
+	<fecha>13:17 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>1</num_linea>
+	<fecha>13:17 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>2</num_linea>
+	<fecha>13:17 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\index.php</archivo>
+	<num_linea>352</num_linea>
+	<fecha>13:17 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: models_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>7</num_linea>
+	<fecha>13:18 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(usuarios_model.php): failed to open stream: No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>7</num_linea>
+	<fecha>13:18 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(): Failed opening 'usuarios_model.php' for inclusion (include_path='.;C:\xampp2\php\PEAR')</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>7</num_linea>
+	<fecha>13:18 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: models_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>8</num_linea>
+	<fecha>13:18 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(temps_model.php): failed to open stream: No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>8</num_linea>
+	<fecha>13:18 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(): Failed opening 'temps_model.php' for inclusion (include_path='.;C:\xampp2\php\PEAR')</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>8</num_linea>
+	<fecha>13:18 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: models_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>9</num_linea>
+	<fecha>13:18 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(convenio_turnos_model.php): failed to open stream: No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>9</num_linea>
+	<fecha>13:18 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(): Failed opening 'convenio_turnos_model.php' for inclusion (include_path='.;C:\xampp2\php\PEAR')</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario.php</archivo>
+	<num_linea>9</num_linea>
+	<fecha>13:18 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>1</num_linea>
+	<fecha>13:18 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>2</num_linea>
+	<fecha>13:18 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>1</num_linea>
+	<fecha>13:35 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>2</num_linea>
+	<fecha>13:35 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: models_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>7</num_linea>
+	<fecha>13:35 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(configs_model.php): failed to open stream: No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>7</num_linea>
+	<fecha>13:35 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(): Failed opening 'configs_model.php' for inclusion (include_path='.;C:\xampp2\php\PEAR')</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>7</num_linea>
+	<fecha>13:35 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: models_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>8</num_linea>
+	<fecha>13:35 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(mensajes_model.php): failed to open stream: No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>8</num_linea>
+	<fecha>13:35 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(): Failed opening 'mensajes_model.php' for inclusion (include_path='.;C:\xampp2\php\PEAR')</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>8</num_linea>
+	<fecha>13:35 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: models_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>9</num_linea>
+	<fecha>13:35 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(imagenes_model.php): failed to open stream: No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>9</num_linea>
+	<fecha>13:35 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(): Failed opening 'imagenes_model.php' for inclusion (include_path='.;C:\xampp2\php\PEAR')</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>9</num_linea>
+	<fecha>13:35 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: title</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>93</num_linea>
+	<fecha>13:37 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: logo</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>98</num_linea>
+	<fecha>13:37 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_actual</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>134</num_linea>
+	<fecha>13:37 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: suma_dias</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>141</num_linea>
+	<fecha>13:37 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: marcaciones_x_hoja</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>151</num_linea>
+	<fecha>13:37 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: firma</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>158</num_linea>
+	<fecha>13:37 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>1</num_linea>
+	<fecha>13:37 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>2</num_linea>
+	<fecha>13:37 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: logo</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>95</num_linea>
+	<fecha>13:37 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_actual</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>131</num_linea>
+	<fecha>13:37 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: suma_dias</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>138</num_linea>
+	<fecha>13:37 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: marcaciones_x_hoja</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>148</num_linea>
+	<fecha>13:37 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: firma</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>155</num_linea>
+	<fecha>13:37 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>1</num_linea>
+	<fecha>13:37 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>2</num_linea>
+	<fecha>13:37 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_actual</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>131</num_linea>
+	<fecha>13:38 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: suma_dias</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>138</num_linea>
+	<fecha>13:38 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: marcaciones_x_hoja</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>148</num_linea>
+	<fecha>13:38 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: firma</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>155</num_linea>
+	<fecha>13:38 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>1</num_linea>
+	<fecha>13:38 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>2</num_linea>
+	<fecha>13:38 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: id_config</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>105</num_linea>
+	<fecha>13:39 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: aplicar_redondeo</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>108</num_linea>
+	<fecha>13:39 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: mostrar_marcada</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>113</num_linea>
+	<fecha>13:39 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: fecha_actual</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>121</num_linea>
+	<fecha>13:39 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: suma_dias</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>128</num_linea>
+	<fecha>13:39 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: marcaciones_x_hoja</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>138</num_linea>
+	<fecha>13:39 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: firma</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>145</num_linea>
+	<fecha>13:39 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>1</num_linea>
+	<fecha>13:39 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>2</num_linea>
+	<fecha>13:39 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>1</num_linea>
+	<fecha>13:41 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>2</num_linea>
+	<fecha>13:41 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: mostrar_marcada</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>120</num_linea>
+	<fecha>13:42 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>1</num_linea>
+	<fecha>13:42 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>2</num_linea>
+	<fecha>13:42 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: mostrar_marcada</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>120</num_linea>
+	<fecha>13:42 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>1</num_linea>
+	<fecha>13:42 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>2</num_linea>
+	<fecha>13:42 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: mostrar_marcada</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>120</num_linea>
+	<fecha>13:42 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>1</num_linea>
+	<fecha>13:42 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>2</num_linea>
+	<fecha>13:42 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: mostrar_marcada</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>120</num_linea>
+	<fecha>13:43 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>1</num_linea>
+	<fecha>13:43 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>2</num_linea>
+	<fecha>13:43 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: mostrar_marcada</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>120</num_linea>
+	<fecha>13:43 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>1</num_linea>
+	<fecha>13:43 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>2</num_linea>
+	<fecha>13:43 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined index: mostrar_marcada</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\config.php</archivo>
+	<num_linea>120</num_linea>
+	<fecha>13:44 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>1</num_linea>
+	<fecha>13:44 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>2</num_linea>
+	<fecha>13:44 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>1</num_linea>
+	<fecha>13:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>2</num_linea>
+	<fecha>13:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>1</num_linea>
+	<fecha>13:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>2</num_linea>
+	<fecha>13:45 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>1</num_linea>
+	<fecha>13:47 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>2</num_linea>
+	<fecha>13:47 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>1</num_linea>
+	<fecha>13:48 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: librerias_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\footer.php</archivo>
+	<num_linea>2</num_linea>
+	<fecha>13:48 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: models_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>8</num_linea>
+	<fecha>13:51 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(usuarios_model.php): failed to open stream: No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>8</num_linea>
+	<fecha>13:51 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(): Failed opening 'usuarios_model.php' for inclusion (include_path='.;C:\xampp2\php\PEAR')</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>8</num_linea>
+	<fecha>13:51 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: models_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>9</num_linea>
+	<fecha>13:51 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(otrahora_model.php): failed to open stream: No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>9</num_linea>
+	<fecha>13:51 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(): Failed opening 'otrahora_model.php' for inclusion (include_path='.;C:\xampp2\php\PEAR')</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>9</num_linea>
+	<fecha>13:51 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Nota</tipo>
+	<mensaje>Undefined variable: models_url</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>10</num_linea>
+	<fecha>13:51 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(marcadas_model.php): failed to open stream: No such file or directory</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>10</num_linea>
+	<fecha>13:51 18/09/2014</fecha>
+</registro>
+
+<registro>
+	<tipo>Alerta</tipo>
+	<mensaje>include_once(): Failed opening 'marcadas_model.php' for inclusion (include_path='.;C:\xampp2\php\PEAR')</mensaje>
+	<archivo>C:\xampp2\htdocs\genco-horarios\usuario2.php</archivo>
+	<num_linea>10</num_linea>
+	<fecha>13:51 18/09/2014</fecha>
+</registro>
+

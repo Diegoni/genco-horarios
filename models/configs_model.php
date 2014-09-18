@@ -11,13 +11,13 @@ function getConfig(){
 
 function updateConfig($datos){
 	mysql_query("UPDATE `config` SET	
-				aplicar_redondeo='$datos[aplicar_redondeo]',
-				mostrar_marcada='$datos[mostrar_marcada]',
-				css='$datos[css]', 
-				suma_dias='$datos[suma_dias]',
-				marcaciones_x_hoja='$datos[marcaciones_x_hoja]',
-				fecha_actual='$datos[fecha_actual]'
-				WHERE id_config='$datos[id_config]'			
+				aplicar_redondeo	= '$datos[aplicar_redondeo]',
+				mostrar_marcada		= '$datos[mostrar_marcada]',
+				css					= '$datos[css]', 
+				suma_dias			= '$datos[suma_dias]',
+				marcaciones_x_hoja	= '$datos[marcaciones_x_hoja]',
+				fecha_actual		= '$datos[fecha_actual]'
+				WHERE id_config		= '$datos[id_config]'			
 				") or die(mysql_error());
 }
 ?>

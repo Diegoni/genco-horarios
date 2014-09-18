@@ -4,16 +4,16 @@ session_start();
 	header("Location: login/acceso.php");
 	}
 include_once("menu.php"); 
-include_once($models_url."marcadas_model.php"); 
-include_once($models_url."parametros_model.php"); 
-include_once($models_url."turnos_model.php"); 
-include_once($models_url."tipos_model.php"); 
-include_once($models_url."updates_model.php"); 
-include_once($models_url."usuarios_model.php"); 
-include_once($models_url."departamentos_model.php"); 
-include_once($models_url."otrahora_model.php"); 
-include_once($models_url."logs_model.php");
-include_once($models_url."temps_model.php"); 
+include_once($url['models_url']."marcadas_model.php"); 
+include_once($url['models_url']."parametros_model.php"); 
+include_once($url['models_url']."turnos_model.php"); 
+include_once($url['models_url']."tipos_model.php"); 
+include_once($url['models_url']."updates_model.php"); 
+include_once($url['models_url']."usuarios_model.php"); 
+include_once($url['models_url']."departamentos_model.php"); 
+include_once($url['models_url']."otrahora_model.php"); 
+include_once($url['models_url']."logs_model.php");
+include_once($url['models_url']."temps_model.php"); 
 
 $bandera=0;
 if(isset($_GET['fecha'])){

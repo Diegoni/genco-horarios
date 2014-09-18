@@ -4,11 +4,11 @@ session_start();
 	header("Location: ../login/acceso.php");
 	}
 include_once("menu.php");
-include_once($models_url."usuarios_model.php");
-include_once($models_url."mensajes_model.php");
-include_once($models_url."departamentos_model.php");
-include_once($models_url."empresas_model.php");
-include_once($models_url."convenios_model.php");
+include_once($url['models_url']."usuarios_model.php");
+include_once($url['models_url']."mensajes_model.php");
+include_once($url['models_url']."departamentos_model.php");
+include_once($url['models_url']."empresas_model.php");
+include_once($url['models_url']."convenios_model.php");
 
 /*--------------------------------------------------------------------
 ----------------------------------------------------------------------

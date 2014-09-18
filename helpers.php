@@ -3,7 +3,7 @@ error_reporting(0);
 
 
 include_once("config/database.php");
-include_once($models_url."logs_model.php"); 	
+include_once($url['models_url']."logs_model.php"); 	
 
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------

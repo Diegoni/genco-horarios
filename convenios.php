@@ -4,8 +4,8 @@ session_start();
 	header("Location: ../login/acceso.php");
 	}
 include_once("menu.php");    
-include_once($models_url."convenios_model.php");   
-include_once($models_url."mensajes_model.php");   
+include_once($url['models_url']."convenios_model.php");   
+include_once($url['models_url']."mensajes_model.php");   
 $bandera=0;
 
 /*--------------------------------------------------------------------
