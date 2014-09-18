@@ -5,6 +5,7 @@ session_start();
 	}
 include_once("menu.php"); 
 include_once($models_url."usuarios_model.php");
+include_once($models_url."temps_model.php");
 include_once($models_url."convenio_turnos_model.php");
 include_once("helpers.php");
 
@@ -67,19 +68,18 @@ if(isset($_GET['buscar'])){
 
 
 if($_GET['buscar']==1){
-$fecha_inicio=date( "Y-m-d", strtotime($_GET['fecha_inicio']));
-$fecha_final=date( "Y-m-d", strtotime($_GET['fecha_final']));
+	$fecha_inicio=date( "Y-m-d", strtotime($_GET['fecha_inicio']));
+	$fecha_final=date( "Y-m-d", strtotime($_GET['fecha_final']));
 }else{
-$fecha_inicio=date('01-m-Y', strtotime($_GET['fecha']));
-$ultimoDia = getUltimoDiaMes(date('Y', strtotime($_GET['fecha'])),date('m', strtotime($_GET['fecha'])));
-$fecha_final=$ultimoDia.date('-m-Y', strtotime($_GET['fecha']));
+	$fecha_inicio=date('01-m-Y', strtotime($_GET['fecha']));
+	$ultimoDia = getUltimoDiaMes(date('Y', strtotime($_GET['fecha'])),date('m', strtotime($_GET['fecha'])));
+	$fecha_final=$ultimoDia.date('-m-Y', strtotime($_GET['fecha']));
 }
 }else{
-$fecha=date("d-m-Y");
-$fecha_inicio=date('01-m-Y', strtotime($fecha));
-$ultimoDia = getUltimoDiaMes(date('Y', strtotime($fecha)),date('m', strtotime($fecha)));
-$fecha_final=$ultimoDia.date('-m-Y', strtotime($fecha));
-
+	$fecha=date("d-m-Y");
+	$fecha_inicio=date('01-m-Y', strtotime($fecha));
+	$ultimoDia = getUltimoDiaMes(date('Y', strtotime($fecha)),date('m', strtotime($fecha)));
+	$fecha_final=$ultimoDia.date('-m-Y', strtotime($fecha));
 }
 
 
@@ -272,7 +272,11 @@ if(!isset($fecha_inicio)){
 <?php  
 
 if(isset($fecha_inicio) && empty($id_usuario)){
-echo "<div class='alert'><button type='button' class='close' data-dismiss='alert'>&times;</button>Falta seleccionar usuario</div><br>";
+echo " <div class='alert'>
+			<button type='button' class='close' data-dismiss='alert'>&times;</button>
+			Falta seleccionar usuario
+	 	</div>
+	 	<br>";
 } else if(isset($_GET['buscar'])){
 if($fecha_inicio>$fecha_final){
 	echo 	"<div class='alert alert-error'> 
@@ -336,7 +340,6 @@ if($fecha_inicio>$fecha_final){
 	<th title="Redondeo de horas">R</th>
 	<?php } ?>
 	<th title="Otro tipo">Otros</th>
-	<th title="Editar las entradas">Editar</th>
 </thead>
 
 <tbody>
@@ -357,38 +360,36 @@ $minuto_redondeo=0;
 
 foreach($arrayFechas as $valor){?>
 	<tr>	
-		<?php  list ($clase, $title,$esferiado) = esferiado($valor);
+		<?php  
+			list ($clase, $title, $esferiado) = esferiado($valor);
 			$dia=devuelve_dia($valor);
-			
-		if($dia=="Domingo" || $esferiado==1){
-		}else{
-			if($dia!="Sábado"){
-				$total_normales=$total_normales+$row_usuario['semana'];
+				
+			if($dia=="Domingo" || $esferiado==1){
 			}else{
-				$total_normales=$total_normales+$row_usuario['sabado'];
+				if($dia!="Sábado"){
+					$total_normales=$total_normales+$row_usuario['semana'];
+				}else{
+					$total_normales=$total_normales+$row_usuario['sabado'];
+				}
 			}
-		}
 		?>
+		
 		<td><p class="<?php echo  $clase;?>" title="<?php echo  $title;?>"><?php echo  $valor;?></p></td>
 		<td><p class="dia"><?php echo  $dia;?></p></td>
 
 		<?php   
-					$me=0;
-					$ms=0;
-					$te=0;
-					$ts=0;
+			$me=0;
+			$ms=0;
+			$te=0;
+			$ts=0;
 
-		for ($i = 0; $i <= 4; $i++) {
-				$query="SELECT * 
-				FROM temp 
-				WHERE
-				DATE_FORMAT(entrada, '%Y-%m-%d') like '$valor'
-				AND id_parametros=$i";   
-			$marcacion=mysql_query($query) or die(mysql_error());
-			$row_marcacion = mysql_fetch_assoc($marcacion);
-			$cantidad_parametros=mysql_num_rows($marcacion);
-			
-			if($cantidad_parametros>0){
+			for ($i = 0; $i <= 4; $i++) {
+				
+				$marcacion=getTempFecha($valor, $i);
+				$row_marcacion = mysql_fetch_assoc($marcacion);
+				$cantidad_parametros=mysql_num_rows($marcacion);
+				
+				if($cantidad_parametros>0){
 					if($i==1){
 						$me=date('H:i', strtotime($row_marcacion['entrada']));
 					} else if($i==2){ 
@@ -398,70 +399,30 @@ foreach($arrayFechas as $valor){?>
 					} else if($i==4){ 
 						$ts=date('H:i', strtotime($row_marcacion['entrada']));
 					}	
-			}
-
-			
-			// Esta funcion redondea segun los la tabla limites de la base de datos, se pidio que se sacara
-			//$redondear_minutos=redondear_minutos(date('H:i', strtotime($row_marcacion['entrada'])));
-
-			if($cantidad_parametros==0){ ?>
-				<td><p class="insert_access"> - </p></td>
-			<?php  }else if($cantidad_parametros>1){?>
-				<td>
-					<p class="label label-important" title="Registro duplicado, por favor modificarlo">
-					<?php echo date('H:i', strtotime($row_marcacion['entrada']));	?>
-					</p>
-				</td>
-			<?php  }else{	
-		
-		
-				
-				
-				if($row_marcacion['id_estado']==3){
-					$query="SELECT * 
-					FROM log_auditoria_marcada
-					WHERE
-					id_marcada='$row_marcacion[id_marcada]'";   
-				$log_auditoria_marcada=mysql_query($query) or die(mysql_error());
-				$row_log_auditoria_marcada = mysql_fetch_assoc($log_auditoria_marcada);
-			
-				?>
-				<td>
-					<p class="label label-success" title="Registro modificado, original :<?php echo date('H:i', strtotime($row_log_auditoria_marcada['entrada_old']));?>">
-						<?php echo date('H:i', strtotime($row_marcacion['entrada']));?>
-					</p>
-				</td>
-				<?php  }else if($row_marcacion['id_estado']==2){ ?>
-				<td><p class="label" title="Registro dado de alta por sistema">
-						<?php echo date('H:i', strtotime($row_marcacion['entrada'])); ?>
-					</p>
-				</td>
-				<?php  }else if($row_marcacion['id_parametros']==0){ ?>
-				<td>
-					<p class="label label-important" title="Registro sin definir, por favor modificarlo">
-						<?php echo date('H:i', strtotime($row_marcacion['entrada']));	?>
-					</p>
-				</td>
-				<?php  }else{ ?>
-				<td><p class="insert_access">
-						<?php echo date('H:i', strtotime($row_marcacion['entrada']));	?>
-					</p>					
-				</td>
-				<?php  }
-			}//cierra el else
-		}//cierra el for
+				}
+							
+				$registro=tipoMarcacion($row_marcacion, $cantidad_parametros); ?>
+		<td>
+			<p class="<?php echo $registro['label_class']; ?>" title="<?php echo $registro['label_title']; ?>">
+				<a class="<?php echo $registro['a_class']; ?>" onClick="abrirVentana('edit.php?id=<?php echo $row_usuario['id_usuario']?>&fecha=<?php echo $valor?>')">
+					<?php echo $registro['marcacion']; ?>
+				</a>
+			</p>
+		</td>
+		<?php 	
+			}//cierra el for
 		
 		//Si la entrada y la salida de la mañana son mayores a 0 calculamos el intervalo de tiempo, el resultado es un numero
-		if($me>0 && $ms>0){
-			$m=intervalo_tiempo($me,$ms);
+			if($me>0 && $ms>0){
+				$m=intervalo_tiempo($me,$ms);
 			}else{
-			$m=0;
+				$m=0;
 			}
 			
 			if($te>0 && $ts>0){
-			$t=intervalo_tiempo($te,$ts);
+				$t=intervalo_tiempo($te,$ts);
 			}else{
-			$t=0;
+				$t=0;
 			}
 			
 			if($t>0 || $m>0){
@@ -478,16 +439,14 @@ foreach($arrayFechas as $valor){?>
 			}
 			
 		if($subtotal>0){
-			
 		?>
 			<td><?php   echo pasar_hora($m)." + ".pasar_hora($t) ?></td>
 			<?php if($mostar_marcada==1 && $aplicar_redondeo==1){ ?>
-				<td><?php   echo pasar_hora($subtotal); ?></td>	
+			<td><?php   echo pasar_hora($subtotal); ?></td>	
 			<?php }  
 				 if($aplicar_redondeo==1){ ?>
 			<td><?php echo redondear_minutos(pasar_hora($subtotal)); ?></td>
-			<?php 
-				 $subtotal=segundos_a_hora(redondear_minutos(pasar_hora($subtotal)))/60/60;
+			<?php $subtotal=segundos_a_hora(redondear_minutos(pasar_hora($subtotal)))/60/60;
 				 } 
 		} else {?>
 			<td> - </td>
@@ -499,40 +458,24 @@ foreach($arrayFechas as $valor){?>
 			<?php } ?> 
 
 		<?php  }
-		$query="SELECT * 
-				FROM tempotra 
-				INNER JOIN tipootra ON(tempotra.id_tipootra=tipootra.id_tipootra)
-				INNER JOIN nota ON(tempotra.id_nota=nota.id_nota)
-				WHERE
-				id_usuario='$id_usuario' AND
-				fecha='$valor'";   
-			$otrahora=mysql_query($query) or die(mysql_error());
+		
+			$otrahora= getTempFechaOtra($valor, $id_usuario);
 			$row_otrahora = mysql_fetch_assoc($otrahora);
 			$cantidad=mysql_num_rows($otrahora);
+			
 			if($cantidad>0){
-			$totalotras=$totalotras+$row_otrahora['horas'];
+				$totalotras=$totalotras+$row_otrahora['horas'];
+			}
+			
+			$registro=tipoOtra($row_otrahora, $cantidad);
 		?>
-		<script type="text/javascript">
-		function cargar(){
-			opener.location.reload();
-			window.close();
-		}
-		</script>
 		<td>
-			<p class="insert_access">
-				<a href="#" class="btn btn-default" title="<?php echo $row_otrahora['nota'];?>" onClick="abrirVentana('edit_otros.php?id=<?php echo $id_usuario?>&fecha=<?php echo $valor?>')">
-					<?php 
-					echo $row_otrahora['tipootra'];?> : <?php   echo $row_otrahora['horas'];
-					if($row_otrahora['id_archivo']!=0){
-						echo " <i class='icon-paper-clip'></i>";
-					}
-					?>
+			<p class="<?php echo $registro['label_class']; ?>">
+				<a class="<?php echo $registro['a_class']; ?>" title="<?php echo $registro['a_title']; ?>" onClick="abrirVentana('edit_otros.php?id=<?php echo $row_usuario['id_usuario']?>&fecha=<?php echo $valor?>')">
+					<?php echo $registro['marcacion']; ?>
 				</a>
 			</p>
 		</td>
-		<?php  }else{?>
-		<td><p class="insert_access"><a href="#" class="btn btn-default" title="Agregar" onClick="abrirVentana('edit_otros.php?id=<?php  echo $id_usuario?>&fecha=<?php  echo $valor?>')"><i class="icon-plus-sign-alt"></i></a></p></td>
-		<?php  }?>
 	<?php  
 		$i=$subtotal+$row_otrahora['horas'];
 		
@@ -554,7 +497,6 @@ foreach($arrayFechas as $valor){?>
 		}
 		
 	?>	
-	<td><a href="#" class="btn btn-default" title="Parametros" onClick="abrirVentana('edit.php?id=<?php echo $id_usuario; ?>&fecha=<?php  echo $valor?>')"><i class="icon-edit-sign"></i></a></td>
 	</tr>
 <?php   }
 
@@ -640,3 +582,9 @@ echo 	"<div class='alert alert-info'>
 </body>
 
 
+<script type="text/javascript">
+	function cargar(){
+		opener.location.reload();
+		window.close();
+	}
+</script>
