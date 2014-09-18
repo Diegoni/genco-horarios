@@ -33,7 +33,7 @@ include_once("helpers.php");
 			try {
 				$archivo=getArchivo($_POST['id_archivo']);
 				$row_archivo = mysql_fetch_assoc($archivo);
-				unlink($arhivo_otra_hora.$row_archivo['nombre']);	
+				unlink($url['arhivo_otra_hora'].$row_archivo['nombre']);	
 			} catch (Exception $e) {
 				trigger_error("No se puede borrar el archivo".$e->getMessage(), E_WARNING);
 			}
@@ -55,7 +55,7 @@ include_once("helpers.php");
 		}
 
 		try{
-			copy($_FILES['archivo']['tmp_name'],$arhivo_otra_hora.$_FILES['archivo']['name']);	
+			copy($_FILES['archivo']['tmp_name'],$url['arhivo_otra_hora'].$_FILES['archivo']['name']);	
 		}catch (Exception $e){
 			trigger_error("No se puede copiar el archivo".$e->getMessage(), E_WARNING);
 		}
@@ -211,9 +211,9 @@ include_once("helpers.php");
 			
 			$archivo_nombre=$row_archivo['nombre'];
 	    	
-			$icono=devuelve_icono($row_archivo['extension'], $iconos_url);
+			$icono=devuelve_icono($row_archivo['extension'], $url['iconos_url']);
 					
-			echo "<a href='$arhivo_otra_hora$archivo_nombre'>
+			echo "<a href=".$url['arhivo_otra_hora'].$archivo_nombre."'>
 				<img src='$icono'></a></br>"; 
 		?>
 		<a href='#' class='show_hide btn' title='Nuevo'>Cambiar</a>

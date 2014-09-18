@@ -42,7 +42,7 @@ if(isset($_FILES['foto'])){
 	$extension = ".".$extension['extension']; 		
 	$_FILES['foto']['name']=$id.$extension;
   
-  copy($_FILES['foto']['tmp_name'],$imagenes_perfil_url.$_FILES['foto']['name']);
+  copy($_FILES['foto']['tmp_name'],$url['imagenes_perfil_url'].$_FILES['foto']['name']);
   
   $foto_nombre=$_FILES['foto']['name'];
   $foto_tipo=$_FILES['foto']['type'];
@@ -175,10 +175,10 @@ if(isset($_FILES['foto'])){
   <form action="modificar.php" method="post" enctype="multipart/form-data">
     <?php if(isset($_FILES['foto'])){
       echo "La foto se registro en el servidor.<br>";
-      echo "<img src=\"$imagenes_perfil_url$foto_nombre\">";
+      echo "<img src=\"".$url['imagenes_perfil_url'].$foto_nombre."\">";
     }else{
       $foto_nombre=$row_usuario['foto_nombre'];
-      echo "<img src=\"$imagenes_perfil_url$foto_nombre\">";
+      echo "<img src=\"".$url['imagenes_perfil_url'].$foto_nombre."\">";
     }
     ?>
 <input type="file" name="foto"><br>

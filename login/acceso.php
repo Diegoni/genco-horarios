@@ -4,7 +4,7 @@
     include('../config/config.php');?>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="stylesheet" href="../<?php echo $librerias_url?>css/login.css">
+<link rel="stylesheet" href="../<?php echo $url['librerias_url']?>css/login.css">
 <head>
 <body>
 <?php 	
