@@ -151,56 +151,61 @@ include_once("helpers.php");
 ----------------------------------------------------------------------
 --------------------------------------------------------------------->		
 
-	<form action="edit_otros.php" method="get" > 
+	<form action="edit_otros.php" method="get" class="form-horizontal" role="form"> 
+	
 	
 	<?php  if($numero_otrahora>0){ ?>	
-	<fieldset>
-	<legend>Otras marcaciones:</legend>
-	<table>	
-	<tr>
-	<td>Tipo</td>
-	<td>
-		<select name="id_tipootra" class="input-medium">
-		<?php 
-		do{	if($id_tipootra==$row_tipootra['id_tipootra']){		
-				?>
-				<option value="<?php  echo $row_tipootra['id_tipootra']?>" selected>
-				<?php  echo $row_tipootra['tipootra']?></option>
-			<?php } else {?>
-				<option value="<?php  echo $row_tipootra['id_tipootra']?>">
-				<?php  echo $row_tipootra['tipootra']?></option>
-			<?php }
-		}while ($row_tipootra = mysql_fetch_array($tipootra));?>
-		</select>
-	</td>
-	</tr>
-	<tr>
-	<td>Horas</td>
-	<td><input type="number" class="input-medium" name="horas" value="<?php echo $row_otrahora['horas']?>" required></td>
-	</tr>
-	<input type="hidden" class="input-medium" name="fecha" value="<?php echo $row_otrahora['fecha']?>" required>
-	<tr>
-	<td>Comentario</td>
-	<td><textarea type="text" class="input-medium" rows="5" cols="40" name="nota"><?php echo $row_otrahora['nota']?></textarea></td>
-	</tr>
-	</tr>
+	
+	<div class="form-group">
+    	<label for="tipo" class="col-sm-2 control-label">Razón</label>
+    	<div class="col-sm-10">
+      		<select name="id_tipootra" class="form-control">
+			<?php 
+			do{	if($id_tipootra==$row_tipootra['id_tipootra']){		
+					?>
+					<option value="<?php  echo $row_tipootra['id_tipootra']?>" selected>
+					<?php  echo $row_tipootra['tipootra']?></option>
+				<?php } else {?>
+					<option value="<?php  echo $row_tipootra['id_tipootra']?>">
+					<?php  echo $row_tipootra['tipootra']?></option>
+				<?php }
+			}while ($row_tipootra = mysql_fetch_array($tipootra));?>
+			</select>
+    	</div>
+  	</div>
+	
+	<div class="form-group">
+    	<label for="horas" class="col-sm-2 control-label">Horas ausentadas</label>
+    	<div class="col-sm-10">
+			<input type="number" class="form-control horas" name="horas" value="<?php echo $row_otrahora['horas']?>" max="12" min="0" required>
+		</div>
+	</div>
+	
+	<div class="form-group">
+    	<label for="horas" class="col-sm-2 control-label">Comentario</label>
+    	<div class="col-sm-10">
+			<textarea type="text" class="form-control" rows="5" name="nota"><?php echo $row_otrahora['nota']?></textarea>
+		</div>
+	</div>
+	
 
-	<tr>
-	<td colspan="5">
+	<div class="form-group">
+    	<div class="col-sm-12">
 		<center>
 			<input type="hidden" name="id" value="<?php echo $_GET['id']?>">
-			<a href='#' class='btn' title='no se puede ingresar uno nuevo' disabled>nuevo</a>
-			<input type="submit" class="btn btn-default" name="modificar" title="guardar las modificaciones realizadas" value="modificar" id="modificar">		
+			<a href='#' class='btn btn-default' title='no se puede ingresar uno nuevo' disabled>nuevo</a>
+			<input type="submit" class="btn btn-default" name="modificar" title="guardar las modificaciones realizadas" value="modificar" id="modificar">
+			<a href='#' class='show_hide btn btn-default' title='Añadir documento'><i class="icon-paperclip"></i> Documento</a>
 			<input type="hidden" name="id_otrahora" value="<?php echo $row_otrahora['id_otrahora']?>">
+			<input type="hidden" class="input-medium" name="fecha" value="<?php echo $row_otrahora['fecha']?>" required>
 			<input type="hidden" name="id_nota" value="<?php echo $row_otrahora['id_nota']?>">
 			<a class="btn btn-danger" href="" title="no guarda los cambios realizados" onClick="cerrarse()">volver</a>
 		</center>
-	</td>
-	</tr>
-	</table>
-	</fieldset>
+		</div>
+	</div>
 	</form>
-	<fieldset>
+	
+	<div class='slidingDiv'>
 	<legend>Documento:</legend>
 	<form action="edit_otros.php" method="post" enctype="multipart/form-data">
 		<?php $id_otrahora=$row_otrahora['id_otrahora'];?>	
@@ -213,11 +218,12 @@ include_once("helpers.php");
 	    	
 			$icono=devuelve_icono($row_archivo['extension'], $url['iconos_url']);
 					
-			echo "<a href=".$url['arhivo_otra_hora'].$archivo_nombre."'>
+			echo "<center><a href=".$url['arhivo_otra_hora'].$archivo_nombre.">
 				<img src='$icono'></a></br>"; 
 		?>
-		<a href='#' class='show_hide btn' title='Nuevo'>Cambiar</a>
-		<div class="slidingDiv">
+		<a href='#' class='btn btn-default show_hide2' title='Nuevo'>Cambiar</a>
+		</center>
+		<div class="slidingDiv2">
 			<br>
 			<input type="file" name="archivo"><br>	
 			<input type="hidden" name="fecha" value="<?php echo $fecha;?>">
@@ -240,7 +246,7 @@ include_once("helpers.php");
 		
 		<?php } ?>
 	</form>
-	</fieldset>
+	</div>
 	
 	</div><!--Cierra el div class="celeste"-->	
 <!--------------------------------------------------------------------
@@ -249,13 +255,10 @@ include_once("helpers.php");
 ----------------------------------------------------------------------
 --------------------------------------------------------------------->	
 	<?php }else{?>
-	<fieldset>
-	<legend>Otras marcaciones:</legend>
-	<table>
-	<tr>
-		<td>Razón</td>
-		<td>
-			<select name="id_tipootra" class="input-medium" required>
+	<div class="form-group">
+    	<label for="horas" class="col-sm-2 control-label">Razón</label>
+    	<div class="col-sm-10">
+			<select name="id_tipootra" class="form-control" required>
 			<option value="">--ingrese tipo--</option>
 			<?php 
 			do{	?>
@@ -264,39 +267,35 @@ include_once("helpers.php");
 				<?php 
 			}while ($row_tipootra = mysql_fetch_array($tipootra));?>
 			</select>
-		</td>
-	</tr>
+		</div>
+	</div>
 	
-	<tr>
-		<td>Horas ausentadas</td>
-		<td><input type="number" class="input-medium" name="horas" value="" placeholder="ingrese horas" required></td>
-	</tr>
+	<div class="form-group">
+    	<label for="horas" class="col-sm-2 control-label">Horas ausentadas</label>
+    	<div class="col-sm-10">
+			<input type="number" class="form-control horas" name="horas" value="" placeholder="ingrese horas" max="12" min="0" required>
+		</div>
+	</div>
 	
-	<tr>
-		<td>Comentario</td>
-		<td><textarea type="text" class="input-medium" rows="5" cols="40" name="nota" placeholder="ingrese comentario"><?php echo $row_otrahora['nota']?></textarea></td>
-	</tr>
+	<div class="form-group">
+    	<label for="horas" class="col-sm-2 control-label">Comentario</label>
+    	<div class="col-sm-10">
+			<textarea type="text" class="form-control" rows="5"name="nota" placeholder="ingrese comentario"><?php echo $row_otrahora['nota']?></textarea>
+		</div>
+	</div>
 	
-	<tr>
-		<td colspan="5">
-			<center>
+	<div class="form-group">
+    	<div class="col-sm-12">
+		<center>
 			<input type="hidden" class="input-medium" name="fecha" value="<?php echo $fecha;?>" placeholder="ingrese fecha" required>
 			<input type="hidden" name="id" value="<?php echo $_GET['id']?>">
 			<input type="submit" class="btn btn-default" name="agregar" title="agregar registro" value="nuevo" id="nuevo">
 			<input type="submit" class="btn btn-default" name="modificar" title="guardar las modificaciones realizadas" value="modificar" id="modificar" disabled>
 			<a class="btn btn-danger" href="" title="no guarda los cambios realizados" onClick="cerrarse()">volver</a>
 			</center>
-		</td>
-	</tr>
-	</table>
-	</fieldset>
+		</div>
+	</div>
+	
 	</form>
 	</div>
 	<?php }?>
-	
-	
-
-	
-
-	
- 

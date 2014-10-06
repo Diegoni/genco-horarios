@@ -1,3 +1,44 @@
+/*******************************************************************************
+ *******************************************************************************
+  							Label de las marcaciones
+ ******************************************************************************* 
+ *******************************************************************************/
+.marcada_error{
+	color: #FFF;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.marcada_error:hover{
+	color: #FFF;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.marcada_update:hover{
+	color: #000;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.marcada_insert:hover{
+	color: #000;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.marcada_default{
+	cursor: pointer;
+}
+
+.td_center{
+	text-align: center;	
+}
+
+
+
+
+
 .texto{
 	text-align:center;
 	height: 30px; 

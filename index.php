@@ -77,60 +77,82 @@ if(isset($_GET['empleado'])){
 						Cabecera
 ----------------------------------------------------------------------			
 --------------------------------------------------------------------->
-<div class="row">
-	<div class="span12">
-	<table class="table table-striped">
-		<tr class="success">
-		<td>
-			<b>Marcaciones del día</b>
-		</td>
-		<td>
-			<p class="fecha" title="Fecha con la que se esta trabajando"><?php echo  $fecha;?></p>
-		</td>
-		<td>
-			<form class="form-inline" action="index.php" name="ente">
-			<p></p>
-			<b><div class="input-prepend">
-				<span class="add-on" onclick="document.getElementById('datepicker').focus();"><i class="icon-calendar"></i></span>
-				<input type="text" name="fecha" id="datepicker" placeholder="ingrese fecha"  autocomplete="off" required>
-			</div></b>
-			<button type="submit" class="btn btn-default" title="Buscar"><i class="icon-search"></i></button>
-			</form>
-			
-		</td>
-		<td>
-	
-		<a href="javascript:imprSelec('muestra')" class='btn'><i class="icon-print"></i> Imprimir</a>
-		<button class="btn btn-default" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
-	
+<div class="row well">
+	<div class="col-md-12">
+	<div class="row">
 		
-		<div class="btn-group">
-		  <a class="btn btn-success dropdown-toggle" data-toggle="dropdown" href="#">
-			<i class="icon-cogs"></i>
-			<span class="caret"></span>
-		  </a>
-		  <ul class="dropdown-menu">
-			<li><a href="#openModal" title="Parametros"><i class="icon-time"></i> Parametros</a></li>
-			<li><a href="index.php?fecha=<?php echo $fecha;?>" title="Refresh" ><i class="icon-refresh"></i> Refresh</a></li>
-			<?php if($bandera==1){ ?>
-				<form class="form-inline" action="index.php" name="importar">
-				<input type="hidden" name="fecha" value="<?php echo $fecha;?>">
-				<li><button type="submit" title="Actualice la base de datos" name="actualizar" value="1"><i class="icon-download-alt"></i> Actualizar</button></li>
-				<form class="form-inline" action="index.php" name="importar">
-			<?php }else{?>
-				<li class="disabled"><a href="" title="Los datos ya estan actalizados" name="actualizar" value="1"><i class="icon-download-alt"></i> Actualizar</a></li>
-			<?php }?>
-			<!--<li><a href='#' class='show_hide' title='Más detalles en la búsqueda'><i class="icon-chevron-sign-down"></i> Búsqueda</a></li>-->
-			<li><a href="#myModal" role="button" data-toggle="modal"><i class="icon-question-sign"></i> Ayuda</a></li>
-			</form>
-		  </ul>
+		
+		<div class="col-md-2">
+			<center>
+				<b>Marcaciones del día</b>
+			</center>
 		</div>
-	
+		
+		
+		<div class="col-md-2">
+			<center>
+				<p class="fecha" title="Fecha con la que se esta trabajando">
+					<?php echo  $fecha;?>
+				</p>
+			</center>
+		</div>
+		
+		
+		<div class="col-md-4">
+			<center>
+			<form class="form-inline" action="index.php" name="ente">
 			
+			<div class="form-group">
+				<div class="input-group">
+					<div class="input-group-addon" onclick="document.getElementById('datepicker').focus();">
+						<span class="add-on">
+							<i class="icon-calendar"></i>
+						</span>
+					</div>
+					<input  class="form-control" type="text" name="fecha" id="datepicker" placeholder="ingrese fecha"  autocomplete="off" required>
+		    	</div>
+		  	</div>
 			
-		</td>
-		</tr>
-	</table>
+			<div class="form-group">
+				<button type="submit" class="btn btn-default" title="Buscar">
+					<i class="icon-search"></i>
+				</button>
+			</div>
+			</form>
+			</center>
+		</div>
+		
+		
+		<div class="col-md-4">
+			<center>
+			<a href="javascript:imprSelec('muestra')" class='btn btn-default'><i class="icon-print"></i> Imprimir</a>
+			<button class="btn btn-default" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
+		
+			
+			<div class="btn-group">
+			  <a class="btn btn-success dropdown-toggle" data-toggle="dropdown" href="#">
+				<i class="icon-cogs"></i>
+				<span class="caret"></span>
+			  </a>
+			  <ul class="dropdown-menu">
+				<li><a href="#openModal" title="Parametros"><i class="icon-time"></i> Parametros</a></li>
+				<li><a href="index.php?fecha=<?php echo $fecha;?>" title="Refresh" ><i class="icon-refresh"></i> Refresh</a></li>
+				<?php if($bandera==1){ ?>
+					<form class="form-inline" action="index.php" name="importar">
+					<input type="hidden" name="fecha" value="<?php echo $fecha;?>">
+					<li><button type="submit" title="Actualice la base de datos" name="actualizar" value="1"><i class="icon-download-alt"></i> Actualizar</button></li>
+					<form class="form-inline" action="index.php" name="importar">
+				<?php }else{?>
+					<li class="disabled"><a href="" title="Los datos ya estan actalizados" name="actualizar" value="1"><i class="icon-download-alt"></i> Actualizar</a></li>
+				<?php }?>
+				<!--<li><a href='#' class='show_hide' title='Más detalles en la búsqueda'><i class="icon-chevron-sign-down"></i> Búsqueda</a></li>-->
+				<li><a href="#myModal" role="button" data-toggle="modal"><i class="icon-question-sign"></i> Ayuda</a></li>
+				</form>
+			  </ul>
+			</div>
+			</center>
+		</div>
+	</div>
 
 	
 	
@@ -195,7 +217,7 @@ if(isset($_GET['empleado'])){
 	
          
 <div class="row">
-<div class="span12">
+<div class="col-md-12">
 
 <!--<table  id="table" class="sortable">-->
 <div id="muestra">
@@ -216,7 +238,7 @@ if(isset($_GET['empleado'])){
 	<?php do{?>
 			<tr>
 				<td><?php echo $row_usuario['legajo']?></td>
-				<td><a href="usuario.php?id=<?php echo $row_usuario['id_usuario']?>&fecha=<?php echo $fecha;?>&buscar=2" class="ayuda-boton btn"><?php echo $row_usuario['usuario']?></a></td>
+				<td><a href="usuario.php?id=<?php echo $row_usuario['id_usuario']?>&fecha=<?php echo $fecha;?>&buscar=2" class="ayuda-boton btn btn-default"><?php echo $row_usuario['usuario']?></a></td>
 				<td><?php echo $row_usuario['departamento']?></td>
 					<?php 
 					for ($i = 0; $i <= 4; $i++) {

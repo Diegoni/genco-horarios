@@ -163,7 +163,7 @@ $query="SELECT *
 $cantidad_feriado = mysql_num_rows($feriado);
 
 if($cantidad_feriado>0){
-	$i="label label-important";
+	$i="label label-danger";
 	$j=$row_feriado['feriado'];
 	$k=1;
 	return array($i,$j,$k);
@@ -455,7 +455,7 @@ foreach($arrayFechas as $valor){?>
 			if($cantidad_parametros==0){ ?>
 				<td><p class="insert_access"> - </p></td>
 			<?}else if($cantidad_parametros>1){?>
-				<td><p class="label label-important" title="Registro duplicado, por favor modificarlo"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
+				<td><p class="label label-danger" title="Registro duplicado, por favor modificarlo"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
 			<?}else{	
 		
 		
@@ -471,7 +471,7 @@ foreach($arrayFechas as $valor){?>
 				<?}else if($row_marcacion['id_estado']==2){?>
 				<td><p class="label" title="Registro dado de alta por sistema"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
 				<?}else if($row_marcacion['id_parametros']==0){?>
-				<td><p class="label label-important" title="Registro sin definir, por favor modificarlo"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
+				<td><p class="label label-danger" title="Registro sin definir, por favor modificarlo"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
 				<?}else{?>
 				<td><p class="insert_access"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
 				<?}
@@ -506,7 +506,7 @@ foreach($arrayFechas as $valor){?>
 		<? } else {?>
 		<td> - </td>
 		<? 	if(($me>0 || $ms>0 || $te>0 || $ts>0) && $subtotal==0) { ?>
-			<td><p class="label label-important" title="Los registros no tienen los parámetros correctos"> - </p></td>
+			<td><p class="label label-danger" title="Los registros no tienen los parámetros correctos"> - </p></td>
 		<? 	}else{?>
 			<td> - </td>
 		<?	}

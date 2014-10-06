@@ -8,7 +8,7 @@ $(document).ready(function(){
 // Le da color a los dias.
 $(document).ready(function() {
 	$('.dia:contains("Sábado")').addClass("label label-info");
-	$('.dia:contains("Domingo")').addClass("label label-important");
+	$('.dia:contains("Domingo")').addClass("label label-danger");
 });
 
 
@@ -175,7 +175,7 @@ $(document).ready(function(){
 
 
 function abrirVentana(url) {
-    window.open(url, "nuevo", "directories=no, location=no, menubar=no, scrollbars=yes, statusbar=no, tittlebar=no, width=800, height=600");
+    window.open(url, "nuevo", "directories=no, location=no, menubar=no, scrollbars=yes, statusbar=no, tittlebar=no, width=550, height=600");
 };
 
 function cerrarse(){ 

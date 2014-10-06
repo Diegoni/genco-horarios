@@ -245,10 +245,10 @@ if (isset($_GET['delete'])){
 ----------------------------------------------------------------------
 --------------------------------------------------------------------->		
 
-	<form action="edit.php" method="get" > 
+	<form action="edit.php" method="get" class="form-inline" role="form">
 	<fieldset>
 	<legend>Marcaciones:</legend>
-	<table>
+	<table class="table">
 	<?php  if($numero_marcacion>0){
 	$stack = array();
 	do{ 
@@ -256,7 +256,7 @@ if (isset($_GET['delete'])){
 	?>	
 	<tr>
 	<td>
-		<select name="id_parametro<?php echo $id_marcada?>" class="input-medium">
+		<select name="id_parametro<?php echo $id_marcada?>" class="form-control" style="width: 200px;">
 		<?php 
 		$id_parametros=$row_marcacion['id_parametros'];
 		$parametros=getParametros();
@@ -283,7 +283,22 @@ if (isset($_GET['delete'])){
 		</select>
 	</td>
 	
-	<td><input type="time" class="input-medium" name="entrada<?php echo $row_marcacion['id_marcada']?>" value="<?php echo date("H:i", strtotime($row_marcacion['entrada']))?>" required></td>
+	<td>
+		<div class="input-prepend">
+			
+			<div class="input-group" onclick="document.getElementById('entrada<?php echo $row_marcacion['id_marcada']?>').focus();">
+      		<div class="input-group-addon">
+				<span class="add-on" ><i class="icon-time"></i></span>
+			</div>
+			<input type="text" id="entrada<?php echo $row_marcacion['id_marcada']?>" class="form-control" name="entrada<?php echo $row_marcacion['id_marcada']?>"  placeholder="ingrese entrada" onkeypress="return false" value="<?php echo date("H:i", strtotime($row_marcacion['entrada']))?>" required/>
+		</div>
+					
+		<script type="text/javascript">
+			$('#entrada<?php echo $row_marcacion['id_marcada']?>').timepicker({
+  				 showAnim: 'blind'
+			});
+		</script>
+	</td>
 	<td><a href="edit.php?delete=<?php echo $row_marcacion['id_marcada']?>&fecha=<?php echo $fecha?>&id=<?php echo $id?>" onclick="return confirm('Esta seguro que quiere borrar');" class="btn btn-danger" name="delete">X</td>
 	</tr>
 	<?php  	}while ($row_marcacion = mysql_fetch_array($marcacion));
@@ -299,7 +314,7 @@ if (isset($_GET['delete'])){
 			<center>
 			<input type="hidden" name="id" value="<?php echo $_GET['id']?>">
 			<input type="hidden" name="fecha" value="<?php echo $_GET['fecha']?>">
-			<a href='#' class='show_hide btn' title='Nuevo'>nuevo</a>
+			<a href='#' class='show_hide btn btn-default' title='Nuevo'>nuevo</a>
 			<?php if($numero_marcacion>0){?>
 			<input type="submit" class="btn btn-default" name="modificar" title="guardar las modificaciones realizadas" value="modificar" id="modificar">
 			<?php }else{?>
@@ -344,7 +359,12 @@ if (isset($_GET['delete'])){
 				<tr>				
 				<input  type="hidden" value="<?php echo $row_parametros2['id_parametros']?>" name="id_parametro<?php echo $row_parametros2['id_parametros']?>">
 				<td><label><?php echo $row_parametros2['turno']?> : <?php  echo $row_parametros2['tipo']?></label></td>
-				<td><input type="time" class="input-medium" name="entrada<?php echo $row_parametros2['id_parametros']?>" value=""></td>	
+				<td><input type="time" class="form-control" name="entrada<?php echo $row_parametros2['id_parametros']?>" id="nueva<?php echo $row_parametros2['id_parametros']?>" value=""></td>
+				<script type="text/javascript">
+			$('#nueva<?php echo $row_parametros2['id_parametros']?>').timepicker({
+  				 showAnim: 'blind'
+			});
+		</script>	
 				</tr>
 			<?php 
 			$k=$k+1;

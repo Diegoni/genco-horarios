@@ -179,7 +179,7 @@ function esferiado($valor){
 	$cantidad_feriado = mysql_num_rows($feriado);
 	
 	if($cantidad_feriado>0){
-		$i="label label-important";
+		$i="label label-danger";
 		$j=$row_feriado['feriado'];
 		$k=1;
 		return array($i,$j,$k);
@@ -221,13 +221,13 @@ function tipoMarcacion($row_marcacion, $cantidad_parametros){
 	if($cantidad_parametros==0){//sin marcacion
 		$registro['label_class']='insert_access';
 		$registro['label_title']='';
-		$registro['a_class']='default';
+		$registro['a_class']='marcada_default';
 		$registro['marcacion']='-';
 		
 	}else if($cantidad_parametros>1){//mas de un registro
-			$registro['label_class']='label label-important';
+			$registro['label_class']='label label-danger';
 			$registro['label_title']='Registro duplicado, por favor modificarlo';
-			$registro['a_class']='error';
+			$registro['a_class']='marcada_error';
 			$registro['marcacion']=date('H:i', strtotime($row_marcacion['entrada']));
 			
 		}else{
@@ -239,22 +239,22 @@ function tipoMarcacion($row_marcacion, $cantidad_parametros){
 					
 				$registro['label_class']='label label-success';
 				$registro['label_title']='Registro modificado, original :'.date('H:i', strtotime($row_log_auditoria_marcada['entrada_old']));
-				$registro['a_class']='update';
+				$registro['a_class']='marcada_update';
 				
 			}else if($row_marcacion['id_estado']==2){//marcación dada de alta por el sistema
 				$registro['label_class']='label';
 				$registro['label_title']='Registro dado de alta por sistema';
-				$registro['a_class']='insert';
+				$registro['a_class']='marcada_insert';
 				
 			}else if($row_marcacion['id_parametros']==0){//marcacion con error
-				$registro['label_class']='label label-important';
+				$registro['label_class']='label label-danger';
 				$registro['label_title']='Registro sin definir, por favor modificarlo';
-				$registro['a_class']='error';
+				$registro['a_class']='marcada_error';
 				
 			}else{//marcacion normal
 				$registro['label_class']='insert_access';
 				$registro['label_title']='';
-				$registro['a_class']='default';
+				$registro['a_class']='marcada_default';
 			}
 		}
 	

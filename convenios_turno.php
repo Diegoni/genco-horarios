@@ -4,8 +4,8 @@ session_start();
 	header("Location: ../login/acceso.php");
 	}
 include_once("menu.php");    
-include_once($url['$models_url']."convenios_model.php");   
-include_once($url['$models_url']."convenio_turnos_model.php");
+include_once($url['models_url']."convenios_model.php");   
+include_once($url['models_url']."convenio_turnos_model.php");
 include_once($url['models_url']."mensajes_model.php");
 include_once("helpers.php");
 
@@ -253,6 +253,8 @@ if (isset($_GET['delete'])){
         				showOn: 'button',
         				button: '.timepicker_button_trigger'
 					});
+					
+					
 			        </script>
 				</td>
 			</tr>
@@ -379,7 +381,7 @@ if (isset($_GET['delete'])){
 				</td>
 				<td class="table-center">
 					<?php if($row_convenio_turno['domingo']==1){
-						echo "<span class='label label-important'><i class='icon-ok'></i></span>";
+						echo "<span class='label label-danger'><i class='icon-ok'></i></span>";
 						$cantidad=$cantidad+1;
 					};?>
 				</td>
