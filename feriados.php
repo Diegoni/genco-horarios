@@ -85,11 +85,11 @@ if (isset($_GET['nuevo'])){
 	<table class="table table-hover">
 	<tr>
 		<td>Ingrese día</td>
-		<td><input type="text" name="dia" id="datepicker" placeholder="ingrese fecha" autocomplete="off" required></td>
+		<td><input type="text" name="dia" class="form-control" id="datepicker" placeholder="ingrese fecha" autocomplete="off" required></td>
 	</tr>
 	<tr>
 		<td>Ingrese motivo del feriado</td>
-		<td><input type="text" name="feriado" placeholder="ingrese feriado"></td>		
+		<td><input type="text" name="feriado" class="form-control" placeholder="ingrese feriado"></td>		
 	</tr>
 	<tr>
 		<td></td>

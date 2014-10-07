@@ -84,7 +84,7 @@ if(isset($_FILES['firma'])){
 		<table class="table table-hover">
 		<tr>
 			<td>Título</td>
-			<td><input type="text" name="title" value="<?php echo $config['title'];?>" required></td>
+			<td><input type="text" class="form-control" name="title" value="<?php echo $config['title'];?>" required></td>
 		</tr>
 		
 		<tr>
@@ -94,7 +94,7 @@ if(isset($_FILES['firma'])){
 		<tr>
 		<td>Colores</td>
 			<td>
-			<select name="css">
+			<select name="css" class="form-control">
 				<?php for($i=0;$i<21;$i++){ 
 						if($i==$config['css']){ ?>
 							<option value="<?php echo $i?>" selected>Opción <?php echo $i+1;?></option>
@@ -131,9 +131,11 @@ if(isset($_FILES['firma'])){
 		<tr>
 			<td>Mostrar fecha de marcación más </td>
 			<td>
-				<div class="input-append">
-				<input id="suma_dias" type="number" class="input-mini" name="suma_dias" value="<?php echo $config['suma_dias'];?>">
-				<span class="add-on">días</span>
+				<div class="form-group">
+    				<div class="input-group">
+    				<input id="suma_dias" type="number" class="form-control" name="suma_dias" value="<?php echo $config['suma_dias'];?>">
+					<div class="input-group-addon">días</div>
+      				</div>
 				</div>
 			</td>
 		</tr>
@@ -141,9 +143,11 @@ if(isset($_FILES['firma'])){
 		<tr>
 			<td>Cantidad de marcaciones por hoja </td>
 			<td>
-				<div class="input-append">
-				<input id="registros" type="number" class="input-mini" name="marcaciones_x_hoja" value="<?php echo $config['marcaciones_x_hoja'];?>" max="6" min="1">
-				<span class="add-on">Marcaciones</span>
+				<div class="form-group">
+    				<div class="input-group">
+					<input id="registros" type="number" class="form-control" name="marcaciones_x_hoja" value="<?php echo $config['marcaciones_x_hoja'];?>" max="6" min="1">
+					<div class="input-group-addon">Marcaciones</div>
+      				</div>
 				</div>
 			</td>
 		</tr>

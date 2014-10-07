@@ -91,7 +91,7 @@ if(isset($_GET['buscar'])){
 	
 	<tr>
 		<td>Departamento</td>
-		<td><input type="text" name="departamento" class="span4" placeholder="ingrese departamento" required></td>
+		<td><input type="text" name="departamento" class="form-control" placeholder="ingrese departamento" required></td>
 	</tr>
 	
 	<tr>

@@ -18,17 +18,17 @@ $row_limite = mysql_fetch_assoc($limite);
 <form class="form-inline" action="limites.php">
 <table class="table table-hover">
 <tr>
-<input type="hidden" name="id" class="span4" value="<?php echo $row_limite['id_limite'];?>">
+<input type="hidden" name="id" class="form-control" value="<?php echo $row_limite['id_limite'];?>">
 
 
 <tr>
 <td>Limite</td>
-<td><input type="number" name="limite" class="span4" value="<?php echo $row_limite['limite'];?>" required></td>
+<td><input type="number" name="limite" class="form-control" value="<?php echo $row_limite['limite'];?>" required></td>
 </tr>
 
 <tr>
 <td>Redondeo</td>
-<td><input type="number" name="redondeo" class="span4" value="<?php echo $row_limite['redondeo'];?>" required></td>
+<td><input type="number" name="redondeo" class="form-control" value="<?php echo $row_limite['redondeo'];?>" required></td>
 </tr>
 
 <tr>

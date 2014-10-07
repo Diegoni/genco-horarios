@@ -172,22 +172,24 @@ if (isset($_GET['delete'])){
 ?>
 
 
-<div align="left">
-<a href='#' class='show_hide btn btn-primary' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
-<select 
-		data-placeholder="Seleccione un usuario..." class="chosen-select" tabindex="2"
-		onChange="javascript:window.location.href='convenios_turno.php?id='+this.value"
-		name="id" <?php echo $cadena;?> required>
-		<option value=""></option>
-		<?php   do{ 
-		if($_GET['id']==$row_convenios['id_convenio']){
-		?>
-		<option value="<?php   echo $row_convenios['id_convenio']?>" selected><?php   echo $row_convenios['convenio']?></option>
-		<?php  }else{?>
-		<option value="<?php   echo $row_convenios['id_convenio']?>"><?php echo $row_convenios['convenio']?></option>
-		<?php  } 
-		} while($row_convenios=mysql_fetch_array($convenios));?>
-</select>
+<div align="left" class="row">
+	<div class="col-md-12">
+		<a href='#' class='show_hide btn btn-primary' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
+		<select 
+				data-placeholder="Seleccione un usuario..." class="chosen-select" tabindex="2"
+				onChange="javascript:window.location.href='convenios_turno.php?id='+this.value"
+				name="id" <?php echo $cadena;?> required>
+				<option value=""></option>
+				<?php   do{ 
+				if($_GET['id']==$row_convenios['id_convenio']){
+				?>
+				<option value="<?php   echo $row_convenios['id_convenio']?>" selected><?php   echo $row_convenios['convenio']?></option>
+				<?php  }else{?>
+				<option value="<?php   echo $row_convenios['id_convenio']?>"><?php echo $row_convenios['convenio']?></option>
+				<?php  } 
+				} while($row_convenios=mysql_fetch_array($convenios));?>
+		</select>
+	</div>
 </div>
 
 <!--------------------------------------------------------------------
@@ -196,14 +198,15 @@ if (isset($_GET['delete'])){
 ----------------------------------------------------------------------
 --------------------------------------------------------------------->	
 
-<div class='slidingDiv'>
+<div class='slidingDiv row'>
+	<div class="col-md-6 col-md-offset-3">
 	<form name="franja" method="get">
 		<table class="table">
 			<tr>
 				<td>Convenio</td>
 				<td>
 					<input name="id" type="hidden" value="<?php echo $row_convenio['id_convenio']?>" />
-					<input name="convenio" type="text" value="<?php echo $row_convenio['convenio']?>" readonly/>
+					<input name="convenio" type="text" value="<?php echo $row_convenio['convenio']?>" class="form-control" readonly/>
 					
 				</td>
 			</tr>
@@ -242,33 +245,40 @@ if (isset($_GET['delete'])){
 			<tr>
 				<td>Entrada</td>
 				<td>
-					<div class="input-prepend">
-						<span class="timepicker_button_trigger add-on"><i class="icon-time"></i></span>
-					  	<input type="text"  id="entrada" placeholder="ingrese entrada" onkeypress="return false" name="entrada" required/>
+					<div class="form-group">
+						<div class="input-group">
+							<div class="input-group-addon" onclick="document.getElementById('entrada').focus();">
+								<span class="timepicker_button_trigger add-on">
+									<i class="icon-time"></i>
+								</span>
+							</div>
+						<input type="text"  id="entrada" placeholder="ingrese entrada" onkeypress="return false" name="entrada" class="form-control" required autocomplete="off"/>
+						</div>
 					</div>
 					
 			        <script type="text/javascript">
 						$('#entrada').timepicker({
-
-        				showOn: 'button',
-        				button: '.timepicker_button_trigger'
 					});
-					
-					
-			        </script>
+					</script>
 				</td>
 			</tr>
+			
 			<tr>
 				<td>Salida</td>
 				<td>
-					<div class="input-prepend">
-						<span class="salida_button add-on"><i class="icon-time"></i></span>
-					  	<input type="text"  id="salida" name="salida" placeholder="ingrese salida" onkeypress="return false" required />
+					<div class="form-group">
+						<div class="input-group">
+							<div class="input-group-addon" onclick="document.getElementById('salida').focus();">
+								<span class="salida_button add-on">
+									<i class="icon-time"></i>
+								</span>
+							</div>
+					  		<input type="text"  id="salida" name="salida" placeholder="ingrese salida" onkeypress="return false" class="form-control" required autocomplete="off"/>
+						</div>
 					</div>
 			        <script type="text/javascript">
 						$('#salida').timepicker({
-        				showOn: 'button',
-        				button: '.salida_button'
+        				
 					});
 			        </script>
 				</td>
@@ -277,9 +287,13 @@ if (isset($_GET['delete'])){
 			<tr>				
 				<td>Límite</td>
 				<td>
-					<div class="input-prepend">
-						<span class="salida_button add-on"><i class="icon-wrench"></i></span>
-					  	<input type="number" name="limite" step="1" max="30" min="1" placeholder="ingrese límite">
+					<div class="form-group">
+						<div class="input-group">
+							<div class="input-group-addon">
+								<span class="salida_button add-on"><i class="icon-wrench"></i></span>
+							</div>
+							<input type="number" name="limite" step="1" max="30" min="1" placeholder="ingrese límite" class="form-control">
+						</div>
 					</div>
     			</td>
 			</tr>
@@ -292,6 +306,7 @@ if (isset($_GET['delete'])){
 			</tr>
 		</table>
 	</form>
+	</div>
 </div>
 
 
@@ -301,7 +316,7 @@ if (isset($_GET['delete'])){
 ----------------------------------------------------------------------
 --------------------------------------------------------------------->
 
-<div class="well">
+<div class="well row">
 	<?php if($cantidad_turno<1){ ?>
 	<div class="alert">
   		<button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -336,7 +351,7 @@ if (isset($_GET['delete'])){
 			<tr>
 				<td class="table-center">
 					<?php if($row_convenio_turno['redondeo']==1){
-						echo "<span class='label label-verde'><i class='icon-ok'></i></span>";
+						echo "<span class='label label-success'><i class='icon-ok'></i></span>";
 					};?>
 				</td>
 				<td><?php echo date("H:i", strtotime($row_convenio_turno['entrada'])) ;?></td>
@@ -345,31 +360,31 @@ if (isset($_GET['delete'])){
 				<td><?php echo $row_convenio_turno['limite'];?> min</td>
 				<td class="table-center">
 					<?php if($row_convenio_turno['lunes']==1){
-						echo "<span class='label label-verde'><i class='icon-ok'></i></span>";
+						echo "<span class='label label-success'><i class='icon-ok'></i></span>";
 						$cantidad=$cantidad+1;
 					};?>
 				</td>
 				<td class="table-center">
 					<?php if($row_convenio_turno['martes']==1){
-						echo "<span class='label label-verde'><i class='icon-ok'></i></span>";
+						echo "<span class='label label-success'><i class='icon-ok'></i></span>";
 						$cantidad=$cantidad+1;
 					};?>
 				</td>
 				<td class="table-center">
 					<?php if($row_convenio_turno['miercoles']==1){
-						echo "<span class='label label-verde'><i class='icon-ok'></i></span>";
+						echo "<span class='label label-success'><i class='icon-ok'></i></span>";
 						$cantidad=$cantidad+1;
 					};?>
 				</td>
 				<td class="table-center">
 					<?php if($row_convenio_turno['jueves']==1){
-						echo "<span class='label label-verde'><i class='icon-ok'></i></span>";
+						echo "<span class='label label-success'><i class='icon-ok'></i></span>";
 						$cantidad=$cantidad+1;
 					};?>
 				</td>
 				<td class="table-center">
 					<?php if($row_convenio_turno['viernes']==1){
-						echo "<span class='label label-verde'><i class='icon-ok'></i></span>";
+						echo "<span class='label label-success'><i class='icon-ok'></i></span>";
 						$cantidad=$cantidad+1;
 					};?>
 				</td>

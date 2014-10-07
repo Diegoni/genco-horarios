@@ -90,11 +90,11 @@ $numero_limites = mysql_num_rows($limite);
 	<table class="table table-hover">
 	<tr>
 		<td>Limite</td>
-		<td><input type="number" min="1" max="60" name="limite" placeholder="ingrese limite" required></td>
+		<td><input class="form-control" type="number" min="1" max="60" name="limite" placeholder="ingrese limite" required></td>
 	</tr>
 	<tr>
 		<td>Redondeo</td>
-		<td><input type="number" min="0" max="60" name="redondeo" placeholder="ingrese redondeo" required></td>		
+		<td><input class="form-control" type="number" min="0" max="60" name="redondeo" placeholder="ingrese redondeo" required></td>		
 	</tr>
 	<tr>
 	<tr>

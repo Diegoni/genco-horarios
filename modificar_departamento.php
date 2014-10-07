@@ -30,7 +30,7 @@ if($action==0){
 
 <tr>
 <td>Departamento</td>
-<td><input type="text" name="departamento" class="span4" value="<?php echo $row_departamento['nombre'];?>" <?php echo $input_action; ?> required></td>
+<td><input type="text" name="departamento" class="form-control" value="<?php echo $row_departamento['nombre'];?>" <?php echo $input_action; ?> required></td>
 </tr>
 
 <?php if($action==0){?>

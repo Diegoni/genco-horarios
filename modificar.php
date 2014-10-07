@@ -58,59 +58,59 @@ if(isset($_FILES['foto'])){
 ?>
 <div class="row">
 
-<div class="span9">
+<div class="col-md-9">
 <center>
 
 <!-- formulario de modificacion-->
 <form class="form-inline" action="usuarios.php">
 <table class="table table-hover">
 <tr>
-<input type="hidden" name="id" class="span4" value="<?php echo $row_usuario['id_usuario'];?>">
+<input type="hidden" name="id" class="form-control" value="<?php echo $row_usuario['id_usuario'];?>">
 
 
 <tr>
 <td>Usuario</td>
-<td><input type="text" name="usuario" class="span4" value="<?php echo $row_usuario['usuario'];?>" required></td>
+<td><input type="text" name="usuario" class="form-control" value="<?php echo $row_usuario['usuario'];?>" required></td>
 </tr>
 
 <tr>
 <td>Nombre</td>
-<td><input type="text" name="nombre" class="span4" value="<?php echo $row_usuario['nombre'];?>" required></td>
+<td><input type="text" name="nombre" class="form-control" value="<?php echo $row_usuario['nombre'];?>" required></td>
 </tr>
 
 <tr>
 <td>Apellido</td>
-<td><input type="text" name="apellido" class="span4" value="<?php echo $row_usuario['apellido'];?>" required></td>
+<td><input type="text" name="apellido" class="form-control" value="<?php echo $row_usuario['apellido'];?>" required></td>
 </tr>
 
 <tr>
 <td>DNI</td>
-<td><input type="text" name="dni" onkeypress="return isNumberKey(event)" maxlength="8" class="span4" value="<?php echo $row_usuario['dni'];?>" required></td>
+<td><input type="text" name="dni" onkeypress="return isNumberKey(event)" maxlength="8" class="form-control" value="<?php echo $row_usuario['dni'];?>" required></td>
 </tr>
 
 <tr>
 <td>Fecha ingreso</td>
-<td><input type="text" name="fecha_ingreso" class="span4" value="<?php echo date( "d-m-Y", strtotime($row_usuario['fecha_ingreso'])); ;?>" required></td>
+<td><input type="text" name="fecha_ingreso" class="form-control" value="<?php echo date( "d-m-Y", strtotime($row_usuario['fecha_ingreso'])); ;?>" required></td>
 </tr>
 
 <tr>
 <td>Cuil</td>
 <td>
-	<input type="text" name="cuil1" onkeypress="return isNumberKey(event)" maxlength="2" class="span1" value="<?php echo substr($row_usuario['cuil'], 0, 2);?>" required>-
-	<input type="text" name="cuil2" onkeypress="return isNumberKey(event)" maxlength="8" class="span2" value="<?php echo substr($row_usuario['cuil'], 3, 8);?>" required>-
-	<input type="text" name="cuil3" onkeypress="return isNumberKey(event)" maxlength="1" class="span1" value="<?php echo substr($row_usuario['cuil'], 12, 1);?>" required>
+	<input type="text" name="cuil1" onkeypress="return isNumberKey(event)" maxlength="2" class="form-control" value="<?php echo substr($row_usuario['cuil'], 0, 2);?>" required>-
+	<input type="text" name="cuil2" onkeypress="return isNumberKey(event)" maxlength="8" class="form-control" value="<?php echo substr($row_usuario['cuil'], 3, 8);?>" required>-
+	<input type="text" name="cuil3" onkeypress="return isNumberKey(event)" maxlength="1" class="form-control" value="<?php echo substr($row_usuario['cuil'], 12, 1);?>" required>
 </td>
 </tr>
 
 <tr>
 <td>Legajo</td>
-<td><input type="text" name="legajo" class="span4" onkeypress="return isNumberKey(event)" value="<?php echo $row_usuario['legajo'];?>" required></td>
+<td><input type="text" name="legajo" class="form-control" onkeypress="return isNumberKey(event)" value="<?php echo $row_usuario['legajo'];?>" required></td>
 </tr>
 
 <tr>
 <td>Empresa</td>
 <td>
-	<select class="span4" name="empresa">
+	<select class="form-control" name="empresa">
 	<?php
 		do{ 
 		if ($row_usuario['id_empresa']==$row_empresa['id_empresa']){?>	
@@ -126,7 +126,7 @@ if(isset($_FILES['foto'])){
 <tr>
 <td>Departamento</td>
 <td>
-	<select class="span4" name="departamento">
+	<select class="form-control" name="departamento">
 	<?php 	
 	
 		do{ 
@@ -144,7 +144,7 @@ if(isset($_FILES['foto'])){
 <tr>
 <td>Convenio</td>
 <td>
-	<select class="span4" name="convenio">
+	<select class="form-control" name="convenio">
 	<?php 	do{ 
 		if ($row_usuario['id_convenio']==$row_convenio['id_convenio']){?>	
 		 <option value="<?php echo $row_convenio['id_convenio'];?>" selected><?php echo $row_convenio['convenio'];?></option>
@@ -171,7 +171,7 @@ if(isset($_FILES['foto'])){
 
 </center>
 </div>
-<div class="span3">
+<div class="col-md-3">
   <form action="modificar.php" method="post" enctype="multipart/form-data">
     <?php if(isset($_FILES['foto'])){
       echo "La foto se registro en el servidor.<br>";

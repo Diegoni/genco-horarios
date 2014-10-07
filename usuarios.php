@@ -148,46 +148,46 @@ $numero_convenio = mysql_num_rows($convenio);
 <table class="table table-hover">
 <tr>
 <td>Usuario</td>
-<td><input type="text" name="usuario" class="span4" placeholder="ingrese Usuario" required></td>
+<td><input type="text" name="usuario" class="form-control" placeholder="ingrese Usuario" required></td>
 </tr>
 
 <tr>
 <td>Nombre</td>
-<td><input type="text" name="nombre" class="span4" placeholder="ingrese Nombre" required></td>
+<td><input type="text" name="nombre" class="form-control" placeholder="ingrese Nombre" required></td>
 </tr>
 
 <tr>
 <td>Apellido</td>
-<td><input type="text" name="apellido" class="span4" placeholder="ingrese Apellido" required></td>
+<td><input type="text" name="apellido" class="form-control" placeholder="ingrese Apellido" required></td>
 </tr>
 
 <tr>
 <td>DNI</td>
-<td><input type="text" name="dni" class="span4" onkeypress="return isNumberKey(event)" maxlength="8" placeholder="ingrese DNI" required></td>
+<td><input type="text" name="dni" class="form-control" onkeypress="return isNumberKey(event)" maxlength="8" placeholder="ingrese DNI" required></td>
 </tr>
 
 <tr>
 <td>Fecha ingreso</td>
-<td><input type="text" name="fecha_ingreso" id="datepicker" class="span4" placeholder="ingrese fecha" autocomplete="off" required></td>
+<td><input type="text" name="fecha_ingreso" id="datepicker" class="form-control" placeholder="ingrese fecha" autocomplete="off" required></td>
 </tr>
 
 <tr>
 <td>CUIL</td>
 <td>
-	<input type="text" name="cuil1" onkeypress="return isNumberKey(event)" maxlength="2" class="span1" required>-
-	<input type="text" name="cuil2" onkeypress="return isNumberKey(event)" maxlength="8" class="span2" required>-
-	<input type="text" name="cuil3" onkeypress="return isNumberKey(event)" maxlength="1" class="span1" required>-
+	<input type="text" name="cuil1" onkeypress="return isNumberKey(event)" maxlength="2" class="form-control" required>-
+	<input type="text" name="cuil2" onkeypress="return isNumberKey(event)" maxlength="8" class="form-control" required>-
+	<input type="text" name="cuil3" onkeypress="return isNumberKey(event)" maxlength="1" class="form-control" required>
 </td>
 </tr>
 
 <tr>
 <td>Legajo</td>
-<td><input type="text" name="legajo" class="span4" onkeypress="return isNumberKey(event)" placeholder="Legajo" required></td>
+<td><input type="text" name="legajo" class="form-control" onkeypress="return isNumberKey(event)" placeholder="Legajo" required></td>
 </tr>
 
 <tr>
 <td>Empresa</td>
-<td><select class="span4" name="empresa" required>
+<td><select class="form-control" name="empresa" required>
 		<option></option>
 	<?php do{ ?>	
 		<option value="<?php echo $row_empresa['id_empresa'];?>"><?php echo $row_empresa['empresa'];?></option>
@@ -198,7 +198,7 @@ $numero_convenio = mysql_num_rows($convenio);
 
 <tr>
 <td>Departamento</td>
-<td><select class="span4" name="departamento" required>
+<td><select class="form-control" name="departamento" required>
 		<option></option>
 	<?php do{ ?>	
 		<option value="<?php echo $row_departamento2['id_departamento'];?>"><?php echo $row_departamento2['nombre'];?></option>
@@ -210,7 +210,7 @@ $numero_convenio = mysql_num_rows($convenio);
 
 <tr>
 <td>Convenio</td>
-<td><select class="span4" name="convenio" required>
+<td><select class="form-control" name="convenio" required>
 		<option></option>
 	<?php do{ ?>	
 		<option value="<?php echo $row_convenio['id_convenio'];?>"><?php echo $row_convenio['convenio'];?></option>

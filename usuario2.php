@@ -88,7 +88,7 @@ if(!isset($fecha_inicio)){
 
 ?>
 <div class="row">
-	<div class="span12">
+	<div class="col-md-12">
 
 <!--------------------------------------------------------------------
 ----------------------------------------------------------------------
@@ -96,77 +96,88 @@ if(!isset($fecha_inicio)){
 ----------------------------------------------------------------------			
 --------------------------------------------------------------------->
 
-	<table class="table table-striped">
-	<tr class="success">
-	<td>
+	<div class="row well">
+	<div class="col-md-2">
 		<b>Período de tiempo</b>
-	</td>
+	</div>
 	
-	<td>
+	<div class="col-md-2">
 		<form class="form-inline" action="usuario2.php" name="ente">
-		<b><div class="input-prepend">
-			<span class="add-on" onclick="document.getElementById('datepicker2').focus();"><i class="icon-calendar"></i></span>
-			<input value="" type="text" name="fecha_inicio" id="datepicker2" placeholder="fecha de inicio" autocomplete="off" required>
-		</div></b>
-	</td>
-	<td>
-		<b><div class="input-prepend">
-			<span class="add-on" onclick="document.getElementById('datepicker').focus();"><i class="icon-calendar"></i></span>
-			<input value=""	type="text" name="fecha_final" id="datepicker" placeholder="fecha final" autocomplete="off" required>
-		</div></b>
-	</td>
-	<td>
+		<div class="form-group">
+    		<div class="input-group">
+	      		<div class="input-group-addon" onclick="document.getElementById('datepicker2').focus();">
+	      			<span class="add-on"><i class="icon-calendar"></i></span>
+	      		</div>
+	      		<input value="" class="form-control" type="text" name="fecha_inicio" id="datepicker2" placeholder="fecha de inicio" autocomplete="off" required>
+    		</div>
+  		</div>
+	</div>
+	
+	<div class="col-md-2">
+		<div class="form-group">
+    		<div class="input-group">
+	      		<div class="input-group-addon" onclick="document.getElementById('datepicker').focus();">
+	      			<span class="add-on"><i class="icon-calendar"></i></span>
+	      		</div>
+	      		<input value=""	class="form-control" type="text" name="fecha_final" id="datepicker" placeholder="fecha final" autocomplete="off" required>
+    		</div>
+  		</div>
+	</div>
+	
+	<div class="col-md-2">
 		<button type="submit" class="btn btn-default" title="Buscar" name="buscar" value="1"><i class="icon-search"></i> Buscar</button>
 		</form>
-	</td>
+	</div>
 	
-	<td>
+	<div class="col-md-1">
 		<b>Usuario</b>
-	</td>
+	</div>
 	
-	<td>
+	<div class="col-md-2">
 		<select
-		data-placeholder="Seleccione un usuario..." class="chosen-select" tabindex="2"		
+		data-placeholder="Seleccione un usuario..." class="chosen-select form-control" tabindex="2"		
 		onChange="javascript:window.location.href='usuario.php?id='+this.value+'&buscar=<?php echo 1;?>&fecha_final=<?php echo $fecha_final; ?>&fecha_inicio=<?php echo $fecha_inicio; ?>';"
 		name="id" <?php echo $cadena;?> required>
 		<?php do{ ?>
 		<option value="<?php echo $row_usuarios['id_usuario']?>"><?php echo $row_usuarios['usuario']?></option>
 		<?php } while($row_usuarios=mysql_fetch_array($usuarios));?>
 		</select>
-	</td>
-	
-	
-	<td>
-	<div class="btn-group">
-	  <a class="btn btn-success dropdown-toggle" data-toggle="dropdown" href="#">
-		<i class="icon-cogs"></i>
-		<span class="caret"></span>
-	  </a>
-	  <ul class="dropdown-menu">
-		<li <?php echo $classcadena;?>><a href="usuario.php?id=<?php echo $id_usuario;?>&buscar=<?php echo 1;?>&fecha_final=<?php echo $fecha_final; ?>&fecha_inicio=<?php echo $fecha_inicio; ?>"  title="Refresh" <?php if(!isset($fecha_final)){ ?> disabled<?php } ?>><i class="icon-refresh"></i> Refresh</a></li>
-		<li <?php echo $classcadena;?>><a href="javascript:imprSelec('muestra')"><i class="icon-print"></i> Imprimir</a></li>
-		<li <?php echo $classcadena;?>><a onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</a></li>
-		<li><a href="#myModal" role="button" data-toggle="modal"><i class="icon-question-sign"></i> Ayuda</a></li>
-	  </ul>
 	</div>
-	</td>
+	
+	
+	<div class="col-md-1">
+		<div class="btn-group">
+			<a class="btn btn-success dropdown-toggle" data-toggle="dropdown" href="#">
+				<i class="icon-cogs"></i>
+				<span class="caret"></span>
+			</a>
+			<ul class="dropdown-menu">
+				<li <?php echo $classcadena;?>><a href="usuario.php?id=<?php echo $id_usuario;?>&buscar=<?php echo 1;?>&fecha_final=<?php echo $fecha_final; ?>&fecha_inicio=<?php echo $fecha_inicio; ?>"  title="Refresh" <?php if(!isset($fecha_final)){ ?> disabled<?php } ?>><i class="icon-refresh"></i> Refresh</a></li>
+				<li <?php echo $classcadena;?>><a href="javascript:imprSelec('muestra')"><i class="icon-print"></i> Imprimir</a></li>
+				<li <?php echo $classcadena;?>><a onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</a></li>
+				<li><a href="#myModal" role="button" data-toggle="modal"><i class="icon-question-sign"></i> Ayuda</a></li>
+			</ul>
+		</div>
+	</div>
 
-	</tr>
+	</div>
 	</table>
 	
 	<!-- Ayuda -->
 	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-header">
-	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-	<h3 id="myModalLabel"><i class="icon-question-sign"></i> Ayuda</h3>
-	</div>
-	<div class="modal-body">
-	<p>Esta tabla muestra la sumatoria de las horas trabajadas para cada usuario en un intervalo de fechas.</p>
-	<p>Si un usuario se desea eliminar o agregar a la lista se puede hacer desde la edición de usuarios.</p>
-	</div>
-	<div class="modal-footer">
-	<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Aceptar</button>
-	</div>
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<h3 id="myModalLabel"><i class="icon-question-sign"></i> Ayuda</h3>
+		</div>
+		
+		<div class="modal-body">
+			<p>Esta tabla muestra la sumatoria de las horas trabajadas para cada usuario en un intervalo de fechas.</p>
+			<p>Si un usuario se desea eliminar o agregar a la lista se puede hacer desde la edición de usuarios.</p>
+		</div>
+		
+		<div class="modal-footer">
+			<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Aceptar</button>
+		</div>
 	</div>
 
 
@@ -194,7 +205,7 @@ if($fecha_inicio>$fecha_final){
 <img  src="imagenes/loading.gif" />
 </div>
 
-<table  class="tablad" border="1">
+<table class="table" border="1">
 	<tr>
 		<th>Fecha inicio</th>
 		<td><?php echo date( "d-m-Y", strtotime($fecha_inicio))?></td>

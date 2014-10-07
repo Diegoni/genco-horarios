@@ -23,5 +23,6 @@
 			'suma_dias'			=> $row_config['suma_dias'],
 			'marcaciones_x_hoja'=> $row_config['marcaciones_x_hoja']
 		);
-	}while($row_config=mysql_fetch_array($configs))
+	}while($row_config=mysql_fetch_array($configs));
+	
 ?>

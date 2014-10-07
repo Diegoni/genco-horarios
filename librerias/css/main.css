@@ -28,12 +28,84 @@
 }
 
 .marcada_default{
+	color: #000;
 	cursor: pointer;
+	
 }
+
+.marcada_default:hover{
+	color: #000;
+	cursor: pointer;
+	text-decoration: none;
+	border-style: solid;
+    border-width: 1px;
+    border-color: #ccc;
+    padding: 3px;
+    border-radius: 3px;
+}
+
 
 .td_center{
 	text-align: center;	
 }
+
+.label-update{
+	background-color:#eee;
+	font-size: 100%;
+}
+
+.label-insert{
+	background-color:#ccc;
+	font-size: 100%;
+}  
+ 
+ 
+.label-update a{
+	color: #000;
+	
+}
+
+.label-insert a{
+	color: #000;
+	
+}
+
+.label-update a:hover{
+	color: #000;
+}
+
+.label-insert a:hover{
+	color: #000;
+}
+
+.duplicado{
+	cursor:cell;
+	background:#f2dede;
+	text-align:center;
+	color:#000;
+}
+
+
+.modificado{
+	cursor:cell;
+	background:#dff0d8;
+	text-align:center;
+	color:#000;
+}
+
+.insert_php{
+	cursor:cell;
+	background:#fcf8e3;
+	text-align:center;
+	color:#000;
+}
+
+.insert_access{
+	text-align:center;
+}
+
+
+
 
 
 
@@ -928,3 +1000,8 @@ div.box {
 .table-center{
 	text-align: center;
 }
+
+
+
+
+

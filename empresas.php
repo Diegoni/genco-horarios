@@ -100,20 +100,20 @@ if(isset($_GET['buscar'])){
 
 	<tr>
 		<td>Empresa</td>
-		<td><input type="text" name="empresa" class="span4" placeholder="ingrese Empresa" required></td>
+		<td><input type="text" name="empresa" class="form-control" placeholder="ingrese Empresa" required></td>
 	</tr>
 
 	<tr>
 		<td>Cod</td>
-		<td><input type="text" name="cod_empresa" class="span4" placeholder="ingrese codigo de empresa" required></td>
+		<td><input type="text" name="cod_empresa" class="form-control" placeholder="ingrese codigo de empresa" required></td>
 	</tr>
 
 	<tr>
 		<td>Cuil</td>
 		<td>
-			<input type="text" name="cuil1" onkeypress="return isNumberKey(event)" maxlength="2" class="span1" required>-
-			<input type="text" name="cuil2" onkeypress="return isNumberKey(event)" maxlength="8" class="span2" required>-
-			<input type="text" name="cuil3" onkeypress="return isNumberKey(event)" maxlength="1" class="span1" required>
+			<input type="text" name="cuil1" onkeypress="return isNumberKey(event)" maxlength="2" class="form-control" required>-
+			<input type="text" name="cuil2" onkeypress="return isNumberKey(event)" maxlength="8" class="form-control" required>-
+			<input type="text" name="cuil3" onkeypress="return isNumberKey(event)" maxlength="1" class="form-control" required>
 		</td>
 	</tr>
 

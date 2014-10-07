@@ -338,7 +338,7 @@ if (isset($_GET['delete'])){
 		<form action="edit.php" method="get" > 
 		<fieldset>
 		<legend>Nueva marcación:</legend>
-		<table>
+		<table class="table">
 		
 			<?php 
 			$parametros2=getParametros();

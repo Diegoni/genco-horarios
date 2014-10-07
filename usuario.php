@@ -265,7 +265,7 @@ include_once("helpers.php");
 	<?php  
 	
 	if(isset($fecha_inicio) && empty($id_usuario)){
-	echo " <div class='alert'>
+	echo " <div class='alert alert-info'>
 				<button type='button' class='close' data-dismiss='alert'>&times;</button>
 				Falta seleccionar usuario
 		 	</div>
@@ -524,7 +524,7 @@ include_once("helpers.php");
 --------------------------------------------------------------------->
 <hr>
 <div class="row">
-<div class="col-md-12">
+<div class="col-md-8 col-md-offset-2">
 <h2>Totales</h2>
 	<?php  
 		list ($resta, $signo) = pasar_hora_resta($total_cincuenta);
@@ -565,7 +565,7 @@ include_once("helpers.php");
 	<?php if(pasar_hora($total_cien)>0){ ?>
 		<b>Horas extra 100% :</b> <?php echo pasar_hora($total_cien);?>
 		<div class="progress">
-		 	<div class="progress-bar progress-bar-success" title="Suma total de las horas extra al 100%, suma de horas trabajadas domingos, sabado pasado el convenio o feriados" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $total_cien*100/$porcentaje_cien?>%;">
+		 	<div class="progress-bar progress-bar-success progress-bar-striped" title="Suma total de las horas extra al 100%, suma de horas trabajadas domingos, sabado pasado el convenio o feriados" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $total_cien*100/$porcentaje_cien?>%;">
 		   		<?php echo pasar_hora($total_cien);?>
 		  	</div>
 		</div>

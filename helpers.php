@@ -237,12 +237,12 @@ function tipoMarcacion($row_marcacion, $cantidad_parametros){
 				$log_auditoria_marcada=getLog($row_marcacion['id_marcada']);
 				$row_log_auditoria_marcada = mysql_fetch_assoc($log_auditoria_marcada);
 					
-				$registro['label_class']='label label-success';
+				$registro['label_class']='label label-update';
 				$registro['label_title']='Registro modificado, original :'.date('H:i', strtotime($row_log_auditoria_marcada['entrada_old']));
 				$registro['a_class']='marcada_update';
 				
 			}else if($row_marcacion['id_estado']==2){//marcación dada de alta por el sistema
-				$registro['label_class']='label';
+				$registro['label_class']='label label-insert';
 				$registro['label_title']='Registro dado de alta por sistema';
 				$registro['a_class']='marcada_insert';
 				

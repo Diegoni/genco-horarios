@@ -11,18 +11,18 @@ $convenio=getConvenio($_GET['id']);
 $row_convenio = mysql_fetch_assoc($convenio);
 
 ?>
-<div class="span9">
+<div class="col-md-9">
 <center>
 
 <!-- formulario de modificacion-->
 <form class="form-inline" action="convenios.php">
 <table class="table table-hover">
 <tr>
-<input type="hidden" name="id" class="span4" value="<?php echo $row_convenio['id_convenio'];?>">
+<input type="hidden" name="id" class="form-control" value="<?php echo $row_convenio['id_convenio'];?>">
 
 <tr>
 		<td>Convenio</td>
-		<td><input type="text" name="convenio" placeholder="ingrese convenio" value="<?php echo $row_convenio['convenio'];?>" required></td>
+		<td><input type="text" class="form-control" name="convenio" placeholder="ingrese convenio" value="<?php echo $row_convenio['convenio'];?>" required></td>
 </tr>
 
 <tr>
