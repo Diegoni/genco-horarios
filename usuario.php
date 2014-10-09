@@ -574,12 +574,16 @@ include_once("helpers.php");
 	<?php
 	
 	 if($signo==0){
-	 	$suma_final=$total_normales-$resta;
+	 	$suma_final=pasar_hora($total+round($totalotras,2));
+	 	$resta=$total_normales-pasar_hora($total+round($totalotras,2));
+		 
 		$title='Horas que el empleado debe recuperar para alcanzar el minimo de horas trabajadas';
 		$final_title='horas a favor de la empresa';
 		$progress='danger';
 	 }else{
-	 	$suma_final=pasar_hora($total+round($totalotras,2))-$resta;
+	 	$suma_final=$total_normales;
+	 	$resta=pasar_hora($total+round($totalotras,2))-$total_normales;
+		
 		$title='Suma total de las horas extra al 50%';
 		$final_title='horas extra al 50%';
 		$progress='warning';

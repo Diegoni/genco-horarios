@@ -26,7 +26,7 @@ if(isset($_GET['modificar'])){
 //modifica al usuario segun el formulario de modificar.php
 if(isset($_GET['nuevo'])){
 
-	$departamento=getDepartamentos($_GET['departamento'], 'nombre');
+	$departamento=getDepartamentos($_GET['departamento'], 'departamento');
 	$row_departamento = mysql_fetch_assoc($departamento);
 	$numero_departamentos = mysql_num_rows($departamento);
 	
@@ -48,7 +48,7 @@ if(isset($_GET['nuevo'])){
 
 //si no hay busqueda los trae a todos
 if(isset($_GET['buscar'])){
-	$departamento=getDepartamentos($_GET['departamento'], 'nombre');
+	$departamento=getDepartamentos($_GET['departamento'], 'departamento');
 }else{
 	$departamento=getDepartamentos();
 }			
@@ -127,7 +127,7 @@ if(isset($_GET['buscar'])){
 <tbody>
 <?php do{ ?>
 <tr>
-<td><?php echo $row_departamento['nombre'];?></td>
+<td><?php echo $row_departamento['departamento'];?></td>
 <td>
 		<?php if ($row_departamento['id_estado']==0) {?>
 		baja

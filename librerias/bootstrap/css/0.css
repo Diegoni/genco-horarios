@@ -5,6 +5,16 @@
  */
 
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+
+
+.fixed {
+        position: fixed;
+        width: 25%;
+}
+.scrollit {
+        float: left;
+        width: 71%
+}
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -3693,6 +3703,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .nav-pills > li > a {
   border-radius: 4px;
+  display: inline-flex;
 }
 .nav-pills > li + li {
   margin-left: 2px;
@@ -3705,6 +3716,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .nav-stacked > li {
   float: none;
+  cursor: pointer;
 }
 .nav-stacked > li + li {
   margin-top: 2px;

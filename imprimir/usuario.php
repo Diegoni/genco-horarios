@@ -28,7 +28,7 @@ $fecha=date("d-m-Y");
 $query="SELECT 	usuario.id_usuario,
 				usuario.nombre as nombre,
 				usuario.legajo as legajo,
-				departamento.nombre as departamento				
+				departamento.departamento as departamento				
 		FROM `usuario` 
 		INNER JOIN
 		departamento on(usuario.id_departamento=departamento.id_departamento)
@@ -39,7 +39,7 @@ $row_usuario = mysql_fetch_assoc($usuario);
 $query="SELECT 	usuario.id_usuario,
 				usuario.nombre as nombre,
 				usuario.legajo as legajo,
-				departamento.nombre as departamento				
+				departamento.departamento as departamento				
 		FROM `usuario` 
 		INNER JOIN
 		departamento on(usuario.id_departamento=departamento.id_departamento)
@@ -325,7 +325,7 @@ foreach($arrayFechas as $valor){?>
 				$row_log_auditoria_marcada = mysql_fetch_assoc($log_auditoria_marcada);
 			
 				?>
-				<td><p class="label label-success" title="Registro modificado, original :<? echo date('H:i', strtotime($row_log_auditoria_marcada['entrada_old']));?>"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
+				<td><p class="label label-update" title="Registro modificado, original :<? echo date('H:i', strtotime($row_log_auditoria_marcada['entrada_old']));?>"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
 				<?}else if($row_marcacion['id_estado']==2){?>
 				<td><p class="label" title="Registro dado de alta por sistema"><? echo date('H:i', strtotime($row_marcacion['entrada']));?></p></td>
 				<?}else if($row_marcacion['id_parametros']==0){?>

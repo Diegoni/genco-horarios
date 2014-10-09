@@ -54,7 +54,7 @@ $query="SELECT 	usuario.id_usuario,
 				usuario.legajo,
 				usuario.dni,
 				usuario.cuil,
-				departamento.nombre as departamento,				
+				departamento.departamento as departamento,				
 				empresa.empresa as empresa,
 				empresa.cuil as cuil_empresa
 		FROM `usuario` 

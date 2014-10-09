@@ -19,7 +19,7 @@ function getDepartamentos($dato=NULL, $campo=NULL){
 				departamento.$campo like '$dato'";
 		$departamento=mysql_query($query) or die(mysql_error());
 	}else{
-		$query="SELECT * FROM departamento WHERE id_estado=1 ORDER BY nombre";   
+		$query="SELECT * FROM departamento WHERE id_estado=1 ORDER BY departamento";   
 		$departamento=mysql_query($query) or die(mysql_error());
 	}	
 	return $departamento;

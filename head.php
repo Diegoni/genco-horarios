@@ -115,6 +115,7 @@ function imprSelec(muestra){
 		
 
 
+<script type="text/javascript" src="<?php echo $url['librerias_url']?>scroll/jquery.slimscroll.js"></script>
 
 </head>
 

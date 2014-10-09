@@ -281,5 +281,27 @@ function tipoOtra($row_otrahora, $cantidad){
 	
 	return $registro;
 }
+
+
+function tipoParametro($id){
+		
+	if($id==1 || $id==3){
+		$parametro=array(
+						'cadena'	=> 'Tardanza',
+						'clase'		=> 'label label-primary',
+						'title'		=> 'Horario de entrada: '
+						);
+	}else if($id==2 || $id==4){
+		$parametro=array(
+						'cadena'	=> 'Salida',
+						'clase'		=> 'label label-success',
+						'title'		=> 'Horario de salida: '
+						);
+	}else{
+		$parametro="";
+	}
+	
+	return $parametro;
+}
 ?>
  

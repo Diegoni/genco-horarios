@@ -30,7 +30,7 @@ $fecha=date("d-m-Y");
 $query="SELECT 	usuario.id_usuario,
 				usuario.usuario as usuario,
 				usuario.legajo as legajo,
-				departamento.nombre as departamento				
+				departamento.departamento as departamento				
 		FROM `usuario` 
 		INNER JOIN
 		departamento on(usuario.id_departamento=departamento.id_departamento)
@@ -41,7 +41,7 @@ $row_usuario = mysql_fetch_assoc($usuario);
 $query="SELECT 	usuario.id_usuario,
 				usuario.usuario as usuario,
 				usuario.legajo as legajo,
-				departamento.nombre as departamento				
+				departamento.departamento as departamento				
 		FROM `usuario` 
 		INNER JOIN
 		departamento on(usuario.id_departamento=departamento.id_departamento)
@@ -53,7 +53,7 @@ $row_usuarios = mysql_fetch_assoc($usuarios);
 $query="SELECT 	usuario.id_usuario,
 				usuario.usuario as usuario,
 				usuario.legajo as legajo,
-				departamento.nombre as departamento				
+				departamento.departamento as departamento				
 		FROM `usuario` 
 		INNER JOIN
 		departamento on(usuario.id_departamento=departamento.id_departamento)

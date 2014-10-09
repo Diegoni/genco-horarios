@@ -41,6 +41,10 @@ include_once("helpers.php");
 			</li>
 			
 			<li class="">
+				<a href="reporte_tardanza.php">Reporte tardanza</a>
+			</li>
+			
+			<li class="">
 				<a href="usuarios.php">Usuarios</a>
 			</li>
 								

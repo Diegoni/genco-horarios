@@ -7,9 +7,13 @@ include_once("menu.php");
 include_once($url['models_url']."convenios_model.php");   
 include_once($url['models_url']."convenio_turnos_model.php");
 include_once($url['models_url']."mensajes_model.php");
+include_once($url['models_url']."turnos_model.php");
 
 	$convenio_turno=getConvenioturno($_GET['id']);
 	$row_convenio_turno = mysql_fetch_assoc($convenio_turno);
+	
+	$turno=getTurnos();
+	$row_turno = mysql_fetch_assoc($turno);
 
 
 ?>
@@ -115,6 +119,21 @@ include_once($url['models_url']."mensajes_model.php");
 					  	</div>
 					</div>
     			</td>
+			</tr>
+			<tr>
+				<td>Turno</td>
+				<td>
+					<select class="form-control" name="id_turno">
+					<?php
+						do{ 
+						if ($row_convenio_turno['id_turno']==$row_turno['id_turno']){?>	
+							<option value="<?php echo $row_turno['id_turno'];?>" selected><?php echo $row_turno['turno'];?></option>
+					<?php }else{ ?>
+							<option value="<?php echo $row_turno['id_turno'];?>"><?php echo $row_turno['turno'];?></option>
+					<?php }?>
+					<?php } while ($row_turno = mysql_fetch_array($turno))?>
+					</select>
+				</td>
 			</tr>
 			<tr>				
 				<td></td>

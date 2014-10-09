@@ -30,7 +30,7 @@ if($action==0){
 
 <tr>
 <td>Departamento</td>
-<td><input type="text" name="departamento" class="form-control" value="<?php echo $row_departamento['nombre'];?>" <?php echo $input_action; ?> required></td>
+<td><input type="text" name="departamento" class="form-control" value="<?php echo $row_departamento['departamento'];?>" <?php echo $input_action; ?> required></td>
 </tr>
 
 <?php if($action==0){?>
@@ -46,7 +46,7 @@ if($action==0){
 <tr>
 <td></td>
 <td>
-<button type="submit" onclick="return confirm('Esta seguro de eliminar este item?');" class="btn btn-primary" name="delete" value="1" title="Dar de baja al departamento <?php echo $row_departamento['nombre'];?>"><i class="icon-minus-sign"></i> Eliminar</button>
+<button type="submit" onclick="return confirm('Esta seguro de eliminar este item?');" class="btn btn-primary" name="delete" value="1" title="Dar de baja al departamento <?php echo $row_departamento['departamento'];?>"><i class="icon-minus-sign"></i> Eliminar</button>
 <A class="btn btn-danger"  HREF="departamentos.php" title="Cancelar la baja"> <i class="icon-ban-circle"></i> Cancelar</A></td>
 </tr>  
 
@@ -74,7 +74,7 @@ if($action==0){
 <tr>
 <td></td>
 <td>
-<button type="submit" class="btn btn-primary" name="modificar" value="1" title="Editar departamento <?php echo $row_departamento['nombre'];?>"><i class="icon-edit"></i> Editar</button>
+<button type="submit" class="btn btn-primary" name="modificar" value="1" title="Editar departamento <?php echo $row_departamento['departamento'];?>"><i class="icon-edit"></i> Editar</button>
 <A class="btn btn-danger"  title="Cancelar la edición" HREF="departamentos.php"><i class="icon-ban-circle"></i> Cancelar</A></td>
 </tr> 
 

@@ -18,7 +18,7 @@ function getUsuario($id){
     			usuario.id_empresa as id_empresa,
     			empresa.empresa as empresa,
     			empresa.cuil as cuil_empresa,
-				departamento.nombre as departamento,
+				departamento.departamento as departamento,
 				convenio.semana as semana,				
 				convenio.sabado as sabado,	
 				convenio.id_convenio as id_convenio,			
@@ -45,7 +45,7 @@ function getUsuario($id){
 				usuario.fecha_ingreso as fecha_ingreso,
     			usuario.foto_nombre as foto_nombre,
     			empresa.empresa as empresa,
-				departamento.nombre as departamento,
+				departamento.departamento as departamento,
 				convenio.semana as semana,				
 				convenio.sabado as sabado,	
 				convenio.id_convenio as id_convenio,			
@@ -70,7 +70,7 @@ function getUsuarios($dato=NULL, $campo=NULL){
 					usuario.usuario as usuario,
 					usuario.legajo as legajo,
 					usuario.id_estado as id_estado,
-					departamento.nombre as departamento,
+					departamento.departamento as departamento,
 					convenio.semana as semana,								
 					convenio.sabado as sabado,								
 					convenio.salida_sabado as salida_sabado		
@@ -86,11 +86,12 @@ function getUsuarios($dato=NULL, $campo=NULL){
 					usuario.usuario as usuario,
 					usuario.legajo as legajo,
 					usuario.id_estado as id_estado,
-					departamento.nombre as departamento
+					departamento.departamento as departamento
 			FROM `usuario` INNER JOIN departamento
 			ON (usuario.id_departamento=departamento.id_departamento)
 			WHERE 
 			usuario.$campo like '$dato' 
+			AND usuario.id_estado=1
 			ORDER BY usuario.usuario";   
 		$usuario=mysql_query($query) or die(mysql_error());
 	}else{
@@ -101,7 +102,7 @@ function getUsuarios($dato=NULL, $campo=NULL){
 					usuario.id_estado as id_estado,
 					usuario.fecha_ingreso as fecha_ingreso,
 					usuario.id_convenio as id_convenio,
-					departamento.nombre as departamento,
+					departamento.departamento as departamento,
 					convenio.semana as semana,								
 					convenio.sabado as sabado,								
 					convenio.salida_sabado as salida_sabado		

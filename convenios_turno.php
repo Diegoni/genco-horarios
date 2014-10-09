@@ -7,7 +7,11 @@ include_once("menu.php");
 include_once($url['models_url']."convenios_model.php");   
 include_once($url['models_url']."convenio_turnos_model.php");
 include_once($url['models_url']."mensajes_model.php");
+include_once($url['models_url']."turnos_model.php");
 include_once("helpers.php");
+
+	$turno=getTurnos();
+	$row_turno = mysql_fetch_assoc($turno);
 
 /*--------------------------------------------------------------------
 ----------------------------------------------------------------------
@@ -114,19 +118,20 @@ if(isset($_GET['edit'])){
 		$redondeo=1;
 	}	
 	
-	$datos=array(	'id_convenio_turno'=>$_GET['id_convenio_turno'],
-					'entrada'=>$_GET['entrada'],
-					'salida'=>$_GET['salida'],
-					'limite'=>$_GET['limite'],
-					'id_estado'=>$id_estado,
-					'lunes'=>$lunes,
-					'martes'=>$martes,
-					'miercoles'=>$miercoles,
-					'jueves'=>$jueves,
-					'viernes'=>$viernes,
-					'sabado'=>$sabado,
-					'domingo'=>$domingo,
-					'redondeo'=>$redondeo	
+	$datos=array(	'id_convenio_turno'	=> $_GET['id_convenio_turno'],
+					'entrada'			=> $_GET['entrada'],
+					'salida'			=> $_GET['salida'],
+					'limite'			=> $_GET['limite'],
+					'id_estado'			=> $id_estado,
+					'lunes'				=> $lunes,
+					'martes'			=> $martes,
+					'miercoles'			=> $miercoles,
+					'jueves'			=> $jueves,
+					'viernes'			=> $viernes,
+					'sabado'			=> $sabado,
+					'domingo'			=> $domingo,
+					'redondeo'			=> $redondeo,
+					'id_turno'			=> $_GET['id_turno']	
 	);		
 		
 	updateConvenioturno($datos);
@@ -297,6 +302,18 @@ if (isset($_GET['delete'])){
 					</div>
     			</td>
 			</tr>
+			
+			<tr>
+				<td>Turno</td>
+				<td>
+					<select class="form-control" name="id_turno">
+					<?php do{ ?> 
+							<option value="<?php echo $row_turno['id_turno'];?>"><?php echo $row_turno['turno'];?></option>
+					<?php } while ($row_turno = mysql_fetch_array($turno))?>
+					</select>
+				</td>
+			</tr>
+			
 			<tr>				
 				<td></td>
 				<td>
