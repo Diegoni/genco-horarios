@@ -62,7 +62,6 @@ if(isset($_FILES['firma'])){
 	 }while($row_config=mysql_fetch_array($configs));
 	 
 	 
-
 ?>
 <div class="row">
 <div class="span12">
