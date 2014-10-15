@@ -11,6 +11,10 @@ $(document).ready(function() {
 	$('.dia:contains("Domingo")').addClass("label label-danger");
 });
 
+$(document).ready(function() {
+	$('.hide_loading').hide();
+});
+
 
 
 

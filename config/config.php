@@ -4,7 +4,8 @@
 		'librerias_url'			=> "librerias/",
 		'imagenes_perfil_url'	=> "imagenes/perfil/",
 		'arhivo_otra_hora'		=> "imagenes/otra_hora/",
-		'iconos_url'			=> "imagenes/iconos/"
+		'iconos_url'			=> "imagenes/iconos/",
+		'imagenes'				=> "imagenes/"
 	);
 	
 		

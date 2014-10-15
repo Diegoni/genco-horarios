@@ -73,13 +73,16 @@ if(isset($_FILES['firma'])){
 	<div class="pull-right"><h4>Configuración</h4></div>
 </div>
 
+<div class="panel panel-default">
+<div class="panel-body">
 <div class="tabbable"> <!-- Only required for left/right tabs -->
-  <ul class="nav nav-tabs">
-    <li class="active"><a href="#tab1" data-toggle="tab">Sistema</a></li>
-    <li><a href="#tab2" data-toggle="tab">Redondeo</a></li>
-    <li><a href="#tab3" data-toggle="tab">Impresión</a></li>
-  </ul>
-  <div class="tab-content">
+	<ul class="nav nav-tabs">
+		<li class="active"><a href="#tab1" data-toggle="tab">Sistema</a></li>
+    	<li><a href="#tab2" data-toggle="tab">Redondeo</a></li>
+    	<li><a href="#tab3" data-toggle="tab">Impresión</a></li>
+	</ul>
+  	<div class="tab-content">
+    
     <div class="tab-pane active" id="tab1">
 		<table class="table table-hover">
 		<tr>
@@ -107,6 +110,7 @@ if(isset($_FILES['firma'])){
 		</tr>
 		</table>
     </div>
+    
     <div class="tab-pane" id="tab2">
     	<table class="table table-hover">
 		<input type="hidden" name="id" value="<?php echo $id_config?>">
@@ -121,7 +125,8 @@ if(isset($_FILES['firma'])){
 		</tr>
 		</table>      	
     </div>
-    <div class="tab-pane" id="tab3">
+   
+	<div class="tab-pane" id="tab3">
        	<table class="table table-hover">
 		<tr>
 			<td>Mostrar fecha actual</td>
@@ -159,23 +164,26 @@ if(isset($_FILES['firma'])){
     </div>
   </div>
 </div>
+</div>
+</div>
 </form>
+
 <div class="slidingDiv">
-			<h4>Logo</h4>
-			<form action="config.php" method="post" enctype="multipart/form-data">
-			<input type="file" name="foto"><br>	
-			<input type="submit" class ="btn btn-default" value="Enviar">
-			<a href='#' class='show_hide btn btn-danger'>Cancelar</a>
-			</form>
+	<h4>Logo</h4>
+	<form action="config.php" method="post" enctype="multipart/form-data">
+		<input type="file" name="foto"><br>	
+		<input type="submit" class ="btn btn-default" value="Enviar">
+		<a href='#' class='show_hide btn btn-danger'>Cancelar</a>
+	</form>
 </div>
  
 <div class="slidingDiv2">
-			<h4>Firma</h4>
-			<form action="config.php" method="post" enctype="multipart/form-data">
-			<input type="file" name="firma"><br>	
-			<input type="submit" class ="btn btn-default" value="Enviar">
-			<a href='#' class='show_hide2 btn btn-danger'>Cancelar</a>
-			</form>
+	<h4>Firma</h4>
+	<form action="config.php" method="post" enctype="multipart/form-data">
+		<input type="file" name="firma"><br>	
+		<input type="submit" class ="btn btn-default" value="Enviar">
+		<a href='#' class='show_hide2 btn btn-danger'>Cancelar</a>
+	</form>
 </div>
 </center>
 </div>

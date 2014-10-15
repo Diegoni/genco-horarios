@@ -232,11 +232,14 @@ if($_GET['buscar']==1){
 		<div class="panel panel-default">
 			<a class='btn btn-default pull-right' href="javascript:imprSelec('muestra')" ><i class="icon-print"></i> Imprimir</a>
 			<div class="panel-body" id="muestra">
+				<img src="<?php echo $url['imagenes']?>loading_small.gif" class="hide_loading">
 				<?php do{ ?>
 					<a name="seccion<?php echo $row_usuario2['id_usuario']?>" id="seccion<?php echo $row_usuario2['id_usuario']?>"></a>
 					<div class="slidingDiv <?php echo $row_usuario2['id_usuario']?>">
 						<?php 
 						if(isset($_GET['buscar'])){?>
+							
+							
 							
 							<a href="#" class="upscroll"><h3><?php echo $row_usuario2['usuario']?></h3></a>
 							

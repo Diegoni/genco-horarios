@@ -70,11 +70,13 @@ if($action==0){
 <a href="#myModal" role="button" class="btn btn-default" id="opener" data-toggle="modal"><i class="icon-question-sign"></i></a>
  
 <!-- Modal -->
-<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-<div class="modal-header">
-<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-<h3 id="myModalLabel"><i class="icon-question-sign"></i> Ayuda</h3>
-</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+    <div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<h3 id="myModalLabel"><i class="icon-question-sign"></i> Ayuda</h3>
+		</div>
 <div class="modal-body">
 <p>La empresa eliminada no se mostrara más en las planillas de horarios.<p> 
 <p>La empresa no se borra de la base de datos solo se cambia su estado, se puede recuperar la empresa si se elimina.</p>

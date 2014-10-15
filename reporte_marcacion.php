@@ -252,7 +252,7 @@ if($_GET['buscar']==1){
 							
 							<a href="#" class="upscroll">
 								<h3>
-									<?php echo $row_usuario2['usuario'];?>
+									<img src="<?php echo $url['imagenes']?>loading_small.gif"><?php echo $row_usuario2['usuario'];?>
 								</h3>
 							</a>
 							

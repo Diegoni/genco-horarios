@@ -5,6 +5,7 @@ session_start();
 	}
 include_once("menu.php");
 include_once($url['models_url']."departamentos_model.php");   
+include_once($url['models_url']."encargados_model.php");
 include_once($url['models_url']."mensajes_model.php"); 
 
 
@@ -48,12 +49,16 @@ if(isset($_GET['nuevo'])){
 
 //si no hay busqueda los trae a todos
 if(isset($_GET['buscar'])){
-	$departamento=getDepartamentos($_GET['departamento'], 'departamento');
+	$departamento			= getDepartamentos($_GET['departamento'], 'departamento');
 }else{
-	$departamento=getDepartamentos();
+	$departamento			= getDepartamentos();
 }			
-	$row_departamento = mysql_fetch_assoc($departamento);
-	$numero_departamentos = mysql_num_rows($departamento);
+	$row_departamento		= mysql_fetch_assoc($departamento);
+	$numero_departamentos	= mysql_num_rows($departamento);
+	
+	$encargado				= getEncargados();
+	$row_encargado			= mysql_fetch_assoc($encargado);
+	$numero_encargado		= mysql_num_rows($encargado);
 
 
 
@@ -70,10 +75,10 @@ if(isset($_GET['buscar'])){
 }?>
 
 <div ALIGN=left class="well">
-<a href='#' class='show_hide btn btn-primary' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
-<a href="javascript:imprSelec('muestra')" class='btn btn-default'><i class="icon-print"></i> Imprimir</a>
-<button class="btn btn-default" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
-<div class="pull-right"><h4>Departamentos</h4></div>
+	<a href='#' class='show_hide btn btn-primary' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
+	<a href="javascript:imprSelec('muestra')" class='btn btn-default'><i class="icon-print"></i> Imprimir</a>
+	<button class="btn btn-default" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
+	<div class="pull-right"><h4>Departamentos</h4></div>
 </div>
 <br>
 
@@ -93,6 +98,18 @@ if(isset($_GET['buscar'])){
 		<td>Departamento</td>
 		<td><input type="text" name="departamento" class="form-control" placeholder="ingrese departamento" required></td>
 	</tr>
+	
+	<?php if($numero_encargado>0){ ?>
+	<tr>
+		<td>Encargados</td>
+		<td><select class="chosen-select form-control" tabindex="2" multiple>
+				<?php do{ ?> 
+				<option value="<?php echo $row_encargado['id_encargado']?>"><?php echo $row_encargado['apellido']?> <?php echo $row_encargado['nombre']?></option>
+				<?php }while($row_encargado = mysql_fetch_array($encargado)); ?>
+			</select>
+		</td>
+	</tr>
+	<?php }?>
 	
 	<tr>
 		<td></td>

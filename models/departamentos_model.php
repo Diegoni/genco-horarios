@@ -5,7 +5,7 @@ function deleteDepartamento($id){
 
 function updateDepartamento($departamento,$id){
 	mysql_query("UPDATE `departamento` SET	
-				nombre='$departamento',
+				departamento='$departamento',
 				id_estado=1		
 				WHERE id_departamento='$id'			
 				") or die(mysql_error());

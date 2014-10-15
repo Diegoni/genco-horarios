@@ -53,7 +53,12 @@ include_once("helpers.php");
 			</li>
 								
 			<li class="">
-				<a href="departamentos.php">Departamentos</a>
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Departamentos <span class="caret"></span></a>
+				<ul class="dropdown-menu" role="menu">
+					<li><a href="departamentos.php">Departamentos</a></li>
+					<li><a href="encargados.php">Encargados</a></li>							
+				</ul>
+				
 			</li>
 								
 			<li class="">
