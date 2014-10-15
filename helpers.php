@@ -192,6 +192,7 @@ function esferiado($valor){
 
 }
 
+/*
 function gestorErrores($numerr, $menserr, $nombrearchivo, $numlinea, $vars){
 	$tipoerror= array(	E_WARNING=>'Alerta', 
 						E_NOTICE=> 'Nota', 
@@ -216,6 +217,7 @@ function gestorErrores($numerr, $menserr, $nombrearchivo, $numlinea, $vars){
 }
 
 $gestor_error_antiguo=set_error_handler("gestorErrores");//manejador de errores
+*/
 
 function tipoMarcacion($row_marcacion, $cantidad_parametros){
 	if($cantidad_parametros==0){//sin marcacion
@@ -303,5 +305,29 @@ function tipoParametro($id){
 	
 	return $parametro;
 }
+
+
+
+/***************************************************************************
+ * *************************************************************************
+ * 					Para hacer selected un select
+ * *************************************************************************
+ * ************************************************************************/
+ 
+ function selected($id, $variable){
+		
+	if(isset($_GET[$variable]) && $_GET[$variable]==$id){
+		$cadena="selected";
+		
+	}else{
+		$cadena="";
+		echo $cadena;
+	}
+	
+	
+	return $cadena;
+}
+ 
+
 ?>
  

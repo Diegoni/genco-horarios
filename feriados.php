@@ -53,6 +53,7 @@ if (isset($_GET['nuevo'])){
 	?>
 	<div class="row">
 	<div class="span12">
+
 	<center>
 
 	<!-- si hay modificacion o eliminacion de usuario se da aviso que se realizado exitosamente -->
@@ -67,6 +68,7 @@ if (isset($_GET['nuevo'])){
 	
 	<div ALIGN=left class="well">
 	<a href='#' class='show_hide btn btn-primary' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
+	<a href='#' class='show_hide2 btn btn-default' title='Ver calendario'><i class="icon-table"></i> Calendario</a>
 	<a href="javascript:imprSelec('muestra')" class='btn btn-default'><i class="icon-print"></i> Imprimir</a>
 	<button class="btn btn-default" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
 	<div class="pull-right"><h4>Feriados</h4></div>
@@ -78,7 +80,8 @@ if (isset($_GET['nuevo'])){
 ----------------------------------------------------------------------
 					Nuevos Feriados
 ----------------------------------------------------------------------
---------------------------------------------------------------------->		
+--------------------------------------------------------------------->	
+	
 	<div class='slidingDiv'>
 	<div class="well">
 	<form action="feriados.php" method="get" > 
@@ -101,6 +104,14 @@ if (isset($_GET['nuevo'])){
 	</table>
 	</form>
 	</div>
+	</div>
+	
+	<div class='slidingDiv2'>
+		<div class="row">
+			<div class="span12">
+				<iframe src="https://www.google.com/calendar/embed?src=es.ar%23holiday%40group.v.calendar.google.com&ctz=America/New_York" style="border: 0; padding-bottom: 15px" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+			</div>
+		</div>
 	</div>
 	
 	

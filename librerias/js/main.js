@@ -27,6 +27,14 @@ $(document).ready(function(){
             $("html, body").animate({ scrollTop: 0 }, 600);
             return false;
         });
+        
+        
+        $('.upscroll').click(function(){
+            $("html, body").animate({ scrollTop: 0 }, 600);
+           	return false;
+        });
+        
+        
  
 });
 

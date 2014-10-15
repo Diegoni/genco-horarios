@@ -37,11 +37,15 @@ include_once("helpers.php");
 			</li>
 			
 			<li class="">
-				<a href="usuario2.php">Total usuarios</a>
+				<a href="usuario2.php">Sumas totales</a>
 			</li>
 			
-			<li class="">
-				<a href="reporte_tardanza.php">Reporte tardanza</a>
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Reporte <span class="caret"></span></a>
+				<ul class="dropdown-menu" role="menu">
+					<li><a href="reporte_marcacion.php">Marcaciones</a></li>
+					<li><a href="reporte_tardanza.php">Tardanza</a></li>							
+				</ul>
 			</li>
 			
 			<li class="">

@@ -3,7 +3,7 @@ include_once("head.php");
 include_once($url['models_url']."usuarios_model.php");
 include_once($url['models_url']."marcadas_model.php");
 include_once("helpers.php"); ?>
-<HTML LANG=”es”>
+<HTML LANG="es">
 <title>Reporte horario.</title>
 <TITLE><?php $title;?></TITLE>
 <style>

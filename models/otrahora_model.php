@@ -12,6 +12,7 @@ function getOtrahora($id=NULL, $fecha_inicio=NULL, $fecha_final=NULL){
 	if(isset($id, $fecha_inicio, $fecha_final)){
 		$query="SELECT * 
 		FROM otrahora 
+		INNER JOIN tipootra ON(otrahora.id_tipootra=tipootra.id_tipootra)
 		WHERE 
 		fecha >= '$fecha_inicio' AND
 		fecha <= '$fecha_final' AND

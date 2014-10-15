@@ -172,6 +172,7 @@
 }
 
 .button:hover{
+ cursor: pointer;
  border:1px solid #1c5675;
  background-color: #26759e; background-image: -webkit-gradient(linear, left top, left bottom, from(#26759e), to(#133d5b));
  background-image: -webkit-linear-gradient(top, #26759e, #133d5b);
@@ -241,7 +242,8 @@ body {
    font-size: 12px;
    margin: 0;
    padding: 0;
-   background:  #dfdfdf repeat-x;
+   background-image: url("linen.jpg");
+   /*background:  #dfdfdf repeat-x;*/
    
 }
 

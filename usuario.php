@@ -331,7 +331,7 @@ include_once("helpers.php");
 		<th title="Tarde - Entrada">t-e</th>
 		<th title="Tarde - Salida">t-s</th>
 		<th title="Subtotales">Subtotal</th>
-		<?php if($config['mostar_marcada']==1 && $config['aplicar_redondeo']==1){ ?>
+		<?php if($config['mostrar_marcada']==1){ ?>
 		<th title="Calculo de horas laborales">Horas</th>
 		<?php } ?>
 		<?php if($config['aplicar_redondeo']==1){ ?>
@@ -400,6 +400,7 @@ include_once("helpers.php");
 					}
 								
 					$registro=tipoMarcacion($row_marcacion, $cantidad_parametros); ?>
+					
 			<td class="td_center">
 				<p class="<?php echo $registro['label_class']; ?>" title="<?php echo $registro['label_title']; ?>">
 					<a class="<?php echo $registro['a_class']; ?>" onClick="abrirVentana('edit.php?id=<?php echo $row_usuario['id_usuario']?>&fecha=<?php echo $valor?>')">
@@ -439,7 +440,7 @@ include_once("helpers.php");
 			if($subtotal>0){ ?>
 				<td><?php   echo pasar_hora($m)." + ".pasar_hora($t) ?></td>
 					
-				<?php if($config['mostar_marcada']==1 && $config['aplicar_redondeo']==1){ ?>
+				<?php if($config['mostrar_marcada']==1){ ?>
 					<td><?php   echo pasar_hora($subtotal); ?></td>	
 				<?php } ?>  
 				
@@ -449,7 +450,7 @@ include_once("helpers.php");
 				<?php } ?> 
 			<?php } else {?>
 				<td> - </td>
-				<?php if($config['mostar_marcada']==1 && $config['aplicar_redondeo']==1){ ?>
+				<?php if($config['mostrar_marcada']==1){ ?>
 					<td> - </td>
 				<?php } ?>  
 				
