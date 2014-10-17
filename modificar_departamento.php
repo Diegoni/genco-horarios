@@ -5,13 +5,19 @@ session_start();
 	}
 include_once("menu.php");
 include_once($url['models_url']."departamentos_model.php");  
+include_once($url['models_url']."encargados_model.php");
 
-//seleccion del usuario
-$departamento=getDepartamento($_GET['id']);
-$row_departamento = mysql_fetch_assoc($departamento);
+//seleccion del departamento
+$departamento		= getDepartamento($_GET['id']);
+$row_departamento 	= mysql_fetch_assoc($departamento);
 
-$action=$_GET['action'];
-$input_action="";
+$encargado			= getEncargados();
+$row_encargado		= mysql_fetch_assoc($encargado);
+$numero_encargado	= mysql_num_rows($encargado);
+
+$action				= $_GET['action'];
+$input_action		= "";
+
 if($action==0){
 	$input_action="readonly";
 }
@@ -32,6 +38,18 @@ if($action==0){
 <td>Departamento</td>
 <td><input type="text" name="departamento" class="form-control" value="<?php echo $row_departamento['departamento'];?>" <?php echo $input_action; ?> required></td>
 </tr>
+
+	<?php if($numero_encargado>0){ ?>
+	<tr>
+		<td>Encargados</td>
+		<td><select class="chosen-select form-control" tabindex="2" name="encargados[]" multiple>
+				<?php do{ ?> 
+				<option value="<?php echo $row_encargado['id_encargado']?>"><?php echo $row_encargado['apellido']?> <?php echo $row_encargado['nombre']?></option>
+				<?php }while($row_encargado = mysql_fetch_array($encargado)); ?>
+			</select>
+		</td>
+	</tr>
+	<?php }?>
 
 <?php if($action==0){?>
 <tr>

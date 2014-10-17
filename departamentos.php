@@ -6,6 +6,7 @@ session_start();
 include_once("menu.php");
 include_once($url['models_url']."departamentos_model.php");   
 include_once($url['models_url']."encargados_model.php");
+include_once($url['models_url']."departamento_encargado_model.php");
 include_once($url['models_url']."mensajes_model.php"); 
 
 
@@ -21,15 +22,26 @@ if(isset($_GET['delete'])){
 
 //modifica al usuario segun el formulario de modificar.php
 if(isset($_GET['modificar'])){
-	updateDepartamento($_GET['departamento'],$_GET['id']);
+	
+	deleteDepartamento_encargado($_GET['id']);
+	
+	foreach ($_GET['encargados'] as $key => $value) {
+		$datos=array(
+					'id_encargado'		=> $value,
+					'id_departamento'	=> $_GET['id']);
+		insertDepartamento_encargado($datos);
+	}
+	
+	updateDepartamento($_GET['departamento'], $_GET['id']);
 }
 
 //modifica al usuario segun el formulario de modificar.php
 if(isset($_GET['nuevo'])){
-
-	$departamento=getDepartamentos($_GET['departamento'], 'departamento');
-	$row_departamento = mysql_fetch_assoc($departamento);
-	$numero_departamentos = mysql_num_rows($departamento);
+	
+	$departamento			= getDepartamentos($_GET['departamento'], 'departamento');
+	$row_departamento 		= mysql_fetch_assoc($departamento);
+	$numero_departamentos 	= mysql_num_rows($departamento);
+	
 	
 	if($numero_departamentos>0){
 		echo getMensajes('insert', 'error', 'Departamento', $_GET['departamento']);
@@ -59,6 +71,10 @@ if(isset($_GET['buscar'])){
 	$encargado				= getEncargados();
 	$row_encargado			= mysql_fetch_assoc($encargado);
 	$numero_encargado		= mysql_num_rows($encargado);
+	
+	$d_encargado			= getDepartamento_encargado($_GET['id']);
+	$row_d_encargado		= mysql_fetch_assoc($d_encargado);
+	$numero_d_encargado		= mysql_num_rows($d_encargado);
 
 
 
@@ -102,7 +118,7 @@ if(isset($_GET['buscar'])){
 	<?php if($numero_encargado>0){ ?>
 	<tr>
 		<td>Encargados</td>
-		<td><select class="chosen-select form-control" tabindex="2" multiple>
+		<td><select class="chosen-select form-control" tabindex="2" name="encargados" multiple>
 				<?php do{ ?> 
 				<option value="<?php echo $row_encargado['id_encargado']?>"><?php echo $row_encargado['apellido']?> <?php echo $row_encargado['nombre']?></option>
 				<?php }while($row_encargado = mysql_fetch_array($encargado)); ?>

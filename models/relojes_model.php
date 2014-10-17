@@ -1,9 +1,9 @@
 <?php
-function deleteDepartamento($id){
+function deleteReloj($id){
 	mysql_query("UPDATE `departamento` SET id_estado=0 WHERE id_departamento='$id'") or die(mysql_error());
 }
 
-function updateDepartamento($departamento,$id){
+function updateReloj($departamento,$id){
 	mysql_query("UPDATE `departamento` SET	
 				departamento='$departamento',
 				id_estado=1		
@@ -11,30 +11,30 @@ function updateDepartamento($departamento,$id){
 				") or die(mysql_error());
 }
 
-function getDepartamentos($dato=NULL, $campo=NULL){
+function getRelojes($dato=NULL, $campo=NULL){
 	
 	if(isset($dato, $campo)){
 		$query="SELECT  *
-				FROM `departamento` 
+				FROM `relojes` 
 				WHERE 
-				departamento.$campo like '$dato'";
-		$departamento=mysql_query($query) or die(mysql_error());
+				relojes.$campo like '$dato'";
+		$relojes=mysql_query($query) or die(mysql_error());
 	}else{
 		
-		$query="SELECT * FROM departamento WHERE id_estado=1 ORDER BY departamento";   
-		$departamento=mysql_query($query) or die(mysql_error());
+		$query="SELECT * FROM relojes WHERE relojes.delete=0 ORDER BY reloj";   
+		$relojes=mysql_query($query) or die(mysql_error());
 	}	
-	return $departamento;
+	return $relojes;
 }
 
-function getDepartamento($id){
+function getReloj($id){
 	$query="SELECT * FROM `departamento` WHERE id_departamento='$id'";   
 	$departamento=mysql_query($query) or die(mysql_error());
 
 	return $departamento;
 }
 
-function insertDepartamento($departamento){
+function insertReloj($departamento){
 	$query="SELECT max(id_departamento) as max FROM `departamento`";
 	$departamentos=mysql_query($query) or die(mysql_error());
 	$row_departamento = mysql_fetch_assoc($departamentos);

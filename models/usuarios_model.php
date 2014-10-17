@@ -132,7 +132,7 @@ function getUsuarios($dato=NULL, $campo=NULL){
 			INNER JOIN convenio 
 			ON(usuario.id_convenio=convenio.id_convenio)
 			WHERE 
-			usuario.id_estado=1
+			usuario.id_estado = 1
 			ORDER BY usuario.usuario";  
 		$usuario=mysql_query($query) or die(mysql_error());
 	}

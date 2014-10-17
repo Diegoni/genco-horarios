@@ -109,7 +109,7 @@ if (isset($_GET['nuevo'])){
 	<div class='slidingDiv2'>
 		<div class="row">
 			<div class="span12">
-				<iframe src="https://www.google.com/calendar/embed?src=es.ar%23holiday%40group.v.calendar.google.com&ctz=America/New_York" style="border: 0; padding-bottom: 15px" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+				<iframe src="https://www.google.com/calendar/embed?showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=es.ar%23holiday%40group.v.calendar.google.com&amp;color=%23711616&amp;ctz=America%2FArgentina%2FBuenos_Aires" style=" border-width:0 " width="800" height="600" frameborder="0" scrolling="no"></iframe>
 			</div>
 		</div>
 	</div>
