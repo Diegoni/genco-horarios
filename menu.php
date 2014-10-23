@@ -72,6 +72,7 @@ include_once("helpers.php");
 					<li><a href="convenios.php">Convenios</a></li>							
 					<li><a href="limites.php">Limites</a></li>
 					<li><a href="config.php">Config</a></li>
+					<li><a href="update_relojes_form.php">Actualización manual</a></li>
 					<li><a href="log.php">Logs</a></li>
 					<li><a href="exportar/Genco-Horarios.pdf" target="_blank">Ayuda</a></li>
 				</ul>
@@ -80,7 +81,7 @@ include_once("helpers.php");
      
 		<ul class="nav navbar-nav navbar-right">
 			<li class="">
-				<a class="brand" title="Cerrar sessión de usuario" href="login/logout.php"><?=$_SESSION['usuario_nombre']?> <i class="icon-signout"></i></a>
+				<a class="brand" title="Cerrar sessión de usuario" href="login/logout.php"><?php echo $_SESSION['usuario_nombre']?> <i class="icon-signout"></i></a>
 			</li>
 		</ul>
 	</div><!-- /.navbar-collapse -->

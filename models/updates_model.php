@@ -1,21 +1,30 @@
 <?php
 function getUpdates(){
-	$query="SELECT * FROM `update` 
-			ORDER BY id_update DESC";   
+	$query="SELECT * FROM `update` INNER JOIN relojes ON (update.id_reloj=relojes.id_reloj) ORDER BY update.start_date, relojes.id_reloj";   
 	$update=mysql_query($query) or die(mysql_error());
+	
+	return $update;
 }
 
-function insertUpdate($ultima_fecha, $USERID, $fecha_hoy, $i){
+function insertUpdate($datos){
+	
 	mysql_query("INSERT INTO  `update` (
-				`ultima_fecha` ,
-				`ultimo_id` ,
-				`fecha` ,
-				`registros`)
+				start_date,
+				end_date,
+				id_reloj,
+				cantidad_registros,
+				fecha_update,
+				id_tipo,
+				id_usuario
+				)
 		VALUES (
-				'$ultima_fecha',  
-				'$USERID',  
-				'$fecha_hoy',  
-				'$i'
+				'$datos[start_date]',
+				'$datos[end_date]',
+				'$datos[id_reloj]',
+				'$datos[cantidad_registros]',
+				'$datos[fecha_update]',
+				'$datos[id_tipo]',
+				'$datos[id_usuario]'
 				);") or die(mysql_error());
 }
 

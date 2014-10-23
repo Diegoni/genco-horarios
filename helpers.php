@@ -328,6 +328,56 @@ function tipoParametro($id){
 	return $cadena;
 }
  
+ /****************************************************************************
+  ****************************************************************************
+  * 				Para la actualización de los relojes 
+  ****************************************************************************
+  ***************************************************************************/
+  
+function buscarMarcacion($datos){
+	$contador=0;	
+	$dom = new DOMDocument();
+	
+	$html = $dom->loadHTMLFile('http://'.$datos['ip'].'/csl/query?action=run&uid='.$datos['id_u_reloj'].'&sdate='.$datos['start_date'].'&edate='.$datos['end_date'].'');
+		  
+	if(empty($html)){
+		$contador = 0;
+	}else{
+		//borramos los espacios en blanco 
+		$dom->preserveWhiteSpace = false; 
+		
+		//obtenemos el tag table
+		$tables = $dom->getElementsByTagName('table'); 
+		
+		//array con todos los tr
+		$rows = $tables->item(0)->getElementsByTagName('tr'); 
+		
+		//recorremos el array
+		foreach ($rows as $row){ 
+			$cols = $row->getElementsByTagName('td'); 
+		   		
+			if('Date'!=$cols->item(0)->nodeValue){
+				$registro=array(
+							'date'			=> $cols->item(0)->nodeValue,
+							//'id_user'		=> $cols->item(1)->nodeValue, 
+							'id_user'		=> $datos['id'],
+							'user'			=> $cols->item(2)->nodeValue,
+							'time'			=> $cols->item(3)->nodeValue,
+							'status'		=> $cols->item(4)->nodeValue,
+							'verification'	=> $cols->item(5)->nodeValue,
+							'id_reloj'		=> $datos['id_reloj']
+				);
+					
+				$contador = $contador + insertMarcadaReloj($registro);	
+			}
+		}
+	  	
+	  }
+	
+	  
+	return $contador; 
+}
+ 
 
 ?>
  

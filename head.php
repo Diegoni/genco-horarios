@@ -25,7 +25,7 @@ date_default_timezone_set('America/Argentina/Mendoza');
 
 <!-- Necesario para que funcione Jquery UI y Bootstrap -->
 
-<script src="<?php echo $url['librerias_url']?>js/jquery.min.js" type="text/javascript"></script>
+<!--<script src="<?php echo $url['librerias_url']?>js/jquery.min.js" type="text/javascript"></script>-->
 <!--<script src="<?php echo $url['librerias_url']?>jquery.dataTables.js" type="text/javascript" language="javascript"></script>-->
 
 <script type="text/javascript" charset="utf-8">
@@ -116,6 +116,8 @@ function imprSelec(muestra){
 
 
 <script type="text/javascript" src="<?php echo $url['librerias_url']?>scroll/jquery.slimscroll.js"></script>
+
+
 
 </head>
 

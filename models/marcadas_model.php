@@ -79,7 +79,6 @@ function insertMarcadaReloj($registro){
 				FROM marcada 
 				WHERE entrada_reloj like '$entrada' 
 				AND id_usuario='$registro[id_user]'";
-		   
 		$marcacion			= mysql_query($query) or die(mysql_error());
 		$cantidad_marcacion	= mysql_num_rows($marcacion);
 		
@@ -92,6 +91,7 @@ function insertMarcadaReloj($registro){
 			}else{ 
 			    $tipo=2; 
 			} 
+			
 			//BUSCO DENTRO DE PARAMETROS SI ES MAÑANA TARDE O NOCHE DEPENDIENDO DE LA HORA 
 			$query="SELECT * FROM `parametros`  
 			        WHERE DATE_FORMAT(inicio, '%H:%m')<'$hora'  
@@ -117,8 +117,7 @@ function insertMarcadaReloj($registro){
 							verification,
 							id_reloj,
 							entrada_reloj,
-							id_estado
-						)
+							id_estado)
 						VALUES(
 							'$entrada',
 						 	'$registro[id_user]',

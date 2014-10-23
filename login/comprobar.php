@@ -1,13 +1,24 @@
 <?php 
     session_start(); 
     include('../config/database.php');
-		include('../config/config.php');	
-		
+		include('../config/config.php');?>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="../<?php echo $url['librerias_url']?>css/login.css">
+<head>
+<body>
+	<div id="firstboxlogin">
+		<div id="logo_login"></div>
+		<div id="boxlogin">
+			<fieldset>
+			<legend>Autenticación</legend>	
+	
+	<?php		
 	if(isset($_POST['enviar'])) { 
 			// comprobamos que se hayan enviado los datos del formulario 
 			// comprobamos que los campos usuarios_nombre y usuario_clave no estén vacíos 
 		if(empty($_POST['usuario_nombre']) || empty($_POST['usuario_clave'])) {?> 
-		<div id="boxlogin">
+		<div class="row">
 			<?php echo "El usuario o el password no han sido ingresados. <a href='javascript:history.back();'>Reintentar</a>"; ?>
 		</div>
 		<?php }else { 
@@ -24,7 +35,7 @@
 					header("Location: ../index.php"); 
 				}else { 
 ?>
-			<div id="boxlogin">
+			<div class="row">
 				Error, no se ha podido conectar <a href="acceso.php">Reintentar</a> 
 			</div>
 <?php 
@@ -34,4 +45,9 @@
 		header("Location: acceso.php"); 
 	} 
 ?>
-<link rel="stylesheet" href="../css/login.css">
+			</fieldset>
+		</div>
+		</div>
+	</div>
+</body>
+</html>
