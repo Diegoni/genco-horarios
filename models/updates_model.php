@@ -6,6 +6,20 @@ function getUpdates(){
 	return $update;
 }
 
+function getUpdate($id){
+	$query="SELECT * FROM `update` INNER JOIN relojes ON (update.id_reloj=relojes.id_reloj) WHERE id_update='$id'";   
+	$update=mysql_query($query) or die(mysql_error());
+	
+	return $update;
+}
+
+function getlastUpdates($id){
+	$query="SELECT max(`end_date`) as end_date FROM `update` WHERE id_reloj='$id'";   
+	$update=mysql_query($query) or die(mysql_error());
+	
+	return $update;
+}
+
 function insertUpdate($datos){
 	
 	mysql_query("INSERT INTO  `update` (

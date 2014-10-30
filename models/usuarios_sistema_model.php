@@ -5,64 +5,12 @@ function getUsuario_sistema($id){
 		
 		return FALSE;
 	}else if(isset($id)){
-		$query="SELECT 	
-				usuario.id_usuario,
-				usuario.usuario as usuario,
-				usuario.legajo as legajo,
-				usuario.nombre as nombre,
-				usuario.apellido as apellido,
-				usuario.dni as dni,
-				usuario.cuil as cuil,
-				usuario.fecha_ingreso as fecha_ingreso,
-    			usuario.foto_nombre as foto_nombre,
-    			usuario.id_departamento as id_departamento,
-    			usuario.id_empresa as id_empresa,
-    			empresa.empresa as empresa,
-    			empresa.cuil as cuil_empresa,
-				departamento.departamento as departamento,
-				convenio.semana as semana,				
-				convenio.sabado as sabado,	
-				convenio.id_convenio as id_convenio,			
-				convenio.salida_sabado as salida_sabado				
-		FROM `usuario` 
-		INNER JOIN
-		departamento on(usuario.id_departamento=departamento.id_departamento)
-		INNER JOIN
-		convenio on(usuario.id_convenio=convenio.id_convenio)
-		INNER JOIN
-		empresa on(usuario.id_empresa=empresa.id_empresa)
-		WHERE id_usuario='$id'";   
-		$usuario=mysql_query($query) or die(mysql_error());
-		
-		return $usuario;
-	}else{
-		$query="SELECT 	usuario.id_usuario,
-				usuario.usuario as usuario,
-				usuario.legajo as legajo,
-				usuario.nombre as nombre,
-				usuario.apellido as apellido,
-				usuario.dni as dni,
-				usuario.cuil as cuil,
-				usuario.fecha_ingreso as fecha_ingreso,
-    			usuario.foto_nombre as foto_nombre,
-    			empresa.empresa as empresa,
-				departamento.departamento as departamento,
-				convenio.semana as semana,				
-				convenio.sabado as sabado,	
-				convenio.id_convenio as id_convenio,			
-				convenio.salida_sabado as salida_sabado				
-		FROM `usuario` 
-		INNER JOIN
-		departamento on(usuario.id_departamento=departamento.id_departamento)
-		INNER JOIN
-		convenio on(usuario.id_convenio=convenio.id_convenio)
-		INNER JOIN
-		empresa on(usuario.id_empresa=empresa.id_empresa)
-		WHERE usuario.id_estado=1";   
+		$query="SELECT * FROM `usuarios` WHERE usuarios.usuario_id='$id'";   
 		$usuario=mysql_query($query) or die(mysql_error());
 		
 		return $usuario;
 	}
+		
 }
 
 function getUsuarios_sistema($dato=NULL, $campo=NULL){

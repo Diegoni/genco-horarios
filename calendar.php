@@ -37,7 +37,8 @@ $cantidad_update	= mysql_num_rows($updates);
 					start: 	'<?php echo $row_update['start_date']?>',
 					end: 	'<?php echo date('Y-m-d', strtotime($row_update['end_date'].'+1 day'));?>',
 					color:  '<?php echo $row_update['color']?> ',
-					className: 'reloj-<?php echo $row_update['reloj']?>'
+					className: 'reloj-<?php echo $row_update['reloj']?>',
+					url: 'updates.php?id=<?php echo $row_update['id_update']?>'
 				},
 			<?php }while($row_update=mysql_fetch_array($updates)); ?>
 				{
@@ -45,17 +46,13 @@ $cantidad_update	= mysql_num_rows($updates);
 					start: '2014-10-01'
 				}
 			],
-			eventClick: function(calEvent, jsEvent, view) {
+			eventClick: function(event) {
+				if (event.url) {
+					window.open(event.url, "_blank", "toolbar=yes, scrollbars=yes, resizable=yes, top=50, left=500, width=400, height=460");
+					return false;
+				}
+			}
 
-       			//alert('Event: ' + calEvent.title);
-        		//alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-        		alert('View: ' + view.name);
-
-        		// change the border color just for fun
-        		$(this).css('border-color', 'red');
-        		//$(this).hide();
-    		}
-			
 		});
 		
 	});

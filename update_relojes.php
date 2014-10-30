@@ -11,25 +11,43 @@ include_once($url['models_url']."updates_model.php");
 include_once("helpers.php");
 
 
-if(	isset($_GET['start_date']) && 
-	isset($_GET['end_date']) && 
-	$_GET['start_date']<=$_GET['end_date']){
+if(	$_GET['start_date']<=$_GET['end_date']){
+	/*Si no hay fecha especifica buscamos los ultimos updates*/
+	if(!isset($_GET['start_date']) && !isset($_GET['end_date'])){
+		$relojes			= getRelojes();
+		$row_reloj			= mysql_fetch_assoc($relojes);
+		$cantidad_reloj		= mysql_num_rows($relojes);
+		
+		do{
+			$reloj_update			= getlastUpdates($row_reloj['id_reloj']);
+			$row_reloj_update		= mysql_fetch_assoc($reloj_update);
+			$dates['star_'.$row_reloj['id_reloj']] = $row_reloj_update['end_date'];
+		}while($row_reloj = mysql_fetch_array($relojes));
+	}
+	
+	/*Consulto si es para un solo reloj o todos*/
+	if($_GET['reloj']==0 || !isset($_GET['reloj'])){
+		$relojes			= getRelojes();
+		$row_reloj			= mysql_fetch_assoc($relojes);
+		$cantidad_reloj		= mysql_num_rows($relojes);
+	}else{
+		$relojes			= getReloj($_GET['reloj']);
+		$row_reloj			= mysql_fetch_assoc($relojes);
+		$cantidad_reloj		= mysql_num_rows($relojes);
+	}
 
-$relojes			= getRelojes();
-$row_reloj			= mysql_fetch_assoc($relojes);
-$cantidad_reloj		= mysql_num_rows($relojes);
+	/*Consulto si la actualización es manual o automatica*/
+	if(isset($_GET['tipo'])){
+		$tipo				= $_GET['tipo'];
+		$id_usuario			= $_SESSION['usuario_id'];	
+		$_GET['start_date']	= date('Y-m-d', strtotime($_GET['start_date']));
+		$_GET['end_date']	= date('Y-m-d', strtotime($_GET['end_date']));
+	}else{
+		$tipo		= 1;
+		$id_usuario	= 0;
+	}
 
-if(isset($_GET['tipo'])){
-	$tipo				= $_GET['tipo'];
-	$id_usuario			= $_SESSION['usuario_id'];	
-	$_GET['start_date']	= date('Y-m-d', strtotime($_GET['start_date']));
-	$_GET['end_date']	= date('Y-m-d', strtotime($_GET['end_date']));
-}else{
-	$tipo		= 1;
-	$id_usuario	= 0;
-}
-
-$i=0;
+	$i=0;
 
 do{
 	$contador=0;
@@ -44,8 +62,12 @@ do{
 		$row_usuario		= mysql_fetch_assoc($usuarios);
 		$cantidad_usuario	= mysql_num_rows($usuarios);
 		
+		if(isset($dates['star_'.$row_reloj['id_reloj']])){
+			$_GET['start_date']	= $dates['star_'.$row_reloj['id_reloj']];
+			$_GET['end_date']	=  date('Y-m-d');
+		}
+		
 	    do{
-				
 			$datos=array(
 						'ip'		=> $row_reloj['ip'],
 						'id'		=> $row_usuario['id_usuario'],

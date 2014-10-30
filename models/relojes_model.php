@@ -28,10 +28,10 @@ function getRelojes($dato=NULL, $campo=NULL){
 }
 
 function getReloj($id){
-	$query="SELECT * FROM `departamento` WHERE id_departamento='$id'";   
-	$departamento=mysql_query($query) or die(mysql_error());
+	$query="SELECT * FROM `relojes` WHERE id_reloj='$id'";   
+	$reloj=mysql_query($query) or die(mysql_error());
 
-	return $departamento;
+	return $reloj;
 }
 
 function insertReloj($departamento){

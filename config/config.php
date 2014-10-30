@@ -26,4 +26,37 @@
 		);
 	}while($row_config=mysql_fetch_array($configs));
 	
+	$texto	=array(
+				'baja'	=> 'baja',
+				'alta'	=> 'activa');
+	
+	
+	$botones=array(
+			'Alta'		=> "<a href='#' class='show_hide btn btn-primary' title='Añadir registro'><i class='icon-plus-sign-alt'></i> Nuevo</a>",
+			'Imprimir'	=> "<a href='javascript:imprSelec('muestra')' class='btn btn-default'><i class='icon-print'></i> Imprimir</a>",
+			'Excel'		=> "<button class='btn btn-default' onclick='tableToExcel('example', 'W3C Example Table')'><i class='icon-download-alt'></i> Excel</button>"
+	);   
+	
+	function button_edit($datos){
+		$button ="<A 
+					class='btn btn-primary' 
+					title='Editar registro' 
+					HREF='".$datos['href']."?id=".$datos['id']."&action=".$datos['action']."'>
+					<i class='icon-edit'></i>
+				  </A>";
+				
+		return $button;
+	}
+	
+	function button_delete($datos){
+		$button = "<A 
+					class='btn btn-danger ".$datos['delete']."'  
+					title='Dar de baja' 
+					HREF='".$datos['href']."?id=".$datos['id']."&action=".$datos['action']."'>
+					<i class='icon-minus-sign'></i>
+					</A>";
+				   
+		return $button;
+	}
+	
 ?>

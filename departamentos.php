@@ -150,33 +150,46 @@ if(isset($_GET['buscar'])){
 
 <!-- Cabecera -->
 <thead>
-<tr class="success">
-<td>Departamento</td>
-<td>Estado</td>
-<td>Operación</td>
-</tr>
+	<tr class="success">
+		<td>Departamento</td>
+		<td>Estado</td>
+		<td>Operación</td>
+	</tr>
 </thead>
 
 <tbody>
-<?php do{ ?>
-<tr>
-<td><?php echo $row_departamento['departamento'];?></td>
-<td>
-		<?php if ($row_departamento['id_estado']==0) {?>
-		baja
-	<?php } else { ?>
-		activo
-	<?php } ?>
-</td>
-<td><A class="btn btn-primary" title="Editar departamento" HREF="modificar_departamento.php?id=<?php echo $row_departamento['id_departamento'];?>&action=1"><i class="icon-edit"></i></A>
-	<?php if ($row_departamento['id_estado']==0) {?>
-	<A type="submit" class="btn btn-danger disabled"  title="El departamento partamento ya esta dada de baja"><i class="icon-minus-sign"></i></i></A>
-	<?php } else { ?>
-	<A type="submit" class="btn btn-danger"  title="Dar de baja" HREF="modificar_departamento.php?id=<?php echo $row_departamento['id_departamento'];?>&action=0"><i class="icon-minus-sign"></i></i></A>
-	<?php } ?>
-	</td>
-</tr>
-<?php }while ($row_departamento = mysql_fetch_array($departamento )) ?>
+	<?php do{ ?>
+	<tr>
+		<td><?php echo $row_departamento['departamento'];?></td>
+		<td>
+			<?php if ($row_departamento['id_estado']==0) {
+				echo $texto['baja'];
+			} else {
+				echo $texto['alta'];
+			} ?>
+		</td>
+		<td>
+			<?php 
+			$datos=array(
+						'href'	=> 'modificar_departamento.php',
+						'id'	=> $row_departamento['id_departamento'],
+						'action'=> 1
+						);
+			echo button_edit($datos)." ";
+			
+			$datos['action']= 0;
+			if ($row_departamento['id_estado']==0) {
+				$datos['delete']='disabled';
+			} else { 
+				$datos['delete']='';
+			} 
+			
+			echo button_delete($datos);
+			?>
+		</td>
+		
+	</tr>
+	<?php }while ($row_departamento = mysql_fetch_array($departamento )) ?>
 </tbody>
 
 

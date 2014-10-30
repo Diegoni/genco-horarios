@@ -29,19 +29,19 @@ include_once("helpers.php");
 		<ul class="nav navbar-nav">
 		
 			<li class="opcion">
-				<a href="index.php">Inicio</a>
+				<a href="index.php"><i class="icon-home"></i> Inicio</a>
 			</li>
 			
 			<li class="">
-				<a href="usuario.php">Total usuario</a>
+				<a href="usuario.php"><i class="icon-calendar"></i> Total usuario</a>
 			</li>
 			
 			<li class="">
-				<a href="usuario2.php">Sumas totales</a>
+				<a href="usuario2.php"><i class="icon-tasks"></i> Sumas totales</a>
 			</li>
 			
 			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Reporte <span class="caret"></span></a>
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-bar-chart"></i> Reporte <span class="caret"></span></a>
 				<ul class="dropdown-menu" role="menu">
 					<li><a href="reporte_marcacion.php">Marcaciones</a></li>
 					<li><a href="reporte_tardanza.php">Tardanza</a></li>							
@@ -49,11 +49,11 @@ include_once("helpers.php");
 			</li>
 			
 			<li class="">
-				<a href="usuarios.php">Usuarios</a>
+				<a href="usuarios.php"><i class="icon-user"></i> Usuarios</a>
 			</li>
 								
 			<li class="">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Departamentos <span class="caret"></span></a>
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-group"></i> Departamentos <span class="caret"></span></a>
 				<ul class="dropdown-menu" role="menu">
 					<li><a href="departamentos.php">Departamentos</a></li>
 					<li><a href="encargados.php">Encargados</a></li>							
@@ -62,7 +62,11 @@ include_once("helpers.php");
 			</li>
 								
 			<li class="">
-				<a href="empresas.php">Empresas</a>
+				<a href="empresas.php"><i class="icon-building"></i> Empresas</a>
+			</li>
+			
+			<li class="">
+				<a href="relojes.php"><i class="icon-time"></i> Relojes</a>
 			</li>
 			
 			<li class="dropdown">

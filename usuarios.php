@@ -146,78 +146,79 @@ $numero_convenio = mysql_num_rows($convenio);
 <!-- Formulario de alta usuario -->
 <form class="form-inline" action="usuarios.php" >
 <table class="table table-hover">
-<tr>
-<td>Usuario</td>
-<td><input type="text" name="usuario" class="form-control" placeholder="ingrese Usuario" required></td>
-</tr>
-
-<tr>
-<td>Nombre</td>
-<td><input type="text" name="nombre" class="form-control" placeholder="ingrese Nombre" required></td>
-</tr>
-
-<tr>
-<td>Apellido</td>
-<td><input type="text" name="apellido" class="form-control" placeholder="ingrese Apellido" required></td>
-</tr>
-
-<tr>
-<td>DNI</td>
-<td><input type="text" name="dni" class="form-control" onkeypress="return isNumberKey(event)" maxlength="8" placeholder="ingrese DNI" required></td>
-</tr>
-
-<tr>
-<td>Fecha ingreso</td>
-<td><input type="text" name="fecha_ingreso" id="datepicker" class="form-control" placeholder="ingrese fecha" autocomplete="off" required></td>
-</tr>
-
-<tr>
-<td>CUIL</td>
-<td>
-	<input type="text" name="cuil1" onkeypress="return isNumberKey(event)" maxlength="2" class="form-control" required>-
-	<input type="text" name="cuil2" onkeypress="return isNumberKey(event)" maxlength="8" class="form-control" required>-
-	<input type="text" name="cuil3" onkeypress="return isNumberKey(event)" maxlength="1" class="form-control" required>
-</td>
-</tr>
-
-<tr>
-<td>Legajo</td>
-<td><input type="text" name="legajo" class="form-control" onkeypress="return isNumberKey(event)" placeholder="Legajo" required></td>
-</tr>
-
-<tr>
-<td>Empresa</td>
-<td><select class="form-control" name="empresa" required>
-		<option></option>
-	<?php do{ ?>	
-		<option value="<?php echo $row_empresa['id_empresa'];?>"><?php echo $row_empresa['empresa'];?></option>
-	<?php }while ($row_empresa = mysql_fetch_array($empresa)) ?>
-	</select>
-</td>
-</tr>  
-
-<tr>
-<td>Departamento</td>
-<td><select class="form-control" name="departamento" required>
-		<option></option>
-	<?php do{ ?>	
-		<option value="<?php echo $row_departamento2['id_departamento'];?>"><?php echo $row_departamento2['nombre'];?></option>
-	<?php }while ($row_departamento2 = mysql_fetch_array($departamento2)) ?>
-	</select>
-</td>
-</tr>  
-
-
-<tr>
-<td>Convenio</td>
-<td><select class="form-control" name="convenio" required>
-		<option></option>
-	<?php do{ ?>	
-		<option value="<?php echo $row_convenio['id_convenio'];?>"><?php echo $row_convenio['convenio'];?></option>
-	<?php }while ($row_convenio = mysql_fetch_array($convenio)) ?>
-	</select>
-</td>
-</tr>  
+	<tr>
+		<td>Usuario</td>
+		<td><input type="text" name="usuario" class="form-control" placeholder="ingrese Usuario" required></td>
+	</tr>
+	
+	<tr>
+		<td>Nombre</td>
+		<td><input type="text" name="nombre" class="form-control" placeholder="ingrese Nombre" required></td>
+	</tr>
+	
+	<tr>
+		<td>Apellido</td>
+		<td><input type="text" name="apellido" class="form-control" placeholder="ingrese Apellido" required></td>
+	</tr>
+	
+	<tr>
+		<td>DNI</td>
+		<td><input type="text" name="dni" class="form-control" onkeypress="return isNumberKey(event)" maxlength="8" placeholder="ingrese DNI" required></td>
+	</tr>
+	
+	<tr>
+		<td>Fecha ingreso</td>
+		<td><input type="text" name="fecha_ingreso" id="datepicker" class="form-control" placeholder="ingrese fecha" autocomplete="off" required></td>
+	</tr>
+	
+	<tr>
+		<td>CUIL</td>
+		<td>
+			<input type="text" name="cuil1" onkeypress="return isNumberKey(event)" maxlength="2" class="form-control" required>-
+			<input type="text" name="cuil2" onkeypress="return isNumberKey(event)" maxlength="8" class="form-control" required>-
+			<input type="text" name="cuil3" onkeypress="return isNumberKey(event)" maxlength="1" class="form-control" required>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>Legajo</td>
+		<td><input type="text" name="legajo" class="form-control" onkeypress="return isNumberKey(event)" placeholder="Legajo" required></td>
+	</tr>
+	
+	<tr>
+		<td>Empresa</td>
+		<td>
+			<select class="form-control" name="empresa" required>
+				<option></option>
+			<?php do{ ?>	
+				<option value="<?php echo $row_empresa['id_empresa'];?>"><?php echo $row_empresa['empresa'];?></option>
+			<?php }while ($row_empresa = mysql_fetch_array($empresa)) ?>
+			</select>
+		</td>
+	</tr>  
+	
+	<tr>
+		<td>Departamento</td>
+		<td>
+			<select class="form-control" name="departamento" required>
+				<option></option>
+			<?php do{ ?>	
+				<option value="<?php echo $row_departamento2['id_departamento'];?>"><?php echo $row_departamento2['nombre'];?></option>
+			<?php }while ($row_departamento2 = mysql_fetch_array($departamento2)) ?>
+			</select>
+		</td>
+	</tr>
+	  
+	<tr>
+		<td>Convenio</td>
+		<td><select class="form-control" name="convenio" required>
+				<option></option>
+			<?php do{ ?>	
+				<option value="<?php echo $row_convenio['id_convenio'];?>"><?php echo $row_convenio['convenio'];?></option>
+			<?php }while ($row_convenio = mysql_fetch_array($convenio)) ?>
+			</select>
+		</td>
+	</tr>  
 
 <tr>
 <td></td>
@@ -253,27 +254,40 @@ $numero_convenio = mysql_num_rows($convenio);
 </thead>
 
 <tbody>
-<?php do{ ?>
-<tr>
-<td><?php echo $row_usuario['usuario'];?></td>
-<td><?php echo $row_usuario['legajo'];?></td>
-<td><?php echo $row_usuario['departamento'];?></td>
-<td>
-	<?php if ($row_usuario['id_estado']==0) {?>
-		baja
-	<?php } else { ?>
-		activo
-	<?php } ?>
-</td>
-<td><A class="btn btn-primary" title="Editar usuario" HREF="modificar.php?id=<?php echo $row_usuario['id_usuario'];?>"><i class="icon-edit"></i></A>
-	<?php if ($row_usuario['id_estado']==0) {?>
-	<A type="submit" class="btn btn-danger disabled"  title="El usuario ya esta dado de baja"><i class="icon-minus-sign"></i></i></A>
-	<?php } else { ?>
-	<A type="submit" class="btn btn-danger"  title="Dar de baja" HREF="eliminar.php?id=<?php echo $row_usuario['id_usuario'];?>"><i class="icon-minus-sign"></i></i></A>
-	<?php } ?>
-	</td>
-</tr>
-<?php }while ($row_usuario = mysql_fetch_array($usuario)) ?>
+	<?php do{ ?>
+	<tr>
+		<td><?php echo $row_usuario['usuario'];?></td>
+		<td><?php echo $row_usuario['legajo'];?></td>
+		<td><?php echo $row_usuario['departamento'];?></td>
+		<td>
+			<?php if ($row_usuario['id_estado']==0) {
+				echo $texto['baja'];
+			} else { 
+				echo $texto['alta'];
+			} ?>
+		</td>
+		<td>
+			<?php 
+			$datos=array(
+						'href'	=> 'modificar.php',
+						'id'	=> $row_usuario['id_usuario'],
+						'action'=> 1
+						);
+			echo button_edit($datos)." ";
+			
+			$datos['action']= 0;
+			$datos['href']	= 'eliminar.php';
+			if ($row_usuario['id_estado']==0) {
+				$datos['delete']='disabled';
+			} else { 
+				$datos['delete']='';
+			} 
+			
+			echo button_delete($datos);
+			?>
+		</td>
+	</tr>
+	<?php }while ($row_usuario = mysql_fetch_array($usuario)) ?>
 </tbody>
 
 </table>
