@@ -24,6 +24,9 @@ if(isset($_GET['modificar'])){
 	$datos=array(
 				'nombre'		=> $_GET['nombre'],
 				'apellido'		=> $_GET['apellido'],
+				'email_1'		=> $_GET['email_1'],
+				'email_2'		=> $_GET['email_2'],
+				'email_3'		=> $_GET['email_3'],
 				'id_encargado'	=> $_GET['id']);
 				
 	updateEncargado($datos);

@@ -11,7 +11,7 @@ include_once($url['models_url']."updates_model.php");
 include_once("helpers.php");
 
 
-if(	$_GET['start_date']<=$_GET['end_date']){
+if(	date('Y-m-d', strtotime($_GET['start_date'])) <= date('Y-m-d', strtotime($_GET['end_date']))){
 	/*Si no hay fecha especifica buscamos los ultimos updates*/
 	if(!isset($_GET['start_date']) && !isset($_GET['end_date'])){
 		$relojes			= getRelojes();
@@ -144,7 +144,7 @@ do{
 
 }else{
 	//no se envian los parametros de las fechas o la fecha de inicio es mayor a la final
-	$título		= 'Resumen de actualización '.date('d-m-Y');
+	$título	= 'Resumen de actualización '.date('d-m-Y');
 	
 	$mensaje = '<b>Resumen</b>: <br>';
 	

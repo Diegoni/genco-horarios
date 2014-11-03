@@ -5,7 +5,6 @@ session_start();
 	}
 include_once("menu.php");
 include_once($url['models_url']."encargados_model.php");
-include_once($url['models_url']."emails_encargados_model.php");  
 include_once($url['models_url']."mensajes_model.php");
 
 
@@ -26,10 +25,6 @@ if(isset($_GET['delete'])){
 //seleccion del usuario
 $encargado			= getEncargado($_GET['id']);
 $row_encargado		= mysql_fetch_assoc($encargado);
-
-$encargado_email	= getEncargado_email($_GET['id']);
-$row_encargado_email= mysql_fetch_assoc($encargado_email);
-$numero_encargados 	= mysql_num_rows($encargado_email);
 
 $action				= $_GET['action'];
 $input_action		= "";
@@ -59,20 +54,27 @@ if($action==0){
 		<td><input type="text" name="nombre" class="form-control" value="<?php echo $row_encargado['nombre'];?>" <?php echo $input_action; ?> required></td>
 	</tr>
 	
-	<?php do { ?>
 	<tr>
 		<td>Email</td>
 		<td>
-			<input type="text" name="email" class="form-control" value="<?php echo $row_encargado_email['email_encargado'];?>" <?php echo $input_action; ?> required>
-			<a href="modificar_encargado.php?id=<?php echo $_GET['id']?>&action=1&delete=1&registro=<?php echo $row_encargado_email['id_email_encargado'];?>" class="btn btn-danger delete" onclick="return confirm('Esta seguro de eliminar este item?');">
-				X
-			</a>
-			
+			<input type="text" name="email_1" class="form-control" value="<?php echo $row_encargado['email_1'];?>" <?php echo $input_action; ?> required>
 		</td>
 	</tr>
-	<?php }while($row_encargado_email = mysql_fetch_array($encargado_email)) ?>
-
-
+	
+	<tr>
+		<td>Email</td>
+		<td>
+			<input type="text" name="email_2" class="form-control" value="<?php echo $row_encargado['email_2'];?>" <?php echo $input_action; ?>>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>Email</td>
+		<td>
+			<input type="text" name="email_3" class="form-control" value="<?php echo $row_encargado['email_3'];?>" <?php echo $input_action; ?>>
+		</td>
+	</tr>
+	
 	<?php if($action==0){?>
 	<tr>
 		<td>Estado</td>
@@ -120,7 +122,7 @@ if($action==0){
 		<td></td>
 		<td>
 		<button type="submit" class="btn btn-primary" name="modificar" value="1" title="Editar encargado <?php echo $row_encargado['nombre'];?>"><i class="icon-edit"></i> Editar</button>
-		<a href="#" class="show_hide btn btn-default" title="Añadir registro"><i class="icon-plus-sign-alt"></i> Nuevo correo</a>
+		<!--<a href="#" class="show_hide btn btn-default" title="Añadir registro"><i class="icon-plus-sign-alt"></i> Nuevo correo</a>-->
 		<A class="btn btn-danger"  title="Cancelar la edición" HREF="encargados.php"><i class="icon-ban-circle"></i> Cancelar</A></td>
 	</tr> 
 

@@ -24,7 +24,7 @@ if(isset($_GET['modificar'])){
 	$datos=array(
 				'id'			=> $_GET['id'],
 				'departamento'	=> $_GET['departamento'],
-				'id_encargado'	=> $_GET['encargado']);
+				'id_encargado'	=> $_GET['encargados']);
 	
 	updateDepartamento($datos);
 }

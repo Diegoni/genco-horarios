@@ -6,7 +6,10 @@ function deleteEncargado($id){
 function updateEncargado($datos){
 	mysql_query("UPDATE `encargados` SET	
 				nombre			= '$datos[nombre]',
-				apellido		= '$datos[apellido]'
+				apellido		= '$datos[apellido]',
+				email_1			= '$datos[email_1]',
+				email_2			= '$datos[email_2]',
+				email_3			= '$datos[email_3]'
 				WHERE 
 				id_encargado	= '$datos[id_encargado]'			
 				") or die(mysql_error());

@@ -86,7 +86,7 @@ function insertMarcadaReloj($registro){
 			$hora=date('H:i', strtotime($registro['time'])); 
 			
 			//CONTROLO QUE TIPO ES I=IN,ENTRADA Y O=OUT,SALIDA 
-			if($registro['status']=="IN" || $registro['status']==1){ 
+			if($registro['status']=="IN" || $registro['status']==1 || $registro['status']=="Break IN"){ 
 			    $tipo=1; 
 			}else{ 
 			    $tipo=2; 
