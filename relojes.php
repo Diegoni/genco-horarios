@@ -14,16 +14,19 @@ include_once($url['models_url']."mensajes_model.php");
 ----------------------------------------------------------------------			
 --------------------------------------------------------------------*/
 if(isset($_GET['delete'])){
-	deleteReloj($_GET['id']);
+	deleteReloj($_GET['delete']);
 	echo getMensajes('delete', 'ok', 'Reloj', $_GET['id']);
 }
 
 //modifica al reloj segun el formulario de modificar.php
-if(isset($_GET['modificar'])){
-	updateReloj($_GET['reloj'],
-				$_GET['ip'],
-				$_GET['puerto'],
-				$_GET['color']);
+if(isset($_GET['update'])){
+	$datos=array(
+				'reloj'		=> $_GET['reloj'], 
+				'ip'		=> $_GET['ip'],
+				'puerto'	=> $_GET['puerto'],
+				'color'		=> $_GET['color'],
+				'id_reloj'	=> $_GET['id']);
+	updateReloj($datos);
 	echo getMensajes('update', 'ok', 'Reloj', $_GET['reloj']);
 }
 
@@ -36,22 +39,34 @@ if(isset($_GET['nuevo'])){
 	if($numero_reloj>0){
 		echo getMensajes('insert', 'error', 'Reloj', $_GET['reloj']);
 	}else{
-		insertEmpresa(	$_GET['reloj'],
-						$_GET['ip'],
-						$_GET['puerto'],
-						$_GET['color']);
+		$datos=array(
+				'reloj'		=> $_GET['reloj'], 
+				'ip'		=> $_GET['ip'],
+				'puerto'	=> $_GET['puerto'],
+				'color'		=> $_GET['color']);		
+		
+		insertReloj($datos);
 		echo getMensajes('insert', 'ok', 'Reloj', $_GET['reloj']);
 	}
 }
+
+/*--------------------------------------------------------------------
+----------------------------------------------------------------------
+			Consulta para traer los relojes
+----------------------------------------------------------------------			
+--------------------------------------------------------------------*/
+	$relojes		= getRelojes();
+	$row_reloj 		= mysql_fetch_assoc($relojes);
+	$numero_relojes = mysql_num_rows($relojes);
+	
 ?>
 <div class="row">
 <div class="span12">
-<center>
-
+<center
 <div ALIGN=left class="well">
-	<?php echo $botones['Alta']; ?>
-	<?php echo $botones['Imprimir']; ?>
-	<?php echo $botones['Excel']; ?>
+	<a href='#' class='show_hide btn btn-primary' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
+	<a href="javascript:imprSelec('muestra')" class='btn btn-default'><i class="icon-print"></i> Imprimir</a>
+	<button class="btn btn-default" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
 	<div class="pull-right"><h4>Relojes</h4></div>
 </div>
 <br>
@@ -65,32 +80,33 @@ if(isset($_GET['nuevo'])){
 <div class='slidingDiv'>
 <div class="well">
 		
-<form class="form-inline" action="empresas.php">
+<form class="form-inline" action="relojes.php">
 <table class="table table-hover">
 
 	<tr>
-		<td>Empresa</td>
-		<td><input type="text" name="empresa" class="form-control" placeholder="ingrese Empresa" required></td>
+		<td>Reloj</td>
+		<td><input type="text" name="reloj" class="form-control" placeholder="ingrese reloj" required></td>
 	</tr>
 
 	<tr>
-		<td>Cod</td>
-		<td><input type="text" name="cod_empresa" class="form-control" placeholder="ingrese codigo de empresa" required></td>
+		<td>IP</td>
+		<td><input type="text" name="ip" class="form-control" placeholder="ingrese ip" required></td>
 	</tr>
 
 	<tr>
-		<td>Cuil</td>
-		<td>
-			<input type="text" name="cuil1" onkeypress="return isNumberKey(event)" maxlength="2" class="form-control" required>-
-			<input type="text" name="cuil2" onkeypress="return isNumberKey(event)" maxlength="8" class="form-control" required>-
-			<input type="text" name="cuil3" onkeypress="return isNumberKey(event)" maxlength="1" class="form-control" required>
-		</td>
+		<td>Puerto</td>
+		<td><input type="text" name="puerto" class="form-control" placeholder="ingrese puerto" required></td>
+	</tr>
+	
+	<tr>
+		<td>Color</td>
+		<td><input type="text" name="color" class="form-control" placeholder="ingrese color" required></td>
 	</tr>
 
 	<tr>
 		<td></td>
 		<td>
-		<button type="submit" class="btn btn-primary" name="nuevo" value="1" title="Alta empresa"><i class="icon-plus-sign-alt"></i> Alta</button>
+		<button type="submit" class="btn btn-primary" name="nuevo" value="1" title="Alta registro"><i class="icon-plus-sign-alt"></i> Alta</button>
 		<A class="show_hide btn btn-danger"  title="Cancelar" href='#'><i class="icon-ban-circle"></i> Cancelar</A></td>
 	</tr>  
 	
@@ -110,48 +126,35 @@ if(isset($_GET['nuevo'])){
 <!-- Cabecera -->
 <thead>
 	<tr class="success">
-		<td>Empresa</td>
-		<td>Codigo</td>
-		<td>CUIL</td>
-		<td>Estado</td>
-		<td>Operación</td>
+	<td>Reloj</td>
+	<td>IP</td>
+	<td>Puerto</td>
+	<td>Estado</td>
+	<td>Operación</td>
 	</tr>
 <thead>
 <tbody>
-	<?php do{ ?>
-	<tr>
-		<td><?php echo $row_empresa['empresa'];?></td>
-		<td><?php echo $row_empresa['cod_empresa'];?></td>
-		<td><?php echo $row_empresa['cuil'];?></td>
-		<td>
-			<?php if ($row_empresa['id_estado']==0) {
-				echo $texto['baja'];
-			} else {
-				echo $texto['alta'];
-			} 
-			?>
-		</td>
-		<td>
-			<?php 
-			$datos=array(
-						'href'	=> 'modificar_empresa.php',
-						'id'	=> $row_empresa['id_empresa'],
-						'action'=> 1
-						);
-			echo button_edit($datos)." ";
-			
-			$datos['action']=0;
-			if ($row_empresa['id_estado']==0) {
-				$datos['delete']='disabled';
-			} else { 
-				$datos['delete']='';
-			} 
-			
-			echo button_delete($datos);
-			?>
-		</td>
-	</tr>
-	<?php }while ($row_empresa = mysql_fetch_array($empresa)) ?>
+<?php do{ ?>
+<tr>
+<td><?php echo $row_reloj['reloj'];?></td>
+<td><?php echo $row_reloj['ip'];?></td>
+<td><?php echo $row_reloj['puerto'];?></td>
+<td>
+	<?php if ($row_reloj['id_estado']==0) {?>
+		baja
+	<?php } else { ?>
+		activa
+	<?php } ?>
+</td>
+<td><A class="btn btn-primary" title="Editar registro" HREF="modificar_reloj.php?id=<?php echo $row_reloj['id_reloj'];?>&action=1"><i class="icon-edit"></i></A>
+	<?php if ($row_reloj['id_estado']==0) {?>
+	<A type="submit" class="btn btn-danger disabled"  title="El reloj ya esta dada de baja"><i class="icon-minus-sign"></i></i></A>
+	<?php } else { ?>
+	<A type="submit" class="btn btn-danger" title="Dar de baja" HREF="relojes.php?delete=<?php echo $row_reloj['id_reloj'];?>&action=0" onclick="return confirm('Esta seguro de eliminar este item?');"><i class="icon-minus-sign"></i></i></A>
+	<?php } ?>
+	</td>
+</tr>
+<?php }while ($row_reloj = mysql_fetch_array($relojes)) ?>
 </tbody>
 
 </table>

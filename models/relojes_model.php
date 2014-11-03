@@ -1,13 +1,15 @@
 <?php
 function deleteReloj($id){
-	mysql_query("UPDATE `departamento` SET id_estado=0 WHERE id_departamento='$id'") or die(mysql_error());
+	mysql_query("UPDATE `relojes` SET id_estado=0 WHERE id_reloj='$id'") or die(mysql_error());
 }
 
-function updateReloj($departamento,$id){
-	mysql_query("UPDATE `departamento` SET	
-				departamento='$departamento',
-				id_estado=1		
-				WHERE id_departamento='$id'			
+function updateReloj($datos){
+	mysql_query("UPDATE `relojes` SET	
+				reloj	= '$datos[reloj]',
+				ip		= '$datos[ip]',
+				puerto	= '$datos[puerto]',
+				color	= '$datos[color]'		
+				WHERE id_reloj='$datos[id_reloj]'			
 				") or die(mysql_error());
 }
 
@@ -21,7 +23,7 @@ function getRelojes($dato=NULL, $campo=NULL){
 		$relojes=mysql_query($query) or die(mysql_error());
 	}else{
 		
-		$query="SELECT * FROM relojes WHERE relojes.delete=0 ORDER BY reloj";   
+		$query="SELECT * FROM relojes WHERE relojes.id_estado=1 ORDER BY reloj";   
 		$relojes=mysql_query($query) or die(mysql_error());
 	}	
 	return $relojes;
@@ -34,16 +36,20 @@ function getReloj($id){
 	return $reloj;
 }
 
-function insertReloj($departamento){
-	$query="SELECT max(id_departamento) as max FROM `departamento`";
-	$departamentos=mysql_query($query) or die(mysql_error());
-	$row_departamento = mysql_fetch_assoc($departamentos);
-	$max=$row_departamento['max']+1;
-		
-	mysql_query("INSERT INTO `departamento` 
-							(id_departamento, departamento, id_estado) 
-							VALUES 
-							('$max', '$departamento', 1)") or die(mysql_error());
+function insertReloj($datos){
+	mysql_query("INSERT INTO `relojes`(
+				reloj, 
+				ip, 
+				puerto, 
+				color, 
+				id_estado) 
+					VALUES(
+				'$datos[reloj]', 
+				'$datos[ip]',
+				'$datos[puerto]',
+				'$datos[color]', 
+				1)") 
+				or die(mysql_error());
 }
 
 ?>

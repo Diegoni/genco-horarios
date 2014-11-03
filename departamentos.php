@@ -6,7 +6,6 @@ session_start();
 include_once("menu.php");
 include_once($url['models_url']."departamentos_model.php");   
 include_once($url['models_url']."encargados_model.php");
-include_once($url['models_url']."departamento_encargado_model.php");
 include_once($url['models_url']."mensajes_model.php"); 
 
 
@@ -22,17 +21,12 @@ if(isset($_GET['delete'])){
 
 //modifica al usuario segun el formulario de modificar.php
 if(isset($_GET['modificar'])){
+	$datos=array(
+				'id'			=> $_GET['id'],
+				'departamento'	=> $_GET['departamento'],
+				'id_encargado'	=> $_GET['encargado']);
 	
-	deleteDepartamento_encargado($_GET['id']);
-	
-	foreach ($_GET['encargados'] as $key => $value) {
-		$datos=array(
-					'id_encargado'		=> $value,
-					'id_departamento'	=> $_GET['id']);
-		insertDepartamento_encargado($datos);
-	}
-	
-	updateDepartamento($_GET['departamento'], $_GET['id']);
+	updateDepartamento($datos);
 }
 
 //modifica al usuario segun el formulario de modificar.php
@@ -72,12 +66,6 @@ if(isset($_GET['buscar'])){
 	$row_encargado			= mysql_fetch_assoc($encargado);
 	$numero_encargado		= mysql_num_rows($encargado);
 	
-	$d_encargado			= getDepartamento_encargado($_GET['id']);
-	$row_d_encargado		= mysql_fetch_assoc($d_encargado);
-	$numero_d_encargado		= mysql_num_rows($d_encargado);
-
-
-
 ?>
 <div class="row">
 <div class="span12">
@@ -162,32 +150,19 @@ if(isset($_GET['buscar'])){
 	<tr>
 		<td><?php echo $row_departamento['departamento'];?></td>
 		<td>
-			<?php if ($row_departamento['id_estado']==0) {
-				echo $texto['baja'];
-			} else {
-				echo $texto['alta'];
-			} ?>
+			<?php if ($row_departamento['id_estado']==0) {?>
+				baja
+			<?php } else { ?>
+				activo
+			<?php } ?>
 		</td>
-		<td>
-			<?php 
-			$datos=array(
-						'href'	=> 'modificar_departamento.php',
-						'id'	=> $row_departamento['id_departamento'],
-						'action'=> 1
-						);
-			echo button_edit($datos)." ";
-			
-			$datos['action']= 0;
-			if ($row_departamento['id_estado']==0) {
-				$datos['delete']='disabled';
-			} else { 
-				$datos['delete']='';
-			} 
-			
-			echo button_delete($datos);
-			?>
+		<td><A class="btn btn-primary" title="Editar departamento" HREF="modificar_departamento.php?id=<?php echo $row_departamento['id_departamento'];?>&action=1"><i class="icon-edit"></i></A>
+			<?php if ($row_departamento['id_estado']==0) {?>
+			<A type="submit" class="btn btn-danger disabled"  title="El departamento partamento ya esta dada de baja"><i class="icon-minus-sign"></i></i></A>
+			<?php } else { ?>
+			<A type="submit" class="btn btn-danger"  title="Dar de baja" HREF="modificar_departamento.php?id=<?php echo $row_departamento['id_departamento'];?>&action=0"><i class="icon-minus-sign"></i></i></A>
+			<?php } ?>
 		</td>
-		
 	</tr>
 	<?php }while ($row_departamento = mysql_fetch_array($departamento )) ?>
 </tbody>

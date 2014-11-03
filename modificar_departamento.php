@@ -19,7 +19,7 @@ $action				= $_GET['action'];
 $input_action		= "";
 
 if($action==0){
-	$input_action="readonly";
+	$input_action="disabled";
 }
 
 
@@ -30,21 +30,28 @@ if($action==0){
 <!-- formulario de modificacion-->
 <form class="form-inline" action="departamentos.php">
 <table class="table table-hover">
-<tr>
-<input type="hidden" name="id" class="span4" value="<?php echo $row_departamento['id_departamento'];?>">
-
-
-<tr>
-<td>Departamento</td>
-<td><input type="text" name="departamento" class="form-control" value="<?php echo $row_departamento['departamento'];?>" <?php echo $input_action; ?> required></td>
-</tr>
+	<input type="hidden" name="id" class="span4" value="<?php echo $row_departamento['id_departamento'];?>">
+	
+	<tr>
+		<td>Departamento</td>
+		<td><input type="text" name="departamento" class="form-control" value="<?php echo $row_departamento['departamento'];?>" <?php echo $input_action; ?> required></td>
+	</tr>
 
 	<?php if($numero_encargado>0){ ?>
 	<tr>
 		<td>Encargados</td>
-		<td><select class="chosen-select form-control" tabindex="2" name="encargados[]" multiple>
-				<?php do{ ?> 
-				<option value="<?php echo $row_encargado['id_encargado']?>"><?php echo $row_encargado['apellido']?> <?php echo $row_encargado['nombre']?></option>
+		<td><select class='chosen-select form-control' tabindex="2" <?php echo $input_action; ?>  name="encargados">
+				<?php do{ ?>
+					<option></option>
+					<?php if($row_departamento['id_encargado']==$row_encargado['id_encargado']){ ?>  
+						<option value="<?php echo $row_encargado['id_encargado']?>" selected>
+							<?php echo $row_encargado['apellido']?> <?php echo $row_encargado['nombre']?>
+						</option>
+					<?php }else{ ?>
+						<option value="<?php echo $row_encargado['id_encargado']?>">
+							<?php echo $row_encargado['apellido']?> <?php echo $row_encargado['nombre']?>
+						</option>						
+					<?php } ?>
 				<?php }while($row_encargado = mysql_fetch_array($encargado)); ?>
 			</select>
 		</td>
@@ -52,21 +59,22 @@ if($action==0){
 	<?php }?>
 
 <?php if($action==0){?>
-<tr>
-<td>Estado</td>
-<td>
-<input type="radio" name="estado" id="baja" value="0" checked data-on="success" data-off="danger" >
- Baja
-</td>
-</tr>
-
-
-<tr>
-<td></td>
-<td>
-<button type="submit" onclick="return confirm('Esta seguro de eliminar este item?');" class="btn btn-primary" name="delete" value="1" title="Dar de baja al departamento <?php echo $row_departamento['departamento'];?>"><i class="icon-minus-sign"></i> Eliminar</button>
-<A class="btn btn-danger"  HREF="departamentos.php" title="Cancelar la baja"> <i class="icon-ban-circle"></i> Cancelar</A></td>
-</tr>  
+	<tr>
+		<td>Estado</td>
+		<td>
+		<input type="radio" name="estado" id="baja" value="0" checked data-on="success" data-off="danger" >
+		 Baja
+		</td>
+	</tr>
+	
+	
+	<tr>
+		<td></td>
+		<td>
+			<button type="submit" onclick="return confirm('Esta seguro de eliminar este item?');" class="btn btn-primary" name="delete" value="1" title="Dar de baja al departamento <?php echo $row_departamento['departamento'];?>"><i class="icon-minus-sign"></i> Eliminar</button>
+			<A class="btn btn-danger"  HREF="departamentos.php" title="Cancelar la baja"> <i class="icon-ban-circle"></i> Cancelar</A>
+		</td>
+	</tr>  
 
 </table>
 </form>
