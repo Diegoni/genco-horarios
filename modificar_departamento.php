@@ -39,7 +39,7 @@ if($action==0){
 
 	<?php if($numero_encargado>0){ ?>
 	<tr>
-		<td>Encargados</td>
+		<td>Encargado</td>
 		<td><select class='chosen-select form-control' tabindex="2" <?php echo $input_action; ?>  name="encargados">
 				<?php do{ ?>
 					<option></option>

@@ -74,6 +74,7 @@ if(isset($_GET['id'])){
 	
 	$usuarios=getUsuarios($_GET['id'], $campo);
 	$row_usuario = mysql_fetch_assoc($usuarios);
+	
 	$usuarios2=getUsuarios($_GET['id'], $campo);
 	$row_usuario2 = mysql_fetch_assoc($usuarios);
 	$numero_usuario2 = mysql_num_rows($usuarios2);
@@ -163,8 +164,8 @@ window.onfocus=function(){ window.close();}">
 		$array_otrashoras=array();
 							
 		if(isset($row_usuario2['id_usuario'])){														
-			$marcacion = getMarcaciones($row_usuario2['id_usuario'], $fecha_inicio, $fecha_final);
-			$row_marcacion = mysql_fetch_assoc($marcacion);   
+			$marcacion			= getMarcaciones($row_usuario2['id_usuario'], $fecha_inicio, $fecha_final);
+			$row_marcacion		= mysql_fetch_assoc($marcacion);   
 			$cantidad_marcacion = mysql_num_rows($marcacion);
 			/*					
 			$otrahora= getOtrahora($row_usuario2['id_usuario'], $fecha_inicio, $fecha_final);
@@ -186,7 +187,7 @@ window.onfocus=function(){ window.close();}">
 			}while ($row_otrahora = mysql_fetch_array($otrahora));
 			*/				 								
 			if($cantidad_marcacion>0){
-				$arrayFechas=devuelveArrayFechasEntreOtrasDos($fecha_inicio, $fecha_final);
+				$arrayFechas	= devuelveArrayFechasEntreOtrasDos($fecha_inicio, $fecha_final);
 			}
 		}										
 		
@@ -252,8 +253,7 @@ window.onfocus=function(){ window.close();}">
 				</tr>
 			</table>
 			<?php
-				$contador=$contador+1;
-				
+				$contador = $contador+1;
 				if($contador==$config['marcaciones_x_hoja']){
 					$contador=0;
 					echo "<H1 class='SaltoDePagina'> </H1>";
@@ -262,9 +262,11 @@ window.onfocus=function(){ window.close();}">
 			}//foreach($arrayFechas as $valor){
 			$contador_usuarios = $contador_usuarios + 1;
 			
-			if($numero_usuario2 >= $contador_usuarios && $contador_usuarios!=1){		
+			if($numero_usuario2 >= $contador_usuarios && $contador_usuarios!=0){		
 				$contador=0;
 				echo "<H1 class='SaltoDePagina'> </H1>";
+			}else{
+				
 			}
 			?>
 <?php }while ($row_usuario2 = mysql_fetch_array($usuarios2)) ?>

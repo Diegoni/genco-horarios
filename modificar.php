@@ -62,7 +62,7 @@ if(isset($_FILES['foto'])){
 <center>
 
 <!-- formulario de modificacion-->
-<form class="form-inline" action="usuarios.php">
+<form class="form-inline" action="empleados.php">
 <table class="table table-hover">
 <tr>
 <input type="hidden" name="id" class="form-control" value="<?php echo $row_usuario['id_usuario'];?>">
@@ -160,7 +160,7 @@ if(isset($_FILES['foto'])){
 <td></td>
 <td>
 <button type="submit" class="btn btn-primary" name="modificar" value="1" title="Editar usuario al usuario <?php echo $row_usuario['nombre'];?>"><i class="icon-edit"></i> Editar</button>
-<A class="btn btn-danger"  title="Cancelar la edición" HREF="usuarios.php"><i class="icon-ban-circle"></i> Cancelar</A></td>
+<A class="btn btn-danger"  title="Cancelar la edición" HREF="empleados.php"><i class="icon-ban-circle"></i> Cancelar</A></td>
 </tr>  
 
 

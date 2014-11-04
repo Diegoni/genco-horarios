@@ -37,7 +37,7 @@ $numero_convenio = mysql_num_rows($convenio);
 
 
 
-<form class="form-inline" action="usuarios.php">
+<form class="form-inline" action="empleados.php">
 <table class="table table-hover">
 <tr>
 <input type="hidden" name="id" class="form-control" value="<?php echo $row_usuario['id_usuario'];?>">
@@ -132,7 +132,7 @@ $numero_convenio = mysql_num_rows($convenio);
 <td></td>
 <td>
 <button type="submit" onclick="return confirm('Esta seguro de eliminar este item?');" class="btn btn-primary" name="eliminar" value="1" title="Dar de baja al usuario <?php echo $row_usuario['nombre'];?>"><i class="icon-minus-sign"></i> Eliminar</button>
-<A class="btn btn-danger"  HREF="usuarios.php" title="Cancelar la baja"> <i class="icon-ban-circle"></i> Cancelar</A>
+<A class="btn btn-danger"  HREF="empleados.php" title="Cancelar la baja"> <i class="icon-ban-circle"></i> Cancelar</A>
 </td>
 </tr>  
 

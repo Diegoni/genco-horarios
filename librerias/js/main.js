@@ -79,8 +79,9 @@ function imprSelec(muestra){
 	$("#example_info").hide();
 	$("#example_paginate").hide();
 	
-	var ficha=document.getElementById(muestra);
-	var ventimp=window.open(' ','popimpr');ventimp.document.write(ficha.innerHTML);
+	var ficha	= document.getElementById(muestra);
+	var ventimp	= window.open(' ','popimpr');
+	ventimp.document.write(ficha.innerHTML);
 	ventimp.document.close();
 	ventimp.print();
 	ventimp.close();

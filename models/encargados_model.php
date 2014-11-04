@@ -45,4 +45,15 @@ function insertEncargado($datos){
 	return mysql_insert_id();
 }
 
+function getEncargado_departamento($id){
+	$query		= "SELECT * FROM `departamento`
+					INNER JOIN encargados 
+					ON(departamento.id_encargado=encargados.id_encargado) 
+					WHERE departamento.id_departamento='$id'";   
+	$encargado	= mysql_query($query) or die(mysql_error());
+
+	return $encargado;
+	
+}
+
 ?>

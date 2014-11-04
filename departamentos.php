@@ -105,7 +105,7 @@ if(isset($_GET['buscar'])){
 	
 	<?php if($numero_encargado>0){ ?>
 	<tr>
-		<td>Encargados</td>
+		<td>Encargado</td>
 		<td><select class="chosen-select form-control" tabindex="2" name="encargados" multiple>
 				<?php do{ ?> 
 				<option value="<?php echo $row_encargado['id_encargado']?>"><?php echo $row_encargado['apellido']?> <?php echo $row_encargado['nombre']?></option>

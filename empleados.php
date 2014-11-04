@@ -130,7 +130,7 @@ $numero_convenio = mysql_num_rows($convenio);
 	<a href='#' class='show_hide btn btn-primary' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
 	<a class='btn btn-default' href="javascript:imprSelec('muestra')" ><i class="icon-print"></i> Imprimir</a>
 	<button class="btn btn-default" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
-	<div class="pull-right"><h4>Usuarios</h4></div>
+	<div class="pull-right"><h4>Empleados</h4></div>
 </div>
 <br>
 
@@ -144,7 +144,7 @@ $numero_convenio = mysql_num_rows($convenio);
 <div class="well">
 		
 <!-- Formulario de alta usuario -->
-<form class="form-inline" action="usuarios.php" >
+<form class="form-inline" action="empleados.php" >
 <table class="table table-hover">
 <tr>
 <td>Usuario</td>

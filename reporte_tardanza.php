@@ -10,6 +10,7 @@ include_once($url['models_url']."empresas_model.php");
 include_once($url['models_url']."convenios_model.php");
 include_once($url['models_url']."convenio_turnos_model.php");
 include_once($url['models_url']."marcadas_model.php");
+include_once($url['models_url']."encargados_model.php");
 include_once("helpers.php");
 
 /*------------------------------------------------------------------------------------
@@ -231,6 +232,10 @@ if($_GET['buscar']==1){
 	<div class="col-md-9" id="scrollit">
 		<div class="panel panel-default">
 			<a class='btn btn-default pull-right' href="javascript:imprSelec('muestra')" ><i class="icon-print"></i> Imprimir</a>
+			<button type="button" class="btn btn-default pull-right" data-toggle="modal" data-target="#myModal">
+					<i class="icon-envelope-alt"></i> Enviar por correo
+			</button>
+			
 			<div class="panel-body" id="muestra">
 				<img src="<?php echo $url['imagenes']?>loading_small.gif" class="hide_loading">
 				<?php do{ ?>
@@ -338,9 +343,94 @@ if($_GET['buscar']==1){
 
 <!------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------
-						Tabla
+						Modal
 --------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------->	
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<form class="form-horizontal" role="form" action="email_tardanza.php">
+				
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title" id="myModalLabel">Envió de Reporte</h4>
+			</div>
+			
+			<div class="modal-body">
+					<input name="grupo" 		type="hidden" value="<?php echo $_GET['grupo']?>">
+					<input name="id" 			type="hidden" value="<?php echo $_GET['id']?>">
+					<input name="fecha_inicio" 	type="hidden" value="<?php echo $_GET['fecha_inicio']?>">
+					<input name="fecha_final" 	type="hidden" value="<?php echo $_GET['fecha_final']?>">
+					<input name="buscar" 		type="hidden" value="1">
+					
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-2 control-label">
+							Asunto
+						</label>
+					    <div class="col-sm-10">
+							<input name="asunto" class="form-control" value="Reporte de tardanza <?php echo date('d-m-Y');?>"?>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-2 control-label">
+							Email
+						</label>
+					    <div class="col-sm-10">
+							<textarea class="ckeditor form-control" cols="40" id="editor" name="email">
+							</textarea>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-2 control-label">
+							Encargado
+						</label>
+					    <div class="col-sm-10">
+					    	<?php 
+					    	if($_GET['grupo']==2){
+					    		
+					    		$query=getEncargado_departamento($_GET['id']);
+								$row_query = mysql_fetch_assoc($query);
+								$numero_filas = mysql_num_rows($query);
+								
+								if($numero_filas>0 && $row_query['id_encargado']!=0){
+										
+									echo "<input name='email_1' class='form-control' value='".$row_query['email_1']."'>";
+									
+									if($row_query['email_2']!=""){
+										echo "<input name='email_2' class='form-control' value='".$row_query['email_2']."'>";
+									}else{
+										echo "<input name='email_2' class='form-control'>";
+									}
+									
+									if($row_query['email_3']!=""){
+										echo "<input name='email_3' class='form-control' value='".$row_query['email_3']."'>";
+									}else{
+										echo "<input name='email_3' class='form-control'>";
+									}
+									
+									
+								}
+					    	}else{
+					    			echo "<input name='email_1' class='form-control'>";
+									echo "<input name='email_2' class='form-control'>";
+									echo "<input name='email_3' class='form-control'>";
+							}
+					    	?>
+						</div>
+					</div>
+				
+				
+			</div>
+			
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-default">Enviar</button>
+			</div>
+			</form>
+		</div>
+	</div>
+</div>
+	
 
 
 

@@ -49,16 +49,11 @@ include_once("helpers.php");
 			</li>
 			
 			<li class="">
-				<a href="usuarios.php"><i class="icon-user"></i> Usuarios</a>
+				<a href="empleados.php"><i class="icon-user"></i> Empleados</a>
 			</li>
 								
 			<li class="">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-group"></i> Departamentos <span class="caret"></span></a>
-				<ul class="dropdown-menu" role="menu">
-					<li><a href="departamentos.php">Departamentos</a></li>
-					<li><a href="encargados.php">Encargados</a></li>							
-				</ul>
-				
+				<a href="departamentos.php"><i class="icon-group"></i> Departamentos</a>
 			</li>
 								
 			<li class="">
@@ -75,6 +70,7 @@ include_once("helpers.php");
 					<li><a href="feriados.php">Feriados</a></li>
 					<li><a href="convenios.php">Convenios</a></li>							
 					<li><a href="limites.php">Limites</a></li>
+					<li><a href="encargados.php">Encargados</a></li>
 					<li><a href="config.php">Config</a></li>
 					<li><a href="update_relojes_form.php">Actualización manual</a></li>
 					<li><a href="log.php">Logs</a></li>
