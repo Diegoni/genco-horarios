@@ -78,7 +78,7 @@ if (isset($_GET['nuevo'])){
 	?>
 	
 	<div ALIGN=left class="well">
-	<a href='#' class='show_hide btn btn-primary' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
+	<a href='#' class='show_hide btn btn-primary' rel='tooltip' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
 	<a href="javascript:imprSelec('muestra')" class='btn btn-default'><i class="icon-print"></i> Imprimir</a>
 	<button class="btn btn-default" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
 	<div class="pull-right"><h4>Convenios</h4></div>
@@ -103,7 +103,7 @@ if (isset($_GET['nuevo'])){
 		<td></td>
 		<td>
 		<button type="submit" class="btn btn-primary" name="nuevo" value="1"><i class="icon-plus-sign-alt"></i> Alta</button>
-		<A class="show_hide btn btn-danger"  title="Cancelar" href='#'><i class="icon-ban-circle"></i> Cancelar</A></td>
+		<A class="show_hide btn btn-danger"  rel='tooltip' title="Cancelar" href='#'><i class="icon-ban-circle"></i> Cancelar</A></td>
 		</td>
 	</tr>
 	</table>
@@ -142,9 +142,9 @@ if (isset($_GET['nuevo'])){
 			<a class="btn btn-default" href="convenios_turno.php?id=<?php echo $row_convenio['id_convenio']?>"><i class="icon-folder-open-alt"></i> Ver</a>		
 		</td>
 		<td>
-		<A class="btn btn-primary" title="Editar convenio" HREF="modificar_convenio.php?id=<?php echo $row_convenio['id_convenio'];?>&action=1"><i class="icon-edit"></i></A>
+		<A class="btn btn-primary" rel='tooltip' title="Editar convenio" HREF="modificar_convenio.php?id=<?php echo $row_convenio['id_convenio'];?>&action=1"><i class="icon-edit"></i></A>
 		<?php if ($row_convenio['id_estado']==0) {?>
-		<A type="submit" class="btn btn-danger disabled"  title="El convenio ya esta dado de baja"><i class="icon-minus-sign"></i></i></A>
+		<A type="submit" class="btn btn-danger disabled"  rel='tooltip' title="El convenio ya esta dado de baja"><i class="icon-minus-sign"></i></i></A>
 		<?php } else { ?>
 		<a href="convenios.php?eliminar=<?php echo $row_convenio['id_convenio'];?>" onclick="return confirm('Esta seguro de eliminar este item?');" class="btn btn-danger"><i class="icon-minus-sign"></i></a>
 		<?php } ?>

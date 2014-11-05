@@ -82,8 +82,8 @@ $cadena="";
 $classcadena="";
 
 if(!isset($fecha_inicio)){ 
-	$cadena="disabled title='Seleccione período de tiempo'"; 
-	$classcadena="class='disabled' title='Seleccione período de tiempo'";
+	$cadena="disabled rel='tooltip' title='Seleccione período de tiempo'"; 
+	$classcadena="class='disabled' rel='tooltip' title='Seleccione período de tiempo'";
 } 
 
 ?>
@@ -125,7 +125,7 @@ if(!isset($fecha_inicio)){
 	</div>
 	
 	<div class="col-md-2">
-		<button type="submit" class="btn btn-default" title="Buscar" name="buscar" value="1"><i class="icon-search"></i> Buscar</button>
+		<button type="submit" class="btn btn-primary btn-lg" rel='tooltip' title="Buscar marcaciones" name="buscar" value="1"><i class="icon-search"></i></button>
 		</form>
 	</div>
 	
@@ -147,12 +147,12 @@ if(!isset($fecha_inicio)){
 	
 	<div class="col-md-1">
 		<div class="btn-group">
-			<a class="btn btn-success dropdown-toggle" data-toggle="dropdown" href="#">
+			<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
 				<i class="icon-cogs"></i>
 				<span class="caret"></span>
 			</a>
 			<ul class="dropdown-menu">
-				<li <?php echo $classcadena;?>><a href="usuario.php?id=<?php echo $id_usuario;?>&buscar=<?php echo 1;?>&fecha_final=<?php echo $fecha_final; ?>&fecha_inicio=<?php echo $fecha_inicio; ?>"  title="Refresh" <?php if(!isset($fecha_final)){ ?> disabled<?php } ?>><i class="icon-refresh"></i> Refresh</a></li>
+				<li <?php echo $classcadena;?>><a href="usuario.php?id=<?php echo $id_usuario;?>&buscar=<?php echo 1;?>&fecha_final=<?php echo $fecha_final; ?>&fecha_inicio=<?php echo $fecha_inicio; ?>"  rel='tooltip' title="Refresh" <?php if(!isset($fecha_final)){ ?> disabled<?php } ?>><i class="icon-refresh"></i> Refresh</a></li>
 				<li <?php echo $classcadena;?>><a href="javascript:imprSelec('muestra')"><i class="icon-print"></i> Imprimir</a></li>
 				<li <?php echo $classcadena;?>><a onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</a></li>
 				<li><a href="#myModal" role="button" data-toggle="modal"><i class="icon-question-sign"></i> Ayuda</a></li>
@@ -217,16 +217,16 @@ if($fecha_inicio>$fecha_final){
 
 <table class="table table-hover" border ="1" id="example">
 <thead>
-	<th title="Legajo del usuario">Legajo</th>
-	<th title="Usuario">Usuario</th>
-	<th title="Fecha de ingreso">Ingreso</th>
-	<th title="Hora que debe cumplir en el mes">Normales</th>
-	<th title="Resultado de Horas mensuales-Horas trabajadas">50%</th>
-	<th title="Horas extras que van al 100%, feriados, domingos y sábado pasado el convenio">100%</th>
+	<th rel='tooltip' title="Legajo del usuario">Legajo</th>
+	<th rel='tooltip' title="Usuario">Usuario</th>
+	<th rel='tooltip' title="Fecha de ingreso">Ingreso</th>
+	<th rel='tooltip' title="Hora que debe cumplir en el mes">Normales</th>
+	<th rel='tooltip' title="Resultado de Horas mensuales-Horas trabajadas">50%</th>
+	<th rel='tooltip' title="Horas extras que van al 100%, feriados, domingos y sábado pasado el convenio">100%</th>
 	<?php do{ ?>
-	<th title=""><?php echo $row_tipootra['tipootra'];?></th>
+	<th rel='tooltip' title=""><?php echo $row_tipootra['tipootra'];?></th>
 	<?php }while($row_tipootra=mysql_fetch_array($tipootra))?>
-	<th title="Total de horas trabajadas en el mes">Total</th>
+	<th rel='tooltip' title="Total de horas trabajadas en el mes">Total</th>
 </thead>
 
 <tbody>
@@ -424,13 +424,13 @@ foreach($arrayFechas as $valor){
 		<td><?php echo $total_normales;?></td>
 	
 		<?php if($signo==0){ ?>
-		<td title="Horas que el empleado debe recuperar para alcanzar el minimo de horas trabajadas">- <?php echo $resta;?></td>	
+		<td rel='tooltip' title="Horas que el empleado debe recuperar para alcanzar el minimo de horas trabajadas">- <?php echo $resta;?></td>	
 		<?php }else{ ?>
-		<td title="Suma total de las horas extra al 50%"><p  class="dia label label-info"><?php echo $resta;?></p></td>	
+		<td rel='tooltip' title="Suma total de las horas extra al 50%"><p  class="dia label label-info"><?php echo $resta;?></p></td>	
 		<?php } ?>
 	
 		<?php if($total_cien+$total_otrahora_cien>0){?>
-		<td title="Suma total de las horas extra al 100%, suma de horas trabajadas domingos, sábado pasado el convenio o feriados"	><p  class="dia label label-info"><?php echo pasar_hora($total_cien+$total_otrahora_cien);?></p></td>
+		<td rel='tooltip' title="Suma total de las horas extra al 100%, suma de horas trabajadas domingos, sábado pasado el convenio o feriados"	><p  class="dia label label-info"><?php echo pasar_hora($total_cien+$total_otrahora_cien);?></p></td>
 		<?php }else{?>
 		<td> - </td>
 		<?php } ?>

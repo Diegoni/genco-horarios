@@ -65,7 +65,7 @@ include_once($url['models_url']."usuarios_sistema_model.php");
 				<?php } ?>
 			<?php }while($row_update = mysql_fetch_array($updates)); ?>
 		</table>
-		<a class='btn btn-danger' href='' title='Volver' onClick='window.close()'>Volver</a>
+		<a class='btn btn-danger' href='' rel='tooltip' title='Volver' onClick='window.close()'>Volver</a>
 	</fieldset>
 </div>
 </body>

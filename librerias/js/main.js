@@ -1,3 +1,22 @@
+/**************************************************************************
+ **************************************************************************
+ 			Mostrar title direrentes
+ ************************************************************************** 
+ *************************************************************************/
+
+$( document ).ready(function() {
+    $("[rel='tooltip']").tooltip();    
+ 
+    $('.thumbnail').hover(
+        function(){
+            $(this).find('.caption').slideDown(250); //.fadeIn(250)
+        },
+        function(){
+            $(this).find('.caption').slideUp(250); //.fadeOut(205)
+        }
+    ); 
+});
+
 // Funcion que controla que no sean mas de 3 caracteres en el input buscar 
 // Para el datapicker, es una funcion de jquery ui 
 

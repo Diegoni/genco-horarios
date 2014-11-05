@@ -33,7 +33,7 @@ $numero_filas = mysql_num_rows($usuario);
 	<td>Hora</td>
 	<td>Acción</td>
 	<td>Usuario</td>
-	<td title="número que identifica al usuario en base de datos">ID</td>
+	<td rel='tooltip' title="número que identifica al usuario en base de datos">ID</td>
 	<td>Operación</td>
 	</tr>
 <thead>
@@ -57,7 +57,7 @@ if($row_usuario['Accion']=="Insert"){
 <td><?php echo $action;?></td>
 <td><?php echo $row_usuario['Usuario'];?></td>
 <td><?php echo $row_usuario['idusuario'];?></td>
-<td><A class="btn btn-primary" title="Ver accion" onClick="abrirVentana('edit_cliente.php?id=<?php echo $row_usuario['id_log_usuario'];?>')"><i class="icon-circle-arrow-right"></i> </A></td>
+<td><A class="btn btn-primary" rel='tooltip' title="Ver accion" onClick="abrirVentana('edit_cliente.php?id=<?php echo $row_usuario['id_log_usuario'];?>')"><i class="icon-circle-arrow-right"></i> </A></td>
 </tr>
 <?php }while ($row_usuario = mysql_fetch_array($usuario)) ?>
 </tbody>

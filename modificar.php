@@ -159,8 +159,8 @@ if(isset($_FILES['foto'])){
 <tr>
 <td></td>
 <td>
-<button type="submit" class="btn btn-primary" name="modificar" value="1" title="Editar usuario al usuario <?php echo $row_usuario['nombre'];?>"><i class="icon-edit"></i> Editar</button>
-<A class="btn btn-danger"  title="Cancelar la edición" HREF="empleados.php"><i class="icon-ban-circle"></i> Cancelar</A></td>
+<button type="submit" class="btn btn-primary" name="modificar" value="1" rel='tooltip' title="Editar usuario al usuario <?php echo $row_usuario['nombre'];?>"><i class="icon-edit"></i> Editar</button>
+<A class="btn btn-danger"  rel='tooltip' title="Cancelar la edición" HREF="empleados.php"><i class="icon-ban-circle"></i> Cancelar</A></td>
 </tr>  
 
 

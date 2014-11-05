@@ -71,7 +71,7 @@ $numero_limites = mysql_num_rows($limite);
 
 	
 <div ALIGN=left class="well">
-	<a href='#' class='show_hide btn btn-primary' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
+	<a href='#' class='show_hide btn btn-primary' rel='tooltip' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
 	<a href="javascript:imprSelec('muestra')" class='btn btn-default'><i class="icon-print"></i> Imprimir</a>
 	<button class="btn btn-default" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
 	<div class="pull-right"><h4>Limites</h4></div>
@@ -104,7 +104,7 @@ $numero_limites = mysql_num_rows($limite);
 		<td></td>
 		<td>
 		<button type="submit" class="btn btn-primary" name="insert" value="1"><i class="icon-plus-sign-alt"></i> Alta</button>
-		<A class="show_hide btn btn-danger"  title="Cancelar" href='#'><i class="icon-ban-circle"></i> Cancelar</A></td>
+		<A class="show_hide btn btn-danger"  rel='tooltip' title="Cancelar" href='#'><i class="icon-ban-circle"></i> Cancelar</A></td>
 		</td>
 	</tr>
 	</table>
@@ -141,7 +141,7 @@ $numero_limites = mysql_num_rows($limite);
 					echo "SI";
 				};?>
 		</td>
-		<td><A class="btn btn-primary" title="Editar limite" HREF="modificar_limite.php?id=<?php echo $row_limite['id_limite'];?>"><i class="icon-edit"></i></a>
+		<td><A class="btn btn-primary" rel='tooltip' title="Editar limite" HREF="modificar_limite.php?id=<?php echo $row_limite['id_limite'];?>"><i class="icon-edit"></i></a>
 			<a href="limites.php?delete=<?php echo $row_limite['id_limite'];?>" onclick="return confirm('Esta seguro de eliminar este item?');" class="btn btn-danger"><i class="icon-minus-sign"></i></a></td>
 	</tr>
 	<?php }while($row_limite=mysql_fetch_assoc($limite));?> 

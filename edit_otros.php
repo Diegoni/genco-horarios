@@ -193,13 +193,13 @@ include_once("helpers.php");
     	<div class="col-sm-12">
 		<center>
 			<input type="hidden" name="id" value="<?php echo $_GET['id']?>">
-			<a href='#' class='btn btn-default' title='no se puede ingresar uno nuevo' disabled>nuevo</a>
-			<input type="submit" class="btn btn-default" name="modificar" title="guardar las modificaciones realizadas" value="modificar" id="modificar">
-			<a href='#' class='show_hide btn btn-default' title='Añadir documento'><i class="icon-paperclip"></i> Documento</a>
+			<a href='#' class='btn btn-default' rel='tooltip' title='no se puede ingresar uno nuevo' disabled>nuevo</a>
+			<input type="submit" class="btn btn-default" name="modificar" rel='tooltip' title="guardar las modificaciones realizadas" value="modificar" id="modificar">
+			<a href='#' class='show_hide btn btn-default' rel='tooltip' title='Añadir documento'><i class="icon-paperclip"></i> Documento</a>
 			<input type="hidden" name="id_otrahora" value="<?php echo $row_otrahora['id_otrahora']?>">
 			<input type="hidden" class="input-medium" name="fecha" value="<?php echo $row_otrahora['fecha']?>" required>
 			<input type="hidden" name="id_nota" value="<?php echo $row_otrahora['id_nota']?>">
-			<a class="btn btn-danger" href="" title="no guarda los cambios realizados" onClick="cerrarse()">volver</a>
+			<a class="btn btn-danger" href="" rel='tooltip' title="no guarda los cambios realizados" onClick="cerrarse()">volver</a>
 		</center>
 		</div>
 	</div>
@@ -221,7 +221,7 @@ include_once("helpers.php");
 			echo "<center><a href=".$url['arhivo_otra_hora'].$archivo_nombre.">
 				<img src='$icono'></a></br>"; 
 		?>
-		<a href='#' class='btn btn-default show_hide2' title='Nuevo'>Cambiar</a>
+		<a href='#' class='btn btn-default show_hide2' rel='tooltip' title='Nuevo'>Cambiar</a>
 		</center>
 		<div class="slidingDiv2">
 			<br>
@@ -289,9 +289,9 @@ include_once("helpers.php");
 		<center>
 			<input type="hidden" class="input-medium" name="fecha" value="<?php echo $fecha;?>" placeholder="ingrese fecha" required>
 			<input type="hidden" name="id" value="<?php echo $_GET['id']?>">
-			<input type="submit" class="btn btn-default" name="agregar" title="agregar registro" value="nuevo" id="nuevo">
-			<input type="submit" class="btn btn-default" name="modificar" title="guardar las modificaciones realizadas" value="modificar" id="modificar" disabled>
-			<a class="btn btn-danger" href="" title="no guarda los cambios realizados" onClick="cerrarse()">volver</a>
+			<input type="submit" class="btn btn-default" name="agregar" rel='tooltip' title="agregar registro" value="nuevo" id="nuevo">
+			<input type="submit" class="btn btn-default" name="modificar" rel='tooltip' title="guardar las modificaciones realizadas" value="modificar" id="modificar" disabled>
+			<a class="btn btn-danger" href="" rel='tooltip' title="no guarda los cambios realizados" onClick="cerrarse()">volver</a>
 			</center>
 		</div>
 	</div>

@@ -28,8 +28,8 @@ $row_convenio = mysql_fetch_assoc($convenio);
 <tr>
 <td></td>
 <td>
-<button type="submit" class="btn btn-primary" name="modificar" value="1" title="Editar convenio <?php echo $row_convenio['convenio'];?>"><i class="icon-edit"></i> Editar</button>
-<A class="btn btn-danger"  title="Cancelar la edición" HREF="convenios.php"><i class="icon-ban-circle"></i> Cancelar</A></td>
+<button type="submit" class="btn btn-primary" name="modificar" value="1" rel='tooltip' title="Editar convenio <?php echo $row_convenio['convenio'];?>"><i class="icon-edit"></i> Editar</button>
+<A class="btn btn-danger"  rel='tooltip' title="Cancelar la edición" HREF="convenios.php"><i class="icon-ban-circle"></i> Cancelar</A></td>
 </tr> 
 
 </table>

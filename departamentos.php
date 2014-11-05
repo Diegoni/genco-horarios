@@ -79,7 +79,7 @@ if(isset($_GET['buscar'])){
 }?>
 
 <div ALIGN=left class="well">
-	<a href='#' class='show_hide btn btn-primary' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
+	<a href='#' class='show_hide btn btn-primary' rel='tooltip' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
 	<a href="javascript:imprSelec('muestra')" class='btn btn-default'><i class="icon-print"></i> Imprimir</a>
 	<button class="btn btn-default" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
 	<div class="pull-right"><h4>Departamentos</h4></div>
@@ -118,8 +118,8 @@ if(isset($_GET['buscar'])){
 	<tr>
 		<td></td>
 		<td>
-		<button type="submit" class="btn btn-primary" name="nuevo" value="1" title="Alta departamento"><i class="icon-plus-sign-alt"></i> Alta</button>
-		<A class="show_hide btn btn-danger"  title="Cancelar" href='#'><i class="icon-ban-circle"></i> Cancelar</A></td>
+		<button type="submit" class="btn btn-primary" name="nuevo" value="1" rel='tooltip' title="Alta departamento"><i class="icon-plus-sign-alt"></i> Alta</button>
+		<A class="show_hide btn btn-danger"  rel='tooltip' title="Cancelar" href='#'><i class="icon-ban-circle"></i> Cancelar</A></td>
 	</tr>  
 
 	</table>
@@ -156,11 +156,11 @@ if(isset($_GET['buscar'])){
 				activo
 			<?php } ?>
 		</td>
-		<td><A class="btn btn-primary" title="Editar departamento" HREF="modificar_departamento.php?id=<?php echo $row_departamento['id_departamento'];?>&action=1"><i class="icon-edit"></i></A>
+		<td><A class="btn btn-primary" rel='tooltip' title="Editar departamento" HREF="modificar_departamento.php?id=<?php echo $row_departamento['id_departamento'];?>&action=1"><i class="icon-edit"></i></A>
 			<?php if ($row_departamento['id_estado']==0) {?>
-			<A type="submit" class="btn btn-danger disabled"  title="El departamento partamento ya esta dada de baja"><i class="icon-minus-sign"></i></i></A>
+			<A type="submit" class="btn btn-danger disabled"  rel='tooltip' title="El departamento partamento ya esta dada de baja"><i class="icon-minus-sign"></i></i></A>
 			<?php } else { ?>
-			<A type="submit" class="btn btn-danger"  title="Dar de baja" HREF="modificar_departamento.php?id=<?php echo $row_departamento['id_departamento'];?>&action=0"><i class="icon-minus-sign"></i></i></A>
+			<A type="submit" class="btn btn-danger"  rel='tooltip' title="Dar de baja" HREF="modificar_departamento.php?id=<?php echo $row_departamento['id_departamento'];?>&action=0"><i class="icon-minus-sign"></i></i></A>
 			<?php } ?>
 		</td>
 	</tr>

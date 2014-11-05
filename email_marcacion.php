@@ -196,7 +196,7 @@ if($_GET['buscar']==1){
 								$mensaje	.= "<tr>";
 								$mensaje	.= "<td><p class='dia'>".$row_usuario2['usuario']."</p></td>";
 								$mensaje	.= "<td><p class='dia'>".devuelve_dia($valor)."</p></td>";
-								$mensaje	.= "<td><p class='".$clase."' title='".$title."'>".$valor."</p></td>"; 
+								$mensaje	.= "<td><p class='".$clase."' rel='tooltip' title='".$title."'>".$valor."</p></td>"; 
 								$mensaje	.= "<td>".$array_marcaciones['marcacion-1-'.$valor]."</td>";
 								$mensaje	.= "<td>".$array_marcaciones['marcacion-2-'.$valor]."</td>"; 	
 								$mensaje	.= "<td>".$array_marcaciones['marcacion-3-'.$valor]."</td>";

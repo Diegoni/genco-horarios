@@ -87,8 +87,8 @@ if($action==0){
 	<tr>
 		<td></td>
 		<td>
-		<button type="submit" onclick="return confirm('Esta seguro de eliminar este item?');" class="btn btn-primary" name="delete" value="1" title="Dar de baja al encargado <?php echo $row_encargado['nombre'];?>"><i class="icon-minus-sign"></i> Eliminar</button>
-		<A class="btn btn-danger" HREF="encargados.php" title="Cancelar la baja"> <i class="icon-ban-circle"></i> Cancelar</A></td>
+		<button type="submit" onclick="return confirm('Esta seguro de eliminar este item?');" class="btn btn-primary" name="delete" value="1" rel='tooltip' title="Dar de baja al encargado <?php echo $row_encargado['nombre'];?>"><i class="icon-minus-sign"></i> Eliminar</button>
+		<A class="btn btn-danger" HREF="encargados.php" rel='tooltip' title="Cancelar la baja"> <i class="icon-ban-circle"></i> Cancelar</A></td>
 	</tr>  
 
 </table>
@@ -121,9 +121,9 @@ if($action==0){
 	<tr>
 		<td></td>
 		<td>
-		<button type="submit" class="btn btn-primary" name="modificar" value="1" title="Editar encargado <?php echo $row_encargado['nombre'];?>"><i class="icon-edit"></i> Editar</button>
-		<!--<a href="#" class="show_hide btn btn-default" title="Añadir registro"><i class="icon-plus-sign-alt"></i> Nuevo correo</a>-->
-		<A class="btn btn-danger"  title="Cancelar la edición" HREF="encargados.php"><i class="icon-ban-circle"></i> Cancelar</A></td>
+		<button type="submit" class="btn btn-primary" name="modificar" value="1" rel='tooltip' title="Editar encargado <?php echo $row_encargado['nombre'];?>"><i class="icon-edit"></i> Editar</button>
+		<!--<a href="#" class="show_hide btn btn-default" rel='tooltip' title="Añadir registro"><i class="icon-plus-sign-alt"></i> Nuevo correo</a>-->
+		<A class="btn btn-danger"  rel='tooltip' title="Cancelar la edición" HREF="encargados.php"><i class="icon-ban-circle"></i> Cancelar</A></td>
 	</tr> 
 
 </table>
@@ -153,8 +153,8 @@ if($action==0){
 	<tr>
 		<td></td>
 		<td>
-		<button type="submit" class="btn btn-primary" name="nuevo" value="1" title="Alta email"><i class="icon-plus-sign-alt"></i> Alta</button>
-		<A class="show_hide btn btn-danger" title="Cancelar" href='#'><i class="icon-ban-circle"></i> Cancelar</A></td>
+		<button type="submit" class="btn btn-primary" name="nuevo" value="1" rel='tooltip' title="Alta email"><i class="icon-plus-sign-alt"></i> Alta</button>
+		<A class="show_hide btn btn-danger" rel='tooltip' title="Cancelar" href='#'><i class="icon-ban-circle"></i> Cancelar</A></td>
 	</tr>  
 
 	</table>

@@ -81,7 +81,7 @@ include_once("helpers.php");
      
 		<ul class="nav navbar-nav navbar-right">
 			<li class="">
-				<a class="brand" title="Cerrar sessión de usuario" href="login/logout.php"><?php echo $_SESSION['usuario_nombre']?> <i class="icon-signout"></i></a>
+				<a class="brand" rel='tooltip' title="Cerrar sessión de usuario" href="login/logout.php"><?php echo $_SESSION['usuario_nombre']?> <i class="icon-signout"></i></a>
 			</li>
 		</ul>
 	</div><!-- /.navbar-collapse -->

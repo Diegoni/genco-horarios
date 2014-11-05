@@ -54,7 +54,7 @@ $cantidad_reloj		= mysql_num_rows($relojes);
 			</select>
 			
 			
-			<button type="submit" class="btn btn-default" title="Actualizar marcaciones" name="tipo" value="2">
+			<button type="submit" class="btn btn-default" rel='tooltip' title="Actualizar marcaciones" name="tipo" value="2">
 				<i class="icon-search"></i> Actualizar
 			</button>
 		</form>

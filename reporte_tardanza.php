@@ -173,7 +173,7 @@ if($_GET['buscar']==1){
 		<div class="col-md-6 pull-right">		
 		<div class="form-group">
 			<div class="col-md-12">
-				<button type="submit" class="btn btn-default pull-right" title="Buscar" name="buscar" value="1">
+				<button type="submit" class="btn btn-default pull-right" rel='tooltip' title="Buscar" name="buscar" value="1">
 				<i class="icon-search"></i> Buscar
 			</button>
 			</div>
@@ -288,10 +288,10 @@ if($_GET['buscar']==1){
 									
 									echo "<tr>";									
 									echo "<td><p class='dia'>".devuelve_dia(date('Y/m/d', strtotime($row_marcacion['entrada'])))."</p></td>";
-									echo "<td><p class='".$clase."' title='".$title."'>".date('d/m/Y', strtotime($row_marcacion['entrada']))."</p></td>";
+									echo "<td><p class='".$clase."' rel='tooltip' title='".$title."'>".date('d/m/Y', strtotime($row_marcacion['entrada']))."</p></td>";
 									echo "<td style='text-align: center'>".date('H:i', strtotime($row_marcacion['entrada']))."</td>";
 									echo "<td style='text-align: center'>".pasar_hora($tardanza['tiempo'])."</td>";
-									echo "<td><p class='".$parametro['clase']."' title='".$parametro['title'].$tardanza['parametro']."'>".$parametro['cadena']."</p></td>";
+									echo "<td><p class='".$parametro['clase']."' rel='tooltip' title='".$parametro['title'].$tardanza['parametro']."'>".$parametro['cadena']."</p></td>";
 									echo "</tr>";
 								}
 								

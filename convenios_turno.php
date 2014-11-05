@@ -179,7 +179,7 @@ if (isset($_GET['delete'])){
 
 <div align="left" class="row">
 	<div class="col-md-12">
-		<a href='#' class='show_hide btn btn-primary' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
+		<a href='#' class='show_hide btn btn-primary' rel='tooltip' rel='tooltip' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
 		<select 
 				data-placeholder="Seleccione un usuario..." class="chosen-select" tabindex="2"
 				onChange="javascript:window.location.href='convenios_turno.php?id='+this.value"
@@ -318,7 +318,7 @@ if (isset($_GET['delete'])){
 				<td></td>
 				<td>
 					<button name="insert" value="1" type="submit" class="btn btn-primary"><i class="icon-plus-sign-alt"></i> Alta</button>
-					<A class="show_hide btn btn-danger"  title="Cancelar" href='#'><i class="icon-ban-circle"></i> Cancelar</A>
+					<A class="show_hide btn btn-danger"  rel='tooltip' title="Cancelar" href='#'><i class="icon-ban-circle"></i> Cancelar</A>
 				</td>
 			</tr>
 		</table>
@@ -338,7 +338,7 @@ if (isset($_GET['delete'])){
 	<div class="alert">
   		<button type="button" class="close" data-dismiss="alert">&times;</button>
   		<strong>No hay turnos ingresados!</strong> Por favor agregue uno.
-  		<a href='#' class='show_hide btn btn-primary' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
+  		<a href='#' class='show_hide btn btn-primary' rel='tooltip' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
 	</div>	
 	<?php }else{?>
 		<table class="table table-hover">
@@ -349,13 +349,13 @@ if (isset($_GET['delete'])){
 				<td>Salida</td>
 				<td>Turno</td>
 				<td>Límite</td>
-				<td title="Lunes" class="table-center">L</td>
-				<td title="Martes" class="table-center">M</td>
-				<td title="Miércoles" class="table-center">M</td>
-				<td title="Jueves" class="table-center">J</td>
-				<td title="Viernes" class="table-center">V</td>
-				<td title="Sábado" class="table-center">S</td>
-				<td title="Domingo" class="table-center">D</td>
+				<td rel='tooltip' title="Lunes" class="table-center">L</td>
+				<td rel='tooltip' title="Martes" class="table-center">M</td>
+				<td rel='tooltip' title="Miércoles" class="table-center">M</td>
+				<td rel='tooltip' title="Jueves" class="table-center">J</td>
+				<td rel='tooltip' title="Viernes" class="table-center">V</td>
+				<td rel='tooltip' title="Sábado" class="table-center">S</td>
+				<td rel='tooltip' title="Domingo" class="table-center">D</td>
 				<td>Intervalo</td>
 				<td>Semanal</td>
 				<td></td>
@@ -442,7 +442,7 @@ if (isset($_GET['delete'])){
 					<?php echo pasar_hora($semanal);?>
 				</td>		
 				<td>
-					<a href="modificar_convenio_turno.php?id=<?php echo $row_convenio_turno['id_convenio_turno'];?>" class="btn btn-primary" title="Editar turno"><i class="icon-edit"></i></a>
+					<a href="modificar_convenio_turno.php?id=<?php echo $row_convenio_turno['id_convenio_turno'];?>" class="btn btn-primary" rel='tooltip' title="Editar turno"><i class="icon-edit"></i></a>
 					<a href="convenios_turno.php?delete=<?php echo $row_convenio_turno['id_convenio_turno'];?>&id=<?php echo $_GET['id']?>" onclick="return confirm('Esta seguro de eliminar este item?');" class="btn btn-danger"><i class="icon-minus-sign"></i></a>
 				</td>
 

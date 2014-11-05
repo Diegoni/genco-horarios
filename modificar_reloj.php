@@ -45,8 +45,8 @@ $row_reloj	= mysql_fetch_assoc($relojes);
 <tr>
 <td></td>
 <td>
-<button type="submit" class="btn btn-primary" name="update" value="1" title="Editar registro"><i class="icon-edit"></i> Editar</button>
-<A class="btn btn-danger"  title="Cancelar la edición" HREF="relojes.php"><i class="icon-ban-circle"></i> Cancelar</A></td>
+<button type="submit" class="btn btn-primary" name="update" value="1" rel='tooltip' title="Editar registro"><i class="icon-edit"></i> Editar</button>
+<A class="btn btn-danger"  rel='tooltip' title="Cancelar la edición" HREF="relojes.php"><i class="icon-ban-circle"></i> Cancelar</A></td>
 </tr> 
 
 </table>

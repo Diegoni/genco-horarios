@@ -27,20 +27,20 @@ include_once("helpers.php");
 	$totalotras=0;
 	$fecha=date("d-m-Y");
 	
-	$usuario=getUsuario($id_usuario);
-	$row_usuario = mysql_fetch_assoc($usuario);
+	$usuario		= getUsuario($id_usuario);
+	$row_usuario 	= mysql_fetch_assoc($usuario);
 	
-	$usuarios=getUsuarios();
-	$row_usuarios = mysql_fetch_assoc($usuarios);
+	$usuarios		= getUsuarios();
+	$row_usuarios 	= mysql_fetch_assoc($usuarios);
 
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------
 //					Valores iniciales convenios
 //----------------------------------------------------------------------			
 //--------------------------------------------------------------------->
-	$convenio_turno=getConvenioturnos($row_usuario['id_convenio'], 'id_convenio');
+	$convenio_turno		= getConvenioturnos($row_usuario['id_convenio'], 'id_convenio');
 	$row_convenio_turno = mysql_fetch_assoc($convenio_turno);
-	$cantidad_turno=mysql_num_rows($convenio_turno);
+	$cantidad_turno		= mysql_num_rows($convenio_turno);
 	
 	if($cantidad_turno<1){
 		echo "
@@ -126,8 +126,8 @@ include_once("helpers.php");
 	$classcadena="";
 
 	if(!isset($fecha_inicio)){ 
-		$cadena="disabled title='Seleccione período de tiempo'"; 
-		$classcadena="class='disabled' title='Seleccione período de tiempo'";
+		$cadena="disabled rel='tooltip' title='Seleccione período de tiempo'"; 
+		$classcadena="class='disabled' rel='tooltip' title='Seleccione período de tiempo'";
 	}
 
 ?>
@@ -192,8 +192,8 @@ include_once("helpers.php");
 		</div>
 		
 		<div class="col-md-1">
-			<button type="submit" class="btn btn-default" title="Buscar" name="buscar" value="1">
-				<i class="icon-search"></i> Buscar
+			<button type="submit" class="btn btn-primary btn-lg" rel='tooltip' title="Buscar marcaciones" name="buscar" value="1">
+				<i class="icon-search"></i>
 			</button>
 			</form>
 		</div>
@@ -201,12 +201,12 @@ include_once("helpers.php");
 		<div class="col-md-2">
 			<center>
 			<div class="btn-group">
-				<a class="btn btn-success dropdown-toggle" data-toggle="dropdown" href="#">
+				<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
 					<i class="icon-cogs"></i>
 					<span class="caret"></span>
 				</a>
 				<ul class="dropdown-menu">
-				<li <?php echo  $classcadena;?>><a href="usuario.php?id=<?php echo  $id_usuario;?>&buscar=<?php echo  1;?>&fecha_final=<?php echo  $fecha_final; ?>&fecha_inicio=<?php echo  $fecha_inicio; ?>"  title="Refresh" <?php   if(!isset($fecha_final)){ ?> disabled<?php   } ?>><i class="icon-refresh"></i> Refresh</a></li>
+				<li <?php echo  $classcadena;?>><a href="usuario.php?id=<?php echo  $id_usuario;?>&buscar=<?php echo  1;?>&fecha_final=<?php echo  $fecha_final; ?>&fecha_inicio=<?php echo  $fecha_inicio; ?>"  rel='tooltip' title="Volver a cargar el sitio" <?php   if(!isset($fecha_final)){ ?> disabled<?php   } ?>><i class="icon-refresh"></i> Refresh</a></li>
 				<li <?php echo  $classcadena;?>>
 					<a href="usuario_reporte.php?
 					id=<?php echo $id_usuario;?>&
@@ -214,7 +214,7 @@ include_once("helpers.php");
 					buscar=<?php echo  1;?>&
 					fecha_final=<?php echo  $fecha_final; ?>&
 					fecha_inicio=<?php echo $fecha_inicio; ?>" 
-					title="Exportar" target="_blank" <?php if(!isset($fecha_final)){ ?> disabled <?php } ?> >
+					rel='tooltip' title="Generar reporte de marcaciones" target="_blank" <?php if(!isset($fecha_final)){ ?> disabled <?php } ?> >
 					<i class="icon-print"></i> Imprimir</a></li>
 				<li <?php echo  $classcadena;?>>
 					<a href="exportar/usuario.php?
@@ -223,7 +223,7 @@ include_once("helpers.php");
 					buscar=<?php echo  1;?>&
 					fecha_final=<?php echo  $fecha_final; ?>&
 					fecha_inicio=<?php echo $fecha_inicio; ?>" 
-					title="Exportar" target="_blank" <?php if(!isset($fecha_final)){ ?> disabled <?php } ?> >
+					rel='tooltip' title="Exportar a excel" target="_blank" <?php if(!isset($fecha_final)){ ?> disabled <?php } ?> >
 					<i class="icon-upload-alt"></i> Exportar</a></li>
 				<li <?php echo  $classcadena;?>><a href="#" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-table"></i> Tabla</a></li>
 				<li><a href="#myModal" role="button" data-toggle="modal"><i class="icon-question-sign"></i> Ayuda</a></li>
@@ -284,19 +284,19 @@ include_once("helpers.php");
 	<table border="1" class="table">
 	<tbody>
 	<tr>
-		<th title="Nombre de los usuarios">Nombre</th>
+		<th rel='tooltip' title="Nombre del usuario">Nombre</th>
 		<td><?php   echo $row_usuario['usuario']?></td>
-		<th title="Departamento al que pertenecen">Sector</th>
+		<th rel='tooltip' title="Departamento al que pertenece">Sector</th>
 		<td><?php   echo $row_usuario['departamento']?></td>
-		<th title="Legajo de los usuarios">Legajo</th>
+		<th rel='tooltip' title="Legajo del usuarios">Legajo</th>
 		<td><?php   echo $row_usuario['legajo']?></td>
 	</tr>
 	<tr>
-		<th title="Fecha inicio">Fecha Inicio</th>
+		<th rel='tooltip' title="Fecha de inicio">Inicio</th>
 		<td><?php   echo date('d-m-Y', strtotime($fecha_inicio))?></td>
-		<th title="Fecha final">Fecha Final</th>
+		<th rel='tooltip' title="Fecha final">Final</th>
 		<td><?php   echo date('d-m-Y', strtotime($fecha_final))?></td>
-		<th title="Cantidad de marcaciones">Cantidad</th>
+		<th rel='tooltip' title="Cantidad de marcaciones">Cantidad</th>
 		<td><?php   echo $cantidad_marcacion;?></td>
 	</tr>
 	</tbody>
@@ -323,21 +323,21 @@ include_once("helpers.php");
 	<table border="1" class="table table-hover" id="example">
 	<thead>
 		
-		<th title="Año/mes/día">Fecha</th>
-		<th title="Fecha">Día</th>
-		<th title="Sin definir">sd</th>
-		<th title="Mañana - Entrada">m-e</th>
-		<th title="Mañana - Salida">m-s</th>
-		<th title="Tarde - Entrada">t-e</th>
-		<th title="Tarde - Salida">t-s</th>
-		<th title="Subtotales">Subtotal</th>
+		<th rel='tooltip' title="Año/mes/día">Fecha</th>
+		<th rel='tooltip' title="Fecha">Día</th>
+		<th rel='tooltip' title="Sin definir">sd</th>
+		<th rel='tooltip' title="Mañana - Entrada">m-e</th>
+		<th rel='tooltip' title="Mañana - Salida">m-s</th>
+		<th rel='tooltip' title="Tarde - Entrada">t-e</th>
+		<th rel='tooltip' title="Tarde - Salida">t-s</th>
+		<th rel='tooltip' title="Subtotales">Subtotal</th>
 		<?php if($config['mostrar_marcada']==1){ ?>
-		<th title="Calculo de horas laborales">Horas</th>
+		<th rel='tooltip' title="Calculo de horas laborales">Horas</th>
 		<?php } ?>
 		<?php if($config['aplicar_redondeo']==1){ ?>
-		<th title="Redondeo de horas">R</th>
+		<th rel='tooltip' title="Redondeo de horas">R</th>
 		<?php } ?>
-		<th title="Otro tipo">Otros</th>
+		<th rel='tooltip' title="Otro tipo">Otros</th>
 	</thead>
 	
 	<tbody>
@@ -372,7 +372,7 @@ include_once("helpers.php");
 				}
 			?>
 			
-			<td><p class="<?php echo  $clase;?>" title="<?php echo  $title;?>"><?php echo  $valor;?></p></td>
+			<td><p class="<?php echo  $clase;?>" rel='tooltip' title="<?php echo  $title;?>"><?php echo  $valor;?></p></td>
 			<td><p class="dia"><?php echo  $dia;?></p></td>
 	
 			<?php   
@@ -402,7 +402,7 @@ include_once("helpers.php");
 					$registro=tipoMarcacion($row_marcacion, $cantidad_parametros); ?>
 					
 			<td class="td_center">
-				<p class="<?php echo $registro['label_class']; ?>" title="<?php echo $registro['label_title']; ?>">
+				<p class="<?php echo $registro['label_class']; ?>" rel='tooltip' title="<?php echo $registro['label_title']; ?>">
 					<a class="<?php echo $registro['a_class']; ?>" onClick="abrirVentana('edit.php?id=<?php echo $row_usuario['id_usuario']?>&fecha=<?php echo $valor?>')">
 						<?php echo $registro['marcacion']; ?>
 					</a>
@@ -472,7 +472,7 @@ include_once("helpers.php");
 			?>
 			<td>
 				<p class="<?php echo $registro['label_class']; ?>">
-					<a class="<?php echo $registro['a_class']; ?>" title="<?php echo $registro['a_title']; ?>" onClick="abrirVentana('edit_otros.php?id=<?php echo $row_usuario['id_usuario']?>&fecha=<?php echo $valor?>')">
+					<a class="<?php echo $registro['a_class']; ?>" rel='tooltip' title="<?php echo $registro['a_title']; ?>" onClick="abrirVentana('edit_otros.php?id=<?php echo $row_usuario['id_usuario']?>&fecha=<?php echo $valor?>')">
 						<?php echo $registro['marcacion']; ?>
 					</a>
 				</p>
@@ -538,7 +538,7 @@ include_once("helpers.php");
 	
 	<b>Horas a cumplir:</b> <?php echo pasar_hora($total_normales);?>
 	<div class="progress">
-	 	<div class="progress-bar" title="Suma total de las horas normales" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $total_normales*100/$porcentaje_cien?>%;">
+	 	<div class="progress-bar" rel='tooltip' title="Suma total de las horas normales a cumplir" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $total_normales*100/$porcentaje_cien?>%;">
 			<?php   echo pasar_hora($total_normales);?>
 	  	</div>
 	</div>
@@ -546,7 +546,7 @@ include_once("helpers.php");
 	<?php if($total>0){ ?>
 		<b>Horas normales:</b> <?php   echo pasar_hora($total);?>
 		<div class="progress">
-		 	<div class="progress-bar progress-bar-success" title="Suma total de las horas normales" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $total*100/$porcentaje_cien?>%;">
+		 	<div class="progress-bar progress-bar-success" rel='tooltip' title="Suma total de las horas normales trabajadas" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $total*100/$porcentaje_cien?>%;">
 		    	<?php   echo pasar_hora($total);?>
 		  	</div>
 		</div>
@@ -556,7 +556,7 @@ include_once("helpers.php");
 	<?php if(round($totalotras,2)>0){ ?>
 		<b>Total de otras horas:</b> <?php echo round($totalotras,2);?>
 		<div class="progress">
-		 	<div class="progress-bar progress-bar-success" title="Es la suma de las 'otros', son horas de enfermedad, accidente, ausencias, otros" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo round($totalotras,2)*100/$porcentaje_cien?>%;">
+		 	<div class="progress-bar progress-bar-success" rel='tooltip' title="Es la suma de las 'otros', son horas de enfermedad, accidente, ausencias, otros" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo round($totalotras,2)*100/$porcentaje_cien?>%;">
 		    	<?php   echo round($totalotras,2);?>
 		  	</div>
 		</div>
@@ -566,38 +566,37 @@ include_once("helpers.php");
 	<?php if(pasar_hora($total_cien)>0){ ?>
 		<b>Horas extra 100% :</b> <?php echo pasar_hora($total_cien);?>
 		<div class="progress">
-		 	<div class="progress-bar progress-bar-success progress-bar-striped" title="Suma total de las horas extra al 100%, suma de horas trabajadas domingos, sabado pasado el convenio o feriados" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $total_cien*100/$porcentaje_cien?>%;">
+		 	<div class="progress-bar progress-bar-success progress-bar-striped" rel='tooltip' title="Suma total de las horas extra al 100%, suma de horas trabajadas domingos, sabado pasado el convenio o feriados" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $total_cien*100/$porcentaje_cien?>%;">
 		   		<?php echo pasar_hora($total_cien);?>
 		  	</div>
 		</div>
 	<?php } ?>
 	
 	<?php
-	
+	 $title='Horas trabajadas';
+		
 	 if($signo==0){
 	 	$suma_final=pasar_hora($total+round($totalotras,2));
 	 	$resta=$total_normales-pasar_hora($total+round($totalotras,2));
 		 
-		$title='Horas que el empleado debe recuperar para alcanzar el minimo de horas trabajadas';
-		$final_title='horas a favor de la empresa';
+		$final_title='Horas que el empleado debe recuperar para alcanzar el mínimo de horas trabajadas';
 		$progress='danger';
 	 }else{
 	 	$suma_final=$total_normales;
 	 	$resta=pasar_hora($total+round($totalotras,2))-$total_normales;
 		
-		$title='Suma total de las horas extra al 50%';
-		$final_title='horas extra al 50%';
+		$final_title='Suma total de las horas extra al 50%';
 		$progress='warning';
 	 }
 	?>
 	
 	<b>Final:</b> <?php echo $resta." ".$final_title?>
 	<div class="progress">
- 	<div class="progress-bar progress-bar-info" title="<?php echo $title?>" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $suma_final*100/$porcentaje_cien?>%;">
+ 	<div class="progress-bar progress-bar-info" rel='tooltip' title="<?php echo $title?>" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $suma_final*100/$porcentaje_cien?>%;">
     <?php echo pasar_hora($suma_final);?>
   	</div>
   	
-  	<div class="progress-bar progress-bar-<?php echo $progress?>" title="<?php echo $title?>" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo 100-$suma_final*100/$porcentaje_cien?>%;">
+  	<div class="progress-bar progress-bar-<?php echo $progress?>" rel='tooltip' title="<?php echo $final_title?>" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo 100-$suma_final*100/$porcentaje_cien?>%;">
     <?php echo $resta;?>
   	</div>
 	</div>

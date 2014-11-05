@@ -35,7 +35,7 @@
 			</span>
 		</td>
 		<td align="right">
-			<a href="http://www.tmsgroup.com.ar/" title="Sitio de TMS Group" target="_blank">
+			<a href="http://www.tmsgroup.com.ar/" rel='tooltip' title="Sitio de TMS Group" target="_blank">
 			<span class="copyright">Desarrollado por TMS Group</span>
 			</a>
 		</td>

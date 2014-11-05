@@ -277,7 +277,7 @@ function tipoOtra($row_otrahora, $cantidad){
 	}else{
 		$registro['label_class']='insert_access';
 		$registro['a_class']='btn btn-default';
-		$registro['a_title']='Agregar';
+		$registro['a_title']='Agregar otra hora';
 		$registro['marcacion']="<i class='icon-plus-sign-alt'></i>";
 	}
 	

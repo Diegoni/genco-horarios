@@ -97,8 +97,8 @@ if (isset($_GET['delete'])){
 				<input type='hidden' name='entrada' value=".$entrada.">
 				<input type='hidden' name='id_marcada' value=".$id_marcada.">
 				<input type='hidden' name='id_estado' value=".$id_estado.">
-				<button class='btn' value='confirmar' name='confirmar_edit' title='confirmar cambios realizados'>Confirmar</button>
-				<a class='btn btn-danger' href='' title='no guarda los cambios realizados' onClick='cerrarse()'>Volver</a>
+				<button class='btn' value='confirmar' name='confirmar_edit' rel='tooltip' title='confirmar cambios realizados'>Confirmar</button>
+				<a class='btn btn-danger' href='' rel='tooltip' title='no guarda los cambios realizados' onClick='cerrarse()'>Volver</a>
 				</form>
 				</div>";
 				
@@ -195,8 +195,8 @@ if (isset($_GET['delete'])){
 	}
 		echo"	<input type='hidden' name='fecha' value=".$fecha.">
 					<input type='hidden' name='id' value=".$id.">
-					<button value='confirmar' name='confirmar_update' title='confirmar cambios realizados'>Confirmar</button>
-					<a class='btn btn-danger' href='' title='no guarda los cambios realizados' onClick='cerrarse()'>Volver</a>
+					<button value='confirmar' name='confirmar_update' rel='tooltip' title='confirmar cambios realizados'>Confirmar</button>
+					<a class='btn btn-danger' href='' rel='tooltip' title='no guarda los cambios realizados' onClick='cerrarse()'>Volver</a>
 					</form>
 					</div>";
 	
@@ -314,13 +314,13 @@ if (isset($_GET['delete'])){
 			<center>
 			<input type="hidden" name="id" value="<?php echo $_GET['id']?>">
 			<input type="hidden" name="fecha" value="<?php echo $_GET['fecha']?>">
-			<a href='#' class='show_hide btn btn-default' title='Nuevo'>nuevo</a>
+			<a href='#' class='show_hide btn btn-default' rel='tooltip' title='Nuevo'>nuevo</a>
 			<?php if($numero_marcacion>0){?>
-			<input type="submit" class="btn btn-default" name="modificar" title="guardar las modificaciones realizadas" value="modificar" id="modificar">
+			<input type="submit" class="btn btn-default" name="modificar" rel='tooltip' title="guardar las modificaciones realizadas" value="modificar" id="modificar">
 			<?php }else{?>
-			<input type="submit" class="btn btn-default" name="modificar" title="no se pueden realizar modificaciones" value="modificar" id="modificar" disabled>
+			<input type="submit" class="btn btn-default" name="modificar" rel='tooltip' title="no se pueden realizar modificaciones" value="modificar" id="modificar" disabled>
 			<?php }?>
-			<a class="btn btn-danger" href="" title="no guarda los cambios realizados" onClick="cerrarse()">volver</a>
+			<a class="btn btn-danger" href="" rel='tooltip' title="no guarda los cambios realizados" onClick="cerrarse()">volver</a>
 			</center>
 	</td>
 	</tr>
@@ -376,15 +376,15 @@ if (isset($_GET['delete'])){
 				<input type="hidden" name="id" value="<?php echo $_GET['id']?>">
 				<input type="hidden" name="fecha" value="<?php echo $_GET['fecha']?>">
 				<input type="submit" class="btn btn-default" name="nuevo" value="aceptar"  id="nuevo">
-				<a href='#' class='show_hide btn btn-danger' title='cancelar'>cancelar</a>
+				<a href='#' class='show_hide btn btn-danger' rel='tooltip' title='cancelar'>cancelar</a>
 			</center>
 		</td>
 			
 			<?php  }else{	?>
 		<td colspan="5">
 			<center>
-				<input type="submit" class="btn btn-default" name="nuevo" title="todas las marcaciones ya están dadas de alta" value="aceptar"  id="nuevo" disabled>
-				<a href='#' class='show_hide btn btn-danger' title='cancelar'>cancelar</a>
+				<input type="submit" class="btn btn-default" name="nuevo" rel='tooltip' title="todas las marcaciones ya están dadas de alta" value="aceptar"  id="nuevo" disabled>
+				<a href='#' class='show_hide btn btn-danger' rel='tooltip' title='cancelar'>cancelar</a>
 			</center>
 		</td>
 		<?php }?>

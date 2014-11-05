@@ -182,7 +182,7 @@ if($_GET['buscar']==1){
 		<div class="col-md-6 pull-right">		
 		<div class="form-group">
 			<div class="col-md-12">
-				<button type="submit" class="btn btn-default pull-right" title="Buscar" name="buscar" value="1">
+				<button type="submit" class="btn btn-default pull-right" rel='tooltip' title="Buscar" name="buscar" value="1">
 				<i class="icon-search"></i> Buscar
 			</button>
 			</div>
@@ -239,12 +239,12 @@ if($_GET['buscar']==1){
 							<th style="text-align: center">t-e</th>
 							<th style="text-align: center">t-s</th>
 							<th style="text-align: center">Otros</th>
-							<th title="Subtotales">Subtotal</th>
+							<th rel='tooltip' title="Subtotales">Subtotal</th>
 							<?php if($config['mostrar_marcada']==1){ ?>
-							<th title="Calculo de horas laborales">Horas</th>
+							<th rel='tooltip' title="Calculo de horas laborales">Horas</th>
 							<?php } ?>
 							<?php if($config['aplicar_redondeo']==1){ ?>
-							<th title="Redondeo de horas">R</th>
+							<th rel='tooltip' title="Redondeo de horas">R</th>
 							<?php } ?>
 						</tr>
 					</thead>
@@ -314,7 +314,7 @@ if($_GET['buscar']==1){
 								<tr>
 									<td><p class='dia'><?php echo $row_usuario2['usuario']?> </p></td>
 									<td><p class='dia'><?php echo devuelve_dia($valor)?> </p></td>
-									<td><p class='<?php echo $clase ?>' title='<?php echo $title ?>'><?php echo $valor ?></p></td>
+									<td><p class='<?php echo $clase ?>' rel='tooltip' title='<?php echo $title ?>'><?php echo $valor ?></p></td>
 									<td><?php echo $array_marcaciones['marcacion-1-'.$valor]; ?></td> 	
 									<td><?php echo $array_marcaciones['marcacion-2-'.$valor]; ?></td>
 									<td><?php echo $array_marcaciones['marcacion-3-'.$valor]; ?></td>
@@ -343,9 +343,8 @@ if($_GET['buscar']==1){
 									<?php } ?>
 								</tr>
 								
-						<?php } ?>
-								
-						<?php
+						<?php } 
+
 						}else{ ?>
 							<div class="alert alert-warning alert-dismissible" role="alert">
   								<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>

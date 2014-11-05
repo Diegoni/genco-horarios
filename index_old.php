@@ -91,7 +91,7 @@ if(isset($_GET['empleado'])){
 		
 		<div class="col-md-2">
 			<center>
-				<p class="fecha" rel='tooltip' title="Fecha con la que se esta trabajando" rel="tooltip">
+				<p class="fecha" title="Fecha con la que se esta trabajando">
 					<?php echo  $fecha;?>
 				</p>
 			</center>
@@ -114,7 +114,7 @@ if(isset($_GET['empleado'])){
 		  	</div>
 			
 			<div class="form-group">
-				<button type="submit" class="btn btn-primary btn-lg" rel='tooltip' title="Buscar marcaciones">
+				<button type="submit" class="btn btn-default" title="Buscar">
 					<i class="icon-search"></i>
 				</button>
 			</div>
@@ -130,22 +130,22 @@ if(isset($_GET['empleado'])){
 		
 			
 			<div class="btn-group">
-			  <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
+			  <a class="btn btn-success dropdown-toggle" data-toggle="dropdown" href="#">
 				<i class="icon-cogs"></i>
 				<span class="caret"></span>
 			  </a>
 			  <ul class="dropdown-menu">
-				<li><a href="#openModal" rel='tooltip' title="Parametros de configuración"><i class="icon-time"></i> Parametros</a></li>
-				<li><a href="index.php?fecha=<?php echo $fecha;?>" rel='tooltip' title="Volver a cargar el sitio" ><i class="icon-refresh"></i> Refresh</a></li>
+				<li><a href="#openModal" title="Parametros"><i class="icon-time"></i> Parametros</a></li>
+				<li><a href="index.php?fecha=<?php echo $fecha;?>" title="Refresh" ><i class="icon-refresh"></i> Refresh</a></li>
 				<?php if($bandera==1){ ?>
 					<form class="form-inline" action="index.php" name="importar">
 					<input type="hidden" name="fecha" value="<?php echo $fecha;?>">
-					<li><button type="submit" rel='tooltip' title="Actualice la base de datos" name="actualizar" value="1"><i class="icon-download-alt"></i> Actualizar</button></li>
+					<li><button type="submit" title="Actualice la base de datos" name="actualizar" value="1"><i class="icon-download-alt"></i> Actualizar</button></li>
 					<form class="form-inline" action="index.php" name="importar">
 				<?php }else{?>
-					<li class="disabled"><a href="" rel='tooltip' title="Los datos ya estan actalizados" name="actualizar" value="1"><i class="icon-download-alt"></i> Actualizar</a></li>
+					<li class="disabled"><a href="" title="Los datos ya estan actalizados" name="actualizar" value="1"><i class="icon-download-alt"></i> Actualizar</a></li>
 				<?php }?>
-				<!--<li><a href='#' class='show_hide' rel='tooltip' title='Más detalles en la búsqueda'><i class="icon-chevron-sign-down"></i> Búsqueda</a></li>-->
+				<!--<li><a href='#' class='show_hide' title='Más detalles en la búsqueda'><i class="icon-chevron-sign-down"></i> Búsqueda</a></li>-->
 				<li><a href="#myModal" role="button" data-toggle="modal"><i class="icon-question-sign"></i> Ayuda</a></li>
 				</form>
 			  </ul>
@@ -184,45 +184,29 @@ if(isset($_GET['empleado'])){
 --------------------------------------------------------------------->  
 
 <?php
-if(isset($_GET['fecha'])){	
-	$marcacion		= getMarcaciones(NULL, $fecha_americana);
-	$row_marcacion	= mysql_fetch_assoc($marcacion);
 	
-	$otrahora		= getOtrahoras($fecha_americana);
-	$row_otrahora	= mysql_fetch_assoc($otrahora);
-	$cantidad_otra	= mysql_num_rows($otrahora);
+	$marcacion=getMarcaciones(NULL, $fecha_americana);
+	$row_marcacion = mysql_fetch_assoc($marcacion);
 	
-	$query_create	= "CREATE TEMPORARY TABLE temp (id_marcada int, entrada datetime, id_usuario int, id_parametros int, id_estado int)";
-	$res_create		= mysql_query($query_create) or die(mysql_error());
+	$otrahora=getOtrahoras($fecha_americana);
+	$row_otrahora = mysql_fetch_assoc($otrahora);
 	
-	$query_create	= "CREATE TEMPORARY TABLE tempotra (id_usuario int, id_tipootra int, id_nota int, horas int, fecha date, id_archivo int)";
-	$res_create		= mysql_query($query_create) or die(mysql_error());
+	$query_create = "CREATE TEMPORARY TABLE temp (id_marcada int, entrada datetime, id_usuario int, id_parametros int, id_estado int)";
+	$res_create = mysql_query($query_create) or die(mysql_error());
+	
+	$query_create = "CREATE TEMPORARY TABLE tempotra (id_usuario int, id_tipootra int, id_nota int, horas int, fecha date, id_archivo int)";
+	$res_create = mysql_query($query_create) or die(mysql_error());
+	
+	
+	do{
+		$query_ins = "INSERT INTO temp VALUES ('$row_marcacion[id_marcada]', '$row_marcacion[entrada]', '$row_marcacion[id_usuario]', '$row_marcacion[id_parametros]', '$row_marcacion[id_estado]')";
+		$res_ins = mysql_query($query_ins) or die(mysql_error());
+	}while ($row_marcacion = mysql_fetch_array($marcacion));
 		
 	do{
-		/*
-		$query_ins	= "INSERT INTO temp VALUES ('$row_marcacion[id_marcada]', '$row_marcacion[entrada]', '$row_marcacion[id_usuario]', '$row_marcacion[id_parametros]', '$row_marcacion[id_estado]')";
-		$res_ins	= mysql_query($query_ins) or die(mysql_error());*/
-		if($array_marcacion[$row_marcacion['id_usuario'].'_'.$row_marcacion['id_parametros'].'_id_marcada']!=""){
-			$array_marcacion[$row_marcacion['id_usuario'].'_'.$row_marcacion['id_parametros'].'_cantidad']	= $array_marcacion[$row_marcacion['id_usuario'].'_'.$row_marcacion['id_parametros'].'_cantidad']+1;
-		}else{
-			$array_marcacion[$row_marcacion['id_usuario'].'_'.$row_marcacion['id_parametros'].'_cantidad']	= 1;
-		}
-		
-		$array_marcacion[$row_marcacion['id_usuario'].'_'.$row_marcacion['id_parametros'].'_id_marcada']	= $row_marcacion['id_marcada'];
-		$array_marcacion[$row_marcacion['id_usuario'].'_'.$row_marcacion['id_parametros'].'_entrada']		= $row_marcacion['entrada'];
-		$array_marcacion[$row_marcacion['id_usuario'].'_'.$row_marcacion['id_parametros'].'_id_usuario']	= $row_marcacion['id_usuario'];
-		$array_marcacion[$row_marcacion['id_usuario'].'_'.$row_marcacion['id_parametros'].'_id_parametros']	= $row_marcacion['id_parametros'];
-		$array_marcacion[$row_marcacion['id_usuario'].'_'.$row_marcacion['id_parametros'].'_id_estado']		= $row_marcacion['id_estado'];
-		
-	}while ($row_marcacion = mysql_fetch_array($marcacion));
-	
-	if($cantidad_otra>0){	
-		do{
-			$query_ins	= "INSERT INTO tempotra VALUES ('$row_otrahora[id_usuario]', '$row_otrahora[id_tipootra]', '$row_otrahora[id_nota]', '$row_otrahora[horas]', '$row_otrahora[fecha]', '$row_otrahora[id_archivo]')";
-			$res_ins	= mysql_query($query_ins) or die(mysql_error());
-		}while ($row_otrahora = mysql_fetch_array($otrahora));
-	}
-}
+		$query_ins = "INSERT INTO tempotra VALUES ('$row_otrahora[id_usuario]', '$row_otrahora[id_tipootra]', '$row_otrahora[id_nota]', '$row_otrahora[horas]', '$row_otrahora[fecha]', '$row_otrahora[id_archivo]')";
+		$res_ins = mysql_query($query_ins) or die(mysql_error());
+	}while ($row_otrahora = mysql_fetch_array($otrahora));
 ?>
 
 <!--------------------------------------------------------------------
@@ -235,19 +219,19 @@ if(isset($_GET['fecha'])){
 <div class="row">
 <div class="col-md-12">
 
-<?php if(isset($_GET['fecha'])){ ?>
+<!--<table  id="table" class="sortable">-->
 <div id="muestra">
 	<table border="1" class="table table-hover" id="example">
 		<thead>
-			<th rel='tooltip' title="Legajo de los usuarios">Legajo</th>
-			<th rel='tooltip' title="Nombre de los usuarios">Nombre</th>
-			<th rel='tooltip' title="Departamento al que pertenecen">Sector</th>
-			<th rel='tooltip' title="sin definir">sd</th>
-			<th rel='tooltip' title="Mañana - Entrada">m-e</th>
-			<th rel='tooltip' title="Mañana - Salida">m-s</th>
-			<th rel='tooltip' title="Tarde - Entrada">t-e</th>
-			<th rel='tooltip' title="Tarde - Salida">t-s</th>
-			<th rel='tooltip' title="Otro tipo">Otros</th>
+			<th title="Legajo de los usuarios">Legajo</th>
+			<th title="Nombre de los usuarios">Nombre</th>
+			<th title="Departamento al que pertenecen">Sector</th>
+			<th title="sin definir">sd</th>
+			<th title="Mañana - Entrada">m-e</th>
+			<th title="Mañana - Salida">m-s</th>
+			<th title="Tarde - Entrada">t-e</th>
+			<th title="Tarde - Salida">t-s</th>
+			<th title="Otro tipo">Otros</th>
 		</thead>
 	
 		<tbody>
@@ -258,29 +242,14 @@ if(isset($_GET['fecha'])){
 				<td><?php echo $row_usuario['departamento']?></td>
 					<?php 
 					for ($i = 0; $i <= 4; $i++) {
-							
-						//$marcacion				= getTemp($row_usuario['id_usuario'], $i);
-						//$row_marcacion			= mysql_fetch_assoc($marcacion);
-						//$cantidad_parametros	= mysql_num_rows($marcacion);
+						$marcacion=getTemp($row_usuario['id_usuario'], $i);
+						$row_marcacion = mysql_fetch_assoc($marcacion);
+						$cantidad_parametros=mysql_num_rows($marcacion);
 						
-						$row_marcacion	= array(
-							'id_marcada'	=> $array_marcacion[$row_usuario['id_usuario'].'_'.$i.'_id_marcada'],
-							'entrada'		=> $array_marcacion[$row_usuario['id_usuario'].'_'.$i.'_entrada'],
-							'id_usuario'	=> $array_marcacion[$row_usuario['id_usuario'].'_'.$i.'_id_usuario'],
-							'id_parametros'	=> $array_marcacion[$row_usuario['id_usuario'].'_'.$i.'_id_parametros'],
-							'id_estado'		=> $array_marcacion[$row_usuario['id_usuario'].'_'.$i.'_id_estado']
-						);
-						
-						if($row_marcacion['entrada']!=""){
-							$cantidad_parametros = $array_marcacion[$row_usuario['id_usuario'].'_'.$i.'_cantidad'];	
-						}else{
-							$cantidad_parametros = 0;
-						}
-						
-						$registro			= tipoMarcacion($row_marcacion, $cantidad_parametros);
+						$registro=tipoMarcacion($row_marcacion, $cantidad_parametros);
 					?>
 				<td>
-					<p class="<?php echo $registro['label_class']; ?>" rel='tooltip' title="<?php echo $registro['label_title']; ?>">
+					<p class="<?php echo $registro['label_class']; ?>" title="<?php echo $registro['label_title']; ?>">
 						<a class="<?php echo $registro['a_class']; ?>" onClick="abrirVentana('edit.php?id=<?php echo $row_usuario['id_usuario']?>&fecha=<?php echo $fecha_americana?>')">
 							<?php echo $registro['marcacion']; ?>
 						</a>
@@ -296,7 +265,7 @@ if(isset($_GET['fecha'])){
 					?>
 				<td>
 					<p class="<?php echo $registro['label_class']; ?>">
-						<a class="<?php echo $registro['a_class']; ?>" rel='tooltip' title="<?php echo $registro['a_title']; ?>" onClick="abrirVentana('edit_otros.php?id=<?php echo $row_usuario['id_usuario']?>&fecha=<?php echo $fecha_americana?>')">
+						<a class="<?php echo $registro['a_class']; ?>" title="<?php echo $registro['a_title']; ?>" onClick="abrirVentana('edit_otros.php?id=<?php echo $row_usuario['id_usuario']?>&fecha=<?php echo $fecha_americana?>')">
 							<?php echo $registro['marcacion']; ?>
 						</a>
 					</p>
@@ -315,13 +284,6 @@ if(isset($_GET['fecha'])){
 		?>
 		</tbody>
 	</table>
-<?php }else{ ?>
-	<div class='alert alert-info'>
-		<button type='button' class='close' data-dismiss='alert'>&times;</button>
-			Seleccione fecha
-	</div>
-	<br> 	
-<?php } ?>
 </div>
 </div>
 </div>
@@ -352,7 +314,7 @@ if(isset($_GET['fecha'])){
 
 <div id="openModal" class="modalDialog">
 	<div>
-		<a href="#closes" rel='tooltip' title="Cerrar" class="closes">X</a>
+		<a href="#closes" title="Cerrar" class="closes">X</a>
 		<h2>Parámetros de configuración</h2>
 		<p>Estos son los valores que filtran las entradas y salidas</p>
 		<p>
@@ -411,7 +373,7 @@ if(isset($_GET['fecha'])){
 			<center>
 			<input type="hidden" name="id" value="<?php echo $id?>">
 			<input type="submit" class="btn btn-default" name="parametros" value="Modificar"  id="parametros">
-			<a class="btn btn-danger" href="" rel='tooltip' title="no guarda los cambios realizados" onClick="cerrarse()">Cancelar</a>
+			<a class="btn btn-danger" href="" title="no guarda los cambios realizados" onClick="cerrarse()">Cancelar</a>
 			</center>
 		</td>
 	</tr>

@@ -67,8 +67,8 @@ if (isset($_GET['nuevo'])){
 	}?>
 	
 	<div ALIGN=left class="well">
-	<a href='#' class='show_hide btn btn-primary' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
-	<a href='#' class='show_hide2 btn btn-default' title='Ver calendario'><i class="icon-table"></i> Calendario</a>
+	<a href='#' class='show_hide btn btn-primary' rel='tooltip' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
+	<a href='#' class='show_hide2 btn btn-default' rel='tooltip' title='Ver calendario'><i class="icon-table"></i> Calendario</a>
 	<a href="javascript:imprSelec('muestra')" class='btn btn-default'><i class="icon-print"></i> Imprimir</a>
 	<button class="btn btn-default" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
 	<div class="pull-right"><h4>Feriados</h4></div>
@@ -98,7 +98,7 @@ if (isset($_GET['nuevo'])){
 		<td></td>
 		<td>
 		<button type="submit" class="btn btn-primary" name="nuevo" value="1"><i class="icon-plus-sign-alt"></i> Alta</button>
-		<A class="show_hide btn btn-danger"  title="Cancelar" href='#'><i class="icon-ban-circle"></i> Cancelar</A></td>
+		<A class="show_hide btn btn-danger"  rel='tooltip' title="Cancelar" href='#'><i class="icon-ban-circle"></i> Cancelar</A></td>
 		</td>
 	</tr>
 	</table>
