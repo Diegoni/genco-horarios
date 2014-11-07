@@ -17,7 +17,9 @@ $cantidad_reloj		= mysql_num_rows($relojes);
 
 ?>
 <div class="row">
-	<div class="col-md-12 well">
+	<div class="col-md-12">
+		<b class="block-title">Actualizar registros</b>
+		
 		<form class="form-inline" action="update_relojes.php" name="ente" onsubmit="javascript: alert('La actualización esta por comenzar, espere a que se terminen de cargar los datos.');">
 			
 			<div class="form-group">
@@ -60,7 +62,9 @@ $cantidad_reloj		= mysql_num_rows($relojes);
 		</form>
 
 </div><!--cierra el class="span12" -->
+
 </div>
+<div class="divider"></div>
 <div class="row">
 <div class="col-md-2">
 	<div class="panel panel-default">
@@ -80,7 +84,7 @@ $cantidad_reloj		= mysql_num_rows($relojes);
 		</div>
 	</div>
 </div>
-<div class="col-md-10">
+<div class="col-md-10 borde-box">
 	<iframe src="calendar.php" width="100%" height="600" frameborder="0"></iframe>
 </div>
 

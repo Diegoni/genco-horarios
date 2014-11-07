@@ -60,10 +60,6 @@ if (isset($_GET['nuevo'])){
 	$row_convenio = mysql_fetch_assoc($convenio);
 	$numero_convenios = mysql_num_rows($convenio);
 	?>
-<div class="row">
-	<div class="span12">
-	<center>
-
 	<!-- si hay modificacion o eliminacion de convenio se da aviso que se realizado exitosamente -->
 	<?php 
 	if($bandera==1 && isset($_GET['nuevo'])){
@@ -77,13 +73,15 @@ if (isset($_GET['nuevo'])){
 	}
 	?>
 	
-	<div ALIGN=left class="well">
-	<a href='#' class='show_hide btn btn-primary' rel='tooltip' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
-	<a href="javascript:imprSelec('muestra')" class='btn btn-default'><i class="icon-print"></i> Imprimir</a>
-	<button class="btn btn-default" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
-	<div class="pull-right"><h4>Convenios</h4></div>
+<div class="row">
+<div class="col-md-12">
+	<p class="block-title">Convenios</p>
+	<div>
+		<a href='#' class='show_hide btn btn-primary' rel='tooltip' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
+		<a href="javascript:imprSelec('muestra')" class='btn btn-default'><i class="icon-print"></i> Imprimir</a>
+		<button class="btn btn-default" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
 	</div>
-	<br>
+<div class="divider"></div>
 
 	
 <!--------------------------------------------------------------------
@@ -92,12 +90,11 @@ if (isset($_GET['nuevo'])){
 ----------------------------------------------------------------------
 --------------------------------------------------------------------->		
 	<div class='slidingDiv'>
-	<div class="well">
 	<form action="convenios.php" method="get" > 
 	<table class="table table-hover">
 	<tr>
 		<td>Convenio</td>
-		<td><input type="text" name="convenio" placeholder="ingrese convenio" required></td>
+		<td><input type="text" name="convenio" class="form-control" placeholder="ingrese convenio" required></td>
 	</tr>
 	<tr>
 		<td></td>
@@ -108,7 +105,7 @@ if (isset($_GET['nuevo'])){
 	</tr>
 	</table>
 	</form>
-	</div>
+	<div class="divider"></div>
 	</div>
 	
 	
@@ -120,7 +117,7 @@ if (isset($_GET['nuevo'])){
 
 	<center>
 	<div id="muestra">
-	<table border="1" class="table table-hover" id="example">
+	<table class="table table-hover" id="example">
 	<thead>
 	<tr>
 		<td>Convenio</td>

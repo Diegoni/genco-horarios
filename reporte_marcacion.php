@@ -106,9 +106,9 @@ if($_GET['buscar']==1){
 --------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------->	
 
-<div class="row well">
+<div class="row">
 	<div class="col-lg-12">
-		<p>Reporte de Marcaciones</p>
+		<p class="block-title">Reporte de Marcaciones</p>
 		
 		<form class="form-horizontal" role="form">
 		<div class="col-md-6">	
@@ -194,6 +194,7 @@ if($_GET['buscar']==1){
 	</div>
 </div>
 
+<div class="divider"></div>
 <!------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------
 						Usuarios
@@ -228,7 +229,7 @@ if($_GET['buscar']==1){
 			<br>
 			<hr>
 			<div class="panel-body" id="muestra">
-				<table border="1" style="width: 100%" class="table table-hover table-striped" id="example">
+				<table style="width: 100%" class="table table-hover table-striped" id="example">
 					<thead>
 						<tr class="success">
 							<th style="text-align: center">Usuario</th>

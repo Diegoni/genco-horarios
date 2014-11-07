@@ -18,7 +18,7 @@ include_once($url['models_url']."turnos_model.php");
 
 ?>
 
-<div class="row well">
+<div class="row">
 	<div class="col-md-6 col-md-offset-3">
 	<?php do{ ?>
 	<form name="franja" action="convenios_turno.php" method="get">

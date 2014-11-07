@@ -122,17 +122,14 @@ $numero_convenio = mysql_num_rows($convenio);
 
 ?>
 <div class="row">
-<div class="span12">
-<center>
-
-
-<div ALIGN=left class="well">
-	<a href='#' class='show_hide btn btn-primary' rel='tooltip' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
-	<a class='btn btn-default' href="javascript:imprSelec('muestra')" ><i class="icon-print"></i> Imprimir</a>
-	<button class="btn btn-default" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
-	<div class="pull-right"><h4>Empleados</h4></div>
-</div>
-<br>
+<div class="col-md-12">
+	<p class="block-title">Empleados</p>
+	<div>
+		<a href='#' class='show_hide btn btn-primary' rel='tooltip' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
+		<a href="javascript:imprSelec('muestra')" class='btn btn-default'><i class="icon-print"></i> Imprimir</a>
+		<button class="btn btn-default" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
+	</div>
+<div class="divider"></div>
 
 <!--------------------------------------------------------------------
 ----------------------------------------------------------------------
@@ -141,95 +138,94 @@ $numero_convenio = mysql_num_rows($convenio);
 --------------------------------------------------------------------->
 
 <div class='slidingDiv'>
-<div class="well">
 		
 <!-- Formulario de alta usuario -->
 <form class="form-inline" action="empleados.php" >
 <table class="table table-hover">
-<tr>
-<td>Usuario</td>
-<td><input type="text" name="usuario" class="form-control" placeholder="ingrese Usuario" required></td>
-</tr>
-
-<tr>
-<td>Nombre</td>
-<td><input type="text" name="nombre" class="form-control" placeholder="ingrese Nombre" required></td>
-</tr>
-
-<tr>
-<td>Apellido</td>
-<td><input type="text" name="apellido" class="form-control" placeholder="ingrese Apellido" required></td>
-</tr>
-
-<tr>
-<td>DNI</td>
-<td><input type="text" name="dni" class="form-control" onkeypress="return isNumberKey(event)" maxlength="8" placeholder="ingrese DNI" required></td>
-</tr>
-
-<tr>
-<td>Fecha ingreso</td>
-<td><input type="text" name="fecha_ingreso" id="datepicker" class="form-control" placeholder="ingrese fecha" autocomplete="off" required></td>
-</tr>
-
-<tr>
-<td>CUIL</td>
-<td>
-	<input type="text" name="cuil1" onkeypress="return isNumberKey(event)" maxlength="2" class="form-control" required>-
-	<input type="text" name="cuil2" onkeypress="return isNumberKey(event)" maxlength="8" class="form-control" required>-
-	<input type="text" name="cuil3" onkeypress="return isNumberKey(event)" maxlength="1" class="form-control" required>
-</td>
-</tr>
-
-<tr>
-<td>Legajo</td>
-<td><input type="text" name="legajo" class="form-control" onkeypress="return isNumberKey(event)" placeholder="Legajo" required></td>
-</tr>
-
-<tr>
-<td>Empresa</td>
-<td><select class="form-control" name="empresa" required>
-		<option></option>
-	<?php do{ ?>	
-		<option value="<?php echo $row_empresa['id_empresa'];?>"><?php echo $row_empresa['empresa'];?></option>
-	<?php }while ($row_empresa = mysql_fetch_array($empresa)) ?>
-	</select>
-</td>
-</tr>  
-
-<tr>
-<td>Departamento</td>
-<td><select class="form-control" name="departamento" required>
-		<option></option>
-	<?php do{ ?>	
-		<option value="<?php echo $row_departamento2['id_departamento'];?>"><?php echo $row_departamento2['nombre'];?></option>
-	<?php }while ($row_departamento2 = mysql_fetch_array($departamento2)) ?>
-	</select>
-</td>
-</tr>  
-
-
-<tr>
-<td>Convenio</td>
-<td><select class="form-control" name="convenio" required>
-		<option></option>
-	<?php do{ ?>	
-		<option value="<?php echo $row_convenio['id_convenio'];?>"><?php echo $row_convenio['convenio'];?></option>
-	<?php }while ($row_convenio = mysql_fetch_array($convenio)) ?>
-	</select>
-</td>
-</tr>  
-
-<tr>
-<td></td>
-<td>
-<button type="submit" class="btn btn-primary" name="nuevo" value="1"><i class="icon-plus-sign-alt"></i> Alta</button>
-<A class="show_hide btn btn-danger"  rel='tooltip' title="Cancelar" href='#'><i class="icon-ban-circle"></i> Cancelar</A></td>
-</tr>  
-
-
+	<tr>
+		<td>Usuario</td>
+		<td><input type="text" name="usuario" class="form-control" placeholder="ingrese Usuario" required></td>
+	</tr>
+	
+	<tr>
+		<td>Nombre</td>
+		<td><input type="text" name="nombre" class="form-control" placeholder="ingrese Nombre" required></td>
+	</tr>
+	
+	<tr>
+		<td>Apellido</td>
+		<td><input type="text" name="apellido" class="form-control" placeholder="ingrese Apellido" required></td>
+	</tr>
+	
+	<tr>
+		<td>DNI</td>
+		<td><input type="text" name="dni" class="form-control" onkeypress="return isNumberKey(event)" maxlength="8" placeholder="ingrese DNI" required></td>
+	</tr>
+	
+	<tr>
+		<td>Fecha ingreso</td>
+		<td><input type="text" name="fecha_ingreso" id="datepicker" class="form-control" placeholder="ingrese fecha" autocomplete="off" required></td>
+	</tr>
+	
+	<tr>
+		<td>CUIL</td>
+		<td>
+			<input type="text" name="cuil1" onkeypress="return isNumberKey(event)" maxlength="2" class="form-control" required>-
+			<input type="text" name="cuil2" onkeypress="return isNumberKey(event)" maxlength="8" class="form-control" required>-
+			<input type="text" name="cuil3" onkeypress="return isNumberKey(event)" maxlength="1" class="form-control" required>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>Legajo</td>
+		<td><input type="text" name="legajo" class="form-control" onkeypress="return isNumberKey(event)" placeholder="Legajo" required></td>
+	</tr>
+	
+	<tr>
+		<td>Empresa</td>
+		<td><select class="form-control" name="empresa" required>
+				<option></option>
+			<?php do{ ?>	
+				<option value="<?php echo $row_empresa['id_empresa'];?>"><?php echo $row_empresa['empresa'];?></option>
+			<?php }while ($row_empresa = mysql_fetch_array($empresa)) ?>
+			</select>
+		</td>
+	</tr>  
+	
+	<tr>
+		<td>Departamento</td>
+		<td><select class="form-control" name="departamento" required>
+				<option></option>
+			<?php do{ ?>	
+				<option value="<?php echo $row_departamento2['id_departamento'];?>"><?php echo $row_departamento2['nombre'];?></option>
+			<?php }while ($row_departamento2 = mysql_fetch_array($departamento2)) ?>
+			</select>
+		</td>
+	</tr>  
+	
+	
+	<tr>
+		<td>Convenio</td>
+		<td><select class="form-control" name="convenio" required>
+				<option></option>
+			<?php do{ ?>	
+				<option value="<?php echo $row_convenio['id_convenio'];?>"><?php echo $row_convenio['convenio'];?></option>
+			<?php }while ($row_convenio = mysql_fetch_array($convenio)) ?>
+			</select>
+		</td>
+	</tr>  
+	
+	<tr>
+		<td></td>
+		<td>
+		<button type="submit" class="btn btn-primary" name="nuevo" value="1"><i class="icon-plus-sign-alt"></i> Alta</button>
+		<A class="show_hide btn btn-danger"  rel='tooltip' title="Cancelar" href='#'><i class="icon-ban-circle"></i> Cancelar</A></td>
+	</tr>  
+	
+	
 </table>
-</form><br>
-</div>
+</form>
+<div class="divider"></div>
 </div>
 
 <!--------------------------------------------------------------------
@@ -239,7 +235,7 @@ $numero_convenio = mysql_num_rows($convenio);
 --------------------------------------------------------------------->
 
 <div id="muestra">
-<table border="1" class="table table-hover" id="example">
+<table class="table table-hover" id="example">
 
 <!-- Cabecera -->
 <thead>

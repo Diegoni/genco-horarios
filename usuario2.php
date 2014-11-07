@@ -96,9 +96,9 @@ if(!isset($fecha_inicio)){
 ----------------------------------------------------------------------			
 --------------------------------------------------------------------->
 
-	<div class="row well">
+	<div class="row">
 	<div class="col-md-2">
-		<b>Período de tiempo</b>
+		<b class="block-title">Período de tiempo</b>
 	</div>
 	
 	<div class="col-md-2">
@@ -130,7 +130,7 @@ if(!isset($fecha_inicio)){
 	</div>
 	
 	<div class="col-md-1">
-		<b>Usuario</b>
+		<b class="block-title">Usuario</b>
 	</div>
 	
 	<div class="col-md-2">
@@ -161,7 +161,8 @@ if(!isset($fecha_inicio)){
 	</div>
 
 	</div>
-	</table>
+	<div class="divider"></div>
+	
 	
 	<!-- Ayuda -->
 	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -205,7 +206,7 @@ if($fecha_inicio>$fecha_final){
 <img  src="imagenes/loading.gif" />
 </div>
 
-<table class="table" border="1">
+<table class="table">
 	<tr>
 		<th>Fecha inicio</th>
 		<td><?php echo date( "d-m-Y", strtotime($fecha_inicio))?></td>

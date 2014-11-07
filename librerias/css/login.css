@@ -9,7 +9,7 @@
    font-size : 12px;
    color : #25729a;
    font-weight: bold;
-   background-color:#FFFFFF;
+   background: url(../bootstrap/css/images/container.png);
    border:3px solid #ccc;
    border-radius:10px;
    -moz-border-radius:10px;
@@ -242,7 +242,7 @@ body {
    font-size: 12px;
    margin: 0;
    padding: 0;
-   background-image: url("linen.jpg");
+   background: url(../bootstrap/css/images/body.png)
    /*background:  #dfdfdf repeat-x;*/
    
 }

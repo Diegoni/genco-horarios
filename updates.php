@@ -19,7 +19,7 @@ include_once($url['models_url']."usuarios_sistema_model.php");
 
 	
 	<fieldset>
-	<legend>Actualizacion:</legend>
+	<legend>Actualización:</legend>
 		<table class="table">
 			<?php do{ ?>
 				<tr>

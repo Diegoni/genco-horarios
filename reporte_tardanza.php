@@ -104,9 +104,9 @@ if($_GET['buscar']==1){
 --------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------->	
 
-<div class="row well">
+<div class="row">
 	<div class="col-lg-12">
-		<p>Reporte de Tardanza</p>
+		<p class="block-title">Reporte de Tardanza</p>
 		<form class="form-horizontal" role="form">
 		<div class="col-md-6">	
 		<div class="form-group">	
@@ -185,6 +185,7 @@ if($_GET['buscar']==1){
 	</div>
 </div>
 
+<div class="divider"></div>
 <!------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------
 						Usuarios
@@ -252,7 +253,7 @@ if($_GET['buscar']==1){
 								<i class="icon-download-alt"></i>
 							</button>
 							
-							<table border="1" style="width: 100%" class="table table-hover" id="example<?php echo $row_usuario2['id_usuario']?>">
+							<table style="width: 100%" class="table table-hover" id="example<?php echo $row_usuario2['id_usuario']?>">
 								<thead>
 									<tr class="success">
 										<th style="text-align: center">Día</th>

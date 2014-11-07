@@ -51,11 +51,6 @@ if (isset($_GET['nuevo'])){
 	$row_feriado = mysql_fetch_assoc($feriado);
 	$numero_feriados = mysql_num_rows($feriado);
 	?>
-	<div class="row">
-	<div class="span12">
-
-	<center>
-
 	<!-- si hay modificacion o eliminacion de usuario se da aviso que se realizado exitosamente -->
 	<?php 
 	if(isset($_GET['nuevo'])){
@@ -66,14 +61,16 @@ if (isset($_GET['nuevo'])){
 		}
 	}?>
 	
-	<div ALIGN=left class="well">
-	<a href='#' class='show_hide btn btn-primary' rel='tooltip' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
-	<a href='#' class='show_hide2 btn btn-default' rel='tooltip' title='Ver calendario'><i class="icon-table"></i> Calendario</a>
-	<a href="javascript:imprSelec('muestra')" class='btn btn-default'><i class="icon-print"></i> Imprimir</a>
-	<button class="btn btn-default" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
-	<div class="pull-right"><h4>Feriados</h4></div>
+<div class="row">
+<div class="col-md-12">
+	<p class="block-title">Feriados</p>
+	<div>
+		<a href='#' class='show_hide btn btn-primary' rel='tooltip' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
+		<a href="javascript:imprSelec('muestra')" class='btn btn-default'><i class="icon-print"></i> Imprimir</a>
+		<button class="btn btn-default" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
+		<a href='#' class='show_hide2 btn btn-default' rel='tooltip' title='Ver calendario'><i class="icon-table"></i> Calendario</a>
 	</div>
-	<br>
+<div class="divider"></div>
 
 	
 <!--------------------------------------------------------------------
@@ -83,7 +80,6 @@ if (isset($_GET['nuevo'])){
 --------------------------------------------------------------------->	
 	
 	<div class='slidingDiv'>
-	<div class="well">
 	<form action="feriados.php" method="get" > 
 	<table class="table table-hover">
 	<tr>
@@ -103,13 +99,16 @@ if (isset($_GET['nuevo'])){
 	</tr>
 	</table>
 	</form>
-	</div>
+	<div class="divider"></div>
 	</div>
 	
 	<div class='slidingDiv2'>
 		<div class="row">
-			<div class="span12">
+			<div class="col-md-12">
+				<center>
 				<iframe src="https://www.google.com/calendar/embed?showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=es.ar%23holiday%40group.v.calendar.google.com&amp;color=%23711616&amp;ctz=America%2FArgentina%2FBuenos_Aires" style=" border-width:0 " width="800" height="600" frameborder="0" scrolling="no"></iframe>
+				</center>
+				<div class="divider"></div>
 			</div>
 		</div>
 	</div>
@@ -123,7 +122,7 @@ if (isset($_GET['nuevo'])){
 
 	<center>
 	<div id="muestra">
-	<table border="1" class="table table-hover" id="example">
+	<table class="table table-hover" id="example">
 	<thead>
 	<tr>
 		<td>Día</td>

@@ -67,24 +67,16 @@ if(isset($_GET['buscar'])){
 
 
 ?>
+
 <div class="row">
-<div class="span12">
-<center>
-
-<!-- si hay modificacion o eliminacion de usuario se da aviso que se realizado exitosamente -->
-<?php if(isset($_GET['modificar'])){
-	echo getMensajes('update', 'ok', 'Empresa', $_GET['empresa']);
-}else if(isset($_GET['eliminar'])){
-	echo getMensajes('delete', 'ok', 'Empresa', $_GET['empresa']);
-}?>
-
-<div ALIGN=left class="well">
-<a href='#' class='show_hide btn btn-primary' rel='tooltip' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
-<a href="javascript:imprSelec('muestra')" class='btn btn-default'><i class="icon-print"></i> Imprimir</a>
-<button class="btn btn-default" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
-<div class="pull-right"><h4>Empresas</h4></div>
-</div>
-<br>
+<div class="col-md-12">
+	<p class="block-title">Empresas</p>
+	<div>
+		<a href='#' class='show_hide btn btn-primary' rel='tooltip' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
+		<a href="javascript:imprSelec('muestra')" class='btn btn-default'><i class="icon-print"></i> Imprimir</a>
+		<button class="btn btn-default" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
+	</div>
+<div class="divider"></div>
 
 <!--------------------------------------------------------------------
 ----------------------------------------------------------------------
@@ -93,7 +85,6 @@ if(isset($_GET['buscar'])){
 --------------------------------------------------------------------->
 
 <div class='slidingDiv'>
-<div class="well">
 		
 <form class="form-inline" action="empresas.php">
 <table class="table table-hover">
@@ -125,8 +116,8 @@ if(isset($_GET['buscar'])){
 	</tr>  
 	
 </table>
-</form><br>
-</div>
+</form>
+<div class="divider"></div>
 </div>
 
 <!--------------------------------------------------------------------
@@ -135,40 +126,41 @@ if(isset($_GET['buscar'])){
 ----------------------------------------------------------------------			
 --------------------------------------------------------------------->
 <div id="muestra">
-<table border="1" class="table table-hover" id="example">
+<table class="table table-hover" id="example">
 
 <!-- Cabecera -->
 <thead>
 	<tr class="success">
-	<td>Empresa</td>
-	<td>Codigo</td>
-	<td>CUIL</td>
-	<td>Estado</td>
-	<td>Operación</td>
+		<td>Empresa</td>
+		<td>Codigo</td>
+		<td>CUIL</td>
+		<td>Estado</td>
+		<td>Operación</td>
 	</tr>
 <thead>
+	
 <tbody>
-<?php do{ ?>
-<tr>
-<td><?php echo $row_empresa['empresa'];?></td>
-<td><?php echo $row_empresa['cod_empresa'];?></td>
-<td><?php echo $row_empresa['cuil'];?></td>
-<td>
-		<?php if ($row_empresa['id_estado']==0) {?>
-		baja
-	<?php } else { ?>
-		activa
-	<?php } ?>
-</td>
-<td><A class="btn btn-primary" rel='tooltip' title="Editar empresa" HREF="modificar_empresa.php?id=<?php echo $row_empresa['id_empresa'];?>&action=1"><i class="icon-edit"></i></A>
-	<?php if ($row_empresa['id_estado']==0) {?>
-	<A type="submit" class="btn btn-danger disabled"  rel='tooltip' title="La empresa ya esta dada de baja"><i class="icon-minus-sign"></i></i></A>
-	<?php } else { ?>
-	<A type="submit" class="btn btn-danger"  rel='tooltip' title="Dar de baja" HREF="modificar_empresa.php?id=<?php echo $row_empresa['id_empresa'];?>&action=0"><i class="icon-minus-sign"></i></i></A>
-	<?php } ?>
-	</td>
-</tr>
-<?php }while ($row_empresa = mysql_fetch_array($empresa)) ?>
+	<?php do{ ?>
+	<tr>
+		<td><?php echo $row_empresa['empresa'];?></td>
+		<td><?php echo $row_empresa['cod_empresa'];?></td>
+		<td><?php echo $row_empresa['cuil'];?></td>
+		<td>
+				<?php if ($row_empresa['id_estado']==0) {?>
+				baja
+			<?php } else { ?>
+				activa
+			<?php } ?>
+		</td>
+		<td><A class="btn btn-primary" rel='tooltip' title="Editar empresa" HREF="modificar_empresa.php?id=<?php echo $row_empresa['id_empresa'];?>&action=1"><i class="icon-edit"></i></A>
+			<?php if ($row_empresa['id_estado']==0) {?>
+			<A type="submit" class="btn btn-danger disabled"  rel='tooltip' title="La empresa ya esta dada de baja"><i class="icon-minus-sign"></i></i></A>
+			<?php } else { ?>
+			<A type="submit" class="btn btn-danger"  rel='tooltip' title="Dar de baja" HREF="modificar_empresa.php?id=<?php echo $row_empresa['id_empresa'];?>&action=0"><i class="icon-minus-sign"></i></i></A>
+			<?php } ?>
+		</td>
+	</tr>
+	<?php }while ($row_empresa = mysql_fetch_array($empresa)) ?>
 </tbody>
 
 </table>

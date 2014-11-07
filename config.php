@@ -65,14 +65,13 @@ if(isset($_FILES['firma'])){
 
 ?>
 <div class="row">
-<div class="span12">
-<center>
+<div class="col-md-12">
 <form class="form-inline" action="config_script.php">
-<div ALIGN=left class="well">
-	<button type="submit" class="btn btn-primary" name="update" value="1" title="Editar config"><i class="icon-edit"></i> Editar</button>
-	<div class="pull-right"><h4>Configuración</h4></div>
-</div>
-
+	<p class="block-title">Configuración</p>
+	<div>
+		<button type="submit" class="btn btn-primary" name="update" value="1" title="Editar config"><i class="icon-edit"></i> Editar</button>
+	</div>
+<div class="divider"></div>
 <div class="panel panel-default">
 <div class="panel-body">
 <div class="tabbable"> <!-- Only required for left/right tabs -->

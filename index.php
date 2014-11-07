@@ -77,23 +77,23 @@ if(isset($_GET['empleado'])){
 						Cabecera
 ----------------------------------------------------------------------			
 --------------------------------------------------------------------->
-<div class="row well">
+<div class="row">
 	<div class="col-md-12">
 	<div class="row">
 		
 		
 		<div class="col-md-2">
 			<center>
-				<b>Marcaciones del día</b>
+				<b class="block-title">Marcaciones del día</b>
 			</center>
 		</div>
 		
 		
 		<div class="col-md-2">
 			<center>
-				<p class="fecha" rel='tooltip' title="Fecha con la que se esta trabajando" rel="tooltip">
+				<label rel='tooltip' title="Fecha con la que se esta trabajando" rel="tooltip">
 					<?php echo  $fecha;?>
-				</p>
+				</label>
 			</center>
 		</div>
 		
@@ -151,8 +151,11 @@ if(isset($_GET['empleado'])){
 			  </ul>
 			</div>
 			</center>
+			
 		</div>
+		
 	</div>
+	<div class="divider"></div>
 
 	
 	
@@ -237,7 +240,7 @@ if(isset($_GET['fecha'])){
 
 <?php if(isset($_GET['fecha'])){ ?>
 <div id="muestra">
-	<table border="1" class="table table-hover" id="example">
+	<table class="table table-hover" id="example">
 		<thead>
 			<th rel='tooltip' title="Legajo de los usuarios">Legajo</th>
 			<th rel='tooltip' title="Nombre de los usuarios">Nombre</th>
@@ -324,7 +327,7 @@ if(isset($_GET['fecha'])){
 <?php } ?>
 </div>
 </div>
-</div>
+
 
 
 <!--------------------------------------------------------------------
@@ -353,7 +356,7 @@ if(isset($_GET['fecha'])){
 <div id="openModal" class="modalDialog">
 	<div>
 		<a href="#closes" rel='tooltip' title="Cerrar" class="closes">X</a>
-		<h2>Parámetros de configuración</h2>
+		<h4>Parámetros de configuración</h4>
 		<p>Estos son los valores que filtran las entradas y salidas</p>
 		<p>
 	<?php
@@ -363,7 +366,7 @@ if(isset($_GET['fecha'])){
 	
 	<div class="container; celeste">
 	<form action="index.php" method="post" > 
-	<table class="sortable">
+	<table class="table table-hover">
 		<thead>
 		<tr>
 			<td>Turno</td>
@@ -371,6 +374,7 @@ if(isset($_GET['fecha'])){
 			<td>Desde</td>
 			<td>Hasta</td>
 			<td>Considerar</td>
+			<td>Minutos</td>
 		</tr>
 		</thead>
 	<?php
@@ -400,14 +404,24 @@ if(isset($_GET['fecha'])){
 			}while ($row_tipo = mysql_fetch_array($tipo))
 			?>
 		</td>
-		<td><input type="time" class="input-inter" name="inicio<?php echo $row_parametros['id_parametros']?>" value="<?php echo $row_parametros['inicio']?>" required></td>
-		<td><input type="time" class="input-inter" name="final<?php echo $row_parametros['id_parametros']?>" value="<?php echo $row_parametros['final']?>" required></td>
-		<td><input type="range" class="input-small" name="considerar<?php echo $row_parametros['id_parametros']?>" value="<?php echo $row_parametros['considerar']?>" min="1" max="30" id="slider<?php echo $row_parametros['id_parametros']?>" onchange="printValue('slider<?php echo $row_parametros['id_parametros']?>','rangeValue<?php echo $row_parametros['id_parametros']?>')" required>
-			<input id="rangeValue<?php echo $row_parametros['id_parametros']?>" type="text" class="input-minimini" disabled>min.</td>
+		<td><input type="time" class="form-control" name="inicio<?php echo $row_parametros['id_parametros']?>" id="inicio<?php echo $row_parametros['id_parametros']?>" value="<?php echo $row_parametros['inicio']?>" required></td>
+		<td><input type="time" class="form-control" name="final<?php echo $row_parametros['id_parametros']?>"  id="final<?php echo $row_parametros['id_parametros']?>"value="<?php echo $row_parametros['final']?>" required></td>
+		<script type="text/javascript">
+			$('#inicio<?php echo $row_parametros['id_parametros']?>').timepicker({
+  				 showAnim: 'blind'
+			});
+			
+			$('#final<?php echo $row_parametros['id_parametros']?>').timepicker({
+  				 showAnim: 'blind'
+			});
+		</script>
+		<td><input type="range" class="form-control" name="considerar<?php echo $row_parametros['id_parametros']?>" value="<?php echo $row_parametros['considerar']?>" min="1" max="30" id="slider<?php echo $row_parametros['id_parametros']?>" onchange="printValue('slider<?php echo $row_parametros['id_parametros']?>','rangeValue<?php echo $row_parametros['id_parametros']?>')" required></td>
+		<td><input id="rangeValue<?php echo $row_parametros['id_parametros']?>" type="text" class="form-control" disabled></td>
+			
 	</tr>
 	<?php 	}while ($row_parametros = mysql_fetch_array($parametros))?>
 	<tr>
-		<td colspan="5">
+		<td colspan="6">
 			<center>
 			<input type="hidden" name="id" value="<?php echo $id?>">
 			<input type="submit" class="btn btn-default" name="parametros" value="Modificar"  id="parametros">

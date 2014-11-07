@@ -179,6 +179,8 @@ if (isset($_GET['delete'])){
 
 <div align="left" class="row">
 	<div class="col-md-12">
+		<p class="block-title">Convenios turnos</p>
+		<div>
 		<a href='#' class='show_hide btn btn-primary' rel='tooltip' rel='tooltip' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
 		<select 
 				data-placeholder="Seleccione un usuario..." class="chosen-select" tabindex="2"
@@ -194,8 +196,10 @@ if (isset($_GET['delete'])){
 				<?php  } 
 				} while($row_convenios=mysql_fetch_array($convenios));?>
 		</select>
+		</div>
 	</div>
 </div>
+<div class="divider"></div>
 
 <!--------------------------------------------------------------------
 ----------------------------------------------------------------------
@@ -323,6 +327,7 @@ if (isset($_GET['delete'])){
 			</tr>
 		</table>
 	</form>
+	
 	</div>
 </div>
 
@@ -333,7 +338,8 @@ if (isset($_GET['delete'])){
 ----------------------------------------------------------------------
 --------------------------------------------------------------------->
 
-<div class="well row">
+<div class="row">
+	<div class="col-md-12">
 	<?php if($cantidad_turno<1){ ?>
 	<div class="alert">
   		<button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -467,6 +473,7 @@ if (isset($_GET['delete'])){
 			</tbody>
 		</table>
 	<?php } ?>
+	</div>
 </div>	
 
 <?php 

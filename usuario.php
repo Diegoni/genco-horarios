@@ -136,12 +136,12 @@ include_once("helpers.php");
 						Cabecera
 ----------------------------------------------------------------------			
 --------------------------------------------------------------------->
-<div class="row well">
+<div class="row">
 <div class="col-md-12">
 
 	<div class="row">
 		<div class="col-md-1">
-			<b>Usuario</b>
+			<b class="block-title">Usuario</b>
 		</div>
 		<div class="col-md-2">
 			<select 
@@ -161,7 +161,7 @@ include_once("helpers.php");
 		</div>	
 		
 		<div class="col-md-2">
-			<b>Periodo de tiempo</b>
+			<b class="block-title">Periodo de tiempo</b>
 		</div>
 		
 		<div class="col-md-2">
@@ -233,6 +233,7 @@ include_once("helpers.php");
 		</div>
 		
 	</div>
+	<div class="divider"></div>
 	
 	<!-- Ayuda -->
 	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -320,7 +321,7 @@ include_once("helpers.php");
 <div class="row">
 <div class="col-md-12">
 
-	<table border="1" class="table table-hover" id="example">
+	<table class="table table-hover" id="example">
 	<thead>
 		
 		<th rel='tooltip' title="Año/mes/día">Fecha</th>
@@ -438,20 +439,20 @@ include_once("helpers.php");
 				}
 				
 			if($subtotal>0){ ?>
-				<td><?php   echo pasar_hora($m)." + ".pasar_hora($t) ?></td>
+				<td class="td_center"><?php   echo pasar_hora($m)." + ".pasar_hora($t) ?></td>
 					
 				<?php if($config['mostrar_marcada']==1){ ?>
-					<td><?php   echo pasar_hora($subtotal); ?></td>	
+					<td class="td_center"><?php   echo pasar_hora($subtotal); ?></td>	
 				<?php } ?>  
 				
 				<?php if($config['aplicar_redondeo']==1){ ?>
-					<td><?php echo redondear_minutos(pasar_hora($subtotal)); ?></td>
+					<td class="td_center"><?php echo redondear_minutos(pasar_hora($subtotal)); ?></td>
 						<?php $subtotal=segundos_a_hora(redondear_minutos(pasar_hora($subtotal)))/60/60; ?>
 				<?php } ?> 
 			<?php } else {?>
-				<td> - </td>
+				<td class="td_center"> - </td>
 				<?php if($config['mostrar_marcada']==1){ ?>
-					<td> - </td>
+					<td class="td_center"> - </td>
 				<?php } ?>  
 				
 				<?php if($config['aplicar_redondeo']==1){ ?>
@@ -470,7 +471,7 @@ include_once("helpers.php");
 				
 				$registro=tipoOtra($row_otrahora, $cantidad);
 			?>
-			<td>
+			<td class="td_center">
 				<p class="<?php echo $registro['label_class']; ?>">
 					<a class="<?php echo $registro['a_class']; ?>" rel='tooltip' title="<?php echo $registro['a_title']; ?>" onClick="abrirVentana('edit_otros.php?id=<?php echo $row_usuario['id_usuario']?>&fecha=<?php echo $valor?>')">
 						<?php echo $registro['marcacion']; ?>

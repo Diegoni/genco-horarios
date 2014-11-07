@@ -61,15 +61,14 @@ if(isset($_GET['nuevo'])){
 	
 ?>
 <div class="row">
-<div class="span12">
-<center
-<div ALIGN=left class="well">
-	<a href='#' class='show_hide btn btn-primary' rel='tooltip' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
-	<a href="javascript:imprSelec('muestra')" class='btn btn-default'><i class="icon-print"></i> Imprimir</a>
-	<button class="btn btn-default" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
-	<div class="pull-right"><h4>Relojes</h4></div>
-</div>
-<br>
+<div class="col-md-12">
+	<p class="block-title">Relojes</p>
+	<div>
+		<a href='#' class='show_hide btn btn-primary' rel='tooltip' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
+		<a href="javascript:imprSelec('muestra')" class='btn btn-default'><i class="icon-print"></i> Imprimir</a>
+		<button class="btn btn-default" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
+	</div>
+<div class="divider"></div>
 
 <!--------------------------------------------------------------------
 ----------------------------------------------------------------------
@@ -78,8 +77,7 @@ if(isset($_GET['nuevo'])){
 --------------------------------------------------------------------->
 
 <div class='slidingDiv'>
-<div class="well">
-		
+	
 <form class="form-inline" action="relojes.php">
 <table class="table table-hover">
 
@@ -111,8 +109,8 @@ if(isset($_GET['nuevo'])){
 	</tr>  
 	
 </table>
-</form><br>
-</div>
+</form>
+<div class="divider"></div>
 </div>
 
 <!--------------------------------------------------------------------
@@ -121,7 +119,7 @@ if(isset($_GET['nuevo'])){
 ----------------------------------------------------------------------			
 --------------------------------------------------------------------->
 <div id="muestra">
-<table border="1" class="table table-hover" id="example">
+<table class="table table-hover" id="example">
 
 <!-- Cabecera -->
 <thead>

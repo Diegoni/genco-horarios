@@ -4,7 +4,8 @@ session_start();
 		header("Location: ../login/acceso.php");
 	}
 
-include_once("head.php"); 
+include_once("config/database.php"); 
+include_once("config/config.php");
 
 include_once($url['models_url']."updates_model.php");
 include_once("helpers.php");
@@ -69,11 +70,15 @@ $cantidad_update	= mysql_num_rows($updates);
 
 </style>
 
-
-<div class="col-md-12">
+<body bgcolor="#FFF">
+	<div style="background-color: #FFF">
+		<div class="col-md-12" >
 	<div id='calendar'></div>
 </div>
+		
+	</div>
 
+</body>
 
 
 
