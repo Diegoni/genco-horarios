@@ -231,7 +231,7 @@ if($_GET['buscar']==1){
 			<div class="panel-body" id="muestra">
 				<table style="width: 100%" class="table table-hover table-striped" id="example">
 					<thead>
-						<tr class="success">
+						<tr>
 							<th style="text-align: center">Usuario</th>
 							<th style="text-align: center">Día</th>
 							<th style="text-align: center">Fecha</th>

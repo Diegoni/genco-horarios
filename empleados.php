@@ -239,12 +239,12 @@ $numero_convenio = mysql_num_rows($convenio);
 
 <!-- Cabecera -->
 <thead>
-	<tr class="success">
-	<td>Usuario</td>
-	<td>Legajo</td>
-	<td>Depar.</td>
-	<td>Estado</td>
-	<td>Operación</td>
+	<tr>
+		<td>Usuario</td>
+		<td>Legajo</td>
+		<td>Depar.</td>
+		<td>Estado</td>
+		<td>Operación</td>
 	</tr>
 </thead>
 

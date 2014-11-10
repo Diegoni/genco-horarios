@@ -25,7 +25,7 @@ $numero_filas = mysql_num_rows($usuario);
 <div id="muestra">
 <table class="table table-hover" id="example">
 <thead>
-	<tr class="success">
+	<tr>
 		<td>Fecha</td>
 		<td>Hora</td>
 		<td>Acción</td>

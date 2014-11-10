@@ -123,7 +123,7 @@ if(isset($_GET['nuevo'])){
 
 <!-- Cabecera -->
 <thead>
-	<tr class="success">
+	<tr>
 	<td>Reloj</td>
 	<td>IP</td>
 	<td>Puerto</td>

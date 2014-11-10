@@ -119,14 +119,14 @@ if (isset($_GET['nuevo'])){
 	<div id="muestra">
 	<table class="table table-hover" id="example">
 	<thead>
-	<tr>
-		<td>Convenio</td>
-		<td>Semanales</td>
-		<td>Sábado</td>
-		<td>Salida sábado</td>
-		<td>Turnos</td>
-		<td>Eliminar</td>
-	</tr>
+		<tr>
+			<td>Convenio</td>
+			<td>Semanales</td>
+			<td>Sábado</td>
+			<td>Salida sábado</td>
+			<td>Turnos</td>
+			<td>Eliminar</td>
+		</tr>
 	</thead>	
 	<tbody>
 	<?php do{ ?>

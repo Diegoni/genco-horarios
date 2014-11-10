@@ -136,7 +136,7 @@ if(isset($_GET['buscar'])){
 
 <!-- Cabecera -->
 <thead>
-	<tr class="success">
+	<tr>
 		<td>Departamento</td>
 		<td>Estado</td>
 		<td>Operación</td>

@@ -130,7 +130,7 @@ if(isset($_GET['buscar'])){
 
 <!-- Cabecera -->
 <thead>
-	<tr class="success">
+	<tr>
 		<td>Empresa</td>
 		<td>Codigo</td>
 		<td>CUIL</td>
