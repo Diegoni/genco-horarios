@@ -1,9 +1,6 @@
 <?php    
 session_start();
-	if(!isset($_SESSION['usuario_nombre'])){
-		header("Location: login/acceso.php");
-	}
-
+include_once("control_usuario.php");
 include_once("config/database.php"); 
 include_once("config/config.php");
 

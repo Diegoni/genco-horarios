@@ -1,5 +1,4 @@
 <?php
- 
     if($_POST['actualizar']){
         $nombre = $_POST['nombre'];
         

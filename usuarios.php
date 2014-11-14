@@ -1,8 +1,6 @@
 <?php
 session_start();
-	if(!isset($_SESSION['usuario_nombre']) || $_SESSION['id_tipousuario']!=1){
-		header("Location: login/acceso.php");
-	}
+include_once("control_usuario.php");
 include_once("menu.php");
 include_once($url['models_url']."usuarios_sistema_model.php");
 include_once($url['models_url']."tipos_model.php");     

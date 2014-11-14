@@ -1,4 +1,6 @@
 <?php 
+session_start();
+include_once("control_usuario.php");
 include_once("head.php");      
 
 	//asigno las variables

@@ -1,5 +1,6 @@
 <?php 
 session_start(); 
+include_once("control_usuario.php");
 include_once("head.php");    
 include_once($url['models_url']."marcadas_model.php");     
 include_once($url['models_url']."parametros_model.php");   
