@@ -14,79 +14,67 @@ function getUsuario_sistema($id){
 }
 
 function getUsuarios_sistema($dato=NULL, $campo=NULL){
-	$query="SELECT * FROM `usuarios` WHERE usuarios.delete=0";  
-	$usuario=mysql_query($query) or die(mysql_error());
+	$query	= " SELECT * FROM `usuarios` 
+				INNER JOIN tipo_usuario
+				ON(usuarios.id_tipousuario=tipo_usuario.id_tipo_usuario)
+				WHERE usuarios.id_estado=1";  
+	$usuario= mysql_query($query) or die(mysql_error());
 										
 	return $usuario;
 }
 
 function updateUsuario_sistema($datos){
-	if(is_array($datos)){
-		$cuil=$datos['cuil1']."-".$datos['cuil2']."-".$datos['cuil3'];
-		$fecha=date( "Y-m-d", strtotime($datos['fecha_ingreso']));
-	
-		mysql_query("UPDATE `usuario` SET	
-								usuario			= '$datos[usuario]',
-								nombre			= '$datos[nombre]',
-								apellido		= '$datos[apellido]',
-								dni				= '$datos[dni]',
-								cuil			= '$cuil',
-								id_estado		= '$datos[estado]',
-								id_empresa		= '$datos[empresa]',
-								id_departamento	= '$datos[departamento]',
-								id_convenio		= '$datos[convenio]',
-								fecha_ingreso	= '$fecha',
-								legajo			= '$datos[legajo]'	
-								WHERE 
-								id_usuario		= '$datos[id]'") or die(mysql_error());
+	if($datos['email_update']=='on'){
+		$datos['email_update']=1;
 	}else{
-		trigger_error("No se envió un array en updateUsuario", E_USER_WARNING);
-	}	
+		$datos['email_update']=0;
+	}
+	
+	mysql_query("UPDATE `usuarios` SET	
+					usuario_nombre	= '$datos[usuario]',
+					usuario_email	= '$datos[email]',
+					email_update	= '$datos[email_update]',
+					id_tipousuario	= '$datos[id_tipo]'
+				WHERE 
+					usuario_id		= '$datos[id]'") or die(mysql_error());
+}
 
+
+function changePass($datos){
+	$pass = md5($datos['pass']);
+	mysql_query("UPDATE `usuarios` SET	
+					usuario_clave	= '$pass'
+				WHERE 
+					usuario_id		= '$datos[id]'") or die(mysql_error());
 }
 
 function deleteUsuario_sistema($id){
-	mysql_query("UPDATE `usuario` SET id_estado=0 WHERE id_usuario='$id'") or die(mysql_error());
+	mysql_query("UPDATE `usuarios` SET id_estado=0 WHERE usuario_id='$id'") or die(mysql_error());
 }
 
 function insertUsusario_sistema($datos){
-	$query="SELECT * FROM `usuario` ORDER BY id_usuario DESC";   
-	$idusuario=mysql_query($query) or die(mysql_error());
-	$row_idusuario = mysql_fetch_assoc($idusuario);
-
-	$ultimoid=$row_idusuario['id_usuario'];
-	$ultimoid=$ultimoid+1;
-	$estado=1;
+	$pass = md5($datos['pass']);
 	
-	$fecha=date( "Y-m-d", strtotime($datos['fecha_ingreso']));
-
-	$cuil=$datos['cuil1']."-".$datos['cuil2']."-".$datos['cuil3'];
-	mysql_query("INSERT INTO `usuario` (
-				id_usuario,
-				usuario,
-				legajo,
-				nombre,
-				apellido,
-				dni,
-				cuil,
-				id_empresa,
-				id_departamento,
-				id_convenio,
-				fecha_ingreso,
+	if($datos['email_update']=='on'){
+		$datos['email_update']=1;
+	}else{
+		$datos['email_update']=0;
+	}
+	
+	mysql_query("INSERT INTO `usuarios` (
+				usuario_nombre,
+				usuario_clave,
+				usuario_email,
+				id_tipousuario,
+				email_update,
 				id_estado)
 			VALUES (
-				'$ultimoid',
 				'$datos[usuario]',
-				'$datos[legajo]',
-				'$datos[nombre]',
-				'$datos[apellido]',
-				'$datos[dni]',
-				'$cuil',
-				'$datos[empresa]',
-				'$datos[departamento]',
-				'$datos[convenio]',
-				'$fecha',
-				'$estado')	
+				'$pass',
+				'$datos[email]',
+				'$datos[id_tipo]',
+				'$datos[email_update]',
+				1)	
 			") or die(mysql_error());
 
 }

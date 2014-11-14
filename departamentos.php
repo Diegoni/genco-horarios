@@ -157,7 +157,7 @@ if(isset($_GET['buscar'])){
 		<td>
 			<A class="btn btn-primary" rel='tooltip' title="Editar departamento" HREF="modificar_departamento.php?id=<?php echo $row_departamento['id_departamento'];?>&action=1"><i class="icon-edit"></i></A>
 			<?php if ($row_departamento['id_estado']==0) {?>
-			<A type="submit" class="btn btn-danger disabled"  rel='tooltip' title="El departamento partamento ya esta dada de baja"><i class="icon-minus-sign"></i></i></A>
+			<A type="submit" class="btn btn-danger disabled"  rel='tooltip' title="El departamento ya esta dada de baja"><i class="icon-minus-sign"></i></i></A>
 			<?php } else { ?>
 			<A type="submit" class="btn btn-danger"  rel='tooltip' title="Dar de baja" HREF="modificar_departamento.php?id=<?php echo $row_departamento['id_departamento'];?>&action=0"><i class="icon-minus-sign"></i></i></A>
 			<?php } ?>

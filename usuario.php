@@ -236,10 +236,12 @@ include_once("helpers.php");
 	<div class="divider"></div>
 	
 	<!-- Ayuda -->
-	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+    <div class="modal-content">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			<h3 id="myModalLabel"><i class="icon-question-sign"></i> Ayuda</h3>
+			<center><h3 id="myModalLabel"><i class="icon-question-sign"></i> Ayuda</h3></center>			
 		</div>
 		<div class="modal-body">
 			<p>Esta tabla muestra todas las marcaciones de un usuario entre un intervalo de fechas.</p>
@@ -247,11 +249,8 @@ include_once("helpers.php");
 			<p>Desde esta tabla también se pueden editar las marcaciones.</p>
 			<p>Todas las tablas se pueden imprimir y exportar a Excel.</p>
 		</div>
-		<div class="modal-footer">
-			<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Aceptar</button>
-		</div>
+	</div>	
 	</div>
-</div>
 </div>
 
 
@@ -404,9 +403,13 @@ include_once("helpers.php");
 					
 			<td class="td_center">
 				<p class="<?php echo $registro['label_class']; ?>" rel='tooltip' title="<?php echo $registro['label_title']; ?>">
-					<a class="<?php echo $registro['a_class']; ?>" onClick="abrirVentana('edit.php?id=<?php echo $row_usuario['id_usuario']?>&fecha=<?php echo $valor?>')">
+					<?php if($_SESSION['id_tipousuario']!=3){ ?>
+						<a class="<?php echo $registro['a_class']; ?>" onClick="abrirVentana('edit.php?id=<?php echo $row_usuario['id_usuario']?>&fecha=<?php echo $valor?>')">
+							<?php echo $registro['marcacion']; ?>
+						</a>
+					<?php }else{ ?>
 						<?php echo $registro['marcacion']; ?>
-					</a>
+					<?php } ?>
 				</p>
 			</td>
 			<?php 	
@@ -473,9 +476,13 @@ include_once("helpers.php");
 			?>
 			<td class="td_center">
 				<p class="<?php echo $registro['label_class']; ?>">
-					<a class="<?php echo $registro['a_class']; ?>" rel='tooltip' title="<?php echo $registro['a_title']; ?>" onClick="abrirVentana('edit_otros.php?id=<?php echo $row_usuario['id_usuario']?>&fecha=<?php echo $valor?>')">
+					<?php if($_SESSION['id_tipousuario']!=3){ ?>
+						<a class="<?php echo $registro['a_class']; ?>" rel='tooltip' title="<?php echo $registro['a_title']; ?>" onClick="abrirVentana('edit_otros.php?id=<?php echo $row_usuario['id_usuario']?>&fecha=<?php echo $valor?>')">
+							<?php echo $registro['marcacion']; ?>
+						</a>
+					<?php }else{ ?>
 						<?php echo $registro['marcacion']; ?>
-					</a>
+					<?php } ?>
 				</p>
 			</td>
 		<?php  

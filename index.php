@@ -161,10 +161,12 @@ if(isset($_GET['empleado'])){
 	
 	
 	<!-- Ayuda -->
-	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+    <div class="modal-content">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			<h3 id="myModalLabel"><i class="icon-question-sign"></i> Ayuda</h3>
+			<center><h3 id="myModalLabel"><i class="icon-question-sign"></i> Ayuda</h3></center>			
 		</div>
 		<div class="modal-body">
 			<p>Esta tabla muestra todas las marcaciones que se hicieron para una fecha determinada.</p>
@@ -174,10 +176,7 @@ if(isset($_GET['empleado'])){
 			<p>Se pueden agregar otro tipo de horas desde “Otros”.</p>
 			<p>Para ver las de un usuario determinado, solo debe seleccionar al usuario.</p>
 		</div>
-		<div class="modal-footer">
-			<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Aceptar</button>
-		</div>
-	</div>
+	</div>	
 	</div>
 </div>
 
@@ -285,9 +284,13 @@ if(isset($_GET['fecha'])){
 					?>
 				<td>
 					<p class="<?php echo $registro['label_class']; ?>" rel='tooltip' title="<?php echo $registro['label_title']; ?>">
-						<a class="<?php echo $registro['a_class']; ?>" onClick="abrirVentana('edit.php?id=<?php echo $row_usuario['id_usuario']?>&fecha=<?php echo $fecha_americana?>')">
+						<?php if($_SESSION['id_tipousuario']!=3){ ?>
+							<a class="<?php echo $registro['a_class']; ?>" onClick="abrirVentana('edit.php?id=<?php echo $row_usuario['id_usuario']?>&fecha=<?php echo $fecha_americana?>')">
+								<?php echo $registro['marcacion']; ?>
+							</a>
+						<?php }else{ ?>
 							<?php echo $registro['marcacion']; ?>
-						</a>
+						<?php } ?>
 					</p>
 				</td>
 					<?php }//cierra el for?>
@@ -300,9 +303,13 @@ if(isset($_GET['fecha'])){
 					?>
 				<td>
 					<p class="<?php echo $registro['label_class']; ?>">
-						<a class="<?php echo $registro['a_class']; ?>" rel='tooltip' title="<?php echo $registro['a_title']; ?>" onClick="abrirVentana('edit_otros.php?id=<?php echo $row_usuario['id_usuario']?>&fecha=<?php echo $fecha_americana?>')">
+						<?php if($_SESSION['id_tipousuario']!=3){ ?>
+							<a class="<?php echo $registro['a_class']; ?>" rel='tooltip' title="<?php echo $registro['a_title']; ?>" onClick="abrirVentana('edit_otros.php?id=<?php echo $row_usuario['id_usuario']?>&fecha=<?php echo $fecha_americana?>')">
+								<?php echo $registro['marcacion']; ?>
+							</a>
+						<?php }else{ ?>
 							<?php echo $registro['marcacion']; ?>
-						</a>
+						<?php } ?>
 					</p>
 				</td>
 					

@@ -60,7 +60,7 @@ do{
 	    $status = pingAddress($ip);
 	}
 		 
-	if($status='dead'){	
+	if($status=='dead'){	
     	$update_reloj['reloj'.$i]		= $row_reloj['reloj'];
 		$update_reloj['cantidad'.$i]	= 'sin conexión';
 	}else {

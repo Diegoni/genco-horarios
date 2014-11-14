@@ -89,13 +89,12 @@ if($action==0){
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 			<h3 id="myModalLabel"><i class="icon-question-sign"></i> Ayuda</h3>
 		</div>
-<div class="modal-body">
-<p>El departamento eliminado no se mostrara más en las planillas de horarios.<p> 
-<p>El departamento no se borra de la base de datos solo se cambia su estado, se puede recuperar el departamento si se elimina.</p>
-</div>
-<div class="modal-footer">
-<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Aceptar</button>
-</div>
+		<div class="modal-body">
+			<p>El departamento eliminado no se mostrara más en las planillas de horarios.<p> 
+			<p>El departamento no se borra de la base de datos solo se cambia su estado, se puede recuperar el departamento si se elimina.</p>
+		</div>
+	</div>	
+	</div>
 </div>
 
 <?php }else{?>

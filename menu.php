@@ -36,6 +36,7 @@ include_once("helpers.php");
 				<a href="usuario.php"><i class="icon-calendar"></i> Total usuario</a>
 			</li>
 			
+			<?php if($_SESSION['id_tipousuario']!=3){ ?>
 			<li class="">
 				<a href="usuario2.php"><i class="icon-tasks"></i> Sumas totales</a>
 			</li>
@@ -73,10 +74,14 @@ include_once("helpers.php");
 					<li><a href="encargados.php">Encargados</a></li>
 					<li><a href="config.php">Config</a></li>
 					<li><a href="update_relojes_form.php">Actualización manual</a></li>
-					<li><a href="log.php">Logs</a></li>
+					<?php if($_SESSION['id_tipousuario']==1){ ?>
+						<li><a href="usuarios.php">Usuarios</a></li>
+						<li><a href="log.php">Logs</a></li>	
+					<?php } ?>
 					<li><a href="exportar/Genco-Horarios.pdf" target="_blank">Ayuda</a></li>
 				</ul>
 			</li>
+			<?php } ?>
 		</ul>
      
 		<ul class="nav navbar-nav navbar-right">

@@ -19,19 +19,19 @@ include_once($url['models_url']."convenios_model.php");
 //modifica al usuario segun el formulario de modificar.php
 if(isset($_GET['modificar'])){
 	$datos=array('usuario'=>$_GET['usuario'],
-								'nombre'=>$_GET['nombre'],
-								'apellido'=>$_GET['apellido'],
-								'dni'=>$_GET['dni'],
-								'cuil1'=>$_GET['cuil1'],
-								'cuil2'=>$_GET['cuil2'],
-								'cuil3'=>$_GET['cuil3'],
-								'estado'=>1,
-								'empresa'=>$_GET['empresa'],
-								'departamento'=>$_GET['departamento'],
-								'convenio'=>$_GET['convenio'],
-								'legajo'=>$_GET['legajo'],
-								'fecha_ingreso'=>$_GET['fecha_ingreso'],
-								'id'=>$_GET['id']);
+								'nombre'		=> $_GET['nombre'],
+								'apellido'		=> $_GET['apellido'],
+								'dni'			=> $_GET['dni'],
+								'cuil1'			=> $_GET['cuil1'],
+								'cuil2'			=> $_GET['cuil2'],
+								'cuil3'			=> $_GET['cuil3'],
+								'estado'		=> 1,
+								'empresa'		=> $_GET['empresa'],
+								'departamento'	=> $_GET['departamento'],
+								'convenio'		=> $_GET['convenio'],
+								'legajo'		=> $_GET['legajo'],
+								'fecha_ingreso'	=> $_GET['fecha_ingreso'],
+								'id'			=> $_GET['id']);
 
 	updateUsuario($datos);
 	echo getMensajes('update', 'ok', 'Usuario', $_GET['usuario']);
@@ -49,31 +49,31 @@ if(isset($_GET['nuevo'])){
 // Comprobamos si el usuario esta registrado 
 
 	$usuario=getUsuarios($_GET['usuario'], 'usuario');
-	$row_usuario = mysql_fetch_assoc($usuario);
-	$numero_usuarios = mysql_num_rows($usuario);
+	$row_usuario		= mysql_fetch_assoc($usuario);
+	$numero_usuarios	= mysql_num_rows($usuario);
 	
 	if($numero_usuarios>0){
 		$usuario=getUsuarios($_GET['legajo'], 'legajo');
-		$row_usuario = mysql_fetch_assoc($usuario);
-		$numero_usuarios = mysql_num_rows($usuario);
+		$row_usuario	= mysql_fetch_assoc($usuario);
+		$numero_usuarios= mysql_num_rows($usuario);
 	}
 
 	if($numero_usuarios>0){ 
 		echo getMensajes('insert', 'error', 'Usuario', $_GET['usuario']);	
 	}else{ 
 		$datos=array('usuario'=>$_GET['usuario'],
-								'nombre'=>$_GET['nombre'],
-								'apellido'=>$_GET['apellido'],
-								'dni'=>$_GET['dni'],
-								'cuil1'=>$_GET['cuil1'],
-								'cuil2'=>$_GET['cuil2'],
-								'cuil3'=>$_GET['cuil3'],
-								'estado'=>1,
-								'empresa'=>$_GET['empresa'],
-								'departamento'=>$_GET['departamento'],
-								'convenio'=>$_GET['convenio'],
-								'legajo'=>$_GET['legajo'],
-								'fecha_ingreso'=>$_GET['fecha_ingreso']);
+								'nombre'		=> $_GET['nombre'],
+								'apellido'		=> $_GET['apellido'],
+								'dni'			=> $_GET['dni'],
+								'cuil1'			=> $_GET['cuil1'],
+								'cuil2'			=> $_GET['cuil2'],
+								'cuil3'			=> $_GET['cuil3'],
+								'estado'		=> 1,
+								'empresa'		=> $_GET['empresa'],
+								'departamento'	=> $_GET['departamento'],
+								'convenio'		=> $_GET['convenio'],
+								'legajo'		=> $_GET['legajo'],
+								'fecha_ingreso'	=> $_GET['fecha_ingreso']);
 	
 		insertUsusario($datos);
 		echo getMensajes('insert', 'ok', 'Usuario', $_GET['usuario']);	
@@ -91,34 +91,31 @@ if(isset($_GET['nuevo'])){
 //si no hay busqueda los trae a todos
 
 	$usuario=getUsuarios('all');
-	$row_usuario = mysql_fetch_assoc($usuario);
-	$numero_filas = mysql_num_rows($usuario);
+	$row_usuario	= mysql_fetch_assoc($usuario);
+	$numero_filas	= mysql_num_rows($usuario);
 
 
 
 //seleccion de departamento para formulario de busqueda
-$departamento=getDepartamentos();
-$row_departamento = mysql_fetch_assoc($departamento);
+	$departamento	= getDepartamentos();
+	$row_departamento= mysql_fetch_assoc($departamento);
 mysql_query("SET NAMES 'utf8'");
 
 
-$departamento2=getDepartamentos();
-$row_departamento2 = mysql_fetch_assoc($departamento2);
-$numero_departamentos = mysql_num_rows($departamento2);
+	$departamento2	= getDepartamentos();
+	$row_departamento2 	= mysql_fetch_assoc($departamento2);
+	$numero_departamentos = mysql_num_rows($departamento2);
 
 
 //para empresas
-$empresa=getEmpresas();
-$row_empresa = mysql_fetch_assoc($empresa);
-$numero_empresas = mysql_num_rows($empresa);
+	$empresa		= getEmpresas();
+	$row_empresa	= mysql_fetch_assoc($empresa);
+	$numero_empresas= mysql_num_rows($empresa);
 
 
-$convenio=getConvenios();
-$row_convenio = mysql_fetch_assoc($convenio);
-$numero_convenio = mysql_num_rows($convenio);
-
-
-
+	$convenio		= getConvenios();
+	$row_convenio	= mysql_fetch_assoc($convenio);
+	$numero_convenio= mysql_num_rows($convenio);
 
 ?>
 <div class="row">

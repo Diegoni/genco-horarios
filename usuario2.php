@@ -165,21 +165,20 @@ if(!isset($fecha_inicio)){
 	
 	
 	<!-- Ayuda -->
-	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+    <div class="modal-content">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			<h3 id="myModalLabel"><i class="icon-question-sign"></i> Ayuda</h3>
+			<center><h3 id="myModalLabel"><i class="icon-question-sign"></i> Ayuda</h3></center>			
 		</div>
-		
 		<div class="modal-body">
 			<p>Esta tabla muestra la sumatoria de las horas trabajadas para cada usuario en un intervalo de fechas.</p>
 			<p>Si un usuario se desea eliminar o agregar a la lista se puede hacer desde la edición de usuarios.</p>
 		</div>
-		
-		<div class="modal-footer">
-			<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Aceptar</button>
-		</div>
+	</div>	
 	</div>
+</div>
 
 
 <!--------------------------------------------------------------------
