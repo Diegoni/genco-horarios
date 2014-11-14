@@ -1,4 +1,5 @@
-<?php  
+<?php 
+session_start(); 
 include_once("head.php");    
 include_once($url['models_url']."marcadas_model.php");     
 include_once($url['models_url']."parametros_model.php");   
@@ -299,7 +300,7 @@ if (isset($_GET['delete'])){
 			});
 		</script>
 	</td>
-	<td><a href="edit.php?delete=<?php echo $row_marcacion['id_marcada']?>&fecha=<?php echo $fecha?>&id=<?php echo $id?>" onclick="return confirm('Esta seguro que quiere borrar');" class="btn btn-danger" name="delete">X</td>
+	<td><a href="edit.php?delete=<?php echo $row_marcacion['id_marcada']?>&fecha=<?php echo $fecha?>&id=<?php echo $id?>" onclick="return confirm('Esta seguro que quiere borrar');" class="btn btn-danger" rel='tooltip' title="Borrar marcación" name="delete">X</td>
 	</tr>
 	<?php  	}while ($row_marcacion = mysql_fetch_array($marcacion));
 	if($comparacion==1){?>
@@ -314,11 +315,11 @@ if (isset($_GET['delete'])){
 			<center>
 			<input type="hidden" name="id" value="<?php echo $_GET['id']?>">
 			<input type="hidden" name="fecha" value="<?php echo $_GET['fecha']?>">
-			<a href='#' class='show_hide btn btn-default' rel='tooltip' title='Nuevo'>nuevo</a>
+			<a href='#' class='show_hide btn btn-default' rel='tooltip' title='Ingresar nueva marcación'>nuevo</a>
 			<?php if($numero_marcacion>0){?>
-			<input type="submit" class="btn btn-default" name="modificar" rel='tooltip' title="guardar las modificaciones realizadas" value="modificar" id="modificar">
+			<input type="submit" class="btn btn-default" name="modificar" rel='tooltip' title="Guardar las modificaciones realizadas" value="modificar" id="modificar">
 			<?php }else{?>
-			<input type="submit" class="btn btn-default" name="modificar" rel='tooltip' title="no se pueden realizar modificaciones" value="modificar" id="modificar" disabled>
+			<input type="submit" class="btn btn-default" name="modificar" rel='tooltip' title="No se pueden realizar modificaciones" value="modificar" id="modificar" disabled>
 			<?php }?>
 			<a class="btn btn-danger" href="" rel='tooltip' title="no guarda los cambios realizados" onClick="cerrarse()">volver</a>
 			</center>
@@ -359,7 +360,7 @@ if (isset($_GET['delete'])){
 				<tr>				
 				<input  type="hidden" value="<?php echo $row_parametros2['id_parametros']?>" name="id_parametro<?php echo $row_parametros2['id_parametros']?>">
 				<td><label><?php echo $row_parametros2['turno']?> : <?php  echo $row_parametros2['tipo']?></label></td>
-				<td><input type="time" class="form-control" name="entrada<?php echo $row_parametros2['id_parametros']?>" id="nueva<?php echo $row_parametros2['id_parametros']?>" value=""></td>
+				<td><input type="time" class="form-control" name="entrada<?php echo $row_parametros2['id_parametros']?>" id="nueva<?php echo $row_parametros2['id_parametros']?>" onkeypress="return false" value=""></td>
 				<script type="text/javascript">
 			$('#nueva<?php echo $row_parametros2['id_parametros']?>').timepicker({
   				 showAnim: 'blind'

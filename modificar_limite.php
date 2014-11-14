@@ -1,7 +1,7 @@
 <?php
 session_start();
 	if(!isset($_SESSION['usuario_nombre'])){
-	header("Location: ../login/acceso.php");
+	header("Location: login/acceso.php");
 	}
 include_once("menu.php");
 include_once($url['models_url']."limites_model.php");  
@@ -23,12 +23,12 @@ $row_limite = mysql_fetch_assoc($limite);
 
 <tr>
 <td>Limite</td>
-<td><input type="number" name="limite" class="form-control" value="<?php echo $row_limite['limite'];?>" required></td>
+<td><input type="number" name="limite" class="form-control" value="<?php echo $row_limite['limite'];?>" onkeypress="return isNumberKey(event)" required></td>
 </tr>
 
 <tr>
 <td>Redondeo</td>
-<td><input type="number" name="redondeo" class="form-control" value="<?php echo $row_limite['redondeo'];?>" required></td>
+<td><input type="number" name="redondeo" class="form-control" value="<?php echo $row_limite['redondeo'];?>" onkeypress="return isNumberKey(event)" required></td>
 </tr>
 
 <tr>

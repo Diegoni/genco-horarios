@@ -1,4 +1,6 @@
 <?php
+include_once('logs_model.php');
+
 function getEmpresas($dato=NULL, $campo=NULL){
 	if(isset($dato, $campo)){
 		$query="SELECT  *
@@ -21,43 +23,56 @@ function getEmpresa($id){
 	return $empresa;
 }
 
-function updateEmpresa(	$empresa,
-												$cod_empresa,
-												$cuil1,
-												$cuil2,
-												$cuil3,
-												$estado,
-												$id){
-	$cuil=$cuil1."-".$cuil2."-".$cuil3;
+function updateEmpresa($datos){
+	$cuil = $datos['cuil1']."-".$datos['cuil2']."-".$datos['cuil3'];
 	mysql_query("UPDATE `empresa` SET	
-				empresa='$empresa',
-				cod_empresa='$cod_empresa',
-				cuil='$cuil',
-				id_estado='$estado'		
-				WHERE id_empresa='$id'") or die(mysql_error());
+				empresa		= '$datos[empresa]',
+				cod_empresa	= '$datos[cod_empresa]',
+				cuil		= '$cuil',
+				id_estado	= 1		
+				WHERE 
+				id_empresa	= '$datos[id]'") or die(mysql_error());
+	
+	$datos=array(
+			'tabla'		=> 'empresa', 
+			'id_tabla'	=> $datos['id'], 
+			'id_accion'	=> 2 );
+			
+	insertLog($datos);
 }
 
 function deleteEmpresa($id){
 	mysql_query("UPDATE `empresa` SET id_estado=0 WHERE id_empresa='$id'") or die(mysql_error());
+	
+	$datos=array(
+			'tabla'		=> 'empresa', 
+			'id_tabla'	=> $id, 
+			'id_accion'	=> 3 );
+			
+	insertLog($datos);
 }
 
-function insertEmpresa(	$empresa,
-												$cod_empresa,
-												$cuil1,
-												$cuil2,
-												$cuil3,
-												$estado){
-	$cuil=$cuil1."-".$cuil2."-".$cuil3;
+function insertEmpresa($datos){
+	$cuil = $datos['cuil1']."-".$datos['cuil2']."-".$datos['cuil3'];
 	mysql_query("INSERT INTO `empresa` (
 				empresa, 
 				cod_empresa, 
 				cuil, 
 				id_estado) 
 				VALUES (
-				'$empresa', 
-				'$cod_empresa',
+				'$datos[empresa]', 
+				'$datos[cod_empresa]',
 				'$cuil',
-				'$estado')") or die(mysql_error());
+				1)") or die(mysql_error());
+	
+	$id = mysql_insert_id();
+	
+	$datos=array(
+			'tabla'		=> 'empresa', 
+			'id_tabla'	=> $id, 
+			'id_accion'	=> 1 );
+			
+	insertLog($datos);
 
 }
 

@@ -1,7 +1,7 @@
 <?php 
 session_start();
 	if(!isset($_SESSION['usuario_nombre'])){
-	header("Location: ../login/acceso.php");
+	header("Location: login/acceso.php");
 	}
 include_once("menu.php");    
 include_once($models_url."convenios_model.php");   

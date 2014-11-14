@@ -1,7 +1,7 @@
 <?php
 session_start();
 	if(!isset($_SESSION['usuario_nombre'])){
-	header("Location: ../login/acceso.php");
+	header("Location: login/acceso.php");
 	}
 include_once("menu.php");
 include_once($url['models_url']."departamentos_model.php");   
@@ -97,7 +97,7 @@ if(isset($_GET['buscar'])){
 	
 	<tr>
 		<td>Departamento</td>
-		<td><input type="text" name="departamento" class="form-control" placeholder="ingrese departamento" required></td>
+		<td><input type="text" name="departamento" class="form-control" placeholder="ingrese departamento" maxlength="32" required></td>
 	</tr>
 	
 	<?php if($numero_encargado>0){ ?>

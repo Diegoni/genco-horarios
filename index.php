@@ -3,6 +3,7 @@ session_start();
 	if(!isset($_SESSION['usuario_nombre'])){
 	header("Location: login/acceso.php");
 	}
+
 include_once("menu.php"); 
 include_once($url['models_url']."marcadas_model.php"); 
 include_once($url['models_url']."parametros_model.php"); 
@@ -109,7 +110,7 @@ if(isset($_GET['empleado'])){
 							<i class="icon-calendar"></i>
 						</span>
 					</div>
-					<input  class="form-control" type="text" name="fecha" id="datepicker" placeholder="ingrese fecha"  autocomplete="off" required>
+					<input class="form-control" type="text" name="fecha" id="datepicker" placeholder="ingrese fecha" onkeypress="return false" autocomplete="off" required>
 		    	</div>
 		  	</div>
 			

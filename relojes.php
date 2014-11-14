@@ -1,7 +1,7 @@
 <?php
 session_start();
 	if(!isset($_SESSION['usuario_nombre'])){
-	header("Location: ../login/acceso.php");
+	header("Location: login/acceso.php");
 	}
 include_once("menu.php");
 include_once($url['models_url']."relojes_model.php");
@@ -78,27 +78,27 @@ if(isset($_GET['nuevo'])){
 
 <div class='slidingDiv'>
 	
-<form class="form-inline" action="relojes.php">
+<form class="form-inline" action="relojes.php" name="relojes">
 <table class="table table-hover">
 
 	<tr>
 		<td>Reloj</td>
-		<td><input type="text" name="reloj" class="form-control" placeholder="ingrese reloj" required></td>
+		<td><input type="text" name="reloj" class="form-control" placeholder="ingrese reloj" maxlength="32" required></td>
 	</tr>
 
 	<tr>
 		<td>IP</td>
-		<td><input type="text" name="ip" class="form-control" placeholder="ingrese ip" required></td>
+		<td><input type="text" name="ip" class="form-control" placeholder="ingrese ip" onblur="ValidateIPaddress(document.relojes.ip)" required></td>
 	</tr>
 
 	<tr>
 		<td>Puerto</td>
-		<td><input type="text" name="puerto" class="form-control" placeholder="ingrese puerto" required></td>
+		<td><input type="text" name="puerto" class="form-control" placeholder="ingrese puerto" maxlength="4" onkeypress="return isNumberKey(event)" required></td>
 	</tr>
 	
 	<tr>
 		<td>Color</td>
-		<td><input type="text" name="color" class="form-control" placeholder="ingrese color" required></td>
+		<td><input type="text" name="color" class="form-control" placeholder="ingrese color" maxlength="7" value="#" required></td>
 	</tr>
 
 	<tr>

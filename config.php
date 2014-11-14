@@ -1,7 +1,7 @@
 <?php
 session_start();
 	if(!isset($_SESSION['usuario_nombre'])){
-	header("Location: ../login/acceso.php");
+		header("Location: login/acceso.php");
 	}
 include_once("menu.php");
 include_once($url['models_url']."configs_model.php");
@@ -86,7 +86,7 @@ if(isset($_FILES['firma'])){
 		<table class="table table-hover">
 		<tr>
 			<td>Título</td>
-			<td><input type="text" class="form-control" name="title" value="<?php echo $config['title'];?>" required></td>
+			<td><input type="text" class="form-control" name="title" value="<?php echo $config['title'];?>" maxlength="32" required></td>
 		</tr>
 		
 		<tr>
@@ -137,7 +137,7 @@ if(isset($_FILES['firma'])){
 			<td>
 				<div class="form-group">
     				<div class="input-group">
-    				<input id="suma_dias" type="number" class="form-control" name="suma_dias" value="<?php echo $config['suma_dias'];?>">
+    				<input id="suma_dias" type="number" class="form-control" name="suma_dias" value="<?php echo $config['suma_dias'];?>" onkeypress="return isNumberKey(event)" min="0" max="365">
 					<div class="input-group-addon">días</div>
       				</div>
 				</div>
@@ -149,7 +149,7 @@ if(isset($_FILES['firma'])){
 			<td>
 				<div class="form-group">
     				<div class="input-group">
-					<input id="registros" type="number" class="form-control" name="marcaciones_x_hoja" value="<?php echo $config['marcaciones_x_hoja'];?>" max="6" min="1">
+					<input id="registros" type="number" class="form-control" name="marcaciones_x_hoja" value="<?php echo $config['marcaciones_x_hoja'];?>" max="6" min="1" onkeypress="return isNumberKey(event)">
 					<div class="input-group-addon">Marcaciones</div>
       				</div>
 				</div>

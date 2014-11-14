@@ -1,7 +1,7 @@
-<?php    
+<?php
 session_start();
 	if(!isset($_SESSION['usuario_nombre'])){
-		header("Location: ../login/acceso.php");
+		header("Location: login/acceso.php");
 	}
 
 include_once("menu.php"); 
@@ -29,7 +29,7 @@ $cantidad_reloj		= mysql_num_rows($relojes);
       						<i class="icon-calendar"></i>
       					</span>
       				</div>
-      				<input value="" type="text" name="start_date" id="datepicker2" placeholder="fecha de inicio" class="form-control" autocomplete="off" required>
+      				<input value="" type="text" name="start_date" id="datepicker2" placeholder="fecha de inicio" class="form-control" autocomplete="off" onkeypress="return false" required>
     			</div>
   			</div>
 		
@@ -41,7 +41,7 @@ $cantidad_reloj		= mysql_num_rows($relojes);
       						<i class="icon-calendar"></i>
       					</span>
       				</div>
-      				<input value=""	type="text" name="end_date" id="datepicker" placeholder="fecha final" class="form-control" autocomplete="off" required>
+      				<input value=""	type="text" name="end_date" id="datepicker" placeholder="fecha final" class="form-control" autocomplete="off" onkeypress="return false" required>
     			</div>
   			</div>
   			

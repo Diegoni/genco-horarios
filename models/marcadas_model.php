@@ -1,18 +1,36 @@
 <?php
+include_once('logs_model.php');
+
 function deleteMarcada($id){
 	mysql_query("UPDATE `marcada` SET 
 						id_estado=0
 						WHERE id_marcada='$id'
 						") or die(mysql_error());
+						
+	echo $_SESSION['usuario_id'];
+	
+	$datos=array(
+			'tabla'		=> 'marcada', 
+			'id_tabla'	=> $id, 
+			'id_accion'	=> 3);
+			
+	insertLog($datos);
 }
 
 function updateMarcada($id_parametros, $fecha, $entrada, $id_estado, $id_marcada){
 	mysql_query("UPDATE `marcada` SET 
-						id_parametros='$id_parametros',
-						entrada = '$fecha $entrada:00',
-						id_estado = '$id_estado'
-						WHERE id_marcada='$id_marcada'
+						id_parametros		= '$id_parametros',
+						entrada 			= '$fecha $entrada:00',
+						id_estado 			= '$id_estado'
+						WHERE id_marcada	= '$id_marcada'
 						") or die(mysql_error());
+	
+	$datos=array(
+			'tabla'		=> 'marcada', 
+			'id_tabla'	=> $id_marcada, 
+			'id_accion'	=> 2);
+			
+	insertLog($datos);
 }
 
 function getMarcaciones($id=NULL, $fecha_inicio=NULL, $fecha_final=NULL){
@@ -59,6 +77,15 @@ function getMarcaciones($id=NULL, $fecha_inicio=NULL, $fecha_final=NULL){
 function insertMarcada($id_parametros, $fecha, $entrada, $id){
 	mysql_query("INSERT INTO `marcada` (id_parametros, entrada, id_usuario, id_estado) 
 	VALUES ('$id_parametros', '$fecha $entrada:00', '$id', 2)") or die(mysql_error());
+	
+	$id = mysql_insert_id();
+	
+	$datos=array(
+			'tabla'		=> 'marcada', 
+			'id_tabla'	=> $id	, 
+			'id_accion'	=> 1);
+			
+	insertLog($datos);
 }
 
 function insertMarcadaAccess($CHECKTIME, $USERID, $CHECKTYPE, $id_parametros){

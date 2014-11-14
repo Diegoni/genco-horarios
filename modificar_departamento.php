@@ -1,7 +1,7 @@
 <?php
 session_start();
 	if(!isset($_SESSION['usuario_nombre'])){
-	header("Location: ../login/acceso.php");
+	header("Location: login/acceso.php");
 	}
 include_once("menu.php");
 include_once($url['models_url']."departamentos_model.php");  
@@ -34,7 +34,7 @@ if($action==0){
 	
 	<tr>
 		<td>Departamento</td>
-		<td><input type="text" name="departamento" class="form-control" value="<?php echo $row_departamento['departamento'];?>" <?php echo $input_action; ?> required></td>
+		<td><input type="text" name="departamento" class="form-control" value="<?php echo $row_departamento['departamento'];?>" <?php echo $input_action; ?> maxlength="32" required></td>
 	</tr>
 
 	<?php if($numero_encargado>0){ ?>

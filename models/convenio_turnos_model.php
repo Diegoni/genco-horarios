@@ -1,8 +1,15 @@
 <?php
-
+include_once('logs_model.php');
 
 function deleteConvenioturno($id){
 	mysql_query("UPDATE `convenio_turno` SET id_estado=0 WHERE id_convenio_turno='$id'") or die(mysql_error());
+	
+	$datos=array(
+			'tabla'		=> 'convenio_turno', 
+			'id_tabla'	=> $id, 
+			'id_accion'	=> 3 );
+			
+	insertLog($datos);
 }
 
 function updateConvenioturno($datos){
@@ -21,6 +28,13 @@ function updateConvenioturno($datos){
 					redondeo	= '$datos[redondeo]',
 					id_turno	= '$datos[id_turno]'	
 					WHERE id_convenio_turno ='$datos[id_convenio_turno]'") or die(mysql_error());
+	
+	$datos=array(
+			'tabla'		=> 'convenio_turno', 
+			'id_tabla'	=> $datos['id_convenio_turno'], 
+			'id_accion'	=> 2 );
+			
+	insertLog($datos);
 
 }
 
@@ -78,6 +92,15 @@ function insertConvenioturno($datos){
 				'$datos[sabado]',
 				'$datos[domingo]',
 				'$datos[id_estado]')") or die(mysql_error());
+	
+	$id = mysql_insert_id();
+	
+	$datos=array(
+			'tabla'		=> 'convenio_turno', 
+			'id_tabla'	=> $id, 
+			'id_accion'	=> 1 );
+			
+	insertLog($datos);
 }
 
 
@@ -177,9 +200,6 @@ function getConvenios_tardanza($datos){
 	}else{
 		$tardanza['tiempo'] = 0;		
 	}
-
-
-	
 	
 	return $tardanza;	
 }

@@ -1,7 +1,7 @@
 <?php
 session_start();
 	if(!isset($_SESSION['usuario_nombre'])){
-	header("Location: ../login/acceso.php");
+	header("Location: login/acceso.php");
 	}
 include_once("menu.php");
 include_once($url['models_url']."usuarios_model.php");
@@ -144,17 +144,17 @@ $numero_convenio = mysql_num_rows($convenio);
 <table class="table table-hover">
 	<tr>
 		<td>Usuario</td>
-		<td><input type="text" name="usuario" class="form-control" placeholder="ingrese Usuario" required></td>
+		<td><input type="text" name="usuario" class="form-control" placeholder="ingrese Usuario" maxlength="32" required></td>
 	</tr>
 	
 	<tr>
 		<td>Nombre</td>
-		<td><input type="text" name="nombre" class="form-control" placeholder="ingrese Nombre" required></td>
+		<td><input type="text" name="nombre" class="form-control" placeholder="ingrese Nombre" maxlength="32" required></td>
 	</tr>
 	
 	<tr>
 		<td>Apellido</td>
-		<td><input type="text" name="apellido" class="form-control" placeholder="ingrese Apellido" required></td>
+		<td><input type="text" name="apellido" class="form-control" placeholder="ingrese Apellido" maxlength="32" required></td>
 	</tr>
 	
 	<tr>
@@ -164,7 +164,7 @@ $numero_convenio = mysql_num_rows($convenio);
 	
 	<tr>
 		<td>Fecha ingreso</td>
-		<td><input type="text" name="fecha_ingreso" id="datepicker" class="form-control" placeholder="ingrese fecha" autocomplete="off" required></td>
+		<td><input type="text" name="fecha_ingreso" id="datepicker" class="form-control" placeholder="ingrese fecha" autocomplete="off" onkeypress="return false" required></td>
 	</tr>
 	
 	<tr>
@@ -178,7 +178,7 @@ $numero_convenio = mysql_num_rows($convenio);
 	
 	<tr>
 		<td>Legajo</td>
-		<td><input type="text" name="legajo" class="form-control" onkeypress="return isNumberKey(event)" placeholder="Legajo" required></td>
+		<td><input type="text" name="legajo" class="form-control" onkeypress="return isNumberKey(event)" maxlength="8" placeholder="Legajo" required></td>
 	</tr>
 	
 	<tr>
@@ -197,7 +197,7 @@ $numero_convenio = mysql_num_rows($convenio);
 		<td><select class="form-control" name="departamento" required>
 				<option></option>
 			<?php do{ ?>	
-				<option value="<?php echo $row_departamento2['id_departamento'];?>"><?php echo $row_departamento2['nombre'];?></option>
+				<option value="<?php echo $row_departamento2['id_departamento'];?>"><?php echo $row_departamento2['departamento'];?></option>
 			<?php }while ($row_departamento2 = mysql_fetch_array($departamento2)) ?>
 			</select>
 		</td>

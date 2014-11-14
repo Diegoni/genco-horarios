@@ -52,9 +52,15 @@ if(	date('Y-m-d', strtotime($_GET['start_date'])) <= date('Y-m-d', strtotime($_G
 do{
 	$contador=0;
 	$ip = $row_reloj['ip'];
-	$output = shell_exec("ping $ip");
- 
-	if (strpos($output, "recibidos = 0")) {
+	
+		
+	if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+	    $status = pingAddressWin($ip);
+	} else {
+	    $status = pingAddress($ip);
+	}
+		 
+	if($status='dead'){	
     	$update_reloj['reloj'.$i]		= $row_reloj['reloj'];
 		$update_reloj['cantidad'.$i]	= 'sin conexión';
 	}else {
@@ -108,7 +114,7 @@ do{
  * *******************************************************************************
  ********************************************************************************/
 
-	$título		= 'Resumen de actualización '.date('d-m-Y');
+	$titulo		= 'Resumen de actualización '.date('d-m-Y');
 	
 	$mensaje = '<b>Resumen</b>: <br>';
 
@@ -136,7 +142,7 @@ do{
 	do{
 		if($row_usuario_sistema['email_update']==1){
 			$para	= $row_usuario_sistema['usuario_email'];
-			mail($para, $título, $mensaje, $cabeceras);	
+			mail($para, $titulo, $mensaje, $cabeceras);	
 		}		
 	}while($row_usuario_sistema=mysql_fetch_array($usuarios_sistema));
 		
@@ -144,7 +150,7 @@ do{
 
 }else{
 	//no se envian los parametros de las fechas o la fecha de inicio es mayor a la final
-	$título	= 'Resumen de actualización '.date('d-m-Y');
+	$titulo	= 'Resumen de actualización '.date('d-m-Y');
 	
 	$mensaje = '<b>Resumen</b>: <br>';
 	
@@ -156,13 +162,16 @@ do{
 	$cantidad_u_sistema	= mysql_num_rows($usuarios_sistema);
 		
 	$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
-	$cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+	$cabeceras .= 'Content-Type: text/html; charset=UTF-8' . "\r\n";
 	$cabeceras .= 'From: '.'Genco'.' <'.'root@gencosa.com.ar'.'>' . "\r\n";
 	
 	do{
 		if($row_usuario_sistema['email_update']==1){
 			$para	= $row_usuario_sistema['usuario_email'];
-			mail($para, $título, $mensaje, $cabeceras);	
+			
+			$titulo	= "=?ISO-8859-1?B?".base64_encode($titulo)."=?=";
+			
+			mail($para, $titulo, $mensaje, $cabeceras);	
 		}		
 	}while($row_usuario_sistema=mysql_fetch_array($usuarios_sistema));
 		

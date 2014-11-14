@@ -177,7 +177,7 @@ include_once("helpers.php");
 	<div class="form-group">
     	<label for="horas" class="col-sm-2 control-label">Horas ausentadas</label>
     	<div class="col-sm-10">
-			<input type="number" class="form-control horas" name="horas" value="<?php echo $row_otrahora['horas']?>" max="12" min="0" required>
+			<input type="number" class="form-control horas" name="horas" value="<?php echo $row_otrahora['horas']?>" max="12" min="0" onkeypress="return isNumberKey(event)" required>
 		</div>
 	</div>
 	
@@ -273,7 +273,7 @@ include_once("helpers.php");
 	<div class="form-group">
     	<label for="horas" class="col-sm-2 control-label">Horas ausentadas</label>
     	<div class="col-sm-10">
-			<input type="number" class="form-control horas" name="horas" value="" placeholder="ingrese horas" max="12" min="0" required>
+			<input type="number" class="form-control horas" name="horas" value="" placeholder="ingrese horas" max="12" min="0" onkeypress="return isNumberKey(event)" required>
 		</div>
 	</div>
 	

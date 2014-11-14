@@ -1,7 +1,7 @@
 <?php
 session_start();
 	if(!isset($_SESSION['usuario_nombre'])){
-	header("Location: ../login/acceso.php");
+	header("Location: login/acceso.php");
 	}
 include_once("menu.php");
 include_once($url['models_url']."usuarios_model.php");
@@ -70,17 +70,17 @@ if(isset($_FILES['foto'])){
 
 <tr>
 <td>Usuario</td>
-<td><input type="text" name="usuario" class="form-control" value="<?php echo $row_usuario['usuario'];?>" required></td>
+<td><input type="text" name="usuario" class="form-control" value="<?php echo $row_usuario['usuario'];?>" maxlength="32" required></td>
 </tr>
 
 <tr>
 <td>Nombre</td>
-<td><input type="text" name="nombre" class="form-control" value="<?php echo $row_usuario['nombre'];?>" required></td>
+<td><input type="text" name="nombre" class="form-control" value="<?php echo $row_usuario['nombre'];?>" maxlength="32" required></td>
 </tr>
 
 <tr>
 <td>Apellido</td>
-<td><input type="text" name="apellido" class="form-control" value="<?php echo $row_usuario['apellido'];?>" required></td>
+<td><input type="text" name="apellido" class="form-control" value="<?php echo $row_usuario['apellido'];?>" maxlength="32" required></td>
 </tr>
 
 <tr>
@@ -90,7 +90,7 @@ if(isset($_FILES['foto'])){
 
 <tr>
 <td>Fecha ingreso</td>
-<td><input type="text" name="fecha_ingreso" class="form-control" value="<?php echo date( "d-m-Y", strtotime($row_usuario['fecha_ingreso'])); ;?>" required></td>
+<td><input type="text" name="fecha_ingreso" class="form-control" value="<?php echo date( "d-m-Y", strtotime($row_usuario['fecha_ingreso'])); ;?>" id="datepicker" onkeypress="return false" required></td>
 </tr>
 
 <tr>
@@ -104,7 +104,7 @@ if(isset($_FILES['foto'])){
 
 <tr>
 <td>Legajo</td>
-<td><input type="text" name="legajo" class="form-control" onkeypress="return isNumberKey(event)" value="<?php echo $row_usuario['legajo'];?>" required></td>
+<td><input type="text" name="legajo" class="form-control" onkeypress="return isNumberKey(event)" value="<?php echo $row_usuario['legajo'];?>" maxlength="8" required></td>
 </tr>
 
 <tr>

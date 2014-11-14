@@ -1,249 +1,138 @@
+body{background: #eee url(http://subtlepatterns.com/patterns/sativa.png);}
+html,body{
+    position: relative;
+    height: 100%;
+}
 
-#firstboxlogin {
-   height: 276px;
-   width: 650px;
-   margin-top:150px;
-   margin-left: auto;
-   margin-right: auto;
-   font-family : Verdana,Arial,Helvetica,sans-serif;
-   font-size : 12px;
-   color : #25729a;
-   font-weight: bold;
-   background: url(../bootstrap/css/images/container.png);
-   border:3px solid #ccc;
-   border-radius:10px;
-   -moz-border-radius:10px;
-   -webkit-border-radius:10px;
-   padding:10px;
-   position: relative;
+.login-container{
+    position: relative;
+    width: 300px;
+    margin: 80px auto;
+    padding: 20px 40px 40px;
+    text-align: center;
+    background: #fff;
+    box-shadow: inset 0 0 8px rgba(0,0,0,.2),0 1px 0 #fff;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+#output{
+    position: absolute;
+    width: 300px;
+    top: -75px;
+    left: 0;
+    color: #fff;
+}
+
+#output.alert-success{
+    background: rgb(25, 204, 25);
+}
+
+#output.alert-danger{
+    background: rgb(228, 105, 105);
 }
 
 
-#logo_login {
-   position:absolute;
-   top:-25px;
-   padding:0;
-   margin:0;
-   width: 107px;
-   height: 43px;
-   background: url(../imagenes/login.png)  no-repeat; 
+.login-container::before,.login-container::after{
+    content: "";
+    position: absolute;
+    width: 100%;height: 100%;
+    top: 3.5px;left: 0;
+    background: #fff;
+    z-index: -1;
+    -webkit-transform: rotateZ(4deg);
+    -moz-transform: rotateZ(4deg);
+    -ms-transform: rotateZ(4deg);
+    border: 1px solid #ccc;
+
 }
 
+.login-container::after{
+    top: 5px;
+    z-index: -2;
+    -webkit-transform: rotateZ(-2deg);
+     -moz-transform: rotateZ(-2deg);
+      -ms-transform: rotateZ(-2deg);
 
-#text-login {
-   
-   font-size: 13px;
-   margin-bottom:10px;
-   max-height: 50px;
-   width: 95%;
-   /*margin-right:10px;
-   margin-left:0px;
-   margin-top:80px;*/
-   color :#000000;
-   overflow: auto;
-   padding:10px;
 }
 
-#text-login a:hover {
-   color :#659900;
-   text-decoration: underline;
+.avatar{
+    width: 100px;height: 100px;
+    margin: 10px auto 30px;
+    border-radius: 100%;
+    border: 2px solid #aaa;
+    background-size: cover;
 }
 
+.form-box input{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    height:40px;
+    border: 1px solid #ccc;;
+    background: #fafafa;
+    transition:0.2s ease-in-out;
 
-#bloc {
-   
-   width:760px;
-   margin:0 auto;
-   text-align:left;
-   position:relative;
-   padding:10px;
-   background-image: -webkit-linear-gradient(top, #f2f5f6, #c8d7dc);
- background-image: -moz-linear-gradient(top, #f2f5f6, #c8d7dc);
- background-image: -ms-linear-gradient(top, #f2f5f6, #c8d7dc);
- background-image: -o-linear-gradient(top, #f2f5f6, #c8d7dc);
-
-   /* For Internet Explorer 5.5 - 7 */
-   filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#E9EDD0, endColorStr=#BBC972, GradientType=1);
-   /* For Internet Explorer 8 */
-   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#E9EDD0, endColorstr=#BBC972, GradientType=1)";
-
-   border:1px solid #aaa;
-   border-radius:10px;
-   -moz-border-radius:10px;
-   -webkit-border-radius:10px;
-   box-shadow:0 0 15px #aaa;
-   -moz-box-shadow:0 0 15px #aaa;
-   -webkit-box-shadow:0 0 15px #aaa;
 }
 
-#logo_bloc {
-   position:absolute;
-   top:-25px;
-   padding:0;
-   margin:0;
-   width: 107px;
-   height: 43px;
-   background: url(../pics/login_logo_glpi.png)  no-repeat; 
+.form-box input:focus{
+    outline: 0;
+    background: #eee;
 }
 
-
-#boxlogin {
-   position:relative;
-   margin:auto;
-   text-align: left;  /* Bug IE Grrr */
-   width: 350px;
-   padding:10px;
- background-image: -webkit-linear-gradient(top, #f2f5f6, #c8d7dc);
- background-image: -moz-linear-gradient(top, #f2f5f6, #c8d7dc);
- background-image: -ms-linear-gradient(top, #f2f5f6, #c8d7dc);
- background-image: -o-linear-gradient(top, #f2f5f6, #c8d7dc);
-
-   /* For Internet Explorer 5.5 - 7 */
-   filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#E9EDD0, endColorStr=#BBC972, GradientType=1);
-   /* For Internet Explorer 8 */
-   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#E9EDD0, endColorstr=#BBC972, GradientType=1)";
-
-   border:1px solid #d1dcdf;
-   border-radius:10px;
-   -moz-border-radius:10px;
-   -webkit-border-radius:10px;
-   box-shadow:0 0 15px #aaa;
-   -moz-box-shadow:0 0 15px #aaa;
-   -webkit-box-shadow:0 0 15px #aaa;
+.form-box input[type="text"]{
+    border-radius: 5px 5px 0 0;
+    text-transform: lowercase;
 }
 
-#boxlogin p {
-   text-align:center;
+.form-box input[type="password"]{
+    border-radius: 0 0 5px 5px;
+    border-top: 0;
 }
 
-#forget {
-   text-align:right;
-   text-decoration: underline;
+.form-box button.login{
+    margin-top:15px;
+    padding: 10px 20px;
 }
 
-
-.row {
-   clear: both;
-   padding-top: 5px;
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
 }
 
-.label {
-   float: left;
-   margin-left:10px;
-   text-align: left;
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
 }
 
-.formw {
-   float: right;
-   margin-right:10px;
-   text-align: right;
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    -ms-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
 }
 
-#boxlogin fieldset {
-   background-color: transparent;
-   border: 2px solid  #25729a;
-   padding-bottom:22px;
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
 }
-
-#boxlogin legend {
-   font-family:"Trebuchet MS",Verdana,Geneva,Arial,Helvetica,sans-serif;
-   font-size: 15px;
-   font-weight: 700;
-   background-color: transparent;
-   color : #25729a;
-}
-
-#boxlogin input {
-
-   border: 1px solid  #25729a;
-   -moz-border-radius:5px;
-   -webkit-border-radius:5px;
-}
-
-
-.button {
- border:1px solid #25729a; -webkit-border-radius: 3px; -moz-border-radius: 3px;border-radius: 3px;font-size:12px;font-family:arial, helvetica, sans-serif; padding: 10px 10px 10px 10px; text-decoration:none; display:inline-block;text-shadow: -1px -1px 0 rgba(0,0,0,0.3);font-weight:bold; color: #FFFFFF;
- background-color: #3093c7; background-image: -webkit-gradient(linear, left top, left bottom, from(#3093c7), to(#1c5a85));
- background-image: -webkit-linear-gradient(top, #3093c7, #1c5a85);
- background-image: -moz-linear-gradient(top, #3093c7, #1c5a85);
- background-image: -ms-linear-gradient(top, #3093c7, #1c5a85);
- background-image: -o-linear-gradient(top, #3093c7, #1c5a85);
- background-image: linear-gradient(to bottom, #3093c7, #1c5a85);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#3093c7, endColorstr=#1c5a85);
-}
-
-.button:hover{
- cursor: pointer;
- border:1px solid #1c5675;
- background-color: #26759e; background-image: -webkit-gradient(linear, left top, left bottom, from(#26759e), to(#133d5b));
- background-image: -webkit-linear-gradient(top, #26759e, #133d5b);
- background-image: -moz-linear-gradient(top, #26759e, #133d5b);
- background-image: -ms-linear-gradient(top, #26759e, #133d5b);
- background-image: -o-linear-gradient(top, #26759e, #133d5b);
- background-image: linear-gradient(to bottom, #26759e, #133d5b);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#26759e, endColorstr=#133d5b);
-}
-
-#boxlogin input[type=text],
- #boxlogin input[type=password]{
-   width:13em;
-}
-
-#boxlogin input[type=text]:focus,
- #boxlogin input[type=password]:focus{
-   border-color:#FFA500;
-   background-color: #fff;
-   -moz-box-shadow:0 0 3px #FFA500;
-   -webkit-box-shadow:0 0 3px #FFA500;
-   outline:none; /* Pour enlever le contour jaune lorsque l'on sélectionne un input dans Chrome */
-}
-
-
-#box-faq {
-   padding-top:30px;
-   text-align:center;
-   position:relative;
-   margin:auto;
-}
-
-.sous_logo {
-   font-family: arial;
-   font-size: 9px;
-   color: #eeeeee;
-   text-decoration: none;
-}
-
-.error {
-   color: red; 
-   margin-top:20px;
-   text-align:center;
-}
-
-#footer-login {
-   text-align:right;
-   position: fixed !important;
-   left: 0px;
-   right: 10px;
-   bottom: 0px !important;
-   height: 40px;
-   font-size : 10px;
-   color :#757575;
-   font-family: Verdana,Arial,Helvetica,sans-serif;
-   font-weight: bold;
-   margin-top:10px;
-   margin:auto;
-    /*css hack for IE*/
-   position: absolute;
-   bottom: auto;
-   top: expression((parseInt(document.documentElement.clientHeight)+parseInt(document.documentElement.scrollTop)-42)+'px');
-   width: expression(parseInt(document.documentElement.clientWidth)+'px');
-}
-
-body {
-   font-family: 'Bitstream Vera Sans', arial, Tahoma, 'Sans serif';
-   font-size: 12px;
-   margin: 0;
-   padding: 0;
-   background: url(../bootstrap/css/images/body.png)
-   /*background:  #dfdfdf repeat-x;*/
-   
-}
-

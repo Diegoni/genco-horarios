@@ -162,7 +162,7 @@ if($_GET['buscar']==1){
       					<i class="icon-calendar"></i>
       				</span>
       			</div>
-      			<input value="<?php echo date('d-m-Y', strtotime($fecha_inicio)); ?>" type="text" name="fecha_inicio" id="datepicker2" placeholder="fecha de inicio" class="form-control" autocomplete="off" required>
+      			<input value="<?php echo date('d-m-Y', strtotime($fecha_inicio)); ?>" type="text" name="fecha_inicio" id="datepicker2" placeholder="fecha de inicio" class="form-control" autocomplete="off" onkeypress="return false" required>
     		</div>
     		</div>
 			
@@ -173,7 +173,7 @@ if($_GET['buscar']==1){
       					<i class="icon-calendar"></i>
       				</span>
       			</div>
-      			<input value="<?php echo date('d-m-Y', strtotime($fecha_final)); ?>"	type="text" name="fecha_final" id="datepicker" placeholder="fecha final" class="form-control" autocomplete="off" required>
+      			<input value="<?php echo date('d-m-Y', strtotime($fecha_final)); ?>"	type="text" name="fecha_final" id="datepicker" placeholder="fecha final" class="form-control" autocomplete="off" onkeypress="return false" required>
     		</div>
     		</div>
   		</div>

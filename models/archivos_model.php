@@ -36,14 +36,4 @@ function getArchivo($id){
 	
 	return $archivo;
 }
-
-
-
-
-
-
-
-
-
-
 ?>

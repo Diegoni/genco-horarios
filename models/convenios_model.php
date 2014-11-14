@@ -5,9 +5,9 @@ function deleteConvenio($id){
 
 function actualizarConvenio($datos){
 	mysql_query("UPDATE `convenio` SET 
-				semana='$datos[semana]',
-				sabado='$datos[sabado]',
-				salida_sabado='$datos[salida_sabado]'
+				semana			= '$datos[semana]',
+				sabado			= '$datos[sabado]',
+				salida_sabado	= '$datos[salida_sabado]'
 				WHERE id_convenio='$datos[id_convenio]'") or die(mysql_error());
 
 }
@@ -15,7 +15,7 @@ function actualizarConvenio($datos){
 
 function updateConvenio($id_convenio, $convenio){
 	mysql_query("UPDATE `convenio` SET 
-				convenio='$convenio'
+				convenio		= '$convenio'
 				WHERE id_convenio='$id_convenio'") or die(mysql_error());
 }
 

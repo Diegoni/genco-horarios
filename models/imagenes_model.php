@@ -15,10 +15,11 @@ function updateFoto($foto){
 	
 	if($error==1){
 		mysql_query("UPDATE `usuario` SET	
-								foto_nombre='$foto[foto_nombre]',
-								foto_tipo='$foto[foto_tipo]',
-								foto_size='$foto[foto_size]'
-								WHERE id_usuario='$foto[id_usuario]'") or die(mysql_error());
+					foto_nombre	= '$foto[foto_nombre]',
+					foto_tipo	= '$foto[foto_tipo]',
+					foto_size	= '$foto[foto_size]'
+					WHERE 
+					id_usuario	= '$foto[id_usuario]'") or die(mysql_error());
 			
 	}
 }
@@ -40,8 +41,8 @@ function updateFotologo($foto){
 	
 	if($error==1){
 		mysql_query("UPDATE `config` SET	
-								logo='$logo'
-								WHERE id_config='$foto[id_config]'") or die(mysql_error());
+					 logo='$logo'
+					WHERE id_config='$foto[id_config]'") or die(mysql_error());
 			
 	}
 }

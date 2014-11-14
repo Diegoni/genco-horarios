@@ -1,7 +1,7 @@
 <?php
 session_start();
 	if(!isset($_SESSION['usuario_nombre'])){
-	header("Location: ../login/acceso.php");
+	header("Location: login/acceso.php");
 	}
 include_once("menu.php");
 include_once($url['models_url']."empresas_model.php");
@@ -20,31 +20,37 @@ if(isset($_GET['delete'])){
 
 //modifica al usuario segun el formulario de modificar.php
 if(isset($_GET['modificar'])){
-	updateEmpresa($_GET['empresa'],
-								$_GET['cod_empresa'],
-								$_GET['cuil1'],
-								$_GET['cuil2'],
-								$_GET['cuil3'],
-								1,
-								$_GET['id']);
+	$datos=array(
+			'empresa'		=> $_GET['empresa'],
+			'cod_empresa'	=> $_GET['cod_empresa'],
+			'cuil1'			=> $_GET['cuil1'],
+			'cuil2'			=> $_GET['cuil2'],
+			'cuil3'			=> $_GET['cuil3'],
+			'id_estado'		=> 1,
+			'id'			=> $_GET['id']);	
+	
+	updateEmpresa($datos);
 	echo getMensajes('update', 'ok', 'Empresa', $_GET['empresa']);
 }
 
 //modifica al usuario segun el formulario de modificar.php
 if(isset($_GET['nuevo'])){
-	$empresa=getEmpresas($_GET['empresa'], 'empresa');
-	$row_empresa = mysql_fetch_assoc($empresa);
-	$numero_empresas = mysql_num_rows($empresa);
+	$empresa			= getEmpresas($_GET['empresa'], 'empresa');
+	$row_empresa		= mysql_fetch_assoc($empresa);
+	$numero_empresas	= mysql_num_rows($empresa);
 	
 	if($numero_empresas>0){
 		echo getMensajes('insert', 'error', 'Empresa', $_GET['empresa']);
 	}else{
-		insertEmpresa($_GET['empresa'],
-									$_GET['cod_empresa'],
-									$_GET['cuil1'],
-									$_GET['cuil2'],
-									$_GET['cuil3'],
-									1);
+		$datos=array(
+			'empresa'		=> $_GET['empresa'],
+			'cod_empresa'	=> $_GET['cod_empresa'],
+			'cuil1'			=> $_GET['cuil1'],
+			'cuil2'			=> $_GET['cuil2'],
+			'cuil3'			=> $_GET['cuil3'],
+			'id_estado'		=> 1);
+		
+		insertEmpresa($datos);
 		echo getMensajes('insert', 'ok', 'Empresa', $_GET['empresa']);
 	}
 }
@@ -57,12 +63,12 @@ if(isset($_GET['nuevo'])){
 
 //si no hay busqueda los trae a todos
 if(isset($_GET['buscar'])){
-	$empresa=getEmpresas($_GET['empresa'], 'empresa'); 
+	$empresa = getEmpresas($_GET['empresa'], 'empresa'); 
 }else{
-	$empresa=getEmpresas();
+	$empresa = getEmpresas();
 }
-	$row_empresa = mysql_fetch_assoc($empresa);
-	$numero_empresas = mysql_num_rows($empresa);
+	$row_empresa		= mysql_fetch_assoc($empresa);
+	$numero_empresas	= mysql_num_rows($empresa);
 
 
 
@@ -91,12 +97,12 @@ if(isset($_GET['buscar'])){
 
 	<tr>
 		<td>Empresa</td>
-		<td><input type="text" name="empresa" class="form-control" placeholder="ingrese Empresa" required></td>
+		<td><input type="text" name="empresa" class="form-control" placeholder="ingrese Empresa" maxlength="32" required></td>
 	</tr>
 
 	<tr>
 		<td>Cod</td>
-		<td><input type="text" name="cod_empresa" class="form-control" placeholder="ingrese codigo de empresa" required></td>
+		<td><input type="text" name="cod_empresa" class="form-control" placeholder="ingrese codigo de empresa" maxlength="32" required></td>
 	</tr>
 
 	<tr>

@@ -9,9 +9,9 @@
 	);
 	
 		
-	$query="SELECT * FROM config ";   
-	$configs=mysql_query($query) or die(mysql_error());
-	$row_config = mysql_fetch_assoc($configs);
+	$query		= "SELECT * FROM config ";   
+	$configs	= mysql_query($query) or die(mysql_error());
+	$row_config	= mysql_fetch_assoc($configs);
 	do{
 		$config=array(
 			'aplicar_redondeo'	=> $row_config['aplicar_redondeo'],

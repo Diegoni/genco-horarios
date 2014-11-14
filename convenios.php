@@ -1,7 +1,7 @@
 <?php 
 session_start();
 	if(!isset($_SESSION['usuario_nombre'])){
-	header("Location: ../login/acceso.php");
+	header("Location: login/acceso.php");
 	}
 include_once("menu.php");    
 include_once($url['models_url']."convenios_model.php");   
@@ -94,7 +94,7 @@ if (isset($_GET['nuevo'])){
 	<table class="table table-hover">
 	<tr>
 		<td>Convenio</td>
-		<td><input type="text" name="convenio" class="form-control" placeholder="ingrese convenio" required></td>
+		<td><input type="text" name="convenio" class="form-control" placeholder="ingrese convenio" maxlength="32" required></td>
 	</tr>
 	<tr>
 		<td></td>

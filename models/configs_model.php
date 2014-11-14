@@ -1,5 +1,5 @@
 <?php
-
+include_once('logs_model.php');
 
 function getConfig(){
 	$query="SELECT * FROM config ";   
@@ -19,5 +19,12 @@ function updateConfig($datos){
 				fecha_actual		= '$datos[fecha_actual]'
 				WHERE id_config		= '$datos[id_config]'			
 				") or die(mysql_error());
+				
+	$datos=array(
+			'tabla'		=> 'config', 
+			'id_tabla'	=> $datos['id_config'], 
+			'id_accion'	=> 2 );
+			
+	insertLog($datos);
 }
 ?>

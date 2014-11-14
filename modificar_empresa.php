@@ -1,7 +1,7 @@
 <?php
 session_start();
 	if(!isset($_SESSION['usuario_nombre'])){
-	header("Location: ../login/acceso.php");
+	header("Location: login/acceso.php");
 	}
 include_once("menu.php");
 include_once($url['models_url']."empresas_model.php");
@@ -30,12 +30,12 @@ if($action==0){
 
 <tr>
 <td>Empresa</td>
-<td><input type="text" name="empresa" class="form-control" value="<?php echo $row_empresa['empresa'];?>" <?php echo $input_action; ?> required></td>
+<td><input type="text" name="empresa" class="form-control" value="<?php echo $row_empresa['empresa'];?>" <?php echo $input_action; ?> maxlength="32" required></td>
 </tr>
 
 <tr>
 <td>Cod</td>
-<td><input type="text" name="cod_empresa" class="form-control" value="<?php echo $row_empresa['cod_empresa'];?>" <?php echo $input_action; ?> required></td>
+<td><input type="text" name="cod_empresa" class="form-control" value="<?php echo $row_empresa['cod_empresa'];?>" <?php echo $input_action; ?> maxlength="32" required></td>
 </tr>
 
 <tr>

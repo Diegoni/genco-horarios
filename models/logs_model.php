@@ -16,4 +16,24 @@ function getLogs(){
 	
 	return $log;
 }
+
+function insertLog($datos){
+	session_start();
+	$datos['fecha']		= date('Y-m-d H:i:s'); 
+	$datos['id_usuario']= $_SESSION['usuario_id'];
+		
+	mysql_query("INSERT INTO 
+					`logs_sistema`(
+					tabla, 
+					id_tabla, 
+					id_accion, 
+					fecha, 
+					id_usuario) 
+				VALUES(
+					'$datos[tabla]', 
+					'$datos[id_tabla]',
+					'$datos[id_accion]',
+					'$datos[fecha]',
+					'$datos[id_usuario]')") or die(mysql_error());
+}
 ?>

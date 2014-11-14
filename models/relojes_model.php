@@ -1,6 +1,15 @@
 <?php
+include_once('logs_model.php');
+
 function deleteReloj($id){
 	mysql_query("UPDATE `relojes` SET id_estado=0 WHERE id_reloj='$id'") or die(mysql_error());
+	
+	$datos=array(
+			'tabla'		=> 'relojes', 
+			'id_tabla'	=> $id, 
+			'id_accion'	=> 3 );
+			
+	insertLog($datos);
 }
 
 function updateReloj($datos){
@@ -11,6 +20,13 @@ function updateReloj($datos){
 				color	= '$datos[color]'		
 				WHERE id_reloj='$datos[id_reloj]'			
 				") or die(mysql_error());
+	
+	$datos=array(
+			'tabla'		=> 'departamento', 
+			'id_tabla'	=> $datos['id_reloj'], 
+			'id_accion'	=> 2 );
+			
+	insertLog($datos);
 }
 
 function getRelojes($dato=NULL, $campo=NULL){
@@ -50,6 +66,15 @@ function insertReloj($datos){
 				'$datos[color]', 
 				1)") 
 				or die(mysql_error());
+				
+	$id = mysql_insert_id();
+	
+	$datos=array(
+			'tabla'		=> 'departamento', 
+			'id_tabla'	=> $id, 
+			'id_accion'	=> 1 );
+			
+	insertLog($datos);
 }
 
 ?>

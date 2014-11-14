@@ -1,7 +1,7 @@
 <?php
 session_start();
 	if(!isset($_SESSION['usuario_nombre'])){
-	header("Location: ../login/acceso.php");
+	header("Location: login/acceso.php");
 	}
 include_once("menu.php");
 include_once($url['models_url']."convenios_model.php");
@@ -22,7 +22,7 @@ $row_convenio = mysql_fetch_assoc($convenio);
 
 <tr>
 		<td>Convenio</td>
-		<td><input type="text" class="form-control" name="convenio" placeholder="ingrese convenio" value="<?php echo $row_convenio['convenio'];?>" required></td>
+		<td><input type="text" class="form-control" name="convenio" placeholder="ingrese convenio" value="<?php echo $row_convenio['convenio'];?>" maxlength="32" required></td>
 </tr>
 
 <tr>

@@ -26,18 +26,19 @@ function updateUsuario_sistema($datos){
 		$fecha=date( "Y-m-d", strtotime($datos['fecha_ingreso']));
 	
 		mysql_query("UPDATE `usuario` SET	
-								usuario='$datos[usuario]',
-								nombre='$datos[nombre]',
-								apellido='$datos[apellido]',
-								dni='$datos[dni]',
-								cuil='$cuil',
-								id_estado='$datos[estado]',
-								id_empresa='$datos[empresa]',
-								id_departamento='$datos[departamento]',
-								id_convenio='$datos[convenio]',
-								fecha_ingreso='$fecha',
-								legajo='$datos[legajo]'	
-								WHERE id_usuario='$datos[id]'") or die(mysql_error());
+								usuario			= '$datos[usuario]',
+								nombre			= '$datos[nombre]',
+								apellido		= '$datos[apellido]',
+								dni				= '$datos[dni]',
+								cuil			= '$cuil',
+								id_estado		= '$datos[estado]',
+								id_empresa		= '$datos[empresa]',
+								id_departamento	= '$datos[departamento]',
+								id_convenio		= '$datos[convenio]',
+								fecha_ingreso	= '$fecha',
+								legajo			= '$datos[legajo]'	
+								WHERE 
+								id_usuario		= '$datos[id]'") or die(mysql_error());
 	}else{
 		trigger_error("No se envió un array en updateUsuario", E_USER_WARNING);
 	}	

@@ -1,7 +1,7 @@
 <?php
 session_start();
 	if(!isset($_SESSION['usuario_nombre'])){
-	header("Location: ../login/acceso.php");
+	header("Location: login/acceso.php");
 	}
 include_once("menu.php");
 include_once($url['models_url']."encargados_model.php");
@@ -46,32 +46,32 @@ if($action==0){
 
 	<tr>
 		<td>Apellido</td>
-		<td><input type="text" name="apellido" class="form-control" value="<?php echo $row_encargado['apellido'];?>" <?php echo $input_action; ?> required></td>
+		<td><input type="text" name="apellido" class="form-control" value="<?php echo $row_encargado['apellido'];?>" <?php echo $input_action; ?> maxlength="32" required></td>
 	</tr>
 	
 	<tr>
 		<td>Nombre</td>
-		<td><input type="text" name="nombre" class="form-control" value="<?php echo $row_encargado['nombre'];?>" <?php echo $input_action; ?> required></td>
+		<td><input type="text" name="nombre" class="form-control" value="<?php echo $row_encargado['nombre'];?>" <?php echo $input_action; ?> maxlength="32" required></td>
 	</tr>
 	
 	<tr>
 		<td>Email</td>
 		<td>
-			<input type="text" name="email_1" class="form-control" value="<?php echo $row_encargado['email_1'];?>" <?php echo $input_action; ?> required>
+			<input type="text" name="email_1" class="form-control" value="<?php echo $row_encargado['email_1'];?>" <?php echo $input_action; ?> maxlength="64" required>
 		</td>
 	</tr>
 	
 	<tr>
 		<td>Email</td>
 		<td>
-			<input type="text" name="email_2" class="form-control" value="<?php echo $row_encargado['email_2'];?>" <?php echo $input_action; ?>>
+			<input type="text" name="email_2" class="form-control" value="<?php echo $row_encargado['email_2'];?>" <?php echo $input_action; ?> maxlength="64">
 		</td>
 	</tr>
 	
 	<tr>
 		<td>Email</td>
 		<td>
-			<input type="text" name="email_3" class="form-control" value="<?php echo $row_encargado['email_3'];?>" <?php echo $input_action; ?>>
+			<input type="text" name="email_3" class="form-control" value="<?php echo $row_encargado['email_3'];?>" <?php echo $input_action; ?> maxlength="64">
 		</td>
 	</tr>
 	

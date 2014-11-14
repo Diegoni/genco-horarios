@@ -1,4 +1,6 @@
 <?php
+include_once('logs_model.php');
+
 function getParametros($hora=NULL, $tipo=NULL){
 	if(isset($hora, $tipo)){
 		$query="SELECT * FROM `parametros` 
@@ -38,12 +40,20 @@ function getParametroMax(){
 
 function updatePrametro($registro){
 	mysql_query("UPDATE `parametros` SET 
-					id_turno='$registro[id_turno]',
-					id_tipo='$registro[id_tipo]',
-					inicio='$registro[inicio]',
-					final='$registro[final]',
-					considerar='$registro[considerar]'
-				WHERE id_parametros='$registro[id_parametros]'") or die(mysql_error());
+					id_turno	= '$registro[id_turno]',
+					id_tipo		= '$registro[id_tipo]',
+					inicio		= '$registro[inicio]',
+					final		= '$registro[final]',
+					considerar	= '$registro[considerar]'
+				WHERE 
+					id_parametros='$registro[id_parametros]'") or die(mysql_error());
+					
+	$datos=array(
+			'tabla'		=> 'parametros', 
+			'id_tabla'	=> $registro['id_parametros'], 
+			'id_accion'	=> 2 );
+			
+	insertLog($datos);
 }
 
 

@@ -1,7 +1,7 @@
 <?php
 session_start();
 	if(!isset($_SESSION['usuario_nombre'])){
-	header("Location: ../login/acceso.php");
+	header("Location: login/acceso.php");
 	}
 include_once("menu.php");
 include_once($url['models_url']."encargados_model.php");
@@ -99,17 +99,17 @@ if(isset($_GET['buscar'])){
 	
 	<tr>
 		<td>Apellido</td>
-		<td><input type="text" name="apellido" class="form-control" placeholder="ingrese apellido" required></td>
+		<td><input type="text" name="apellido" class="form-control" placeholder="ingrese apellido" maxlength="32" required></td>
 	</tr>
 	
 	<tr>
 		<td>Nombre</td>
-		<td><input type="text" name="nombre" class="form-control" placeholder="ingrese nombre" required></td>
+		<td><input type="text" name="nombre" class="form-control" placeholder="ingrese nombre" maxlength="32" required></td>
 	</tr>
 	
 	<tr>
 		<td>Email</td>
-		<td><input type="email" name="email" class="form-control" placeholder="ingrese email" required></td>
+		<td><input type="email" name="email" class="form-control" placeholder="ingrese email" maxlength="64" required></td>
 	</tr>
 	
 	<tr>

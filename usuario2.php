@@ -108,7 +108,7 @@ if(!isset($fecha_inicio)){
 	      		<div class="input-group-addon" onclick="document.getElementById('datepicker2').focus();">
 	      			<span class="add-on"><i class="icon-calendar"></i></span>
 	      		</div>
-	      		<input value="" class="form-control" type="text" name="fecha_inicio" id="datepicker2" placeholder="fecha de inicio" autocomplete="off" required>
+	      		<input value="" class="form-control" type="text" name="fecha_inicio" id="datepicker2" placeholder="fecha de inicio" autocomplete="off" onkeypress="return false" required>
     		</div>
   		</div>
 	</div>
@@ -119,7 +119,7 @@ if(!isset($fecha_inicio)){
 	      		<div class="input-group-addon" onclick="document.getElementById('datepicker').focus();">
 	      			<span class="add-on"><i class="icon-calendar"></i></span>
 	      		</div>
-	      		<input value=""	class="form-control" type="text" name="fecha_final" id="datepicker" placeholder="fecha final" autocomplete="off" required>
+	      		<input value=""	class="form-control" type="text" name="fecha_final" id="datepicker" placeholder="fecha final" autocomplete="off" onkeypress="return false" required>
     		</div>
   		</div>
 	</div>

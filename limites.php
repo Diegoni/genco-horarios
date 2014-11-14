@@ -1,7 +1,7 @@
 <?php 
 session_start();
 	if(!isset($_SESSION['usuario_nombre'])){
-	header("Location: ../login/acceso.php");
+	header("Location: login/acceso.php");
 	}
 include_once("menu.php");    
 include_once($url['models_url']."limites_model.php");    
@@ -87,11 +87,11 @@ $numero_limites = mysql_num_rows($limite);
 	<table class="table table-hover">
 	<tr>
 		<td>Limite</td>
-		<td><input class="form-control" type="number" min="1" max="60" name="limite" placeholder="ingrese limite" required></td>
+		<td><input class="form-control" type="number" min="1" max="60" name="limite" onkeypress="return isNumberKey(event)" placeholder="ingrese limite" required></td>
 	</tr>
 	<tr>
 		<td>Redondeo</td>
-		<td><input class="form-control" type="number" min="0" max="60" name="redondeo" placeholder="ingrese redondeo" required></td>		
+		<td><input class="form-control" type="number" min="0" max="60" name="redondeo" onkeypress="return isNumberKey(event)" placeholder="ingrese redondeo" required></td>		
 	</tr>
 	<tr>
 	<tr>

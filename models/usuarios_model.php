@@ -1,4 +1,6 @@
 <?php
+include_once('logs_model.php');
+
 function getUsuario($id){
 	if(!(is_numeric($id))){
 		trigger_error("Envió de Id que no es número", E_USER_WARNING);
@@ -147,18 +149,26 @@ function updateUsuario($datos){
 		$fecha=date( "Y-m-d", strtotime($datos['fecha_ingreso']));
 	
 		mysql_query("UPDATE `usuario` SET	
-								usuario='$datos[usuario]',
-								nombre='$datos[nombre]',
-								apellido='$datos[apellido]',
-								dni='$datos[dni]',
-								cuil='$cuil',
-								id_estado='$datos[estado]',
-								id_empresa='$datos[empresa]',
-								id_departamento='$datos[departamento]',
-								id_convenio='$datos[convenio]',
-								fecha_ingreso='$fecha',
-								legajo='$datos[legajo]'	
-								WHERE id_usuario='$datos[id]'") or die(mysql_error());
+								usuario			= '$datos[usuario]',
+								nombre			= '$datos[nombre]',
+								apellido		= '$datos[apellido]',
+								dni				= '$datos[dni]',
+								cuil			= '$cuil',
+								id_estado		= '$datos[estado]',
+								id_empresa		= '$datos[empresa]',
+								id_departamento	= '$datos[departamento]',
+								id_convenio		= '$datos[convenio]',
+								fecha_ingreso	= '$fecha',
+								legajo			= '$datos[legajo]'	
+								WHERE 
+								id_usuario		= '$datos[id]'") or die(mysql_error());
+		
+		$datos=array(
+			'tabla'		=> 'usuario', 
+			'id_tabla'	=> $datos['id'], 
+			'id_accion'	=> 2 );
+			
+		insertLog($datos);
 	}else{
 		trigger_error("No se envió un array en updateUsuario", E_USER_WARNING);
 	}	
@@ -167,6 +177,13 @@ function updateUsuario($datos){
 
 function deleteUsuario($id){
 	mysql_query("UPDATE `usuario` SET id_estado=0 WHERE id_usuario='$id'") or die(mysql_error());
+	
+	$datos=array(
+			'tabla'		=> 'usuario', 
+			'id_tabla'	=> $id, 
+			'id_accion'	=> 3 );
+			
+	insertLog($datos);
 }
 
 function insertUsusario($datos){
@@ -208,6 +225,15 @@ function insertUsusario($datos){
 				'$fecha',
 				'$estado')	
 			") or die(mysql_error());
+			
+	$id = mysql_insert_id();
+	
+	$datos=array(
+			'tabla'		=> 'usuario', 
+			'id_tabla'	=> $id, 
+			'id_accion'	=> 1 );
+			
+	insertLog($datos);
 
 }
 

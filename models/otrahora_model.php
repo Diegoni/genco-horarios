@@ -51,6 +51,13 @@ function updateOtrahora($id_tipootra, $horas,	$fecha, $nota, $id_nota, $id_otrah
 						nota='$nota'
 						WHERE id_nota='$id_nota'
 						") or die(mysql_error());
+						
+	$datos=array(
+			'tabla'		=> 'departamento', 
+			'id_tabla'	=> $id_otrahora, 
+			'id_accion'	=> 2 );
+			
+	insertLog($datos);
 }
 
 function insertOtrahora($id, $id_tipootra, $nota, $horas, $fecha){
@@ -60,7 +67,16 @@ function insertOtrahora($id, $id_tipootra, $nota, $horas, $fecha){
 				$id_nota=mysql_insert_id();
 				
 	mysql_query("INSERT INTO `otrahora` (id_usuario, id_tipootra, id_nota, horas, fecha) 
-				VALUES ('$id', '$id_tipootra', '$id_nota', '$horas', '$fecha')") or die(mysql_error());				
+				VALUES ('$id', '$id_tipootra', '$id_nota', '$horas', '$fecha')") or die(mysql_error());
+	
+	$id = mysql_insert_id();
+	
+	$datos=array(
+			'tabla'		=> 'otrahora', 
+			'id_tabla'	=> $id, 
+			'id_accion'	=> 1 );
+			
+	insertLog($datos);				
 }
 
 function getTipootra(){

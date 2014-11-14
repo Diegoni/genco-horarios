@@ -5,11 +5,40 @@ error_reporting(0);
 include_once("config/database.php");
 include_once($url['models_url']."logs_model.php"); 	
 
+
+
+
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------
 //						Funciones php
 //----------------------------------------------------------------------			
 //--------------------------------------------------------------------->
+
+function pingAddress($ip) {
+    $pingresult = exec("/bin/ping -c2 -w2 $ip", $outcome, $status);  
+   
+	if ($status==0) {
+	   	$status = "alive";
+	} else {
+		$status = "dead";
+	}
+	
+    return $status;
+}
+
+function pingAddressWin($ip){
+	$output = shell_exec("ping $ip");
+		
+	if (strpos($output, "recibidos = 0")) {
+		$status	= 'dead';
+	}else{
+		$status	= 'alive';
+	}
+	
+	return $status;
+}
+
+
 function devuelve_icono($extension, $iconos_url){
 	if(	$extension=='.png' || 
 		$extension=='.gif' ||

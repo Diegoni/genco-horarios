@@ -1,6 +1,15 @@
 <?php
+include_once('logs_model.php');
+
 function deleteEncargado($id){
 	mysql_query("UPDATE `encargados` SET encargados.delete=1 WHERE id_encargado='$id'") or die(mysql_error());
+	
+	$datos=array(
+			'tabla'		=> 'encargados', 
+			'id_tabla'	=> $id, 
+			'id_accion'	=> 3 );
+			
+	insertLog($datos);
 }
 
 function updateEncargado($datos){
@@ -13,6 +22,13 @@ function updateEncargado($datos){
 				WHERE 
 				id_encargado	= '$datos[id_encargado]'			
 				") or die(mysql_error());
+	
+	$datos=array(
+			'tabla'		=> 'encargados', 
+			'id_tabla'	=> $datos['id'], 
+			'id_accion'	=> 2 );
+			
+	insertLog($datos);
 }
 
 function getEncargados($dato=NULL, $campo=NULL){
@@ -42,7 +58,17 @@ function insertEncargado($datos){
 					(nombre, apellido) 
 				VALUES 
 					('$datos[nombre]', '$datos[apellido]')") or die(mysql_error());
-	return mysql_insert_id();
+	
+	$id = mysql_insert_id();
+	
+	$datos=array(
+			'tabla'		=> 'encargados', 
+			'id_tabla'	=> $id, 
+			'id_accion'	=> 1 );
+			
+	insertLog($datos);
+	
+	return $id;
 }
 
 function getEncargado_departamento($id){
