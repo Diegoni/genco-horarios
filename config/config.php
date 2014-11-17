@@ -1,4 +1,6 @@
 <?php		//local a phpmyadmin
+	date_default_timezone_set('America/Argentina/Mendoza');
+
 	$url=array(
 		'models_url'			=> "models/",
 		'librerias_url'			=> "librerias/",

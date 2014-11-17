@@ -32,10 +32,10 @@ header("content-disposition: attachment;filename=Usuario.xls");
 </head>
 <body>
 <?php
-		$username="root";
-		$password="";
-		$database="controlfinal4";
-		$url="localhost";
+		$username	= "root";
+		$password	= "";
+		$database	= "controlfinal4";
+		$url		= "localhost";
 		mysql_connect($url,$username,$password);
 		@mysql_select_db($database) or die( "No pude conectarme a la base de datos");
 		
@@ -45,8 +45,8 @@ header("content-disposition: attachment;filename=Usuario.xls");
 //						Valores iniciales
 //----------------------------------------------------------------------			
 //--------------------------------------------------------------------->
-$id_usuario=$_GET['id'];
-$fecha=date("d-m-Y");
+$id_usuario		= $_GET['id'];
+$fecha			= date("d-m-Y");
 
 $query="SELECT 	usuario.id_usuario,
 				usuario.nombre,
@@ -179,56 +179,56 @@ $res_ins = mysql_query($query_ins) or die(mysql_error());
 
 
 <table border="1">
-<tr>
-	<td class="titulo" colspan="5"><?php echo $row_usuario['empresa']?> - C.U.I.L. N <?php echo $row_usuario['cuil_empresa']?></td>
-	<td class="titulo" colspan="2">Fecha Emision</td>
-	<td class="texto"><?php echo date( "d-m-Y", strtotime($valor));?></td>
-	<td class="titulo">Legajo</td>
-	<td class="texto"><?php echo $row_usuario['legajo']?></td>
-	<td class="texto" colspan="3" rowspan="4">Firma Empleado</td>
-</tr>
-<tr>
-	<td class="titulo" colspan="2">Apellido y Nombre</th>
-	<td class="texto" colspan="3"><?php echo $row_usuario['apellido']?>, <?php echo $row_usuario['nombre']?></td>
-	<td class="titulo">DNI</td>
-	<td class="texto"><? echo $row_usuario['dni']?></td>
-	<td class="titulo">C.U.I.L.</td>
-	<td class="texto" colspan="2"><?php echo $row_usuario['cuil']?></td>
-</tr>
-<tr>
-	<td class="titulo" colspan="2">Fecha</td>
-	<td class="titulo" colspan="2">Entrada</td>
-	<td class="titulo" colspan="2">Salida</td>
-	<td class="titulo" colspan="2">Entrada</td>
-	<td class="titulo" colspan="2">Salida</td>
-</tr>
-<tr>
-	<td class="hora" colspan="2"><?php echo date( "d-m-Y", strtotime($valor));?></td>
+	<tr>
+		<td class="titulo" colspan="5"><?php echo $row_usuario['empresa']?> - C.U.I.L. N <?php echo $row_usuario['cuil_empresa']?></td>
+		<td class="titulo" colspan="2">Fecha Emisión</td>
+		<td class="texto"><?php echo date( "d-m-Y", strtotime($valor));?></td>
+		<td class="titulo">Legajo</td>
+		<td class="texto"><?php echo $row_usuario['legajo']?></td>
+		<td class="texto" colspan="3" rowspan="4">Firma Empleado</td>
+	</tr>
+	<tr>
+		<td class="titulo" colspan="2">Apellido y Nombre</th>
+		<td class="texto" colspan="3"><?php echo $row_usuario['apellido']?>, <?php echo $row_usuario['nombre']?></td>
+		<td class="titulo">DNI</td>
+		<td class="texto"><? echo $row_usuario['dni']?></td>
+		<td class="titulo">C.U.I.L.</td>
+		<td class="texto" colspan="2"><?php echo $row_usuario['cuil']?></td>
+	</tr>
+	<tr>
+		<td class="titulo" colspan="2">Fecha</td>
+		<td class="titulo" colspan="2">Entrada</td>
+		<td class="titulo" colspan="2">Salida</td>
+		<td class="titulo" colspan="2">Entrada</td>
+		<td class="titulo" colspan="2">Salida</td>
+	</tr>
+	<tr>
+		<td class="hora" colspan="2"><?php echo date( "d-m-Y", strtotime($valor));?></td>
+		
+			<?php 
+			for ($i = 1; $i <= 4; $i++) {
+					$query="SELECT * 
+					FROM temp 
+					WHERE
+					DATE_FORMAT(entrada, '%Y-%m-%d') like '$valor'
+					AND id_parametros=$i";   
+				$marcacion=mysql_query($query) or die(mysql_error());
+				$row_marcacion = mysql_fetch_assoc($marcacion);
+				$cantidad_parametros=mysql_num_rows($marcacion);
+				
+				$redondear_minutos = redondear_minutos(date('H:i', strtotime($row_marcacion['entrada'])));
+		?>
+		<?php
+		if($cantidad_parametros==0){?>
+		<td class="hora" colspan="2"> - </td>
 	
-		<?php 
-		for ($i = 1; $i <= 4; $i++) {
-				$query="SELECT * 
-				FROM temp 
-				WHERE
-				DATE_FORMAT(entrada, '%Y-%m-%d') like '$valor'
-				AND id_parametros=$i";   
-			$marcacion=mysql_query($query) or die(mysql_error());
-			$row_marcacion = mysql_fetch_assoc($marcacion);
-			$cantidad_parametros=mysql_num_rows($marcacion);
-			
-			$redondear_minutos=redondear_minutos(date('H:i', strtotime($row_marcacion['entrada'])));
-	?>
-	<?php
-	if($cantidad_parametros==0){?>
-	<td class="hora" colspan="2"> - </td>
-
-	<?php }else{ ?>
-	<td class="hora" colspan="2"><?php echo date('H:i', strtotime($row_marcacion['entrada']));?></td>
-	<?php }
+		<?php }else{ ?>
+		<td class="hora" colspan="2"><?php echo date('H:i', strtotime($row_marcacion['entrada']));?></td>
+		<?php }
+		
+		} ?>
 	
-	} ?>
-
-</tr>
+	</tr>
 </table>	
 
 <?php } //cierra el if($cantidad_parametros>0)?>
@@ -242,13 +242,6 @@ $res_ins = mysql_query($query_ins) or die(mysql_error());
 $query_drop = "DROP TABLE temp";
 $res_drop = mysql_query($query_drop) or die(mysql_error());
 ?>
-
-
-
-
-</div><!--cierra el class="span12" -->
-</div><!--cierra el row -->
-</div><!--cierra el class="container"-->
 
 </body>
 

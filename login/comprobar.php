@@ -1,7 +1,7 @@
 <?php 
     session_start(); 
     include('../config/database.php');
-		include('../config/config.php');?>
+	include('../config/config.php');?>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="../<?php echo $url['librerias_url']?>css/login.css">
@@ -34,10 +34,19 @@
 				$usuario_clave	= md5($usuario_clave); 
 				// comprobamos que los datos ingresados en el formulario coincidan con los de la BD 
 				$sql = mysql_query("SELECT * FROM usuarios WHERE usuario_nombre='".$usuario_nombre."' AND usuario_clave='".$usuario_clave."'"); 
+				
 				if($row = mysql_fetch_array($sql)) { 
 					$_SESSION['usuario_id']		= $row['usuario_id']; // creamos la sesion "usuario_id" y le asignamos como valor el campo usuario_id 
 					$_SESSION['usuario_nombre'] = $row["usuario_nombre"]; // creamos la sesion "usuario_nombre" y le asignamos como valor el campo usuario_nombre 
-					$_SESSION['id_tipousuario'] = $row["id_tipousuario"]; 
+					$_SESSION['id_tipousuario'] = $row["id_tipousuario"];
+					
+					$fecha = date('Y-m-d H:i:s');
+					
+					mysql_query("UPDATE `usuarios` SET	
+								usuario_freg	= '$fecha'
+								WHERE 
+								usuario_id		= '$row[usuario_id]'") or die(mysql_error());
+					 
 					header("Location: ../index.php"); 
 				}else { 
 ?>

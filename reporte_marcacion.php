@@ -265,7 +265,7 @@ if($_GET['buscar']==1){
 							$array_otrashoras=array();
 							
 							if(isset($row_usuario2['id_usuario'])){														
-								$marcacion = getMarcaciones($row_usuario2['id_usuario'], $fecha_inicio, $fecha_final);
+								$marcacion	= getMarcaciones($row_usuario2['id_usuario'], $fecha_inicio, $fecha_final);
 								$row_marcacion = mysql_fetch_assoc($marcacion);   
 								$cantidad_marcacion = mysql_num_rows($marcacion);
 								

@@ -136,12 +136,13 @@ do{
 	$cantidad_u_sistema	= mysql_num_rows($usuarios_sistema);
 		
 	$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
-	$cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+	$cabeceras .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
 	$cabeceras .= 'From: '.'Genco'.' <'.'root@gencosa.com.ar'.'>' . "\r\n";
 	
 	do{
 		if($row_usuario_sistema['email_update']==1){
 			$para	= $row_usuario_sistema['usuario_email'];
+			
 			mail($para, $titulo, $mensaje, $cabeceras);	
 		}		
 	}while($row_usuario_sistema=mysql_fetch_array($usuarios_sistema));
