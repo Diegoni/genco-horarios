@@ -18,15 +18,15 @@ include_once("helpers.php");
 --------------------------------------------------------------------*/	
 	
 if(isset($_GET['insert'])){
-	$lunes=0;
-	$martes=0;
-	$miercoles=0;
-	$jueves=0;
-	$viernes=0;
-	$sabado=0;
-	$domingo=0;
-	$redondeo=0;
-	$id_estado=1;
+	$lunes		= 0;
+	$martes		= 0;
+	$miercoles	= 0;
+	$jueves		= 0;
+	$viernes	= 0;
+	$sabado		= 0;
+	$domingo	= 0;
+	$redondeo	= 0;
+	$id_estado	= 1;
 	
 	if(isset($_GET['lunes'])){
 		$lunes=1;
@@ -53,19 +53,19 @@ if(isset($_GET['insert'])){
 		$redondeo=1;
 	}	
 	
-	$datos=array(	'id_convenio'=>$_GET['id'],
-					'entrada'=>$_GET['entrada'],
-					'salida'=>$_GET['salida'],
-					'limite'=>$_GET['limite'],
-					'id_estado'=>$id_estado,
-					'lunes'=>$lunes,
-					'martes'=>$martes,
-					'miercoles'=>$miercoles,
-					'jueves'=>$jueves,
-					'viernes'=>$viernes,
-					'sabado'=>$sabado,
-					'domingo'=>$domingo,
-					'redondeo'=>$redondeo	
+	$datos=array(	'id_convenio'=> $_GET['id'],
+					'entrada'	=> $_GET['entrada'],
+					'salida'	=> $_GET['salida'],
+					'limite'	=> $_GET['limite'],
+					'id_estado'	=> $id_estado,
+					'lunes'		=> $lunes,
+					'martes'	=> $martes,
+					'miercoles'	=> $miercoles,
+					'jueves'	=> $jueves,
+					'viernes'	=> $viernes,
+					'sabado'	=> $sabado,
+					'domingo'	=> $domingo,
+					'redondeo'	=> $redondeo	
 	);		
 		
 	insertConvenioturno($datos);
@@ -81,15 +81,15 @@ if(isset($_GET['insert'])){
 
 
 if(isset($_GET['edit'])){
-	$lunes=0;
-	$martes=0;
-	$miercoles=0;
-	$jueves=0;
-	$viernes=0;
-	$sabado=0;
-	$domingo=0;
-	$redondeo=0;
-	$id_estado=1;
+	$lunes		= 0;
+	$martes		= 0;
+	$miercoles	= 0;
+	$jueves		= 0;
+	$viernes	= 0;
+	$sabado		= 0;
+	$domingo	= 0;
+	$redondeo	= 0;
+	$id_estado	= 1;
 	
 	if(isset($_GET['lunes'])){
 		$lunes=1;
@@ -153,22 +153,22 @@ if (isset($_GET['delete'])){
 --------------------------------------------------------------------*/	
 
 
-	$total=0;
-	$sabados=0;
-	$semana=0;
-	$semanal=0;
-	$salida_sabado=0;
+	$total			= 0;
+	$sabados		= 0;
+	$semana			= 0;
+	$semanal		= 0;
+	$salida_sabado	= 0;
 
 	
-	$convenio=getConvenio($_GET['id']);
-	$row_convenio = mysql_fetch_assoc($convenio);
+	$convenio		= getConvenio($_GET['id']);
+	$row_convenio	= mysql_fetch_assoc($convenio);
 	
-	$convenios=getConvenios();
-	$row_convenios =  mysql_fetch_assoc($convenios);
+	$convenios		= getConvenios();
+	$row_convenios	=  mysql_fetch_assoc($convenios);
 	
-	$convenio_turno=getConvenioturnos($_GET['id'], 'id_convenio');
+	$convenio_turno	= getConvenioturnos($_GET['id'], 'id_convenio');
 	$row_convenio_turno = mysql_fetch_assoc($convenio_turno);
-	$cantidad_turno=mysql_num_rows($convenio_turno);
+	$cantidad_turno	= mysql_num_rows($convenio_turno);
 
 
 

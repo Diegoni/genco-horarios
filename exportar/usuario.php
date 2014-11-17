@@ -34,7 +34,7 @@ header("content-disposition: attachment;filename=Usuario.xls");
 <?php
 		$username="root";
 		$password="";
-		$database="controlfinal2";
+		$database="controlfinal4";
 		$url="localhost";
 		mysql_connect($url,$username,$password);
 		@mysql_select_db($database) or die( "No pude conectarme a la base de datos");

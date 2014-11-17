@@ -124,7 +124,7 @@ if(isset($_GET['empleado'])){
 		<div class="col-md-4">
 			<center>
 			<a href="javascript:imprSelec('muestra')" class='btn btn-default'><i class="icon-print"></i> Imprimir</a>
-			<button class="btn btn-default" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
+			<button class="btn btn-default" onclick="tableToExcel('example', 'Marcaciones')"><i class="icon-download-alt"></i> Excel</button>
 		
 			
 			<div class="btn-group">

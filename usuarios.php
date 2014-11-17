@@ -84,7 +84,7 @@ if(isset($_GET['nuevo'])){
 	<div>
 		<a href='#' class='show_hide btn btn-primary' rel='tooltip' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
 		<a href="javascript:imprSelec('muestra')" class='btn btn-default'><i class="icon-print"></i> Imprimir</a>
-		<button class="btn btn-default" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
+		<button class="btn btn-default" onclick="tableToExcel('example', 'Usuarios')"><i class="icon-download-alt"></i> Excel</button>
 	</div>
 <div class="divider"></div>
 
@@ -136,8 +136,9 @@ if(isset($_GET['nuevo'])){
 	<tr>
 		<td></td>
 		<td>
-		<button type="submit" class="btn btn-primary" name="nuevo" value="1" rel='tooltip' title="Alta departamento"><i class="icon-plus-sign-alt"></i> Alta</button>
-		<A class="show_hide btn btn-danger"  rel='tooltip' title="Cancelar" href='#'><i class="icon-ban-circle"></i> Cancelar</A></td>
+			<button type="submit" class="btn btn-primary" name="nuevo" value="1" rel='tooltip' title="Alta departamento"><i class="icon-plus-sign-alt"></i> Alta</button>
+			<A class="show_hide btn btn-danger"  rel='tooltip' title="Cancelar" href='#'><i class="icon-ban-circle"></i> Cancelar</A>
+		</td>
 	</tr>  
 
 	</table>

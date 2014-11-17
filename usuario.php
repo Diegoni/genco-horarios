@@ -36,6 +36,7 @@ include_once("helpers.php");
 //					Valores iniciales convenios
 //----------------------------------------------------------------------			
 //--------------------------------------------------------------------->
+
 	$convenio_turno		= getConvenioturnos($row_usuario['id_convenio'], 'id_convenio');
 	$row_convenio_turno = mysql_fetch_assoc($convenio_turno);
 	$cantidad_turno		= mysql_num_rows($convenio_turno);
@@ -57,7 +58,6 @@ include_once("helpers.php");
 		
 	}
 	
-	
 
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------
@@ -68,51 +68,53 @@ include_once("helpers.php");
 	if(isset($_GET['buscar'])){
 	
 	
-	if($_GET['buscar']==1){
-		$fecha_inicio=date( "Y-m-d", strtotime($_GET['fecha_inicio']));
-		$fecha_final=date( "Y-m-d", strtotime($_GET['fecha_final']));
+		if($_GET['buscar']==1){
+			$fecha_inicio	= date( "Y-m-d", strtotime($_GET['fecha_inicio']));
+			$fecha_final	= date( "Y-m-d", strtotime($_GET['fecha_final']));
+		}else{
+			$fecha_inicio	= date('01-m-Y', strtotime($_GET['fecha']));
+			$ultimoDia		= getUltimoDiaMes(date('Y', strtotime($_GET['fecha'])),date('m', strtotime($_GET['fecha'])));
+			$fecha_final	= $ultimoDia.date('-m-Y', strtotime($_GET['fecha']));
+		}
+		
 	}else{
-		$fecha_inicio=date('01-m-Y', strtotime($_GET['fecha']));
-		$ultimoDia = getUltimoDiaMes(date('Y', strtotime($_GET['fecha'])),date('m', strtotime($_GET['fecha'])));
-		$fecha_final=$ultimoDia.date('-m-Y', strtotime($_GET['fecha']));
-	}
-	}else{
-		$fecha=date("d-m-Y");
+		$fecha		= date("d-m-Y");
 		$fecha_inicio=date('01-m-Y', strtotime($fecha));
-		$ultimoDia = getUltimoDiaMes(date('Y', strtotime($fecha)),date('m', strtotime($fecha)));
-		$fecha_final=$ultimoDia.date('-m-Y', strtotime($fecha));
+		$ultimoDia	= getUltimoDiaMes(date('Y', strtotime($fecha)),date('m', strtotime($fecha)));
+		$fecha_final= $ultimoDia.date('-m-Y', strtotime($fecha));
 	}
 
 
 
-	$arrayFechas=devuelveArrayFechasEntreOtrasDos($fecha_inicio, $fecha_final);
+	$arrayFechas	= devuelveArrayFechasEntreOtrasDos($fecha_inicio, $fecha_final);
 
-	$marcacion = getMarcaciones($id_usuario, $fecha_inicio, $fecha_final);
-	$row_marcacion = mysql_fetch_assoc($marcacion);   
+	$marcacion		= getMarcaciones($id_usuario, $fecha_inicio, $fecha_final);
+	$row_marcacion	= mysql_fetch_assoc($marcacion);   
 	$cantidad_marcacion = mysql_num_rows($marcacion);
 	
-	$otrahora=getOtrahora($id_usuario, $fecha_inicio, $fecha_final);
-	$row_otrahora = mysql_fetch_assoc($otrahora);
+	$otrahora		= getOtrahora($id_usuario, $fecha_inicio, $fecha_final);
+	$row_otrahora	= mysql_fetch_assoc($otrahora);
 		
 	# Creo y completo tabla temporal para otras
-	$query_create = "CREATE TEMPORARY TABLE tempotra (id_usuario int, id_tipootra int, id_nota int, horas int, fecha date, id_archivo int)";
-	$res_create = mysql_query($query_create) or die(mysql_error());
+	$query_create	= "CREATE TEMPORARY TABLE tempotra (id_usuario int, id_tipootra int, id_nota int, horas int, fecha date, id_archivo int)";
+	$res_create		= mysql_query($query_create) or die(mysql_error());
 	
 	# Creo y completo tabla temporal para horas
-	$query_create = "CREATE TEMPORARY TABLE temp (id_marcada int, entrada datetime, id_usuario int, id_parametros int, id_estado int)";
-	$res_create = mysql_query($query_create) or die(mysql_error());
+	$query_create	= "CREATE TEMPORARY TABLE temp (id_marcada int, entrada datetime, id_usuario int, id_parametros int, id_estado int)";
+	$res_create		= mysql_query($query_create) or die(mysql_error());
 		
 	do{
-		$query_ins = "INSERT INTO temp VALUES ('$row_marcacion[id_marcada]', '$row_marcacion[entrada]', '$row_marcacion[id_usuario]', '$row_marcacion[id_parametros]', '$row_marcacion[id_estado]')";
-		$res_ins = mysql_query($query_ins) or die(mysql_error());
+		$query_ins	= "INSERT INTO temp VALUES ('$row_marcacion[id_marcada]', '$row_marcacion[entrada]', '$row_marcacion[id_usuario]', '$row_marcacion[id_parametros]', '$row_marcacion[id_estado]')";
+		$res_ins	= mysql_query($query_ins) or die(mysql_error());
 	}while ($row_marcacion = mysql_fetch_array($marcacion));
 
 	
 	do{
-		$query_ins = "INSERT INTO tempotra VALUES ('$row_otrahora[id_usuario]', '$row_otrahora[id_tipootra]', '$row_otrahora[id_nota]', '$row_otrahora[horas]', '$row_otrahora[fecha]', '$row_otrahora[id_archivo]')";
-		$res_ins = mysql_query($query_ins) or die(mysql_error());
+		$query_ins	= "INSERT INTO tempotra VALUES ('$row_otrahora[id_usuario]', '$row_otrahora[id_tipootra]', '$row_otrahora[id_nota]', '$row_otrahora[horas]', '$row_otrahora[fecha]', '$row_otrahora[id_archivo]')";
+		$res_ins	= mysql_query($query_ins) or die(mysql_error());
 	}while ($row_otrahora = mysql_fetch_array($otrahora));			
 
+	
 /*--------------------------------------------------------------------
 ----------------------------------------------------------------------
 				Para poner disabled si no hay fecha
@@ -120,20 +122,31 @@ include_once("helpers.php");
 --------------------------------------------------------------------*/
 
 
-	$cadena="";
-	$classcadena="";
+	$cadena			= "";
+	$classcadena	= "";
 
 	if(!isset($fecha_inicio)){ 
-		$cadena="disabled rel='tooltip' title='Seleccione período de tiempo'"; 
-		$classcadena="class='disabled' rel='tooltip' title='Seleccione período de tiempo'";
+		$cadena		= "disabled rel='tooltip' title='Seleccione período de tiempo'"; 
+		$classcadena= "class='disabled' rel='tooltip' title='Seleccione período de tiempo'";
 	}
 
+	$datos_link		=  "id=".$id_usuario;
+	$datos_link		.= "&nombre=".$id_usuario;
+	$datos_link		.= "&buscar=1";
+	$datos_link		.= "&fecha_final=".$fecha_final;
+	$datos_link		.= "&fecha_inicio=".$fecha_inicio;
+	
+	if(!isset($fecha_final)){ 
+		$disabled = "disabled"; 
+	}
 ?>
+
 <!--------------------------------------------------------------------
 ----------------------------------------------------------------------
 						Cabecera
 ----------------------------------------------------------------------			
 --------------------------------------------------------------------->
+
 <div class="row">
 <div class="col-md-12">
 
@@ -143,18 +156,18 @@ include_once("helpers.php");
 		</div>
 		<div class="col-md-2">
 			<select 
-			data-placeholder="Seleccione un usuario..." class="chosen-select form-control" tabindex="2"
-			onChange="javascript:window.location.href='usuario.php?id='+this.value+'&buscar=<?php  echo 1;?>&fecha_final=<?php echo $fecha_final; ?>&fecha_inicio=<?php  echo $fecha_inicio; ?>';"
-			name="id" <?php echo $cadena;?> required>
-			<option value=""></option>
-			<?php   do{ 
-			if($id_usuario==$row_usuarios['id_usuario']){
-			?>
-			<option value="<?php   echo $row_usuarios['id_usuario']?>" selected><?php   echo $row_usuarios['usuario']?></option>
-			<?php  }else{?>
-			<option value="<?php   echo $row_usuarios['id_usuario']?>"><?php   echo $row_usuarios['usuario']?></option>
-			<?php  } 
-			} while($row_usuarios=mysql_fetch_array($usuarios));?>
+				data-placeholder="Seleccione un usuario..." class="chosen-select form-control" tabindex="2"
+				onChange="javascript:window.location.href='usuario.php?id='+this.value+'&buscar=<?php  echo 1;?>&fecha_final=<?php echo $fecha_final; ?>&fecha_inicio=<?php  echo $fecha_inicio; ?>';"
+				name="id" <?php echo $cadena;?> required>
+				<option value=""></option>
+				<?php   do{ 
+				if($id_usuario==$row_usuarios['id_usuario']){
+				?>
+				<option value="<?php echo $row_usuarios['id_usuario']?>" selected><?php   echo $row_usuarios['usuario']?></option>
+				<?php  }else{?>
+				<option value="<?php echo $row_usuarios['id_usuario']?>"><?php   echo $row_usuarios['usuario']?></option>
+				<?php  } 
+				} while($row_usuarios=mysql_fetch_array($usuarios));?>
 			</select>
 		</div>	
 		
@@ -176,6 +189,7 @@ include_once("helpers.php");
     			</div>
   			</div>
 		</div>
+		
 		<div class="col-md-2">
 			<div class="form-group">
     			<div class="input-group">
@@ -184,7 +198,7 @@ include_once("helpers.php");
       						<i class="icon-calendar"></i>
       					</span>
       				</div>
-      				<input value="<?php   echo date('d-m-Y', strtotime($fecha_final)); ?>"	type="text" name="fecha_final" id="datepicker" placeholder="fecha final" class="form-control" autocomplete="off" onkeypress="return false"  required>
+      				<input value="<?php echo date('d-m-Y', strtotime($fecha_final)); ?>" type="text" name="fecha_final" id="datepicker" placeholder="fecha final" class="form-control" autocomplete="off" onkeypress="return false"  required>
     			</div>
   			</div>
 		</div>
@@ -204,27 +218,36 @@ include_once("helpers.php");
 					<span class="caret"></span>
 				</a>
 				<ul class="dropdown-menu">
-				<li <?php echo  $classcadena;?>><a href="usuario.php?id=<?php echo  $id_usuario;?>&buscar=<?php echo  1;?>&fecha_final=<?php echo  $fecha_final; ?>&fecha_inicio=<?php echo  $fecha_inicio; ?>"  rel='tooltip' title="Volver a cargar el sitio" <?php   if(!isset($fecha_final)){ ?> disabled<?php   } ?>><i class="icon-refresh"></i> Refresh</a></li>
-				<li <?php echo  $classcadena;?>>
-					<a href="usuario_reporte.php?
-					id=<?php echo $id_usuario;?>&
-					nombre=<?php echo $id_usuario;?>&
-					buscar=<?php echo  1;?>&
-					fecha_final=<?php echo  $fecha_final; ?>&
-					fecha_inicio=<?php echo $fecha_inicio; ?>" 
-					rel='tooltip' title="Generar reporte de marcaciones" target="_blank" <?php if(!isset($fecha_final)){ ?> disabled <?php } ?> >
-					<i class="icon-print"></i> Imprimir</a></li>
-				<li <?php echo  $classcadena;?>>
-					<a href="exportar/usuario.php?
-					id=<?php echo $id_usuario;?>&
-					nombre=<?php echo $id_usuario;?>&
-					buscar=<?php echo  1;?>&
-					fecha_final=<?php echo  $fecha_final; ?>&
-					fecha_inicio=<?php echo $fecha_inicio; ?>" 
-					rel='tooltip' title="Exportar a excel" target="_blank" <?php if(!isset($fecha_final)){ ?> disabled <?php } ?> >
-					<i class="icon-upload-alt"></i> Exportar</a></li>
-				<li <?php echo  $classcadena;?>><a href="#" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-table"></i> Tabla</a></li>
-				<li><a href="#myModal" role="button" data-toggle="modal"><i class="icon-question-sign"></i> Ayuda</a></li>
+					
+					<li <?php echo $classcadena;?>>
+						<a href="usuario.php?<?php echo $datos_link;?>" rel='tooltip' title="Volver a cargar el sitio" <?php echo $disabled ?> >
+							<i class="icon-refresh"></i> Refresh
+						</a>
+					</li>
+					
+					<li <?php echo $classcadena;?>>
+						<a href="usuario_reporte.php?<?php echo $datos_link;?> rel='tooltip' title="Generar reporte de marcaciones" target="_blank" <?php echo $disabled ?> >
+							<i class="icon-print"></i> Imprimir
+						</a>
+					</li>
+					
+					<li <?php echo $classcadena;?>>
+						<a href="exportar/usuario.php?<?php echo $datos_link;?>" rel='tooltip' title="Exportar a excel" target="_blank" <?php echo $disabled ?> >
+							<i class="icon-upload-alt"></i> Exportar
+						</a>
+					</li>
+					
+					<li <?php echo $classcadena;?>>
+						<a href="#" onclick="tableToExcel('example', 'Marcaciones <?php echo $row_usuario['usuario']?>')">
+							<i class="icon-table"></i> Tabla
+						</a>
+					</li>
+					
+					<li>
+						<a href="#myModal" role="button" data-toggle="modal">
+							<i class="icon-question-sign"></i> Ayuda
+						</a>
+					</li>
 				</ul>
 			</div>
 			</center>
@@ -283,11 +306,11 @@ include_once("helpers.php");
 	<tbody>
 	<tr>
 		<th rel='tooltip' title="Nombre del usuario">Nombre</th>
-		<td><?php   echo $row_usuario['usuario']?></td>
+		<td><?php echo $row_usuario['usuario']?></td>
 		<th rel='tooltip' title="Departamento al que pertenece">Sector</th>
-		<td><?php   echo $row_usuario['departamento']?></td>
+		<td><?php echo $row_usuario['departamento']?></td>
 		<th rel='tooltip' title="Legajo del usuarios">Legajo</th>
-		<td><?php   echo $row_usuario['legajo']?></td>
+		<td><?php echo $row_usuario['legajo']?></td>
 	</tr>
 	<tr>
 		<th rel='tooltip' title="Fecha de inicio">Inicio</th>
@@ -340,19 +363,19 @@ include_once("helpers.php");
 	
 	<tbody>
 	<?php   
-	$total_normales=0;
-	$total_cien=0;
-	$total_cincuenta=0;
-	$subtotal=0;
-	$total=0;
-	$limite=5;
+	$total_normales	= 0;
+	$total_cien		= 0;
+	$total_cincuenta= 0;
+	$subtotal		= 0;
+	$total			= 0;
+	$limite			= 5;
 	
 	
-	$total_redondeo=0;
-	$total_cien_redondeo=0;
-	$total_cincuenta_redondeo=0;
-	$hora_redondeo=0;
-	$minuto_redondeo=0;
+	$total_redondeo	= 0;
+	$total_cien_redondeo = 0;
+	$total_cincuenta_redondeo = 0;
+	$hora_redondeo	= 0;
+	$minuto_redondeo= 0;
 	
 	foreach($arrayFechas as $valor){?>
 		<tr>	
@@ -363,9 +386,9 @@ include_once("helpers.php");
 				if($dia=="Domingo" || $esferiado==1){
 				}else{
 					if($dia!="Sábado"){
-						$total_normales=$total_normales+$row_usuario['semana'];
+						$total_normales = $total_normales + $row_usuario['semana'];
 					}else{
-						$total_normales=$total_normales+$row_usuario['sabado'];
+						$total_normales = $total_normales + $row_usuario['sabado'];
 					}
 				}
 			?>
@@ -374,10 +397,10 @@ include_once("helpers.php");
 			<td><p class="dia"><?php echo  $dia;?></p></td>
 	
 			<?php   
-				$me=0;
-				$ms=0;
-				$te=0;
-				$ts=0;
+				$me = 0;
+				$ms = 0;
+				$te = 0;
+				$ts = 0;
 	
 				for ($i = 0; $i <= 4; $i++) {
 					
@@ -509,10 +532,10 @@ include_once("helpers.php");
 	
 	//elimino las tablas temporaria
 	$query_drop = "DROP TABLE temp";
-	$res_drop = mysql_query($query_drop) or die(mysql_error());
+	$res_drop	= mysql_query($query_drop) or die(mysql_error());
 	
 	$query_drop = "DROP TABLE tempotra";
-	$res_drop = mysql_query($query_drop) or die(mysql_error());
+	$res_drop	= mysql_query($query_drop) or die(mysql_error());
 	
 	?>
 	
@@ -579,32 +602,32 @@ include_once("helpers.php");
 	<?php } ?>
 	
 	<?php
-	 $title='Horas trabajadas';
+	 $title ='Horas trabajadas';
 		
 	 if($signo==0){
-	 	$suma_final=pasar_hora($total+round($totalotras,2));
-	 	$resta=$total_normales-pasar_hora($total+round($totalotras,2));
+	 	$suma_final	= pasar_hora($total+round($totalotras,2));
+	 	$resta		= $total_normales - pasar_hora($total+round($totalotras,2));
 		 
-		$final_title='Horas que el empleado debe recuperar para alcanzar el mínimo de horas trabajadas';
-		$progress='danger';
+		$final_title= 'Horas que el empleado debe recuperar para alcanzar el mínimo de horas trabajadas';
+		$progress 	= 'danger';
 	 }else{
-	 	$suma_final=$total_normales;
-	 	$resta=pasar_hora($total+round($totalotras,2))-$total_normales;
+	 	$suma_final = $total_normales;
+	 	$resta		= pasar_hora($total+round($totalotras,2))-$total_normales;
 		
-		$final_title='Suma total de las horas extra al 50%';
-		$progress='warning';
+		$final_title= 'Suma total de las horas extra al 50%';
+		$progress	= 'warning';
 	 }
 	?>
 	
 	<b>Final:</b> <?php echo $resta." ".$final_title?>
 	<div class="progress">
- 	<div class="progress-bar progress-bar-info" rel='tooltip' title="<?php echo $title?>" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $suma_final*100/$porcentaje_cien?>%;">
-    <?php echo pasar_hora($suma_final);?>
-  	</div>
-  	
-  	<div class="progress-bar progress-bar-<?php echo $progress?>" rel='tooltip' title="<?php echo $final_title?>" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo 100-$suma_final*100/$porcentaje_cien?>%;">
-    <?php echo $resta;?>
-  	</div>
+	 	<div class="progress-bar progress-bar-info" rel='tooltip' title="<?php echo $title?>" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $suma_final*100/$porcentaje_cien?>%;">
+	    	<?php echo pasar_hora($suma_final);?>
+	  	</div>
+	  	
+	  	<div class="progress-bar progress-bar-<?php echo $progress?>" rel='tooltip' title="<?php echo $final_title?>" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo 100-$suma_final*100/$porcentaje_cien?>%;">
+	    	<?php echo $resta;?>
+	  	</div>
 	</div>
 <?php  }//cierra el if de fechas inicio>final
 }else{/*
@@ -617,23 +640,18 @@ echo 	"<div class='alert alert-info'>
 
 ?>
 
-</div><!--cierra el class="span12" -->
+	</div><!--cierra el class="span12" -->
 </div><!--cierra el row -->
 
 <div class="row">
-<div class="span12">
-
-
-<?php   include_once("footer.php");?> 
-
-
-</div><!--cierra el class="span12" -->
+	<div class="span12">
+		<?php   include_once("footer.php");?> 
+	</div><!--cierra el class="span12" -->
 </div><!--cierra el row -->
 </div><!--cierra el class="container"-->
 
 
 </body>
-
 
 <script type="text/javascript">
 	function cargar(){

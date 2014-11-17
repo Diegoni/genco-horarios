@@ -70,7 +70,7 @@ $numero_limites = mysql_num_rows($limite);
 	<div>
 		<a href='#' class='show_hide btn btn-primary' rel='tooltip' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
 		<a href="javascript:imprSelec('muestra')" class='btn btn-default'><i class="icon-print"></i> Imprimir</a>
-		<button class="btn btn-default" onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</button>
+		<button class="btn btn-default" onclick="tableToExcel('example', 'Limites')"><i class="icon-download-alt"></i> Excel</button>
 	</div>
 <div class="divider"></div>
 

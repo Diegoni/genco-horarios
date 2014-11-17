@@ -151,7 +151,7 @@ if(!isset($fecha_inicio)){
 			<ul class="dropdown-menu">
 				<li <?php echo $classcadena;?>><a href="usuario.php?id=<?php echo $id_usuario;?>&buscar=<?php echo 1;?>&fecha_final=<?php echo $fecha_final; ?>&fecha_inicio=<?php echo $fecha_inicio; ?>"  rel='tooltip' title="Refresh" <?php if(!isset($fecha_final)){ ?> disabled<?php } ?>><i class="icon-refresh"></i> Refresh</a></li>
 				<li <?php echo $classcadena;?>><a href="javascript:imprSelec('muestra')"><i class="icon-print"></i> Imprimir</a></li>
-				<li <?php echo $classcadena;?>><a onclick="tableToExcel('example', 'W3C Example Table')"><i class="icon-download-alt"></i> Excel</a></li>
+				<li <?php echo $classcadena;?>><a onclick="tableToExcel('example', 'Marcaciones')"><i class="icon-download-alt"></i> Excel</a></li>
 				<li><a href="#myModal" role="button" data-toggle="modal"><i class="icon-question-sign"></i> Ayuda</a></li>
 			</ul>
 		</div>

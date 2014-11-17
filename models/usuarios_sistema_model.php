@@ -13,7 +13,7 @@ function getUsuario_sistema($id){
 		
 }
 
-function getUsuarios_sistema($dato=NULL, $campo=NULL){
+function getUsuarios_sistema(){
 	$query	= " SELECT * FROM `usuarios` 
 				INNER JOIN tipo_usuario
 				ON(usuarios.id_tipousuario=tipo_usuario.id_tipo_usuario)
