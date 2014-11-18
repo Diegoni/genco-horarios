@@ -35,20 +35,29 @@
 				// comprobamos que los datos ingresados en el formulario coincidan con los de la BD 
 				$sql = mysql_query("SELECT * FROM usuarios WHERE usuario_nombre='".$usuario_nombre."' AND usuario_clave='".$usuario_clave."'"); 
 				
-				if($row = mysql_fetch_array($sql)) { 
-					$_SESSION['usuario_id']		= $row['usuario_id']; // creamos la sesion "usuario_id" y le asignamos como valor el campo usuario_id 
-					$_SESSION['usuario_nombre'] = $row["usuario_nombre"]; // creamos la sesion "usuario_nombre" y le asignamos como valor el campo usuario_nombre 
-					$_SESSION['id_tipousuario'] = $row["id_tipousuario"];
+				if($row = mysql_fetch_array($sql)) {
+					if($row['id_estado']==0){
+						$mensaje = "Error, su usuario ha sido eliminado";
+						
+					}else{
+						$_SESSION['usuario_id']		= $row['usuario_id']; // creamos la sesion "usuario_id" y le asignamos como valor el campo usuario_id 
+						$_SESSION['usuario_nombre'] = $row["usuario_nombre"]; // creamos la sesion "usuario_nombre" y le asignamos como valor el campo usuario_nombre 
+						$_SESSION['id_tipousuario'] = $row["id_tipousuario"];
 					
-					$fecha = date('Y-m-d H:i:s');
+						$fecha = date('Y-m-d H:i:s');
 					
-					mysql_query("UPDATE `usuarios` SET	
+						mysql_query("UPDATE `usuarios` SET	
 								usuario_freg	= '$fecha'
 								WHERE 
 								usuario_id		= '$row[usuario_id]'") or die(mysql_error());
 					 
-					header("Location: ../index.php"); 
-				}else { 
+						header("Location: ../index.php");
+						
+					}
+					 
+				}else {
+					$mensaje = "Error, no se ha podido conectar";
+				} 
 ?>
 
 		<div class="container">
@@ -58,7 +67,7 @@
 				<div class="form-box">
 					<div class="row">
 						<div class="alert alert-danger" role="alert">
-							Error, no se ha podido conectar
+							<?php echo $mensaje ?>
 						</div> 
 						<a href="acceso.php" class="btn btn-default">Reintentar</a> 
 					</div>
@@ -66,8 +75,8 @@
 			</div>
 		</div> 
 <?php 
-			} 
-			} 
+			 
+	} 
 	}else { 
 		header("Location: acceso.php"); 
 	} 

@@ -1,4 +1,12 @@
 <?php
+function getUsuario_sistema_moderador(){
+	$query="SELECT * FROM `usuarios` WHERE usuarios.id_tipousuario = 1";   
+	$usuario=mysql_query($query) or die(mysql_error());
+		
+	return $usuario;
+}
+
+
 function getUsuario_sistema($id){
 	if(!(is_numeric($id))){
 		trigger_error("Envió de Id que no es número", E_USER_WARNING);

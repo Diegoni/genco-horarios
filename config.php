@@ -77,6 +77,7 @@ if(isset($_FILES['firma'])){
 		<li class="active"><a href="#tab1" data-toggle="tab">Sistema</a></li>
     	<li><a href="#tab2" data-toggle="tab">Redondeo</a></li>
     	<li><a href="#tab3" data-toggle="tab">Impresión</a></li>
+    	<li><a href="#tab4" data-toggle="tab">Correo</a></li>
 	</ul>
   	<div class="tab-content">
     
@@ -156,6 +157,20 @@ if(isset($_FILES['firma'])){
 		<tr>
 			<td>Firma</td>
 			<td><img width="106" height="40"  src="<?php echo $config['firma'];?>"> <a href='#' class='show_hide2 btn btn-default'>Cambiar</a></td>
+		</tr>
+		</table>
+    </div>
+    
+    <div class="tab-pane" id="tab4">
+       	<table class="table table-hover">
+		<tr>
+			<td>Remitente</td>
+			<td><input type="text" name="remitente" class="form-control" value="<?php echo $config['remitente']?>" maxlength="64" required></td>
+		</tr>
+			
+		<tr>
+			<td>Correo</td>
+			<td><input type="email" name="correo" class="form-control" value="<?php echo $config['correo']?>" maxlength="64" required></td>
 		</tr>
 		</table>
     </div>

@@ -10,10 +10,10 @@ header("content-disposition: attachment;filename=Resumen.xls");
 </head>
 <body>
 <?php
-		$username="diegonieto";
-		$password="Diego2013";
-		$database="controlfinal2";
-		$url="localhost";
+		$username	= "root";
+		$password	= "bluepill";
+		$database	= "controlfinal4";
+		$url		= "localhost";
 		mysql_connect($url,$username,$password);
 		@mysql_select_db($database) or die( "No pude conectarme a la base de datos");
 		

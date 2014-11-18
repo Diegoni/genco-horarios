@@ -137,7 +137,7 @@ do{
 		
 	$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
 	$cabeceras .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
-	$cabeceras .= 'From: '.'Genco'.' <'.'root@gencosa.com.ar'.'>' . "\r\n";
+	$cabeceras .= 'From: '.$config['remitente'].' <'.$config['correo'].'>' . "\r\n";
 	
 	do{
 		if($row_usuario_sistema['email_update']==1){
@@ -164,7 +164,7 @@ do{
 		
 	$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
 	$cabeceras .= 'Content-Type: text/html; charset=UTF-8' . "\r\n";
-	$cabeceras .= 'From: '.'Genco'.' <'.'root@gencosa.com.ar'.'>' . "\r\n";
+	$cabeceras .= 'From: '.$config['remitente'].' <'.$config['correo'].'>' . "\r\n";
 	
 	do{
 		if($row_usuario_sistema['email_update']==1){

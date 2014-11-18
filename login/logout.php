@@ -5,7 +5,8 @@
     if(isset($_SESSION['usuario_nombre'])) { 
         session_destroy(); 
         header("Location: acceso.php"); 
-    }else { 
-        echo "Operación incorrecta."; 
+    }else {
+    	header("Location: acceso.php"); 
+        //echo "Operación incorrecta."; 
     } 
 ?>

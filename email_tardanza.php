@@ -167,8 +167,8 @@ if($_GET['buscar']==1){
 				$asunto		= $_GET['asunto'];
 				
 				$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
-				$cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-				$cabeceras .= 'From: '.'Genco'.' <'.'root@gencosa.com.ar'.'>' . "\r\n";
+				$cabeceras .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
+				$cabeceras .= 'From: '.$config['remitente'].' <'.$config['correo'].'>' . "\r\n";
 				
 				if(isset($_GET['email_1'])){
 					$email_1	= $_GET['email_1'];

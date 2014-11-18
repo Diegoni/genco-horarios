@@ -33,7 +33,7 @@ header("content-disposition: attachment;filename=Usuario.xls");
 <body>
 <?php
 		$username	= "root";
-		$password	= "";
+		$password	= "bluepill";
 		$database	= "controlfinal4";
 		$url		= "localhost";
 		mysql_connect($url,$username,$password);

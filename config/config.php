@@ -1,6 +1,7 @@
-<?php		//local a phpmyadmin
+<?php		
 	date_default_timezone_set('America/Argentina/Mendoza');
-
+	
+	
 	$url=array(
 		'models_url'			=> "models/",
 		'librerias_url'			=> "librerias/",
@@ -25,7 +26,9 @@
 			'title'				=> $row_config['title'],
 			'fecha_actual'		=> $row_config['fecha_actual'],
 			'suma_dias'			=> $row_config['suma_dias'],
-			'marcaciones_x_hoja'=> $row_config['marcaciones_x_hoja']
+			'marcaciones_x_hoja'=> $row_config['marcaciones_x_hoja'],
+			'remitente'			=> $row_config['remitente'],
+			'correo'			=> $row_config['correo']
 		);
 	}while($row_config=mysql_fetch_array($configs));	
 ?>

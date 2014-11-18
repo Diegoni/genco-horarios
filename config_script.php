@@ -37,7 +37,9 @@ if(isset($_GET['update'])){
 				'fecha_actual'		=> $fecha_actual,
 				'suma_dias'			=> $_GET['suma_dias'],
 				'marcaciones_x_hoja'=> $_GET['marcaciones_x_hoja'],
-				'css'				=> $_GET['css']);
+				'css'				=> $_GET['css'],
+				'remitente'			=> $_GET['remitente'],
+				'correo'			=> $_GET['correo']);
 	
 	updateConfig($datos);
 		

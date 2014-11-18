@@ -16,7 +16,9 @@ function updateConfig($datos){
 				css					= '$datos[css]', 
 				suma_dias			= '$datos[suma_dias]',
 				marcaciones_x_hoja	= '$datos[marcaciones_x_hoja]',
-				fecha_actual		= '$datos[fecha_actual]'
+				fecha_actual		= '$datos[fecha_actual]',
+				remitente			= '$datos[remitente]',
+				correo				= '$datos[correo]'
 				WHERE id_config		= '$datos[id_config]'			
 				") or die(mysql_error());
 				
