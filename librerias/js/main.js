@@ -1,17 +1,3 @@
-
-
-function validarPasswd(){
-	var p1 = document.getElementById("pass").value;
-    var p2 = document.getElementById("pass2").value;
-    
-    if(p1==p2){
-    	return true;
-    }else{
-    	alert("Los password no coinciden");
-    	document.getElementById("pass").focus;
-    }
-}
-
 /**************************************************************************
  **************************************************************************
  * 							Validar ip

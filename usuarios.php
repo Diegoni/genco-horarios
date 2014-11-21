@@ -24,6 +24,8 @@ if(isset($_GET['changePass'])){
 				'id'			=> $_GET['id'],
 				'pass'			=> $_GET['pass']);
 	changePass($datos);
+	
+	echo getMensajes('update', 'ok', 'El password', '');
 }
 
 //modifica al usuario segun el formulario de modificar.php
@@ -191,17 +193,17 @@ if(isset($_GET['nuevo'])){
 							<h4 class="modal-title" id="myModalLabel">Cambiar pass a <?php echo $row_usuario['usuario_nombre'];?></h4>
 						</div>
 						<div class="modal-body">
-							<form class="form-horizontal" action="usuarios.php" role="form" onSubmit="return validarPasswd()">
+							<form class="form-horizontal" action="usuarios.php" role="form" onSubmit="return validarPasswd<?php echo $row_usuario['usuario_id'];?>()">
 								<div class="form-group">
 									<label for="pass" class="col-sm-2 control-label">Pass</label>
 									<div class="col-sm-10">
-	      								<input type="password" class="form-control" name="pass" id="pass" pattern=".{4,}" placeholder="ingrese pass" maxlength="32">
+	      								<input type="password" class="form-control" name="pass" id="pass_change_<?php echo $row_usuario['usuario_id'];?>" placeholder="ingrese pass" maxlength="32">
 	    							</div>
 	  							</div>
 	  							<div class="form-group">
 									<label for="pass2" class="col-sm-2 control-label">Pass</label>
 									<div class="col-sm-10">
-	      								<input type="password" class="form-control" name="pass" id="pass2" pattern=".{4,}" placeholder="repita pass" maxlength="32">
+	      								<input type="password" class="form-control" name="pass2" id="pass_change_<?php echo $row_usuario['usuario_id'];?>_2" placeholder="repita pass" maxlength="32">
 	    							</div>
 	  							</div>
 								<div class="form-group">
@@ -211,6 +213,21 @@ if(isset($_GET['nuevo'])){
 									</div>
 								</div>
   							</form>
+  							<script>
+  							function validarPasswd<?php echo $row_usuario['usuario_id'];?>(){
+								
+								var p1 = document.getElementById("pass_change_<?php echo $row_usuario['usuario_id'];?>").value;
+							    var p2 = document.getElementById("pass_change_<?php echo $row_usuario['usuario_id'];?>_2").value;
+							   
+							    if(p1==p2){
+							    	return true;
+							    }else{
+							    	alert("Los password no coinciden");
+							    	document.getElementById("pass_change_<?php echo $row_usuario['usuario_id'];?>").focus();
+							    	return false;
+							    }
+							}
+							</script>
 						</div>
 		      		</div>
 				</div>

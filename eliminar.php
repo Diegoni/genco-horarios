@@ -103,9 +103,9 @@ $numero_convenio = mysql_num_rows($convenio);
 			<!-- Busca los departamentos y selecciona el que es del cliente -->
 			<?php 	do{ 
 				if ($row_usuario['id_departamento']==$row_departamento['id_departamento']){?>	
-				 <option value="<?php echo $row_departamento['id_departamento'];?>" selected><?php echo $row_departamento['nombre'];?></option>
+				 <option value="<?php echo $row_departamento['id_departamento'];?>" selected><?php echo $row_departamento['departamento'];?></option>
 			<?php	 }else{ ?>
-			  <option value="<?php echo $row_departamento['id_departamento'];?>"><?php echo $row_departamento['nombre'];?></option>
+			  <option value="<?php echo $row_departamento['id_departamento'];?>"><?php echo $row_departamento['departamento'];?></option>
 			<?php }
 				}while ($row_departamento = mysql_fetch_array($departamento))?>
 			</select>
