@@ -154,7 +154,7 @@ if(isset($_GET['buscar'])){
 		<?php } ?>
 	</td>
 	<td>
-		<A class="btn btn-primary" rel='tooltip' title="Editar departamento" HREF="modificar_encargado.php?id=<?php echo $row_encargado['id_encargado'];?>&action=1"><i class="icon-edit"></i></A>
+		<A class="btn btn-primary" rel='tooltip' title="Editar encargado" HREF="modificar_encargado.php?id=<?php echo $row_encargado['id_encargado'];?>&action=1"><i class="icon-edit"></i></A>
 		<?php if ($row_encargado['delete']==1) {?>
 		<A type="submit" class="btn btn-danger disabled"  rel='tooltip' title="El encargado partamento ya esta dada de baja"><i class="icon-minus-sign"></i></i></A>
 		<?php } else { ?>

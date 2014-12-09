@@ -19,6 +19,7 @@ function getUsuario($id){
     			usuario.foto_nombre as foto_nombre,
     			usuario.id_departamento as id_departamento,
     			usuario.id_empresa as id_empresa,
+    			usuario.id_usuario_reloj as id_usuario_reloj,
     			empresa.empresa as empresa,
     			empresa.cuil as cuil_empresa,
 				departamento.departamento as departamento,
@@ -145,32 +146,46 @@ function getUsuarios($dato=NULL, $campo=NULL){
 
 function updateUsuario($datos){
 	if(is_array($datos)){
-		$cuil=$datos['cuil1']."-".$datos['cuil2']."-".$datos['cuil3'];
-		$fecha=date( "Y-m-d", strtotime($datos['fecha_ingreso']));
-	
-		mysql_query("UPDATE `usuario` SET	
-								usuario			= '$datos[usuario]',
-								nombre			= '$datos[nombre]',
-								apellido		= '$datos[apellido]',
-								dni				= '$datos[dni]',
-								cuil			= '$cuil',
-								id_estado		= '$datos[estado]',
-								id_empresa		= '$datos[empresa]',
-								id_departamento	= '$datos[departamento]',
-								id_convenio		= '$datos[convenio]',
-								fecha_ingreso	= '$fecha',
-								legajo			= '$datos[legajo]'	
-								WHERE 
-								id_usuario		= '$datos[id]'") or die(mysql_error());
+		$query			= "SELECT * FROM `usuario` WHERE id_usuario_reloj='$datos[id_reloj]'";   
+		$usuario		= mysql_query($query) or die(mysql_error());
+		$row_usuario	= mysql_fetch_assoc($usuario);
+		$número_filas	= mysql_num_rows($usuario);
 		
-		$datos=array(
-			'tabla'		=> 'usuario', 
-			'id_tabla'	=> $datos['id'], 
-			'id_accion'	=> 2 );
+		if($número_filas==1 && $row_usuario['id_usuario']==$datos['id']){
 			
-		insertLog($datos);
+			$cuil=$datos['cuil1']."-".$datos['cuil2']."-".$datos['cuil3'];
+			$fecha=date( "Y-m-d", strtotime($datos['fecha_ingreso']));
+		
+			mysql_query("UPDATE `usuario` SET	
+									id_usuario_reloj= '$datos[id_reloj]',
+									usuario			= '$datos[usuario]',
+									nombre			= '$datos[nombre]',
+									apellido		= '$datos[apellido]',
+									dni				= '$datos[dni]',
+									cuil			= '$cuil',
+									id_estado		= '$datos[estado]',
+									id_empresa		= '$datos[empresa]',
+									id_departamento	= '$datos[departamento]',
+									id_convenio		= '$datos[convenio]',
+									fecha_ingreso	= '$fecha',
+									legajo			= '$datos[legajo]'	
+									WHERE 
+									id_usuario		= '$datos[id]'") or die(mysql_error());
+			
+			$datos=array(
+				'tabla'		=> 'usuario', 
+				'id_tabla'	=> $datos['id'], 
+				'id_accion'	=> 2 );
+				
+			insertLog($datos);
+			
+			return TRUE;
+		}else{
+			return FALSE;
+		}
 	}else{
 		trigger_error("No se envió un array en updateUsuario", E_USER_WARNING);
+		return FALSE;
 	}	
 
 }
@@ -187,53 +202,67 @@ function deleteUsuario($id){
 }
 
 function insertUsusario($datos){
-	$query="SELECT * FROM `usuario` ORDER BY id_usuario DESC";   
-	$idusuario=mysql_query($query) or die(mysql_error());
-	$row_idusuario = mysql_fetch_assoc($idusuario);
-
-	$ultimoid=$row_idusuario['id_usuario'];
-	$ultimoid=$ultimoid+1;
-	$estado=1;
+	$query			= "SELECT * FROM `usuario` WHERE id_usuario_reloj='$datos[id_reloj]'";   
+	$usuario		= mysql_query($query) or die(mysql_error());
+	$row_usuario	= mysql_fetch_assoc($usuario);
+	$número_filas	= mysql_num_rows($usuario);
 	
-	$fecha=date( "Y-m-d", strtotime($datos['fecha_ingreso']));
-
-	$cuil=$datos['cuil1']."-".$datos['cuil2']."-".$datos['cuil3'];
-	mysql_query("INSERT INTO `usuario` (
-				id_usuario,
-				usuario,
-				legajo,
-				nombre,
-				apellido,
-				dni,
-				cuil,
-				id_empresa,
-				id_departamento,
-				id_convenio,
-				fecha_ingreso,
-				id_estado)
-			VALUES (
-				'$ultimoid',
-				'$datos[usuario]',
-				'$datos[legajo]',
-				'$datos[nombre]',
-				'$datos[apellido]',
-				'$datos[dni]',
-				'$cuil',
-				'$datos[empresa]',
-				'$datos[departamento]',
-				'$datos[convenio]',
-				'$fecha',
-				'$estado')	
-			") or die(mysql_error());
-			
-	$id = mysql_insert_id();
+	if($número_filas==0){
+		
+		$query			= "SELECT * FROM `usuario` ORDER BY id_usuario DESC";   
+		$idusuario		= mysql_query($query) or die(mysql_error());
+		$row_idusuario	= mysql_fetch_assoc($idusuario);
 	
-	$datos=array(
-			'tabla'		=> 'usuario', 
-			'id_tabla'	=> $id, 
-			'id_accion'	=> 1 );
-			
-	insertLog($datos);
+		$ultimoid		= $row_idusuario['id_usuario'];
+		$ultimoid		= $ultimoid+1;
+		$estado			= 1;
+		
+		$fecha=date( "Y-m-d", strtotime($datos['fecha_ingreso']));
+	
+		$cuil=$datos['cuil1']."-".$datos['cuil2']."-".$datos['cuil3'];
+		mysql_query("INSERT INTO `usuario` (
+					id_usuario_reloj,
+					id_usuario,
+					usuario,
+					legajo,
+					nombre,
+					apellido,
+					dni,
+					cuil,
+					id_empresa,
+					id_departamento,
+					id_convenio,
+					fecha_ingreso,
+					id_estado)
+				VALUES (
+					'$datos[id_reloj]',
+					'$ultimoid',
+					'$datos[usuario]',
+					'$datos[legajo]',
+					'$datos[nombre]',
+					'$datos[apellido]',
+					'$datos[dni]',
+					'$cuil',
+					'$datos[empresa]',
+					'$datos[departamento]',
+					'$datos[convenio]',
+					'$fecha',
+					'$estado')	
+				") or die(mysql_error());
+				
+		//$id = mysql_insert_id();
+		
+		$datos=array(
+				'tabla'		=> 'usuario', 
+				'id_tabla'	=> $ultimoid, 
+				'id_accion'	=> 1 );
+				
+		insertLog($datos);
+		
+		return $ultimoid;
+	}else{
+		return FALSE;
+	}
 
 }
 

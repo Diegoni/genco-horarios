@@ -448,7 +448,8 @@ if($_GET['buscar']==1){
 										echo "<input name='email_3' class='form-control'>";
 									}
 									
-									
+								}else{
+									echo "<input name='email_1' class='form-control'>";
 								}
 					    	}else{
 									echo "<input name='email_1' class='form-control'>";

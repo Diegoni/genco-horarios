@@ -33,12 +33,12 @@ include_once("helpers.php");
 			</li>
 			
 			<li class="">
-				<a href="usuario.php"><i class="icon-calendar"></i> Total usuario</a>
+				<a href="usuario.php"><i class="icon-tasks"></i> Total usuario</a>
 			</li>
 			
 			<?php if($_SESSION['id_tipousuario']!=3){ ?>
 			<li class="">
-				<a href="usuario2.php"><i class="icon-tasks"></i> Sumas totales</a>
+				<a href="usuario2.php"><i class="icon-calendar"></i> Sumas totales</a>
 			</li>
 			
 			<li class="dropdown">

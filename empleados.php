@@ -7,6 +7,7 @@ include_once($url['models_url']."mensajes_model.php");
 include_once($url['models_url']."departamentos_model.php");
 include_once($url['models_url']."empresas_model.php");
 include_once($url['models_url']."convenios_model.php");
+include_once("update_relojes_usuario.php");
 
 /*--------------------------------------------------------------------
 ----------------------------------------------------------------------
@@ -17,6 +18,7 @@ include_once($url['models_url']."convenios_model.php");
 //modifica al usuario segun el formulario de modificar.php
 if(isset($_GET['modificar'])){
 	$datos=array('usuario'=>$_GET['usuario'],
+								'id_reloj'		=> $_GET['id_reloj'],
 								'nombre'		=> $_GET['nombre'],
 								'apellido'		=> $_GET['apellido'],
 								'dni'			=> $_GET['dni'],
@@ -31,8 +33,12 @@ if(isset($_GET['modificar'])){
 								'fecha_ingreso'	=> $_GET['fecha_ingreso'],
 								'id'			=> $_GET['id']);
 
-	updateUsuario($datos);
-	echo getMensajes('update', 'ok', 'Usuario', $_GET['usuario']);
+	if(updateUsuario($datos)){
+		echo getMensajes('update', 'ok', 'Usuario', $_GET['usuario']);	
+	}else{
+		echo getMensajes('update', 'error', 'Usuario', $_GET['usuario']);
+	}
+	
 }
 
 //da de baja al usuario segun el formulario de eliminar.php
@@ -45,13 +51,12 @@ if(!(empty($_GET['eliminar']))){
 if(isset($_GET['nuevo'])){
 
 // Comprobamos si el usuario esta registrado 
-
-	$usuario=getUsuarios($_GET['usuario'], 'usuario');
-	$row_usuario		= mysql_fetch_assoc($usuario);
-	$numero_usuarios	= mysql_num_rows($usuario);
+	$usuario		= getUsuarios($_GET['id_reloj'], 'id_usuario_reloj');
+	$row_usuario	= mysql_fetch_assoc($usuario);
+	$numero_usuarios= mysql_num_rows($usuario);
 	
-	if($numero_usuarios>0){
-		$usuario=getUsuarios($_GET['legajo'], 'legajo');
+	if($numero_usuarios==0){
+		$usuario		= getUsuarios($_GET['usuario'], 'usuario');
 		$row_usuario	= mysql_fetch_assoc($usuario);
 		$numero_usuarios= mysql_num_rows($usuario);
 	}
@@ -60,6 +65,7 @@ if(isset($_GET['nuevo'])){
 		echo getMensajes('insert', 'error', 'Usuario', $_GET['usuario']);	
 	}else{ 
 		$datos=array('usuario'=>$_GET['usuario'],
+								'id_reloj'		=> $_GET['id_reloj'],
 								'nombre'		=> $_GET['nombre'],
 								'apellido'		=> $_GET['apellido'],
 								'dni'			=> $_GET['dni'],
@@ -73,8 +79,17 @@ if(isset($_GET['nuevo'])){
 								'legajo'		=> $_GET['legajo'],
 								'fecha_ingreso'	=> $_GET['fecha_ingreso']);
 	
-		insertUsusario($datos);
-		echo getMensajes('insert', 'ok', 'Usuario', $_GET['usuario']);	
+		$id=insertUsusario($datos);
+		if($id!=FALSE){
+			echo 		"<div class='alert alert-success'>"
+						."<button type='button' class='close' data-dismiss='alert'>&times;</button>"
+						.update_usuario_reloj($id)
+						."</div>";
+			echo getMensajes('insert', 'ok', 'Usuario', $_GET['usuario']);	
+		}else{
+			echo getMensajes('insert', 'error', 'Usuario', $_GET['usuario']);
+		}
+			
 	}
 }
 
@@ -137,6 +152,10 @@ mysql_query("SET NAMES 'utf8'");
 <!-- Formulario de alta usuario -->
 <form class="form-inline" action="empleados.php" >
 <table class="table table-hover">
+	<tr>
+		<td>ID</td>
+		<td><input type="number" name="id_reloj" class="form-control" onkeypress="return isNumberKey(event)" placeholder="ingrese ID" maxlength="6" required></td>
+	</tr>	
 	<tr>
 		<td>Usuario</td>
 		<td><input type="text" name="usuario" class="form-control" placeholder="ingrese Usuario" maxlength="32" required></td>

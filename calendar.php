@@ -12,6 +12,7 @@ $row_update			= mysql_fetch_assoc($updates);
 $cantidad_update	= mysql_num_rows($updates);
 
 ?>
+<meta http-equiv="Content-type" content="text/html;" charset="utf-8" />
 <link href='<?php echo $url['librerias_url']?>calendar/fullcalendar.css' rel='stylesheet'/>
 <script src='<?php echo $url['librerias_url']?>calendar/jquery.min.js'></script>
 <script src='<?php echo $url['librerias_url']?>calendar/moment.min.js'></script>

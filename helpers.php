@@ -406,7 +406,36 @@ function buscarMarcacion($datos){
 	  
 	return $contador; 
 }
- 
+
+
+/****************************************************************************
+  ****************************************************************************
+  * 				Resta final 
+  ****************************************************************************
+  ***************************************************************************/
+  
+function getResta($get_positivo, $get_negativo){
+		$positivo	= explode(":", $get_positivo);
+		$negativo	= explode(":", $get_negativo);
+		
+		$positivo[0]=$positivo[0]-$negativo[0];
+		
+		if($positivo[1]<$negativo[1]){
+			$positivo[1]=$positivo[1]-$negativo[1]+60;
+			$positivo[0]=$positivo[0]-1;	
+		}else{
+			$positivo[1]=$positivo[1]-$negativo[1];
+		}
+		
+		if($positivo[1]>10){
+			$resta		= $positivo[0].":".$positivo[1];	
+		}else{
+			$resta		= $positivo[0].":0".$positivo[1];
+		}
+	
+	return $resta;
+}
+		 
 
 ?>
  

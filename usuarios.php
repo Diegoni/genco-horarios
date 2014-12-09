@@ -138,7 +138,7 @@ if(isset($_GET['nuevo'])){
 	<tr>
 		<td></td>
 		<td>
-			<button type="submit" class="btn btn-primary" name="nuevo" value="1" rel='tooltip' title="Alta departamento"><i class="icon-plus-sign-alt"></i> Alta</button>
+			<button type="submit" class="btn btn-primary" name="nuevo" value="1" rel='tooltip' title="Alta usuario"><i class="icon-plus-sign-alt"></i> Alta</button>
 			<A class="show_hide btn btn-danger"  rel='tooltip' title="Cancelar" href='#'><i class="icon-ban-circle"></i> Cancelar</A>
 		</td>
 	</tr>  

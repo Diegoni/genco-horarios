@@ -90,12 +90,12 @@
 				
 					<div class="form-group">
 						<label for="exampleInputEmail1">Mensaje</label>
-						<textarea name="mensaje" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter mensaje" required>
+						<textarea name="mensaje" type="text" class="form-control" id="exampleInputEmail1" placeholder="Ingrese mensaje" required>
 						</textarea>
 					</div>
 					<div class="form-group">
 						<label for="exampleInputEmail1">Email</label>
-						<input name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" maxlength="64" required>
+						<input name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Ingrese email" maxlength="64" required>
 					</div>				
 			</div>
 			<div class="modal-footer">
