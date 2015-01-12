@@ -42,7 +42,7 @@ if (isset($_GET['nuevo'])){
 	$numero_convenios = mysql_num_rows($convenio);
 		
 	if($numero_convenios==0){	
-		$id=insertConvenio(	$_GET['convenio']);
+		$id	= insertConvenio($_GET['convenio']);
 		$bandera=1;
 	}else{
 		$bandera=0;

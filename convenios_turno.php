@@ -299,7 +299,7 @@ if (isset($_GET['delete'])){
 							<div class="input-group-addon">
 								<span class="salida_button add-on"><i class="icon-wrench"></i></span>
 							</div>
-							<input type="number" name="limite" step="1" max="30" min="1" placeholder="ingrese límite" class="form-control">
+							<input type="number" name="limite" onkeypress="return isNumberKey(event)" step="1" max="30" min="1" placeholder="ingrese límite" class="form-control">
 						</div>
 					</div>
     			</td>

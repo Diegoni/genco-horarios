@@ -40,8 +40,8 @@ function getConvenio($id){
 
 
 function insertConvenio($convenio){
-	mysql_query("INSERT INTO `convenio` (convenio) 
-				VALUES ('$convenio')") or die(mysql_error());
+	mysql_query("INSERT INTO `convenio` (convenio, id_estado) 
+				VALUES ('$convenio', 1)") or die(mysql_error());
 	$id_convenio=mysql_insert_id();
 	
 	mysql_query("INSERT INTO `convenio_turno` 

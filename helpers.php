@@ -420,7 +420,9 @@ function getResta($get_positivo, $get_negativo){
 		
 		$positivo[0]=$positivo[0]-$negativo[0];
 		
-		if($positivo[1]<$negativo[1]){
+		if($positivo[1]==0 && $negativo[1]==0){
+			$positivo[1]=0;
+		}else if($positivo[1]<$negativo[1]){
 			$positivo[1]=$positivo[1]-$negativo[1]+60;
 			$positivo[0]=$positivo[0]-1;	
 		}else{

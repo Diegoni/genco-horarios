@@ -126,8 +126,8 @@ include_once("helpers.php");
 	$classcadena	= "";
 
 	if(!isset($fecha_inicio)){ 
-		$cadena		= "disabled rel='tooltip' title='Seleccione período de tiempo'"; 
-		$classcadena= "class='disabled' rel='tooltip' title='Seleccione período de tiempo'";
+		$cadena			= "disabled rel='tooltip' title='Seleccione período de tiempo'"; 
+		$classcadena	= "class='disabled' rel='tooltip' title='Seleccione período de tiempo'";
 	}
 
 	$datos_link		=  "id=".$id_usuario;
@@ -226,7 +226,7 @@ include_once("helpers.php");
 					</li>
 					
 					<li <?php echo $classcadena;?>>
-						<a href="usuario_reporte.php?<?php echo $datos_link;?> rel='tooltip' title="Generar reporte de marcaciones" target="_blank" <?php echo $disabled ?> >
+						<a href="usuario_reporte.php?<?php echo $datos_link;?>" rel='tooltip' title="Generar reporte de marcaciones" target="_blank" <?php echo $disabled ?> >
 							<i class="icon-print"></i> Imprimir
 						</a>
 					</li>
@@ -576,7 +576,7 @@ include_once("helpers.php");
 		<b>Horas normales:</b> <?php   echo pasar_hora($total);?>
 		<div class="progress">
 		 	<div class="progress-bar progress-bar-success" rel='tooltip' title="Suma total de las horas normales trabajadas" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $total*100/$porcentaje_cien?>%;">
-		    	<?php   echo pasar_hora($total);?>
+		    	<?php echo pasar_hora($total);?>
 		  	</div>
 		</div>
 	<?php } ?>
@@ -605,13 +605,25 @@ include_once("helpers.php");
 	 $title ='Horas trabajadas';
 		
 	 if($signo==0){
-	 	$suma_final	= pasar_hora($total+round($totalotras,2));
+	 	if(pasar_hora($total_cien)>0){
+	 		$suma_final	= pasar_hora($total+round($totalotras,2)-$total_cien);
+	 	}else{
+	 		$suma_final	= pasar_hora($total+round($totalotras,2));
+	 	}
+		 
 		$resta		= getResta($total_normales, $suma_final);		 
 		$final_title= 'Horas que el empleado debe recuperar para alcanzar el mínimo de horas trabajadas';
 		$progress 	= 'danger';
 	 }else{
+	 
 	 	$suma_final = pasar_hora($total_normales);
-		$suma_horas	= pasar_hora($total+round($totalotras,2));
+		
+		if(pasar_hora($total_cien)>0){
+	 		$suma_horas	= pasar_hora($total+round($totalotras,2)-$total_cien);
+	 	}else{
+	 		$suma_horas	= pasar_hora($total+round($totalotras,2));
+	 	}
+		
 		$resta		= getResta($suma_horas, $total_normales);
 		$final_title= 'Suma total de las horas extra al 50%';
 		$progress	= 'warning';
@@ -621,7 +633,7 @@ include_once("helpers.php");
 	<b>Final:</b> <?php echo $resta." ".$final_title?>
 	<div class="progress">
 	 	<div class="progress-bar progress-bar-info" rel='tooltip' title="<?php echo $title?>" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $suma_final*100/$porcentaje_cien?>%;">
-	    	<?php echo pasar_hora($suma_final);?>
+	    	<?php echo $suma_final;?>
 	  	</div>
 	  	
 	  	<div class="progress-bar progress-bar-<?php echo $progress?>" rel='tooltip' title="<?php echo $final_title?>" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo 100-$suma_final*100/$porcentaje_cien?>%;">
