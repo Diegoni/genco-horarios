@@ -62,7 +62,7 @@ do{
 		 
 	if($status=='dead'){	
     	$update_reloj['reloj'.$i]		= $row_reloj['reloj'];
-		$update_reloj['cantidad'.$i]	= 'sin conexión';
+		$update_reloj['cantidad'.$i]	= '<b>NO HAY CONEXIÓN CON EL RELOJ!!!</b>';
 	}else {
 		$usuarios			= getUsuarios();
 		$row_usuario		= mysql_fetch_assoc($usuarios);
@@ -100,7 +100,7 @@ do{
 			$update_reloj['cantidad'.$i]	= $contador." marcaciones actualizadas"; 
 		}else{
 			$update_reloj['reloj'.$i]		= $row_reloj['reloj'];
-			$update_reloj['cantidad'.$i]	= 'sin registros';
+			$update_reloj['cantidad'.$i]	= 'no hay registros nuevos';
 		}
 	}
 	
