@@ -162,7 +162,8 @@ if($subtotal>0){
 	<td class="texto" colspan="2">
 		<?php echo $row_usuario['legajo']?>
 	</td>
-	<td class="texto" width="25%" colspan="3" rowspan="4" style="vertical-align:bottom;">
+	
+	<td class="texto" width="25%" colspan="3" rowspan="4" style="display: initial; vertical-align:<?php if($i==0){ echo "bottom";}else{ echo "middle";}?>;">
 		<?php 
 		if($i==0){
 			echo "Firma Empleado";	
