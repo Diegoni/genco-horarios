@@ -79,11 +79,11 @@ if(isset($_GET['nuevo'])){
 								'legajo'		=> $_GET['legajo'],
 								'fecha_ingreso'	=> $_GET['fecha_ingreso']);
 	
-		$id=insertUsusario($datos);
-		if($id!=FALSE){
+		$id = insertUsusario($datos);
+		if($id != FALSE){
 			echo 		"<div class='alert alert-success'>"
 						."<button type='button' class='close' data-dismiss='alert'>&times;</button>"
-						.update_usuario_reloj($id)
+						.update_usuario_reloj($id, $config)
 						."</div>";
 			echo getMensajes('insert', 'ok', 'Usuario', $_GET['usuario']);	
 		}else{
