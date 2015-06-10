@@ -211,17 +211,21 @@ include_once("helpers.php");
 	<legend>Documento:</legend>
 	<form action="edit_otros.php" method="post" enctype="multipart/form-data">
 		<?php $id_otrahora=$row_otrahora['id_otrahora'];?>	
-	    <?php if($row_otrahora['id_archivo']!=0){
-	    	$id_archivo=$row_otrahora['id_archivo'];
-	    	$archivo = getArchivo($id_archivo);
-			$row_archivo = mysql_fetch_assoc($archivo);
+	    <?php 
+	    if($row_otrahora['id_archivo']!=0){
+	    	$id_archivo		= $row_otrahora['id_archivo'];
+	    	$archivo		= getArchivo($id_archivo);
+			$row_archivo	= mysql_fetch_assoc($archivo);
 			
-			$archivo_nombre=$row_archivo['nombre'];
+			$archivo_nombre	= $row_archivo['nombre'];
 	    	
-			$icono=devuelve_icono($row_archivo['extension'], $url['iconos_url']);
+			$icono			= devuelve_icono($row_archivo['extension']);
 					
-			echo "<center><a href=".$url['arhivo_otra_hora'].$archivo_nombre.">
-				<img src='$icono'></a></br>"; 
+			echo "<center>
+					<a href=".$url['arhivo_otra_hora'].$archivo_nombre.">
+						<img src='$icono'>
+					</a>
+				</br>"; 
 		?>
 		<a href='#' class='btn btn-default show_hide2' rel='tooltip' title='Nuevo'>Cambiar</a>
 		</center>

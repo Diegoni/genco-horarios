@@ -18,6 +18,7 @@ function deleteMarcada($id){
 }
 
 function updateMarcada($id_parametros, $fecha, $entrada, $id_estado, $id_marcada){
+	//ver estado = 2	
 	mysql_query("UPDATE `marcada` SET 
 						id_parametros		= '$id_parametros',
 						entrada 			= '$fecha $entrada:00',

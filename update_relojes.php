@@ -117,19 +117,33 @@ do{
 	$titulo		= 'Resumen de actualización '.date('d-m-Y');
 	
 	$mensaje = '<b>Resumen</b>: <br>';
+	
+	$mensaje .= "<table>";
 
-	for ($j=0; $j < $i; $j++) { 
-		$mensaje	.= $update_reloj['reloj'.$j]." : ";
-		$mensaje	.= $update_reloj['cantidad'.$j];
-		$mensaje	.= "<br>";
+	for ($j=0; $j < $i; $j++) {
+		$mensaje	.= "<tr>"; 
+		$mensaje	.= "<td>".$update_reloj['reloj'.$j]."</td>";
+		$mensaje	.= "<td>".$update_reloj['cantidad'.$j]."</td>";
+		$mensaje	.= "</tr>";
 	}
 	
 	if($tipo==1){
-		$mensaje	.='Actualización: programada';
+		$mensaje	.= "<tr>";
+		$mensaje	.= "<td>Actualización</td>";
+		$mensaje	.= "<td>Programada<td>";
+		$mensaje	.= "</tr>";
 	}else{
-		$mensaje	.='Actualización: manual<br>';
-		$mensaje	.='Realizada por usuario: '.$_SESSION['usuario_nombre'];
+		$mensaje	.= "<tr>";
+		$mensaje	.= "<td>Actualización</td>";
+		$mensaje	.= "<td>Manual</td>";
+		$mensaje	.= "</tr>";
+		$mensaje	.= "<tr>";
+		$mensaje	.= "<td>Ususario</td>";
+		$mensaje	.= "<td>".$_SESSION['usuario_nombre']."</td>";
+		$mensaje	.= "</tr>";
 	}
+	
+	$mensaje .= "</table>";
 	
 	$usuarios_sistema	= getUsuarios_sistema();
 	$row_usuario_sistema= mysql_fetch_assoc($usuarios_sistema);
