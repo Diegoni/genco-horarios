@@ -11,101 +11,127 @@ include_once($url['models_url']."updates_model.php");
 include_once("helpers.php");
 
 
-if(	date('Y-m-d', strtotime($_GET['start_date'])) <= date('Y-m-d', strtotime($_GET['end_date']))){
+if(	date('Y-m-d', strtotime($_GET['start_date'])) <= date('Y-m-d', strtotime($_GET['end_date'])))
+{
 	/*Si no hay fecha especifica buscamos los ultimos updates*/
-	if(!isset($_GET['start_date']) && !isset($_GET['end_date'])){
+	if(!isset($_GET['start_date']) && !isset($_GET['end_date']))
+	{
 		$relojes			= getRelojes();
 		$row_reloj			= mysql_fetch_assoc($relojes);
 		$cantidad_reloj		= mysql_num_rows($relojes);
 		
-		do{
+		do
+		{
 			$reloj_update			= getlastUpdates($row_reloj['id_reloj']);
 			$row_reloj_update		= mysql_fetch_assoc($reloj_update);
 			$dates['star_'.$row_reloj['id_reloj']] = $row_reloj_update['end_date'];
-		}while($row_reloj = mysql_fetch_array($relojes));
+		}
+		while($row_reloj = mysql_fetch_array($relojes));
 	}
 	
 	/*Consulto si es para un solo reloj o todos*/
-	if($_GET['reloj']==0 || !isset($_GET['reloj'])){
+	if($_GET['reloj']==0 || !isset($_GET['reloj']))
+	{
 		$relojes			= getRelojes();
 		$row_reloj			= mysql_fetch_assoc($relojes);
 		$cantidad_reloj		= mysql_num_rows($relojes);
-	}else{
+	}
+	else
+	{
 		$relojes			= getReloj($_GET['reloj']);
 		$row_reloj			= mysql_fetch_assoc($relojes);
 		$cantidad_reloj		= mysql_num_rows($relojes);
 	}
 
 	/*Consulto si la actualización es manual o automatica*/
-	if(isset($_GET['tipo'])){
+	if(isset($_GET['tipo']))
+	{
 		$tipo				= $_GET['tipo'];
 		$id_usuario			= $_SESSION['usuario_id'];	
 		$_GET['start_date']	= date('Y-m-d', strtotime($_GET['start_date']));
 		$_GET['end_date']	= date('Y-m-d', strtotime($_GET['end_date']));
-	}else{
+	}
+	else
+	{
 		$tipo		= 1;
 		$id_usuario	= 0;
 	}
 
-	$i=0;
+	$i = 0;
 
 do{
-	$contador=0;
+	$contador = 0;
 	$ip = $row_reloj['ip'];
 	
 		
-	if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+	if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') 
+	{
 	    $status = pingAddressWin($ip);
-	} else {
+	}
+	else
+	{
 	    $status = pingAddress($ip);
 	}
 		 
-	if($status=='dead'){	
+	if($status=='dead')
+	{	
     	$update_reloj['reloj'.$i]		= $row_reloj['reloj'];
 		$update_reloj['cantidad'.$i]	= '<b>NO HAY CONEXIÓN CON EL RELOJ!!!</b>';
-	}else {
+	}
+	else
+	{
 		$usuarios			= getUsuarios();
 		$row_usuario		= mysql_fetch_assoc($usuarios);
 		$cantidad_usuario	= mysql_num_rows($usuarios);
 		
-		if(isset($dates['star_'.$row_reloj['id_reloj']])){
+		if(isset($dates['star_'.$row_reloj['id_reloj']]))
+		{
 			$_GET['start_date']	= $dates['star_'.$row_reloj['id_reloj']];
 			$_GET['end_date']	=  date('Y-m-d');
 		}
 		
-	    do{
-			$datos=array(
-						'ip'		=> $row_reloj['ip'],
-						'id'		=> $row_usuario['id_usuario'],
-						'id_u_reloj'=> $row_usuario['id_usuario_reloj'],
-						'start_date'=> $_GET['start_date'],
-						'end_date'	=> $_GET['end_date'],
-						'id_reloj'	=> $row_reloj['id_reloj']);
+	    do
+	    {
+			$datos = array(
+				'ip'		=> $row_reloj['ip'],
+				'id'		=> $row_usuario['id_usuario'],
+				'id_u_reloj'=> $row_usuario['id_usuario_reloj'],
+				'start_date'=> $_GET['start_date'],
+				'end_date'	=> $_GET['end_date'],
+				'id_reloj'	=> $row_reloj['id_reloj']
+			);
 			$contador = $contador + buscarMarcacion($datos);		
 			
-		}while($row_usuario=mysql_fetch_array($usuarios));
+		}
+		while($row_usuario = mysql_fetch_array($usuarios));
 		
-		if($contador>0){
-			$datos=array(
-						'start_date'		=> $_GET['start_date'],
-						'end_date'			=> $_GET['end_date'],
-						'id_reloj'			=> $row_reloj['id_reloj'],
-						'cantidad_registros'=> $contador,	
-						'fecha_update'		=> date('Y/m/d H:i:s'),
-						'id_tipo'			=> $tipo,
-						'id_usuario'		=> $id_usuario);
+		if($contador>0)
+		{
+			$datos = array(
+				'start_date'		=> $_GET['start_date'],
+				'end_date'			=> $_GET['end_date'],
+				'id_reloj'			=> $row_reloj['id_reloj'],
+				'cantidad_registros'=> $contador,	
+				'fecha_update'		=> date('Y/m/d H:i:s'),
+				'id_tipo'			=> $tipo,
+				'id_usuario'		=> $id_usuario
+			);
 						
 			insertUpdate($datos);
 			$update_reloj['reloj'.$i]		= $row_reloj['reloj'];
 			$update_reloj['cantidad'.$i]	= $contador." marcaciones actualizadas"; 
-		}else{
+		}
+		else
+		{
 			$update_reloj['reloj'.$i]		= $row_reloj['reloj'];
 			$update_reloj['cantidad'.$i]	= 'no hay registros nuevos';
 		}
 	}
 	
-	$i=$i+1;
-}while($row_reloj=mysql_fetch_array($relojes));
+	$i = $i + 1;
+	
+}
+while($row_reloj = mysql_fetch_array($relojes));
 
 
 /*********************************************************************************
@@ -120,19 +146,23 @@ do{
 	
 	$mensaje .= "<table>";
 
-	for ($j=0; $j < $i; $j++) {
+	for ($j=0; $j < $i; $j++) 
+	{
 		$mensaje	.= "<tr>"; 
 		$mensaje	.= "<td>".$update_reloj['reloj'.$j]."</td>";
 		$mensaje	.= "<td>".$update_reloj['cantidad'.$j]."</td>";
 		$mensaje	.= "</tr>";
 	}
 	
-	if($tipo==1){
+	if($tipo==1)
+	{
 		$mensaje	.= "<tr>";
 		$mensaje	.= "<td>Actualización</td>";
 		$mensaje	.= "<td>Programada<td>";
 		$mensaje	.= "</tr>";
-	}else{
+	}
+	else
+	{
 		$mensaje	.= "<tr>";
 		$mensaje	.= "<td>Actualización</td>";
 		$mensaje	.= "<td>Manual</td>";
@@ -153,17 +183,22 @@ do{
 	$cabeceras .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
 	$cabeceras .= 'From: '.$config['remitente'].' <'.$config['correo'].'>' . "\r\n";
 	
-	do{
-		if($row_usuario_sistema['email_update']==1){
+	do
+	{
+		if($row_usuario_sistema['email_update']==1)
+		{
 			$para	= $row_usuario_sistema['usuario_email'];
 			
 			mail($para, $titulo, $mensaje, $cabeceras);	
 		}		
-	}while($row_usuario_sistema=mysql_fetch_array($usuarios_sistema));
+	}
+	while($row_usuario_sistema = mysql_fetch_array($usuarios_sistema));
 		
 	echo $mensaje;
 
-}else{
+}
+else
+{
 	//no se envian los parametros de las fechas o la fecha de inicio es mayor a la final
 	$titulo	= 'Resumen de actualización '.date('d-m-Y');
 	
@@ -180,15 +215,18 @@ do{
 	$cabeceras .= 'Content-Type: text/html; charset=UTF-8' . "\r\n";
 	$cabeceras .= 'From: '.$config['remitente'].' <'.$config['correo'].'>' . "\r\n";
 	
-	do{
-		if($row_usuario_sistema['email_update']==1){
+	do
+	{
+		if($row_usuario_sistema['email_update'] == 1)
+		{
 			$para	= $row_usuario_sistema['usuario_email'];
 			
 			$titulo	= "=?ISO-8859-1?B?".base64_encode($titulo)."=?=";
 			
 			mail($para, $titulo, $mensaje, $cabeceras);	
 		}		
-	}while($row_usuario_sistema=mysql_fetch_array($usuarios_sistema));
+	}
+	while($row_usuario_sistema = mysql_fetch_array($usuarios_sistema));
 		
 	echo $mensaje;
 }
