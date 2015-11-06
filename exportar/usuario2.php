@@ -212,11 +212,15 @@ $res_ins = mysql_query($query_ins) or die(mysql_error());
 $query_create = "CREATE TEMPORARY TABLE tempotra (id_usuario int, id_tipootra int, id_nota int, horas int, fecha date)";
 $res_create = mysql_query($query_create) or die(mysql_error());
 
-$query="SELECT * 
-		FROM otrahora 
-		WHERE 
+$query=
+	"SELECT 
+		* 
+	FROM 
+		otrahora 
+	WHERE 
 		fecha >= '$fecha_inicio' AND
-		fecha <= '$fecha_final'";   
+		fecha <= '$fecha_final' AND
+		eliminado = 0";   
 		$otrahora=mysql_query($query) or die(mysql_error());
 		$row_otrahora = mysql_fetch_assoc($otrahora);
 

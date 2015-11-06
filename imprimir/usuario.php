@@ -192,14 +192,18 @@ $res_ins = mysql_query($query_ins) or die(mysql_error());
 $query_create = "CREATE TEMPORARY TABLE tempotra (id_usuario int, id_tipootra int, id_nota int, horas int, fecha date)";
 $res_create = mysql_query($query_create) or die(mysql_error());
 
-$query="SELECT * 
-		FROM otrahora 
-		WHERE 
+$query =
+	"SELECT 
+		* 
+	FROM 
+		otrahora 
+	WHERE 
 		fecha >= '$fecha_inicio' AND
 		fecha <= '$fecha_final' AND
-		id_usuario='$id_usuario'";   
-		$otrahora=mysql_query($query) or die(mysql_error());
-		$row_otrahora = mysql_fetch_assoc($otrahora);
+		id_usuario ='$id_usuario' AND 
+		eliminado = 0";   
+	$otrahora=mysql_query($query) or die(mysql_error());
+	$row_otrahora = mysql_fetch_assoc($otrahora);
 
 do{
 $query_ins = "INSERT INTO tempotra VALUES ('$row_otrahora[id_usuario]', '$row_otrahora[id_tipootra]', '$row_otrahora[id_nota]', '$row_otrahora[horas]', '$row_otrahora[fecha]')";

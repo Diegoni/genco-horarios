@@ -14,11 +14,11 @@ include_once("helpers.php");
 	
 	
 	if(isset($_GET['id'])){
-		$id=$_GET['id'];
-		$fecha=$_GET['fecha'];	
+		$id = $_GET['id'];
+		$fecha = $_GET['fecha'];	
 	}elseif(isset($_POST['id'])){
-		$id=$_POST['id'];
-		$fecha=$_POST['fecha'];
+		$id = $_POST['id'];
+		$fecha = $_POST['fecha'];
 	}
 	
 	$bandera=1;
@@ -109,16 +109,36 @@ include_once("helpers.php");
 	
 /*--------------------------------------------------------------------
 ----------------------------------------------------------------------
+					Eliminar de entrada
+----------------------------------------------------------------------
+--------------------------------------------------------------------*/	
+	
+	if (isset($_GET['eliminar'])){
+	deleteOtrahora($_GET['id_otrahora']);
+	echo "entro"; 
+	/*
+	echo 
+		"<script>
+		<!--alert('Las entradas fueron modificadas con éxito');-->
+		opener.location.reload();
+		window.close();
+		</script>";
+	 */
+		
+	} 	
+	
+/*--------------------------------------------------------------------
+----------------------------------------------------------------------
 					Nueva entrada
 ----------------------------------------------------------------------
 --------------------------------------------------------------------*/	
 	
 	if (isset($_GET['agregar'])){
 	insertOtrahora(	$_GET['id'], 
-									$_GET['id_tipootra'], 
-									$_GET['nota'], 
-									$_GET['horas'], 
-									$_GET['fecha']);
+					$_GET['id_tipootra'], 
+					$_GET['nota'], 
+					$_GET['horas'], 
+					$_GET['fecha']);
 
 	echo 	"<script>
 			<!--alert('La entrada fue ingresada con éxito');-->
@@ -134,13 +154,13 @@ include_once("helpers.php");
 ----------------------------------------------------------------------
 --------------------------------------------------------------------*/		
 	
-	$otrahora=getOtrahora($id, $fecha);
+	$otrahora = getOtrahora($id, $fecha);
 	$row_otrahora = mysql_fetch_assoc($otrahora);
 	$numero_otrahora = mysql_num_rows($otrahora);
 	
 	
 	
-	$tipootra=getTipootra();
+	$tipootra = getTipootra();
 	$row_tipootra = mysql_fetch_assoc($tipootra);
 	$id_tipootra=$row_otrahora['id_tipootra'];
 	?>
@@ -156,7 +176,7 @@ include_once("helpers.php");
 	<form action="edit_otros.php" method="get" class="form-horizontal" role="form"> 
 	
 	
-	<?php  if($numero_otrahora>0){ ?>	
+	<?php  if($numero_otrahora > 0){ ?>	
 	
 	<div class="form-group">
     	<label for="tipo" class="col-sm-2 control-label">Razón</label>
@@ -201,6 +221,7 @@ include_once("helpers.php");
 			<input type="hidden" name="id_otrahora" value="<?php echo $row_otrahora['id_otrahora']?>">
 			<input type="hidden" class="input-medium" name="fecha" value="<?php echo $row_otrahora['fecha']?>" required>
 			<input type="hidden" name="id_nota" value="<?php echo $row_otrahora['id_nota']?>">
+			<input type="submit" class="btn btn-default" name="eliminar" rel='tooltip' title="eliminar registro" value="eliminar" id="eliminar">
 			<a class="btn btn-danger" href="" rel='tooltip' title="no guarda los cambios realizados" onClick="cerrarse()">volver</a>
 		</center>
 		</div>
@@ -210,7 +231,7 @@ include_once("helpers.php");
 	<div class='slidingDiv'>
 	<legend>Documento:</legend>
 	<form action="edit_otros.php" method="post" enctype="multipart/form-data">
-		<?php $id_otrahora=$row_otrahora['id_otrahora'];?>	
+		<?php $id_otrahora = $row_otrahora['id_otrahora'];?>	
 	    <?php 
 	    if($row_otrahora['id_archivo']!=0){
 	    	$id_archivo		= $row_otrahora['id_archivo'];
