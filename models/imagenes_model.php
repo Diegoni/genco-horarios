@@ -40,9 +40,14 @@ function updateFotologo($foto){
 	$logo='imagenes/'.$foto['foto_nombre'];
 	
 	if($error==1){
-		mysql_query("UPDATE `config` SET	
-					 logo='$logo'
-					WHERE id_config='$foto[id_config]'") or die(mysql_error());
+		$update = "UPDATE 
+						`config` 
+					SET	
+						logo = '$logo'
+					WHERE 
+						id_config = '$foto[id_config]'";	
+		
+		mysql_query($update) or die(mysql_error());
 			
 	}
 }
@@ -64,9 +69,14 @@ function updateFirma($foto){
 	$logo='imagenes/'.$foto['foto_nombre'];
 	
 	if($error==1){
-		mysql_query("UPDATE `config` SET	
-								firma='$logo'
-								WHERE id_config='$foto[id_config]'") or die(mysql_error());
+		$update = "UPDATE 
+						`config` 
+					SET	
+						firma = '$logo'
+					WHERE 
+						id_config = '$foto[id_config]'";	
+		
+		mysql_query($update) or die(mysql_error());
 			
 	}
 }

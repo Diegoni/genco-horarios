@@ -1,29 +1,40 @@
 <?php
 function getCorreos($dato=NULL, $campo=NULL){
-	
 	if(isset($dato, $campo)){
-		$query="SELECT  *
-				FROM `departamento` 
+		$query = "SELECT  
+					*
+				FROM 
+					`departamento` 
 				WHERE 
-				departamento.$campo like '$dato'";
-		$departamento=mysql_query($query) or die(mysql_error());
+					departamento.$campo like '$dato'";
 	}else{
-		
-		$query="SELECT * FROM departamento WHERE id_estado=1 ORDER BY departamento";   
-		$departamento=mysql_query($query) or die(mysql_error());
+		$query = "SELECT 
+					* 
+				FROM 
+					departamento 
+				WHERE 
+					id_estado = 1 
+				ORDER BY 
+					departamento";   
 	}	
+	$departamento = mysql_query($query) or die(mysql_error());
 	return $departamento;
 }
 
 function getCorreo($id){
-	$query="SELECT * FROM `departamento` WHERE id_departamento='$id'";   
+	$query = "SELECT 
+					* 
+				FROM 
+					`departamento` 
+				WHERE 
+					id_departamento = '$id'";   
 	$departamento=mysql_query($query) or die(mysql_error());
 
 	return $departamento;
 }
 
-function insertCorreo($datos){	
-	mysql_query("INSERT INTO `correos` (
+function insertCorreo($datos){
+	$insert = " INSERT INTO `correos` (
 					asunto,
 					mensaje,
 					fecha_inicio,
@@ -35,8 +46,8 @@ function insertCorreo($datos){
 					email_3,
 					id_usuario,
 					fecha,
-					id_tipo_reporte) 
-				VALUES(
+					id_tipo_reporte
+				) VALUES (
 					'$datos[asunto]',
 					'$datos[mensaje]',
 					'$datos[fecha_inicio]',
@@ -48,7 +59,9 @@ function insertCorreo($datos){
 					'$datos[email_3]',
 					'$datos[id_usuario]',
 					'$datos[fecha]',
-					'$datos[id_tipo_reporte]')") or die(mysql_error());
+					'$datos[id_tipo_reporte]'
+				)";	
+	mysql_query($insert) or die(mysql_error());
 }
 
 ?>

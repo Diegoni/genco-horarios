@@ -2,18 +2,27 @@
 include_once('logs_model.php');
 
 function deleteConvenioturno($id){
-	mysql_query("UPDATE `convenio_turno` SET id_estado=0 WHERE id_convenio_turno='$id'") or die(mysql_error());
+	$update = "UPDATE 
+					`convenio_turno` 
+				SET 
+					id_estado = 0 
+				WHERE 
+					id_convenio_turno = '$id'";
+	mysql_query($update) or die(mysql_error());
 	
-	$datos=array(
-			'tabla'		=> 'convenio_turno', 
-			'id_tabla'	=> $id, 
-			'id_accion'	=> 3 );
+	$datos = array(
+		'tabla'		=> 'convenio_turno', 
+		'id_tabla'	=> $id, 
+		'id_accion'	=> 3 
+	);
 			
 	insertLog($datos);
 }
 
 function updateConvenioturno($datos){
-	mysql_query("UPDATE `convenio_turno` SET 
+	$update = "UPDATE 
+					`convenio_turno` 
+				SET 
 					entrada		= '$datos[entrada]',
 					salida		= '$datos[salida]',
 					limite		= '$datos[limite]',
@@ -27,12 +36,17 @@ function updateConvenioturno($datos){
 					domingo		= '$datos[domingo]',
 					redondeo	= '$datos[redondeo]',
 					id_turno	= '$datos[id_turno]'	
-					WHERE id_convenio_turno ='$datos[id_convenio_turno]'") or die(mysql_error());
+				WHERE 
+					id_convenio_turno = '$datos[id_convenio_turno]'";
 	
-	$datos=array(
-			'tabla'		=> 'convenio_turno', 
-			'id_tabla'	=> $datos['id_convenio_turno'], 
-			'id_accion'	=> 2 );
+	
+	mysql_query($update) or die(mysql_error());
+	
+	$datos = array(
+		'tabla'		=> 'convenio_turno', 
+		'id_tabla'	=> $datos['id_convenio_turno'], 
+		'id_accion'	=> 2 
+	);
 			
 	insertLog($datos);
 
@@ -40,65 +54,82 @@ function updateConvenioturno($datos){
 
 function getConvenioturnos($dato=NULL, $campo=NULL){
 	if(isset($dato, $campo)){
-	 	$query="SELECT * FROM convenio_turno
-	 			INNER JOIN
-	 			turno ON(turno.id_turno=convenio_turno.id_turno) 
-	 			WHERE convenio_turno.$campo='$dato' AND id_estado=1";   
-		$convenio_turno=mysql_query($query) or die(mysql_error());
+	 	$query = "SELECT 
+	 					* 
+	 				FROM 
+	 					convenio_turno
+	 				INNER JOIN 
+	 					turno ON(turno.id_turno=convenio_turno.id_turno) 
+	 				WHERE 
+	 					convenio_turno.$campo='$dato' AND 
+	 					id_estado = 1";   
 	}else{
-		$query="SELECT * FROM convenio_turno WHERE id_estado=1";   
-		$convenio_turno=mysql_query($query) or die(mysql_error());
+		$query = "SELECT 
+						*
+					FROM 
+						convenio_turno 
+					WHERE 
+						id_estado = 1";   
 	}
+	
+	$convenio_turno=mysql_query($query) or die(mysql_error());
 			
 	return $convenio_turno;
 }
 
 function getConvenioturno($id){
-	$query="SELECT * FROM 
-			`convenio_turno` 
-			WHERE id_convenio_turno='$id'";   
-	$convenio_turno=mysql_query($query) or die(mysql_error());
+	$query="SELECT 
+				* 
+			FROM 
+				`convenio_turno` 
+			WHERE 
+				id_convenio_turno = '$id'";   
+	$convenio_turno = mysql_query($query) or die(mysql_error());
 	
 	return $convenio_turno;
 }
 
 
 function insertConvenioturno($datos){
-	mysql_query("INSERT INTO `convenio_turno` 
-				(id_convenio, 
-				entrada, 
-				salida, 
-				limite, 
-				redondeo,
-				lunes,
-				martes,
-				miercoles,
-				jueves,
-				viernes,
-				sabado,
-				domingo,
-				id_estado) 
-				VALUES 
-				('$datos[id_convenio]',
-				'$datos[entrada]',
-				'$datos[salida]',
-				'$datos[limite]',
-				'$datos[redondeo]',
-				'$datos[lunes]',
-				'$datos[martes]',
-				'$datos[miercoles]',
-				'$datos[jueves]',
-				'$datos[viernes]',
-				'$datos[sabado]',
-				'$datos[domingo]',
-				'$datos[id_estado]')") or die(mysql_error());
+	$insert = "INSERT INTO `convenio_turno` (
+					id_convenio, 
+					entrada, 
+					salida, 
+					limite, 
+					redondeo,
+					lunes,
+					martes,
+					miercoles,
+					jueves,
+					viernes,
+					sabado,
+					domingo,
+					id_estado
+				) VALUES (
+					'$datos[id_convenio]',
+					'$datos[entrada]',
+					'$datos[salida]',
+					'$datos[limite]',
+					'$datos[redondeo]',
+					'$datos[lunes]',
+					'$datos[martes]',
+					'$datos[miercoles]',
+					'$datos[jueves]',
+					'$datos[viernes]',
+					'$datos[sabado]',
+					'$datos[domingo]',
+					'$datos[id_estado]'
+				)";
+	
+	mysql_query($insert) or die(mysql_error());
 	
 	$id = mysql_insert_id();
 	
-	$datos=array(
-			'tabla'		=> 'convenio_turno', 
-			'id_tabla'	=> $id, 
-			'id_accion'	=> 1 );
+	$datos = array(
+		'tabla'		=> 'convenio_turno', 
+		'id_tabla'	=> $id, 
+		'id_accion'	=> 1 
+	);
 			
 	insertLog($datos);
 }
@@ -151,19 +182,21 @@ function getConvenios_tardanza($datos){
 		}
 		
 		
-		$query="SELECT  
-					convenio_turno.$parametro as parametro,
-					convenio_turno.limite
-				FROM `usuario`
-				INNER JOIN convenio
-				ON(usuario.id_convenio=convenio.id_convenio)
-				INNER JOIN convenio_turno
-				ON(convenio.id_convenio=convenio_turno.id_convenio)
-				WHERE id_usuario='$datos[id_usuario]'
-				AND convenio_turno.$dia = 1
-				AND convenio_turno.id_turno = '$id_turno'
+		$query = "SELECT  
+						convenio_turno.$parametro as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='$datos[id_usuario]' AND 
+						convenio_turno.$dia 	= 1 AND 
+						convenio_turno.id_turno = '$id_turno'
 				";   
-		$convenio_turno=mysql_query($query) or die(mysql_error());
+		$convenio_turno		= mysql_query($query) or die(mysql_error());
 		$row_convenio_turno = mysql_fetch_assoc($convenio_turno);   
 		$cantidad_convenio_turno = mysql_num_rows($convenio_turno);
 		

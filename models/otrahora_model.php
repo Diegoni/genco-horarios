@@ -8,7 +8,7 @@ function getOtrahoras($fecha){
 			WHERE 
 				fecha = '$fecha' AND 
 				eliminado = 0";   
-		$otrahora=mysql_query($query) or die(mysql_error());
+		$otrahora = mysql_query($query) or die(mysql_error());
 		
 		return $otrahora;
 }
@@ -27,7 +27,7 @@ function getOtrahora($id=NULL, $fecha_inicio=NULL, $fecha_final=NULL){
 				fecha <= '$fecha_final' AND
 				id_usuario ='$id' AND 
 				eliminado = 0";   
-		$otrahora=mysql_query($query) or die(mysql_error());
+		$otrahora = mysql_query($query) or die(mysql_error());
 	}else if(isset($fecha_inicio, $fecha_final)){
 		$query = 
 			"SELECT 
@@ -38,7 +38,7 @@ function getOtrahora($id=NULL, $fecha_inicio=NULL, $fecha_final=NULL){
 				fecha >= '$fecha_inicio' AND
 				fecha <= '$fecha_final' AND
 				eliminado = 0";   
-		$otrahora=mysql_query($query) or die(mysql_error());
+		$otrahora = mysql_query($query) or die(mysql_error());
 	}else if(isset($id, $fecha_inicio)){
 		$query =
 			"SELECT 
@@ -53,53 +53,75 @@ function getOtrahora($id=NULL, $fecha_inicio=NULL, $fecha_final=NULL){
 				fecha = '$fecha_inicio' AND 
 				otrahora.id_usuario='$id' AND
 				eliminado = 0";      
-		$otrahora=mysql_query($query) or die(mysql_error());
+		$otrahora = mysql_query($query) or die(mysql_error());
 	}
 	
 	return $otrahora;
 }
 
 function updateOtrahora($id_tipootra, $horas,	$fecha, $nota, $id_nota, $id_otrahora){
-	mysql_query("UPDATE 
+	$update = "UPDATE 
 					`otrahora` 
 				SET	
 					id_tipootra='$id_tipootra',
 					horas = '$horas',
 					fecha = '$fecha'
 				WHERE 
-					id_otrahora='$id_otrahora'") or die(mysql_error());
-						
+					id_otrahora='$id_otrahora'";		
+		
+	mysql_query($update) or die(mysql_error());
 	
-	mysql_query("UPDATE 
+	$update = "UPDATE 
 					`nota` 
 				SET 
 					nota='$nota'
 				WHERE 
-					id_nota='$id_nota'") or die(mysql_error());
+					id_nota='$id_nota'";
+	
+	mysql_query($update) or die(mysql_error());
 						
 	$datos = array(
-			'tabla'		=> 'otrahora', 
-			'id_tabla'	=> $id_otrahora, 
-			'id_accion'	=> 2 );
+		'tabla'		=> 'otrahora', 
+		'id_tabla'	=> $id_otrahora, 
+		'id_accion'	=> 2
+	);
 			
 	insertLog($datos);
 }
 
 function insertOtrahora($id, $id_tipootra, $nota, $horas, $fecha){
-	mysql_query("INSERT INTO `nota`
-				(nota) 
-				VALUES ('$nota')") or die(mysql_error());
-				$id_nota=mysql_insert_id();
+	$insert = "INSERT INTO `nota`(
+					nota
+				) VALUES (
+					'$nota'
+				)";		
+		
+	mysql_query($insert) or die(mysql_error());
+	$id_nota = mysql_insert_id();
+	
+	$insert = "INSERT INTO `otrahora`(
+					id_usuario, 
+					id_tipootra, 
+					id_nota, 
+					horas, 
+					fecha
+				) VALUES (
+					'$id', 
+					'$id_tipootra', 
+					'$id_nota', 
+					'$horas', 
+					'$fecha'
+				)";
 				
-	mysql_query("INSERT INTO `otrahora` (id_usuario, id_tipootra, id_nota, horas, fecha) 
-				VALUES ('$id', '$id_tipootra', '$id_nota', '$horas', '$fecha')") or die(mysql_error());
+	mysql_query($insert) or die(mysql_error());
 	
 	$id = mysql_insert_id();
 	
 	$datos = array(
-			'tabla'		=> 'otrahora', 
-			'id_tabla'	=> $id, 
-			'id_accion'	=> 1 );
+		'tabla'		=> 'otrahora', 
+		'id_tabla'	=> $id, 
+		'id_accion'	=> 1 
+	);
 			
 	insertLog($datos);				
 }
@@ -124,14 +146,14 @@ function deleteOtrahora($id_otrahora){
 				SET	
 					eliminado = '1'
 				WHERE 
-					id_otrahora='$id_otrahora'";	
-	echo "<br>".$sql."<br>"; 				
+					id_otrahora ='$id_otrahora'";	
 	mysql_query($sql) or die(mysql_error());
 						
 	$datos = array(
-			'tabla'		=> 'otrahora', 
-			'id_tabla'	=> $id, 
-			'id_accion'	=> 3 );			
+		'tabla'		=> 'otrahora', 
+		'id_tabla'	=> $id, 
+		'id_accion'	=> 3 
+	);			
 	insertLog($datos);
 }
 

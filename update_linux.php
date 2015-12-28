@@ -1,7 +1,6 @@
 <?php
-session_start();
-include_once("control_usuario.php");
 include_once("menu.php"); 
+
 //---------------------------------------------------------------------- 
 //---------------------------------------------------------------------- 
 //                        Actualizo tabla  
@@ -23,8 +22,8 @@ $sql	=
 		* 
 	FROM 
 		`relojes`"; 
-$query_relojes = mysql_query($sql) or die(mysql_error()); 
-$row_relojes = mysql_fetch_assoc($query_relojes); 
+$query_relojes	= mysql_query($sql) or die(mysql_error()); 
+$row_relojes	= mysql_fetch_assoc($query_relojes); 
 
 $array_relojes = array();
 $array_relojes_cantidades = array();
