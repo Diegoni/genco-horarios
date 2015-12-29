@@ -2,7 +2,7 @@
 	date_default_timezone_set('America/Argentina/Mendoza');
 	
 	
-	$url=array(
+	$url = array(
 		'models_url'			=> "models/",
 		'librerias_url'			=> "librerias/",
 		'imagenes_perfil_url'	=> "imagenes/perfil/",

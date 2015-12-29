@@ -138,6 +138,7 @@ mysql_query("SET NAMES 'utf8'");
 		<a href='#' class='show_hide btn btn-primary' rel='tooltip' title='Añadir registro'><i class="icon-plus-sign-alt"></i> Nuevo</a>
 		<a href="javascript:imprSelec('muestra')" class='btn btn-default'><i class="icon-print"></i> Imprimir</a>
 		<button class="btn btn-default" onclick="tableToExcel('example', 'Empleados')"><i class="icon-download-alt"></i> Excel</button>
+		<a onclick="return confirm('Está seguro de querer sincronizar?')" href="update_database.php" class="btn btn-default"><i class="icon-refresh"></i> Sincronizar</a>
 	</div>
 <div class="divider"></div>
 

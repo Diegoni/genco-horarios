@@ -230,6 +230,7 @@ function deleteUsuario($id){
 }
 
 function insertUsusario($datos){
+		
 	$query = "SELECT 
 				* 
 			FROM 
@@ -293,10 +294,11 @@ function insertUsusario($datos){
 				
 		//$id = mysql_insert_id();
 		
-		$datos=array(
-				'tabla'		=> 'usuario', 
-				'id_tabla'	=> $ultimoid, 
-				'id_accion'	=> 1 );
+		$datos = array(
+			'tabla'		=> 'usuario', 
+			'id_tabla'	=> $ultimoid, 
+			'id_accion'	=> 1 
+		);
 				
 		insertLog($datos);
 		
@@ -304,6 +306,34 @@ function insertUsusario($datos){
 	}else{
 		return FALSE;
 	}
+}
 
+
+function getCuit($cuit){
+	$query	=
+		"SELECT 
+			* 
+		FROM 
+			usuario 
+		WHERE 
+			cuil like '$cuit'";    
+		
+	$usuarios 		= mysql_query($query) or die(mysql_error());
+	
+	return $usuarios; 
+}
+
+
+function updateID($id_usuario_reloj, $cuil){
+	$update	=	
+		"UPDATE 
+			usuario
+		SET
+			id_usuario_reloj = '$id_usuario_reloj'	
+		WHERE 
+			cuil = '$cuil'"; 
+		mysql_query($update) or die(mysql_error());
+	
+	return $usuarios; 
 }
 ?>

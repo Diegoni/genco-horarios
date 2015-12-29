@@ -80,6 +80,7 @@ $cantidad_reloj		= mysql_num_rows($relojes);
 			</ul>
 		</div>
 	</div>
+	<a href="update_linux.php" class="btn btn-default form-control" title="Actualiza con base de dato externa">Actualización DB</a>
 </div>
 <div class="col-md-10 borde-box">
 	<iframe src="calendar.php" width="100%" height="600" frameborder="0"></iframe>

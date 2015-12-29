@@ -209,4 +209,27 @@ function insertMarcadaReloj($registro){
 		}
 }
 
+
+	function insertMarcadas($datos){
+		$insert = 
+			"INSERT INTO marcada (
+				entrada, 
+				entrada_reloj, 
+				id_usuario,
+				id_parametros_access,
+				id_reloj, 
+				id_parametros,
+				id_estado
+			) VALUES (
+				'$datos[entrada]',
+				'$datos[entrada_reloj]',
+				'$datos[id_usuario]',
+				'$datos[id_parametros_access]',
+				'$datos[id_reloj]',
+				'$datos[id_parametros]',
+				'$datos[id_estado]'
+			)";
+		mysql_query($insert) or die(mysql_error());
+	}
+
 ?>

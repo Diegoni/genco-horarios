@@ -1,5 +1,7 @@
 <?php
 include_once("menu.php"); 
+include_once($url['models_url']."userinfo_model.php");
+include_once($url['models_url']."usuarios_model.php");
 
 //---------------------------------------------------------------------- 
 //---------------------------------------------------------------------- 
@@ -7,48 +9,30 @@ include_once("menu.php");
 //----------------------------------------------------------------------             
 //---------------------------------------------------------------------> 
 
-$sql	=	
-	"SELECT 
-		* 
-	FROM 
-		USERINFO"; 
-$checkinout	= odbc_exec($ODBC, $sql)or die(exit("Error en odbc_exec"));
+$userinfo = new UserInfo();
+
+$reg_userinfo = $userinfo->getRegistros();
 
 do{
 	
-	$USERID		= odbc_result($checkinout,"USERID");
-	$PAGER		= odbc_result($checkinout,"PAGER"); 
+	$USERID		= odbc_result($reg_userinfo,"USERID");
+	$PAGER		= odbc_result($reg_userinfo,"PAGER"); 
 	
 	if($PAGER != ''){
 			
-		$query	=
-			"SELECT 
-				* 
-			FROM 
-				usuario 
-			WHERE 
-				cuil like '$PAGER'";    
-		
-		$usuarios 		= mysql_query($query) or die(mysql_error()); 
+		$usuarios = getCuit($PAGER);
 		$row_usuarios 	= mysql_fetch_assoc($usuarios); 
 		$cantidad		= mysql_num_rows($usuarios);
 		
 		if($cantidad > 0){
 			do{
-				$update	=	
-					"UPDATE 
-						usuario
-					SET
-						id_usuario_reloj = '$USERID'	
-					WHERE 
-						cuil = '$PAGER'"; 
-				mysql_query($update) or die(mysql_error());
+				updateID($USERID, $PAGER);
 			}while ($row_usuarios = mysql_fetch_array($usuarios));	
 		}else{
 			echo "no se encontro el cuil ".$PAGER.'<br>';	
 		}
 	}
 	
-}while (odbc_fetch_row($checkinout));
+}while (odbc_fetch_row($reg_userinfo));
 
 ?>

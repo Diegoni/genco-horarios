@@ -1,30 +1,23 @@
 <?php
 include_once("menu.php"); 
-
+ini_set('max_execution_time', 600); 
+include_once($url['models_url']."relojes_model.php");
+include_once($url['models_url']."marcadas_model.php");
+include_once($url['models_url']."parametros_model.php");
+include_once($url['models_url']."checkinout_model.php");
 //---------------------------------------------------------------------- 
 //---------------------------------------------------------------------- 
 //                        Actualizo tabla  
 //----------------------------------------------------------------------             
-//---------------------------------------------------------------------> 
+//--------------------------------------------------------------------->
 
-$sql	=	
-	"UPDATE 
-		CHECKINOUT
-	SET
-		Actualizado = FALSE	
-	WHERE 
-		Actualizado = TRUE"; 
-$checkinout	= odbc_exec($ODBC,$sql)or die(exit("Error en odbc_exec")); 
+$checkinout = new Checkinout();
+
+$checkinout->test();
 
 
-$sql	=	
-	"SELECT 
-		* 
-	FROM 
-		`relojes`"; 
-$query_relojes	= mysql_query($sql) or die(mysql_error()); 
+$query_relojes	= getRelojes(); 
 $row_relojes	= mysql_fetch_assoc($query_relojes); 
-
 $array_relojes = array();
 $array_relojes_cantidades = array();
 do{
@@ -32,84 +25,37 @@ do{
 	$array_relojes_cantidades[$row_relojes['id_reloj_access']] = 0;
 }while ($row_relojes = mysql_fetch_array($query_relojes)); 
 
-$sql	=	
-	"SELECT 
-		* 
-	FROM 
-		CHECKINOUT
-	WHERE 
-		Actualizado = FALSE"; 
-$checkinout	= odbc_exec($ODBC,$sql)or die(exit("Error en odbc_exec"));
-
-$k		= 0;
+$reg_checkinout	= $checkinout->getRegistros();
+$modificados = array(
+	'total'			=> 0,
+	'modificados'	=> 0,
+	'erroneos' 		=> 0 
+);
 $Update	= 0;
 
 do{
+	$datos = array(
+		'USERID'		=> odbc_result($reg_checkinout,"USERID"),
+		'CHECKTIME'		=> date("Y-m-d H:i:s", strtotime(odbc_result($reg_checkinout,"CHECKTIME"))),
+		'CHECKTYPE'		=> odbc_result($reg_checkinout,"CHECKTYPE"),
+		'VERIFYCODE'	=> odbc_result($reg_checkinout,"VERIFYCODE"),
+		'SENSORID'		=> odbc_result($reg_checkinout,"SENSORID"),
+		'Memoinfo'		=> odbc_result($reg_checkinout,"Memoinfo"),
+		'WorkCode'		=> odbc_result($reg_checkinout,"WorkCode"),
+		'sn'			=> odbc_result($reg_checkinout,"sn"),
+		'UserExtFmt'	=> odbc_result($reg_checkinout,"UserExtFmt"),
+		'Update'		=> $Update
+	);
 	
-	$USERID		= odbc_result($checkinout,"USERID");
-	$CHECKTIME	= odbc_result($checkinout,"CHECKTIME"); 
-	$CHECKTYPE	= odbc_result($checkinout,"CHECKTYPE");
-	$marcada_formato = date("Y-m-d H:i:s", strtotime($CHECKTIME));
-	$VERIFYCODE	= odbc_result($checkinout,"VERIFYCODE");
-	$SENSORID	= odbc_result($checkinout,"SENSORID");
-	$Memoinfo	= odbc_result($checkinout,"Memoinfo");
-	$WorkCode	= odbc_result($checkinout,"WorkCode");
-	$sn			= odbc_result($checkinout,"sn");
-	$UserExtFmt	= odbc_result($checkinout,"UserExtFmt");
+	$checkinout->insert($datos);
+	$modificados['total']	=	$modificados['total'] + 1;
 	
-	
-	$insert = 
-		"INSERT INTO CHECKTIME(
-			USERID, 
-			CHECKTIME, 
-			CHECKTYPE,
-			VERIFYCODE,
-			SENSORID,
-			Memoinfo,
-			WorkCode,
-			sn,
-			UserExtFmt,
-			Actualizado
-		) VALUES (
-			'$USERID',
-			'$marcada_formato',
-			'$CHECKTYPE',
-			'$VERIFYCODE,',
-			'$SENSORID',
-			'$Memoinfo',
-			'$WorkCode',
-			'$sn',
-			'$UserExtFmt',
-			'$Update'
-		)";
-	mysql_query($insert) or die(mysql_error());
-	$k	=	$k+1;
-}while (odbc_fetch_row($checkinout));
+}while (odbc_fetch_row($reg_checkinout));
 
+$checkinout->setActualizado();
 
-$sql	=	
-	"UPDATE 
-		CHECKINOUT
-	SET
-		Actualizado = TRUE	
-	WHERE 
-		Actualizado = FALSE"; 
-$checkinout	= odbc_exec($ODBC,$sql)or die(exit("Error en odbc_exec")); 
-
-
-
-$query	=
-	"SELECT 
-		* 
-	FROM 
-		CHECKTIME 
-	WHERE 
-		Actualizado = 0";    
-$CHECKTIME = mysql_query($query) or die(mysql_error()); 
+$CHECKTIME = $checkinout->getActualizado();
 $row_CHECKTIME = mysql_fetch_assoc($CHECKTIME); 
-
-
-
 $i=0; 
  
 do{ 
@@ -125,16 +71,7 @@ do{
 		    $tipo	= 2; 
 		} 
 		//BUSCO DENTRO DE PARAMETROS SI ES MAÑANA TARDE O NOCHE DEPENDIENDO DE LA HORA 
-		$query	=
-			"SELECT 
-				* 
-			FROM 
-				`parametros`  
-			WHERE 
-				DATE_FORMAT(inicio, '%H:%m')	< '$hora'  
-		        AND DATE_FORMAT(final, '%H:%m')	> '$hora' 
-		        AND id_tipo	= '$tipo'";    
-		$parametros		= mysql_query($query) or die(mysql_error()); 
+		$parametros		= getParametros($hora, $tipo); 
 		$row_parametros = mysql_fetch_assoc($parametros); 
 		$cantidad		= mysql_num_rows($parametros); 
 		 
@@ -164,55 +101,41 @@ do{
 				$id_reloj = $array_relojes[$row_CHECKTIME['SENSORID']];
 				$array_relojes_cantidades[$row_CHECKTIME['SENSORID']] = $array_relojes_cantidades[$row_CHECKTIME['SENSORID']] + 1;
 				
-				$insert = 
-					"INSERT INTO marcada (
-						entrada, 
-						entrada_reloj, 
-						id_usuario,
-						id_parametros_access,
-						id_reloj, 
-						id_parametros,
-						id_estado
-					) VALUES (
-						'$row_CHECKTIME[CHECKTIME]',
-						'$row_CHECKTIME[CHECKTIME]',
-						'$row_usuarios[id_usuario]',
-						'$row_CHECKTIME[CHECKTYPE]',
-						'$id_reloj',
-						'$id_parametros',
-						1
-					)";
-				mysql_query($insert) or die(mysql_error());
+				$datos = array(
+					'entrada'				=> $row_CHECKTIME['CHECKTIME'],
+					'entrada_reloj'			=> $row_CHECKTIME['CHECKTIME'],
+					'id_usuario'			=> $row_usuarios['id_usuario'],
+					'id_parametros_access'	=> $row_CHECKTIME['CHECKTYPE'],
+					'id_reloj'				=> $id_reloj,
+					//'id_parametros'			=> $id_parametros,
+					'id_parametros'			=> $row_CHECKTIME['id_CHECKTIME'],
+					'id_estado'				=> 1
+				);		
+				insertMarcadas($datos);
 				
-				$update	=	
-					"UPDATE 
-						CHECKTIME
-					SET
-						Actualizado = 1	
-					WHERE 
-						id_CHECKTIME = '$row_CHECKTIME[id_CHECKTIME]'"; 
-				mysql_query($update) or die(mysql_error());
+				$checkinout->setUpdate($row_CHECKTIME['id_CHECKTIME'], 1);
+				$modificados['modificados'] = $modificados['modificados'] + 1; 
 				   
 			}while ($row_usuarios = mysql_fetch_array($usuarios)); 
 		}else{
-			$update	=	
-				"UPDATE 
-					CHECKTIME
-				SET
-					Actualizado = 2	
-				WHERE 
-					id_CHECKTIME = '$row_CHECKTIME[id_CHECKTIME]'"; 
-			mysql_query($update) or die(mysql_error());
+			$checkinout->setUpdate($row_CHECKTIME['id_CHECKTIME'], 2);
+			$modificados['erroneos'] = $modificados['erroneos'] + 1;
 			write_log('El USERID '.$row_CHECKTIME['USERID'].' no tiene usuario asociado');
 		}               
 	} 
-}while ($row_CHECKTIME = mysql_fetch_array($CHECKTIME));                     
+}while ($row_CHECKTIME = mysql_fetch_array($CHECKTIME));  
+
+
+
+foreach ($modificados as $key => $value) {
+	echo $key.' '.$value.'<br>';
+	
+}                  
  
  
 //GUARDO REGISTRO DE LA ULTIMA FECHA 
 $fecha_hoy	= date("Y-m-d H:m:s"); 
 $end_date	= date("Y-m-d");
-
 foreach ($array_relojes_cantidades as $key => $value) {
 	if($value > 0){
 		$insert = 
@@ -236,5 +159,4 @@ foreach ($array_relojes_cantidades as $key => $value) {
 		mysql_query($insert) or die(mysql_error());
 	}	
 }
-
 ?>
