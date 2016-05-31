@@ -176,12 +176,41 @@ if($_GET['buscar']==1){
   		</div>
 		</div>
 		
+		<?php
+		$array_orden = array(
+            'usuario.usuario'       => 'usuario',
+            'usuario.legajo'        => 'legajo',
+            'usuario.nombre'        => 'nombre',
+            'usuario.apellido'      => 'apellido',
+            'usuario.dni'           => 'dni',
+            'usuario.cuil'          => 'cuil',
+            'usuario.fecha_ingreso' => 'fecha ingreso',
+            'empresa.empresa'       => 'empresa',
+            'departamento.departamento' => 'departamento',
+            'convenio.convenio'     => 'convenio' 
+        );
+        ?>
+		
 		<div class="col-md-6 pull-right">		
 		<div class="form-group">
-			<div class="col-md-12">
+			<div class="col-md-10">
+			    <select name="orden[]" multiple class="chosen-select form-control">
+			        <?php
+			        foreach ($array_orden as $key => $value) {
+			            if(in_array($key, $_GET['orden'])){
+			                echo "<option value='".$key."' selected>".$value."</option>";
+			            } else {
+                            echo "<option value='".$key."'>".$value."</option>";			             
+			            }
+						
+					} 
+			        ?>  
+                </select>
+            </div>
+            <div class="col-md-2">
 				<button type="submit" class="btn btn-default pull-right" rel='tooltip' title="Buscar" name="buscar" value="1">
-				<i class="icon-search"></i> Buscar
-			</button>
+				    <i class="icon-search"></i> Buscar
+                </button>
 			</div>
 		</div>
 		</div>
@@ -199,7 +228,14 @@ if($_GET['buscar']==1){
 ------------------------------------------------------------------------------------->	
 
 
-<?php if(isset($_GET['buscar'])){ ?>
+<?php if(isset($_GET['buscar'])){
+$_getOrden = '';    
+foreach ($_GET['orden'] as $value) {
+	$_getOrden .= '&orden='.$value;
+}     
+
+    
+?>
 <div class="row">
 	<div class="col-md-12" id="scrollit">
 		<div class="panel panel-default">
@@ -209,8 +245,8 @@ if($_GET['buscar']==1){
 						<i class="icon-print"></i> Imprimir <span class="caret"></span>
 					</button>
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="usuario_reporte_grupo.php?grupo=<?php echo $_GET['grupo']?>&id=<?php echo $_GET['id']?>&fecha_inicio=<?php echo $fecha_inicio?>&fecha_final=<?php echo $fecha_final?>&buscar=1" target="_blank"> Empleado</a></li>
-						<li><a href="usuario_reporte_grupo.php?grupo=<?php echo $_GET['grupo']?>&id=<?php echo $_GET['id']?>&fecha_inicio=<?php echo $fecha_inicio?>&fecha_final=<?php echo $fecha_final?>&buscar=2" target="_blank"> Empresa</a></li>
+						<li><a href="usuario_reporte_grupo.php?grupo=<?php echo $_GET['grupo']?>&id=<?php echo $_GET['id']?>&fecha_inicio=<?php echo $fecha_inicio?>&fecha_final=<?php echo $fecha_final?><?php echo $_getOrden?>&buscar=1" target="_blank"> Empleado</a></li>
+						<li><a href="usuario_reporte_grupo.php?grupo=<?php echo $_GET['grupo']?>&id=<?php echo $_GET['id']?>&fecha_inicio=<?php echo $fecha_inicio?>&fecha_final=<?php echo $fecha_final?><?php echo $_getOrden?>&buscar=2" target="_blank"> Empresa</a></li>
 					</ul>
 				</div>
 				<button type="button" class="btn btn-default pull-right" data-toggle="modal" data-target="#myModal">

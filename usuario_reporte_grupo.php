@@ -20,31 +20,31 @@ include_once("helpers.php");
 if(isset($_GET['grupo'])){
 	if($_GET['grupo']==1){
 		
-		$query=getUsuarios();
-		$row_query = mysql_fetch_assoc($query);
+		$query        = getUsuarios();
+		$row_query    = mysql_fetch_assoc($query);
 		$numero_filas = mysql_num_rows($query);
-		$grupo='usuario';
+		$grupo        = 'usuario';
 		
 	}else if($_GET['grupo']==2){
 			
-		$query=getDepartamentos();
-		$row_query = mysql_fetch_assoc($query);
+		$query        = getDepartamentos();
+		$row_query    = mysql_fetch_assoc($query);
 		$numero_filas = mysql_num_rows($query);
-		$grupo='departamento';
+		$grupo        ='departamento';
 		
 	}else if($_GET['grupo']==3){
 		
-		$query=getEmpresas();
-		$row_query = mysql_fetch_assoc($query);
+		$query        = getEmpresas();
+		$row_query    = mysql_fetch_assoc($query);
 		$numero_filas = mysql_num_rows($query);
-		$grupo='empresa';
+		$grupo        ='empresa';
 		
 	}else if($_GET['grupo']==4){
 		
-		$query=getConvenios();
-		$row_query = mysql_fetch_assoc($query);
+		$query        = getConvenios();
+		$row_query    = mysql_fetch_assoc($query);
 		$numero_filas = mysql_num_rows($query);
-		$grupo='convenio';
+		$grupo        ='convenio';
 		
 	}
 }
@@ -59,22 +59,22 @@ if(isset($_GET['grupo'])){
 
 if(isset($_GET['id'])){
 		
-	if($_GET['grupo']==1){
-		$campo='id_usuario';
-	}else if($_GET['grupo']==2){
-		$campo='id_departamento';
-	}else if($_GET['grupo']==3){
-		$campo='id_empresa';
-	}else if($_GET['grupo']==4){
-		$campo='id_convenio';
+	if($_GET['grupo'] == 1){
+		$campo    = 'id_usuario';
+	}else if($_GET['grupo'] == 2){
+		$campo    = 'id_departamento';
+	}else if($_GET['grupo'] == 3){
+		$campo    = 'id_empresa';
+	}else if($_GET['grupo'] == 4){
+		$campo    = 'id_convenio';
 	}
+   
+	$usuarios      = getUsuarios($_GET['id'], $campo, $_GET['orden']);
+	$row_usuario   = mysql_fetch_assoc($usuarios);
 	
-	$usuarios=getUsuarios($_GET['id'], $campo);
-	$row_usuario = mysql_fetch_assoc($usuarios);
-	
-	$usuarios2=getUsuarios($_GET['id'], $campo);
-	$row_usuario2 = mysql_fetch_assoc($usuarios);
-	$numero_usuario2 = mysql_num_rows($usuarios2);
+	$usuarios2     = getUsuarios($_GET['id'], $campo, $_GET['orden']);
+	$row_usuario2  = mysql_fetch_assoc($usuarios);
+	$numero_usuario2   = mysql_num_rows($usuarios2);
 }
 
 /*------------------------------------------------------------------------------------
@@ -84,13 +84,13 @@ if(isset($_GET['id'])){
 ------------------------------------------------------------------------------------*/
 
 if(isset($_GET['buscar'])){
-		$fecha_inicio=date( "Y-m-d", strtotime($_GET['fecha_inicio']));
-		$fecha_final=date( "Y-m-d", strtotime($_GET['fecha_final']));
+		$fecha_inicio = date( "Y-m-d", strtotime($_GET['fecha_inicio']));
+		$fecha_final  = date( "Y-m-d", strtotime($_GET['fecha_final']));
 }else{
-		$fecha=date("d-m-Y");
-		$fecha_inicio=date('01-m-Y', strtotime($fecha));
-		$ultimoDia = getUltimoDiaMes(date('Y', strtotime($fecha)),date('m', strtotime($fecha)));
-		$fecha_final=$ultimoDia.date('-m-Y', strtotime($fecha));
+		$fecha        = date("d-m-Y");
+		$fecha_inicio = date('01-m-Y', strtotime($fecha));
+		$ultimoDia    = getUltimoDiaMes(date('Y', strtotime($fecha)),date('m', strtotime($fecha)));
+		$fecha_final  = $ultimoDia.date('-m-Y', strtotime($fecha));
 }
 
 ?>
@@ -151,11 +151,10 @@ window.onfocus=function(){ window.close();}">
 ------------------------------------------------------------------------------------->	
 
 
-<?php if(isset($_GET['buscar'])){ ?>
-
-<?php
+<?php 
+if(isset($_GET['buscar'])){ 
 	$contador_usuarios=0;
-	 
+     
 	do{
 		$array_marcaciones=array();
 		$array_otrashoras=array();
@@ -265,8 +264,7 @@ window.onfocus=function(){ window.close();}">
 			}else{
 				
 			}
-			?>
-<?php }while ($row_usuario2 = mysql_fetch_array($usuarios2)) ?>
-			
-<?php } ?>
+    }while ($row_usuario2 = mysql_fetch_array($usuarios2)); 
+} 
+?>
 </body>

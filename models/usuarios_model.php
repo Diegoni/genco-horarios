@@ -73,7 +73,18 @@ function getUsuario($id){
 	}
 }
 
-function getUsuarios($dato=NULL, $campo=NULL){
+function getUsuarios($dato = NULL, $campo = NULL, $order = NULL){
+    if($order == NULL){
+        $order = 'usuario.usuario';
+    }else if(is_array($order)){
+        $_orden = '';    
+        foreach ($order as $value) {
+            $_orden .= $value.', ';
+        }
+        
+        $order = substr($_orden, 0, -2);
+    }    
+    
 	if($dato=='all'){
 		$query = "SELECT 	
 					usuario.id_usuario,
@@ -91,7 +102,7 @@ function getUsuarios($dato=NULL, $campo=NULL){
 				INNER JOIN 
 					convenio ON(usuario.id_convenio=convenio.id_convenio)
 				ORDER BY 
-					usuario.usuario";  
+					$order";  
 		$usuario=mysql_query($query) or die(mysql_error());
 	}else if(isset($dato, $campo)){
 		$query = "SELECT 	
@@ -125,7 +136,7 @@ function getUsuarios($dato=NULL, $campo=NULL){
 					usuario.$campo like '$dato' AND 
 					usuario.id_estado = 1
 				ORDER BY 
-					usuario.usuario";   
+					$order";   
 		$usuario = mysql_query($query) or die(mysql_error());
 	}else{
 		$query = "SELECT 	
@@ -149,8 +160,8 @@ function getUsuarios($dato=NULL, $campo=NULL){
 				WHERE 
 					usuario.id_estado = 1
 				ORDER BY 
-					usuario.usuario";  
-		$usuario=mysql_query($query) or die(mysql_error());
+					$order";  
+        $usuario = mysql_query($query) or die(mysql_error());
 	}
 										
 	return $usuario;

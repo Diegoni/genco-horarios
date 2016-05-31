@@ -20,7 +20,7 @@ include_once("helpers.php");
 			<span class="icon-bar"></span>
 		</button>
 		<a class="navbar-brand" href="#">
-			<img width="106" height="30"  src="<?php echo $config['logo'];?>"></a>
+			<!--<img width="106" height="30"  src="<?php echo $config['logo'];?>"></a>-->
 		</a>
 	</div>
 

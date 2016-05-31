@@ -1,7 +1,7 @@
 <?php
 //local a phpmyadmin
 	$username	= "root";
-	$password	= "bluepill";
+	$password	= "";
 	$database	= "controlfinal4";
 	$url		= "localhost";
 	mysql_connect($url, $username, $password);
