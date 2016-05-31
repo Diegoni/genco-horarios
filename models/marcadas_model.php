@@ -88,7 +88,6 @@ function getMarcaciones($id=NULL, $fecha_inicio=NULL, $fecha_final=NULL){
 					ORDER BY 
 						marcada.id_parametros";   
 	}
-	
 	$marcacion = mysql_query($query) or die(mysql_error());
 	return $marcacion;
 }

@@ -74,7 +74,7 @@ if(isset($_GET['id'])){
 	$row_usuario	= mysql_fetch_assoc($usuarios);
 	
 	$usuarios2		= getUsuarios($_GET['id'], $campo);
-	$row_usuario2	= mysql_fetch_assoc($usuarios);
+	$row_usuario2	= mysql_fetch_assoc($usuarios2);
 	$numero_usuario	= mysql_num_rows($usuarios);
 
 }
@@ -284,6 +284,7 @@ foreach ($_GET['orden'] as $value) {
 					</thead>
 				<tbody>
 				<?php do{ ?>
+				   
 					<a name="seccion<?php echo $row_usuario2['id_usuario']?>" id="seccion<?php echo $row_usuario2['id_usuario']?>"></a>
 					<div class="slidingDiv <?php echo $row_usuario2['id_usuario']?>">
 						<?php 
@@ -317,8 +318,8 @@ foreach ($_GET['orden'] as $value) {
 									$array_otrashoras['otrahora-'.date('Y-m-d', strtotime($row_otrahora['fecha']))]	= $row_otrahora['tipootra']." :".$row_otrahora['horas'];
 								}while ($row_otrahora = mysql_fetch_array($otrahora));
 								 								
-								if($cantidad_marcacion>0){
-									$arrayFechas=devuelveArrayFechasEntreOtrasDos($fecha_inicio, $fecha_final);
+								if($cantidad_marcacion > 0){
+									$arrayFechas   = devuelveArrayFechasEntreOtrasDos($fecha_inicio, $fecha_final);
 								}
 							}
 							
@@ -404,6 +405,7 @@ foreach ($_GET['orden'] as $value) {
         			});
  
 		    		</script>
+		    		
 				<?php }while ($row_usuario2 = mysql_fetch_array($usuarios2)) ?>
 				</tbody>
 							</table>

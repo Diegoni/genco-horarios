@@ -73,7 +73,7 @@ if(isset($_GET['id'])){
 	$row_usuario   = mysql_fetch_assoc($usuarios);
 	
 	$usuarios2     = getUsuarios($_GET['id'], $campo, $_GET['orden']);
-	$row_usuario2  = mysql_fetch_assoc($usuarios);
+	$row_usuario2  = mysql_fetch_assoc($usuarios2);
 	$numero_usuario2   = mysql_num_rows($usuarios2);
 }
 

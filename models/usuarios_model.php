@@ -163,7 +163,7 @@ function getUsuarios($dato = NULL, $campo = NULL, $order = NULL){
 					$order";  
         $usuario = mysql_query($query) or die(mysql_error());
 	}
-										
+				
 	return $usuario;
 }
 
