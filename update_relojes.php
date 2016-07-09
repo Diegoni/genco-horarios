@@ -1,4 +1,5 @@
-<?php   
+<?php
+/*   
 session_start(); 
 ini_set('max_execution_time', 600); //600 segundos = 10 minutos
 
@@ -13,7 +14,7 @@ include_once("helpers.php");
 
 if(	date('Y-m-d', strtotime($_GET['start_date'])) <= date('Y-m-d', strtotime($_GET['end_date'])))
 {
-	/*Si no hay fecha especifica buscamos los ultimos updates*/
+	//Si no hay fecha especifica buscamos los ultimos updates
 	if(!isset($_GET['start_date']) && !isset($_GET['end_date']))
 	{
 		$relojes			= getRelojes();
@@ -29,7 +30,7 @@ if(	date('Y-m-d', strtotime($_GET['start_date'])) <= date('Y-m-d', strtotime($_G
 		while($row_reloj = mysql_fetch_array($relojes));
 	}
 	
-	/*Consulto si es para un solo reloj o todos*/
+	//Consulto si es para un solo reloj o todos
 	if($_GET['reloj']==0 || !isset($_GET['reloj']))
 	{
 		$relojes			= getRelojes();
@@ -43,7 +44,7 @@ if(	date('Y-m-d', strtotime($_GET['start_date'])) <= date('Y-m-d', strtotime($_G
 		$cantidad_reloj		= mysql_num_rows($relojes);
 	}
 
-	/*Consulto si la actualización es manual o automatica*/
+	//Consulto si la actualización es manual o automatica
 	if(isset($_GET['tipo']))
 	{
 		$tipo				= $_GET['tipo'];
@@ -140,6 +141,7 @@ while($row_reloj = mysql_fetch_array($relojes));
  * *******************************************************************************
  ********************************************************************************/
 
+ /*
 	$titulo		= 'Resumen de actualización '.date('d-m-Y');
 	
 	$mensaje = '<b>Resumen</b>: <br>';

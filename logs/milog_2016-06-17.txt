@@ -1,0 +1,30 @@
+[2016-06-17 19:20:34.000000 ::1  -  ] El USERID 66 no tiene usuario asociado
+El USERID 67 no tiene usuario asociado
+El USERID 66 no tiene usuario asociado
+El USERID 66 no tiene usuario asociado
+
+[2016-06-17 19:24:19.000000 ::1  -  ] El USERID 66 no tiene usuario asociado
+El USERID 67 no tiene usuario asociado
+El USERID 66 no tiene usuario asociado
+El USERID 66 no tiene usuario asociado
+
+[2016-06-17 19:26:02.000000 ::1  -  ] El USERID 66 no tiene usuario asociado
+El USERID 67 no tiene usuario asociado
+El USERID 66 no tiene usuario asociado
+El USERID 66 no tiene usuario asociado
+
+[2016-06-17 19:27:50.000000 ::1  -  ] El USERID 66 no tiene usuario asociado
+El USERID 67 no tiene usuario asociado
+El USERID 66 no tiene usuario asociado
+El USERID 66 no tiene usuario asociado
+
+[2016-06-17 19:28:48.000000 ::1  -  ] El USERID 66 no tiene usuario asociado
+El USERID 67 no tiene usuario asociado
+El USERID 66 no tiene usuario asociado
+El USERID 66 no tiene usuario asociado
+
+[2016-06-17 19:33:24.000000 ::1  -  ] El USERID 66 no tiene usuario asociado
+El USERID 67 no tiene usuario asociado
+El USERID 66 no tiene usuario asociado
+El USERID 66 no tiene usuario asociado
+

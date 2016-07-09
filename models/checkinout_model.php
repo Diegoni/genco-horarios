@@ -1,13 +1,10 @@
 <?php
 include_once('logs_model.php');
 
-
 class Checkinout{
-	
-	
 	private $usuario	= "";
 	private $clave		= "";
-	private	$dsn		= "Genco";
+	private	$dsn		= "DSS";
 	private	$ODBC;  
 	
 	
@@ -16,34 +13,29 @@ class Checkinout{
 		$this->ODBC		= odbc_connect($this->dsn, $this->usuario, $this->clave);	
 	}
 	
+/*---------------------------------------------------------------------------------  
+					Trae los registros sin actualizar             
+---------------------------------------------------------------------------------*/	
 	
-	function getRegistros(){
-	
+	function getRegistros($last_id){
 		$sql	=	
 			"SELECT 
 				* 
 			FROM 
 				CHECKINOUT
 			WHERE 
-				Actualizado = FALSE"; 
+				ID > $last_id"; 
+				
 		$checkinout	= odbc_exec($this->ODBC,$sql)or die(exit("Error en odbc_exec"));
 		
 		return $checkinout;	
 	}
+
+/*---------------------------------------------------------------------------------  
+					Inserta los registros           
+---------------------------------------------------------------------------------*/	
 	
-	function setActualizado(){
-		$sql	=	
-		"UPDATE 
-			CHECKINOUT
-		SET
-			Actualizado = TRUE	
-		WHERE 
-			Actualizado = FALSE"; 
-		$checkinout	= odbc_exec($this->ODBC,$sql)or die(exit("Error en UPDATE")); 
-	}
-	
-	
-	function insert($datos){
+	function insert($sql){
 		$insert = 
 			"INSERT INTO CHECKTIME(
 				USERID, 
@@ -55,6 +47,7 @@ class Checkinout{
 				WorkCode,
 				sn,
 				UserExtFmt,
+				ID,
 				Actualizado
 			) VALUES (
 				'$datos[USERID]',
@@ -66,39 +59,14 @@ class Checkinout{
 				'$datos[WorkCode]',
 				'$datos[sn]',
 				'$datos[UserExtFmt]',
-				'$datos[Update]'
+				'$datos[ID]',
+				0
 			)";
 		mysql_query($insert) or die(mysql_error());
 	}
-	
-	
-	function test(){
-		$sql	=	
-		"UPDATE 
-			CHECKINOUT
-		SET
-			Actualizado = FALSE	
-		WHERE 
-			Actualizado = TRUE"; 
-		$checkinout	= odbc_exec($this->ODBC,$sql)or die(exit("Error en odbc_exec"));
-		
-		return $checkinout;
-	} 
-	
-	
-	function getActualizado(){
-		$query	=
-		"SELECT 
-			* 
-		FROM 
-			CHECKTIME 
-		WHERE 
-			Actualizado = 0";    
-		$CHECKTIME = mysql_query($query) or die(mysql_error());
-		
-		return $CHECKTIME;
-	}
-	
+/*---------------------------------------------------------------------------------  
+					Estado del registros           
+---------------------------------------------------------------------------------*/		
 	
 	function setUpdate($id_CHECKTIME, $actualizado){
 		$update	=	
@@ -110,8 +78,5 @@ class Checkinout{
 			id_CHECKTIME = '$id_CHECKTIME'"; 
 		mysql_query($update) or die(mysql_error());
 	}
-	
 }
-
-
 ?>

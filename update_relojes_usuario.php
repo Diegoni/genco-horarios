@@ -1,4 +1,5 @@
 <?php   
+/*
 session_start(); 
 ini_set('max_execution_time', 600); //600 segundos = 10 minutos
 
@@ -77,7 +78,7 @@ function update_usuario_reloj($id_usuario, $config){
  * 			Envio de correo con el resumen de la actualización 
  * *******************************************************************************
  ********************************************************************************/
-
+/*
 	$titulo		= 'Resumen de actualización '.date('d-m-Y');
 	
 	$mensaje = '<b>Resumen</b>: <br>';
