@@ -6,6 +6,36 @@ include_once($url['models_url']."marcadas_model.php");
 include_once($url['models_url']."parametros_model.php");
 include_once($url['models_url']."checkinout_model.php");
 include_once($url['models_url']."updates_db_model.php");
+include_once($url['models_url']."convenio_turnos_model.php");
+
+/*---------------------------------------------------------------------------------  
+					Turno de los convenios             
+---------------------------------------------------------------------------------*/
+
+$query_cturnos	= getConvenioturnos(); 
+$row_cturnos	= mysql_fetch_assoc($query_cturnos); 
+$can_cturnos	= mysql_num_rows($query_cturnos);
+
+if($row_cturnos > 0){
+	do{
+		if($row_cturnos['sabado'] == 0){
+			if($row_cturnos['id_turno'] == 1){
+				$array_cturnos[$row_cturnos['id_convenio']][$row_cturnos['id_turno']] = array(
+					'1'	=> date('H', strtotime($row_cturnos['entrada'])),
+					'2'	=> date('H', strtotime($row_cturnos['salida'])),
+				);	
+			}else{
+				$array_cturnos[$row_cturnos['id_convenio']][$row_cturnos['id_turno']] = array(
+					'3'	=> date('H', strtotime($row_cturnos['entrada'])),
+					'4'	=> date('H', strtotime($row_cturnos['salida'])),
+				);
+			}	
+			
+			
+			
+		}
+	}while ($row_cturnos = mysql_fetch_array($query_cturnos));
+}
 
 /*---------------------------------------------------------------------------------  
 					Ultimo ID actualizado             
@@ -30,7 +60,7 @@ if($row_update > 0){
 
 $query_relojes	= getRelojes(); 
 $row_relojes	= mysql_fetch_assoc($query_relojes); 
-$array_relojes = array();
+$array_relojes 	= array();
 $array_relojes_cantidades = array();
 do{
 	$array_relojes[$row_relojes['id_reloj_access']] = $row_relojes['id_reloj'];
@@ -94,9 +124,10 @@ $comienzo =
 
 $conteo  = 0;
 $querys  = 0;
+$limite_sql = 700;
 
 while (odbc_fetch_row($reg_checkinout)){
-	if($conteo < 700){
+	if($conteo < $limite_sql){
 		$datos = array(
 			'USERID'		=> odbc_result($reg_checkinout,"USERID"),
 			'CHECKTIME'		=> date("Y-m-d H:i:s", strtotime(odbc_result($reg_checkinout,"CHECKTIME"))),
@@ -137,11 +168,11 @@ while (odbc_fetch_row($reg_checkinout)){
 };
 
 
-	foreach ($array_querys as $sql) {
-		$sql = substr($sql, 0, -2);
-		$sql .= "; ";
-		mysql_query($comienzo.$sql) or die(mysql_error());
-	}
+foreach ($array_querys as $sql) {
+	$sql = substr($sql, 0, -2);
+	$sql .= "; ";
+	mysql_query($comienzo.$sql) or die(mysql_error());
+}
 
 
 
@@ -175,52 +206,96 @@ $comienzo =
 
 $errores = "";
 
-$sql = '';
+$tolerancia = 2;
+$conteo = 0;
+$querys = 0;
+$echo = '';
 
 foreach ($array_checkinout as $row_CHECKTIME) {
 	if($row_CHECKTIME['USERID'] != 0){
 		$i		= $i+1;
 				
 		if($array_usuarios[$row_CHECKTIME['USERID']] != ''){
-			$hora	= date('H', strtotime($row_CHECKTIME['CHECKTIME'])); 
 			
-			//CONTROLO QUE TIPO ES I=IN,ENTRADA Y O=OUT,SALIDA 
-			if($hora > 6  && $hora <= 10){
-				$id_parametros = 1;
-			}else if($hora > 11  && $hora <= 14){
-				$id_parametros = 2;
-			}else if($hora > 14  && $hora <= 17){
-				$id_parametros = 3;
-			}else if($hora > 17  && $hora <= 22){
-				$id_parametros = 4;
-			}else{
+			if($conteo < $limite_sql){
+				$hora		= date('H', strtotime($row_CHECKTIME['CHECKTIME']));
+				$horaMin	= date('Hi', strtotime($row_CHECKTIME['CHECKTIME']));
+				$diaMarcada	= date('Ymd', strtotime($row_CHECKTIME['CHECKTIME']));
+				
+				// Agrego el numero del parametro
 				$id_parametros = 0;
+				foreach ($array_cturnos[1] as $turno => $valores) {
+					foreach ($valores as $idParametro => $horaConvenio) {
+						if($hora > $horaConvenio - $tolerancia  && $hora <= $horaConvenio + $tolerancia){
+							$id_parametros = $idParametro;
+						}
+					}
+				} 
+				
+				$echo .= '<br> id_usuario_reloj: <b>'.$array_usuarios[$row_CHECKTIME['USERID']]['id_usuario_reloj'];
+				$echo .= '</b> - id_usuario: '.$array_usuarios[$row_CHECKTIME['USERID']]['id_usuario'];
+				$echo .= '- ID: <b>'.$row_CHECKTIME['ID'];
+				$echo .= '</b>1- nombre: '.$array_usuarios[$row_CHECKTIME['USERID']]['apellido'].' '.$array_usuarios[$row_CHECKTIME['USERID']]['nombre'];
+				$echo .= '- usuario: '.$array_usuarios[$row_CHECKTIME['USERID']]['usuario'];
+				$echo .= '';	
+				
+				//INGRESO EL REGISTRO
+				
+				$id_usuario = $array_usuarios[$row_CHECKTIME['USERID']]['id_usuario'];
+				$id_reloj	= $array_relojes[$row_CHECKTIME['SENSORID']];
+				$array_relojes_cantidades[$row_CHECKTIME['SENSORID']] = $array_relojes_cantidades[$row_CHECKTIME['SENSORID']] + 1;
+				
+				if(!isset($arra_repetidos[$id_usuario.'-'.$diaMarcada.'-'.$id_parametros])){
+				
+					$array_sql[$querys] .= "("
+					."'".$row_CHECKTIME['CHECKTIME']."',"
+					."'".$row_CHECKTIME['CHECKTIME']."',"
+					."'".$id_usuario."',"
+					."'".$row_CHECKTIME['CHECKTYPE']."',"
+					."'".$id_reloj."',"
+					."'".$id_parametros."',"
+					."'".$row_CHECKTIME['ID']."',"
+					."'"."1'"
+					."), ";
+					
+					$modificados['modificados'] = $modificados['modificados'] + 1; 
+					$arra_repetidos[$id_usuario.'-'.$diaMarcada.'-'.$id_parametros] = $horaMin;
+					$conteo = $conteo + 1;
+				}else{
+					$anterior = (int) $arra_repetidos[$id_usuario.'-'.$diaMarcada.'-'.$id_parametros];
+					$horaMin  = (int) $horaMin;
+					
+					$diferencia = $horaMin - $anterior;
+					
+					echo $horaMin.' '.$array_usuarios[$row_CHECKTIME['USERID']]['usuario'].' '.$diferencia.'<br>';
+					
+					if($diferencia >= 20  || $diferencia < 0){
+						if($diferencia >= 20){
+							$id_parametros = $id_parametros + 1 ;
+						}	
+						
+						$array_sql[$querys] .= "("
+						."'".$row_CHECKTIME['CHECKTIME']."',"
+						."'".$row_CHECKTIME['CHECKTIME']."',"
+						."'".$id_usuario."',"
+						."'".$row_CHECKTIME['CHECKTYPE']."',"
+						."'".$id_reloj."',"
+						."'".$id_parametros."',"
+						."'".$row_CHECKTIME['ID']."',"
+						."'"."1'"
+						."), ";
+						
+						$modificados['modificados'] = $modificados['modificados'] + 1; 
+						$arra_repetidos[$id_usuario.'-'.$diaMarcada.'-'.$id_parametros] = $horaMin;
+						$conteo = $conteo + 1;
+					}
+				}
+			}else{		
+				$querys = $querys + 1;
+				$conteo = 0;
 			}
 			
-			echo '<br> id_usuario_reloj: <b>'.$array_usuarios[$row_CHECKTIME['USERID']]['id_usuario_reloj'];
-			echo '</b> - id_usuario: '.$array_usuarios[$row_CHECKTIME['USERID']]['id_usuario'];
-			echo '- ID: <b>'.$row_CHECKTIME['ID'];
-			echo '</b>1- nombre: '.$array_usuarios[$row_CHECKTIME['USERID']]['apellido'].' '.$array_usuarios[$row_CHECKTIME['USERID']]['nombre'];
-			echo '- usuario: '.$array_usuarios[$row_CHECKTIME['USERID']]['usuario'];
-			echo '';	
-				
-			//INGRESO EL REGISTRO
 			
-			$id_usuario = $array_usuarios[$row_CHECKTIME['USERID']]['id_usuario'];
-			$id_reloj	= $array_relojes[$row_CHECKTIME['SENSORID']];
-			$array_relojes_cantidades[$row_CHECKTIME['SENSORID']] = $array_relojes_cantidades[$row_CHECKTIME['SENSORID']] + 1;
-
-			$sql .= "("
-			."'".$row_CHECKTIME['CHECKTIME']."',"
-			."'".$row_CHECKTIME['CHECKTIME']."',"
-			."'".$id_usuario."',"
-			."'".$row_CHECKTIME['CHECKTYPE']."',"
-			."'".$id_reloj."',"
-			."'".$id_parametros."',"
-			."'".$row_CHECKTIME['ID']."',"
-			."'"."1'"
-			."), ";
-			$modificados['modificados'] = $modificados['modificados'] + 1; 
 		}else{
 			$modificados['erroneos'] = $modificados['erroneos'] + 1;
 			$errores .= 'El USERID '.$row_CHECKTIME['USERID'].' no tiene usuario asociado'.chr(13).chr(10);	
@@ -228,12 +303,15 @@ foreach ($array_checkinout as $row_CHECKTIME) {
 	}
 };
 
-if($sql != ''){
+foreach ($array_sql as $sql) {
 	$sql = substr($sql, 0, -2);
+	$sql .= "; ";
 	mysql_query($comienzo.$sql) or die(mysql_error());
 }
 
 if($errores != ""){
 	write_log($errores);	
 }
+
+echo $echo;
 ?>
