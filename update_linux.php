@@ -102,7 +102,8 @@ SELECT
 	id_usuario_reloj,
 	nombre,
 	apellido,
-	usuario
+	usuario,
+	id_convenio
 FROM 
 	usuario";
 				
@@ -117,6 +118,7 @@ do{
 		'nombre'			=> $row_usuarios['nombre'],
 		'apellido'			=> $row_usuarios['apellido'],
 		'usuario'			=> $row_usuarios['usuario'],
+		'id_convenio'       => $row_usuarios['id_convenio'],
 	); 
 }while ($row_usuarios = mysql_fetch_array($usuarios));
 
@@ -151,44 +153,43 @@ $querys  = 0;
 $limite_sql = 700;
 
 while (odbc_fetch_row($reg_checkinout)){
-	if($conteo < $limite_sql){
-		$datos = array(
-			'USERID'		=> odbc_result($reg_checkinout,"USERID"),
-			'CHECKTIME'		=> date("Y-m-d H:i:s", strtotime(odbc_result($reg_checkinout,"CHECKTIME"))),
-			'CHECKTYPE'		=> odbc_result($reg_checkinout,"CHECKTYPE"),
-			'VERIFYCODE'	=> odbc_result($reg_checkinout,"VERIFYCODE"),
-			'SENSORID'		=> odbc_result($reg_checkinout,"SENSORID"),
-			'Memoinfo'		=> odbc_result($reg_checkinout,"Memoinfo"),
-			'WorkCode'		=> odbc_result($reg_checkinout,"WorkCode"),
-			'sn'			=> odbc_result($reg_checkinout,"sn"),
-			'UserExtFmt'	=> odbc_result($reg_checkinout,"UserExtFmt"),
-			'ID'			=> odbc_result($reg_checkinout,"ID"),
-		);
+	if($conteo > $limite_sql){
+	    $querys = $querys + 1;
+        $conteo = 0;
+    }
+    
+	$datos = array(
+		'USERID'		=> odbc_result($reg_checkinout,"USERID"),
+		'CHECKTIME'		=> date("Y-m-d H:i:s", strtotime(odbc_result($reg_checkinout,"CHECKTIME"))),
+		'CHECKTYPE'		=> odbc_result($reg_checkinout,"CHECKTYPE"),
+		'VERIFYCODE'	=> odbc_result($reg_checkinout,"VERIFYCODE"),
+		'SENSORID'		=> odbc_result($reg_checkinout,"SENSORID"),
+		'Memoinfo'		=> odbc_result($reg_checkinout,"Memoinfo"),
+		'WorkCode'		=> odbc_result($reg_checkinout,"WorkCode"),
+		'sn'			=> odbc_result($reg_checkinout,"sn"),
+		'UserExtFmt'	=> odbc_result($reg_checkinout,"UserExtFmt"),
+		'ID'			=> odbc_result($reg_checkinout,"ID"),
+	);
 		
-		$array_checkinout[] = $datos;
+	$array_checkinout[] = $datos;
 		
-		$array_querys[$querys] .= "(";
-		$array_querys[$querys] .= "'".odbc_result($reg_checkinout,"USERID")."', ";
-		$array_querys[$querys] .= "'".date("Y-m-d H:i:s", strtotime(odbc_result($reg_checkinout,"CHECKTIME")))."', ";
-		$array_querys[$querys] .= "'".odbc_result($reg_checkinout,"CHECKTYPE")."', ";
-		$array_querys[$querys] .= "'".odbc_result($reg_checkinout,"VERIFYCODE")."', ";
-		$array_querys[$querys] .= "'".odbc_result($reg_checkinout,"SENSORID")."', ";
-		$array_querys[$querys] .= "'".odbc_result($reg_checkinout,"Memoinfo")."', ";
-		$array_querys[$querys] .= "'".odbc_result($reg_checkinout,"WorkCode")."', ";
-		$array_querys[$querys] .= "'".odbc_result($reg_checkinout,"sn")."', ";
-		$array_querys[$querys] .= "'".odbc_result($reg_checkinout,"UserExtFmt")."', ";
-		$array_querys[$querys] .= "'".odbc_result($reg_checkinout,"ID")."' ";
-		$array_querys[$querys] .= "), ";
+	$array_querys[$querys] .= "(";
+	$array_querys[$querys] .= "'".odbc_result($reg_checkinout,"USERID")."', ";
+	$array_querys[$querys] .= "'".date("Y-m-d H:i:s", strtotime(odbc_result($reg_checkinout,"CHECKTIME")))."', ";
+	$array_querys[$querys] .= "'".odbc_result($reg_checkinout,"CHECKTYPE")."', ";
+	$array_querys[$querys] .= "'".odbc_result($reg_checkinout,"VERIFYCODE")."', ";
+	$array_querys[$querys] .= "'".odbc_result($reg_checkinout,"SENSORID")."', ";
+	$array_querys[$querys] .= "'".odbc_result($reg_checkinout,"Memoinfo")."', ";
+	$array_querys[$querys] .= "'".odbc_result($reg_checkinout,"WorkCode")."', ";
+	$array_querys[$querys] .= "'".odbc_result($reg_checkinout,"sn")."', ";
+	$array_querys[$querys] .= "'".odbc_result($reg_checkinout,"UserExtFmt")."', ";
+	$array_querys[$querys] .= "'".odbc_result($reg_checkinout,"ID")."' ";
+	$array_querys[$querys] .= "), ";
 		
-		$total_registros	= $total_registros + 1;
-		$ids_actualizado[]	= $datos['ID'];
+	$total_registros	= $total_registros + 1;
+	$ids_actualizado[]	= $datos['ID'];
 		
-		$conteo = $conteo + 1;
-	}else{		
-		$querys = $querys + 1;
-		$conteo = 0;
-	}
-	
+    $conteo = $conteo + 1;
 };
 
 
@@ -254,43 +255,85 @@ foreach ($array_checkinout as $row_CHECKTIME) {
 				
 		if ($array_usuarios[$row_CHECKTIME['USERID']] != '') {
 			
-			if($conteo < $limite_sql){
-				$hora		= date('H', strtotime($row_CHECKTIME['CHECKTIME']));
-				$horaMin	= date('Hi', strtotime($row_CHECKTIME['CHECKTIME']));
-				$diaMarcada	= date('Ymd', strtotime($row_CHECKTIME['CHECKTIME']));
+			if($conteo > $limite_sql){
+			    $querys = $querys + 1;
+                $conteo = 0;
+            }    
+                
+			$hora		= date('H', strtotime($row_CHECKTIME['CHECKTIME']));
+			$horaMin	= date('Hi', strtotime($row_CHECKTIME['CHECKTIME']));
+			$diaMarcada	= date('Ymd', strtotime($row_CHECKTIME['CHECKTIME']));
 				
-				// Agrego el numero del parametro
-				$id_parametros = 0;
-				foreach ($array_cturnos[1] as $turno => $valores) {
-					foreach ($valores as $idParametro => $horaConvenio) {
-						if($hora > $horaConvenio - $tolerancia  && $hora <= $horaConvenio + $tolerancia){
-                            // para log de asignacion de parametros						        
-						    $echo_parametros .= "  id_usuario=".$array_usuarios[$row_CHECKTIME['USERID']]['id_usuario'];
-						    $echo_parametros .= '-ID:'.$row_CHECKTIME['ID'].' ';    
-						    $echo_parametros .= $hora.">".$horaConvenio."-".$tolerancia."&&".$hora."<=".$horaConvenio."+".$tolerancia;
+			// Agrego el numero del parametro
+			$id_parametros = 0;
+                
+            if($array_cturnos[$array_usuarios[$row_CHECKTIME['USERID']]['id_convenio']]){
+                foreach ($array_cturnos[$array_usuarios[$row_CHECKTIME['USERID']]['id_convenio']] as $turno => $valores) {
+                    foreach ($valores as $idParametro => $horaConvenio) {
+                        if($hora > $horaConvenio - $tolerancia  && $hora <= $horaConvenio + $tolerancia){
+                            // para log de asignacion de parametros                             
+                            $echo_parametros .= "  id_usuario=".$array_usuarios[$row_CHECKTIME['USERID']]['id_usuario'];
+                            $echo_parametros .= '-ID:'.$row_CHECKTIME['ID'].' ';    
+                            $echo_parametros .= $hora.">".$horaConvenio."-".$tolerancia."&&".$hora."<=".$horaConvenio."+".$tolerancia;
                             $echo_parametros .= '-id_parametro:'.$idParametro.' ';    
-							$id_parametros = $idParametro;
-						}
-					}
-				} 
+                            // asignacion del id_parametro
+                            $id_parametros = $idParametro;
+                        }
+                    }
+                }    
+            }else{
+                // guardamos log del error
+                $echo_parametros .= "  id_usuario=".$array_usuarios[$row_CHECKTIME['USERID']]['id_usuario'];
+                $echo_parametros .= '-ID:'.$row_CHECKTIME['ID'].' ';
+                $echo_parametros .= '-no tiene id_convenio asociado ';
+            }   
 				
-				$echo .= '<br> id_usuario_reloj: <b>'.$array_usuarios[$row_CHECKTIME['USERID']]['id_usuario_reloj'];
-				$echo .= '</b> - id_usuario: '.$array_usuarios[$row_CHECKTIME['USERID']]['id_usuario'];
-				$echo .= '- ID: <b>'.$row_CHECKTIME['ID'];
-				$echo .= '</b>1- nombre: '.$array_usuarios[$row_CHECKTIME['USERID']]['apellido'].' '.$array_usuarios[$row_CHECKTIME['USERID']]['nombre'];
-				$echo .= '- usuario: '.$array_usuarios[$row_CHECKTIME['USERID']]['usuario'];
-				$echo .= '';	
+			$echo .= '<br> id_usuario_reloj: <b>'.$array_usuarios[$row_CHECKTIME['USERID']]['id_usuario_reloj'];
+			$echo .= '</b> - id_usuario: '.$array_usuarios[$row_CHECKTIME['USERID']]['id_usuario'];
+			$echo .= '- ID: <b>'.$row_CHECKTIME['ID'];
+			$echo .= '</b>1- nombre: '.$array_usuarios[$row_CHECKTIME['USERID']]['apellido'].' '.$array_usuarios[$row_CHECKTIME['USERID']]['nombre'];
+			$echo .= '- usuario: '.$array_usuarios[$row_CHECKTIME['USERID']]['usuario'];
+			$echo .= '';	
 				
-				// generamos las variables 
+			// generamos las variables 
 				
-				$id_usuario = $array_usuarios[$row_CHECKTIME['USERID']]['id_usuario'];
-				$id_reloj	= $array_relojes[$row_CHECKTIME['SENSORID']];
-				$array_relojes_cantidades[$row_CHECKTIME['SENSORID']] = $array_relojes_cantidades[$row_CHECKTIME['SENSORID']] + 1;
+			$id_usuario = $array_usuarios[$row_CHECKTIME['USERID']]['id_usuario'];
+			$id_reloj	= $array_relojes[$row_CHECKTIME['SENSORID']];
+			$array_relojes_cantidades[$row_CHECKTIME['SENSORID']] = $array_relojes_cantidades[$row_CHECKTIME['SENSORID']] + 1;
 				
-                // Si no existe marcada para ese dia con ese parametro guardamos los datos en el array
-				if(!isset($arra_repetidos[$id_usuario.'-'.$diaMarcada.'-'.$id_parametros])){
-				    $echo_parametros .= 'ok';
+            // Si no existe marcada para ese dia con ese parametro guardamos los datos en el array
+			if(!isset($arra_repetidos[$id_usuario.'-'.$diaMarcada.'-'.$id_parametros])){
+                $echo_parametros .= 'ok';
 				
+				$array_sql[$querys] .= "("
+				."'".$row_CHECKTIME['CHECKTIME']."',"
+				."'".$row_CHECKTIME['CHECKTIME']."',"
+				."'".$id_usuario."',"
+				."'".$row_CHECKTIME['CHECKTYPE']."',"
+				."'".$id_reloj."',"
+				."'".$id_parametros."',"
+				."'".$row_CHECKTIME['ID']."',"
+				."'"."1'"
+				."), ";
+					
+				$modificados['modificados'] = $modificados['modificados'] + 1; 
+				$arra_repetidos[$id_usuario.'-'.$diaMarcada.'-'.$id_parametros] = $horaMin;
+				$conteo = $conteo + 1;
+			} else {
+				$anterior = (int) $arra_repetidos[$id_usuario.'-'.$diaMarcada.'-'.$id_parametros];
+				$horaMin  = (int) $horaMin;
+					
+				$diferencia = $horaMin - $anterior;
+				
+				// Si la diferencia entre marcadas es mayor a 20 min, generamos la marcada con un parametro posterior
+				if($diferencia >= 20  || $diferencia < 0){
+				    if($diferencia >= 20){
+						$id_parametros = $id_parametros + 1 ;
+                        $echo_parametros .= 'masUno';
+					} else{
+					    $echo_parametros .= 'igual';
+					}	
+						
 					$array_sql[$querys] .= "("
 					."'".$row_CHECKTIME['CHECKTIME']."',"
 					."'".$row_CHECKTIME['CHECKTIME']."',"
@@ -301,47 +344,12 @@ foreach ($array_checkinout as $row_CHECKTIME) {
 					."'".$row_CHECKTIME['ID']."',"
 					."'"."1'"
 					."), ";
-					
+						
 					$modificados['modificados'] = $modificados['modificados'] + 1; 
 					$arra_repetidos[$id_usuario.'-'.$diaMarcada.'-'.$id_parametros] = $horaMin;
 					$conteo = $conteo + 1;
-				} else {
-					$anterior = (int) $arra_repetidos[$id_usuario.'-'.$diaMarcada.'-'.$id_parametros];
-					$horaMin  = (int) $horaMin;
-					
-					$diferencia = $horaMin - $anterior;
-					
-					// Si la diferencia entre marcadas es mayor a 20 min, generamos la marcada con un parametro posterior
-					if($diferencia >= 20  || $diferencia < 0){
-					    if($diferencia >= 20){
-							$id_parametros = $id_parametros + 1 ;
-                            $echo_parametros .= 'masUno';
-						} else{
-						    $echo_parametros .= 'igual';
-						}	
-						
-						$array_sql[$querys] .= "("
-						."'".$row_CHECKTIME['CHECKTIME']."',"
-						."'".$row_CHECKTIME['CHECKTIME']."',"
-						."'".$id_usuario."',"
-						."'".$row_CHECKTIME['CHECKTYPE']."',"
-						."'".$id_reloj."',"
-						."'".$id_parametros."',"
-						."'".$row_CHECKTIME['ID']."',"
-						."'"."1'"
-						."), ";
-						
-						$modificados['modificados'] = $modificados['modificados'] + 1; 
-						$arra_repetidos[$id_usuario.'-'.$diaMarcada.'-'.$id_parametros] = $horaMin;
-						$conteo = $conteo + 1;
-					}
 				}
-			}else{		
-				$querys = $querys + 1;
-				$conteo = 0;
 			}
-			
-			
 		}else{
 			$modificados['erroneos'] = $modificados['erroneos'] + 1;
 			$errores .= 'El USERID '.$row_CHECKTIME['USERID'].' no tiene usuario asociado'.chr(13).chr(10);	
