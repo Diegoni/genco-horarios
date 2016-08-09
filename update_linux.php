@@ -8,9 +8,15 @@ include_once($url['models_url']."checkinout_model.php");
 include_once($url['models_url']."updates_db_model.php");
 include_once($url['models_url']."convenio_turnos_model.php");
 
+
 /*---------------------------------------------------------------------------------  
-					Turno de los convenios             
+----------------------------------------------------------------------------------- 
+ 
+        Turno de los convenios      
+
+-----------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------*/
+
 
 $query_cturnos	= getConvenioturnos(); 
 $row_cturnos	= mysql_fetch_assoc($query_cturnos); 
@@ -37,16 +43,28 @@ if($row_cturnos > 0){
 	}while ($row_cturnos = mysql_fetch_array($query_cturnos));
 }
 
+
 /*---------------------------------------------------------------------------------  
-					Ultimo ID actualizado             
+----------------------------------------------------------------------------------- 
+ 
+        Ultimo ID actualizado     
+
+-----------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------*/
+
 
 $checkinout		= new Checkinout();
 $m_update_db	= new m_update_db();
 
+
 /*---------------------------------------------------------------------------------  
-					Preparo los datos            
+----------------------------------------------------------------------------------- 
+ 
+        Preparo los datos    
+
+-----------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------*/
+
 
 $query_update	= $m_update_db->getLastID(); 
 $row_update		= mysql_fetch_assoc($query_update); 
@@ -102,9 +120,15 @@ do{
 	); 
 }while ($row_usuarios = mysql_fetch_array($usuarios));
 
+
 /*---------------------------------------------------------------------------------  
-					Inserto los registros sin actualizar             
+----------------------------------------------------------------------------------- 
+ 
+        Inserto los registros en tabla CHECKTIME    
+
+-----------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------*/
+
 
 $reg_checkinout	= $checkinout->getRegistros($ultimo);
 
@@ -175,11 +199,15 @@ foreach ($array_querys as $sql) {
 }
 
 
-
-
 /*---------------------------------------------------------------------------------  
-					Actualizo la tabla update_db             
+----------------------------------------------------------------------------------- 
+ 
+        Actualizo la tabla update_db     
+
+-----------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------*/
+
+
 $registro = array(
 	'date_add'				=> date('Y-m-d H:i:s'),
 	'cantidad_registros'	=> $total_registros,
@@ -189,8 +217,16 @@ $registro = array(
 $m_update_db->insert($registro);
 
 
-$i=0; 
+/*---------------------------------------------------------------------------------  
+----------------------------------------------------------------------------------- 
+ 
+        Preparamos el insert en marcada   
 
+-----------------------------------------------------------------------------------
+---------------------------------------------------------------------------------*/
+
+
+$i=0; 
 
 $comienzo = 
 "INSERT INTO marcada (
@@ -210,12 +246,13 @@ $tolerancia = 2;
 $conteo = 0;
 $querys = 0;
 $echo = '';
+$echo_parametros = '';
 
 foreach ($array_checkinout as $row_CHECKTIME) {
-	if($row_CHECKTIME['USERID'] != 0){
+	if ($row_CHECKTIME['USERID'] != 0){
 		$i		= $i+1;
 				
-		if($array_usuarios[$row_CHECKTIME['USERID']] != ''){
+		if ($array_usuarios[$row_CHECKTIME['USERID']] != '') {
 			
 			if($conteo < $limite_sql){
 				$hora		= date('H', strtotime($row_CHECKTIME['CHECKTIME']));
@@ -227,6 +264,11 @@ foreach ($array_checkinout as $row_CHECKTIME) {
 				foreach ($array_cturnos[1] as $turno => $valores) {
 					foreach ($valores as $idParametro => $horaConvenio) {
 						if($hora > $horaConvenio - $tolerancia  && $hora <= $horaConvenio + $tolerancia){
+                            // para log de asignacion de parametros						        
+						    $echo_parametros .= "  id_usuario=".$array_usuarios[$row_CHECKTIME['USERID']]['id_usuario'];
+						    $echo_parametros .= '-ID:'.$row_CHECKTIME['ID'].' ';    
+						    $echo_parametros .= $hora.">".$horaConvenio."-".$tolerancia."&&".$hora."<=".$horaConvenio."+".$tolerancia;
+                            $echo_parametros .= '-id_parametro:'.$idParametro.' ';    
 							$id_parametros = $idParametro;
 						}
 					}
@@ -239,13 +281,15 @@ foreach ($array_checkinout as $row_CHECKTIME) {
 				$echo .= '- usuario: '.$array_usuarios[$row_CHECKTIME['USERID']]['usuario'];
 				$echo .= '';	
 				
-				//INGRESO EL REGISTRO
+				// generamos las variables 
 				
 				$id_usuario = $array_usuarios[$row_CHECKTIME['USERID']]['id_usuario'];
 				$id_reloj	= $array_relojes[$row_CHECKTIME['SENSORID']];
 				$array_relojes_cantidades[$row_CHECKTIME['SENSORID']] = $array_relojes_cantidades[$row_CHECKTIME['SENSORID']] + 1;
 				
+                // Si no existe marcada para ese dia con ese parametro guardamos los datos en el array
 				if(!isset($arra_repetidos[$id_usuario.'-'.$diaMarcada.'-'.$id_parametros])){
+				    $echo_parametros .= 'ok';
 				
 					$array_sql[$querys] .= "("
 					."'".$row_CHECKTIME['CHECKTIME']."',"
@@ -261,17 +305,19 @@ foreach ($array_checkinout as $row_CHECKTIME) {
 					$modificados['modificados'] = $modificados['modificados'] + 1; 
 					$arra_repetidos[$id_usuario.'-'.$diaMarcada.'-'.$id_parametros] = $horaMin;
 					$conteo = $conteo + 1;
-				}else{
+				} else {
 					$anterior = (int) $arra_repetidos[$id_usuario.'-'.$diaMarcada.'-'.$id_parametros];
 					$horaMin  = (int) $horaMin;
 					
 					$diferencia = $horaMin - $anterior;
 					
-					echo $horaMin.' '.$array_usuarios[$row_CHECKTIME['USERID']]['usuario'].' '.$diferencia.'<br>';
-					
+					// Si la diferencia entre marcadas es mayor a 20 min, generamos la marcada con un parametro posterior
 					if($diferencia >= 20  || $diferencia < 0){
-						if($diferencia >= 20){
+					    if($diferencia >= 20){
 							$id_parametros = $id_parametros + 1 ;
+                            $echo_parametros .= 'masUno';
+						} else{
+						    $echo_parametros .= 'igual';
 						}	
 						
 						$array_sql[$querys] .= "("
@@ -300,8 +346,21 @@ foreach ($array_checkinout as $row_CHECKTIME) {
 			$modificados['erroneos'] = $modificados['erroneos'] + 1;
 			$errores .= 'El USERID '.$row_CHECKTIME['USERID'].' no tiene usuario asociado'.chr(13).chr(10);	
 		}               
-	}
+	}else{
+        $modificados['erroneos'] = $modificados['erroneos'] + 1;
+        $errores .= 'El USERID '.$row_CHECKTIME['USERID'].' es 0'.chr(13).chr(10); 
+    }   
 };
+
+
+/*---------------------------------------------------------------------------------  
+----------------------------------------------------------------------------------- 
+ 
+        Insert en la tabla marcada y guardamos logs    
+
+-----------------------------------------------------------------------------------
+---------------------------------------------------------------------------------*/
+
 
 foreach ($array_sql as $sql) {
 	$sql = substr($sql, 0, -2);
@@ -311,6 +370,14 @@ foreach ($array_sql as $sql) {
 
 if($errores != ""){
 	write_log($errores);	
+}
+
+if($echo != ""){
+    write_log('ACTUALIZACION  <BR>'.chr(13).chr(10).$echo);    
+}
+
+if($echo != ""){
+    write_log('PARAMETROS  <BR>'.chr(13).chr(10).$echo_parametros);    
 }
 
 echo $echo;
