@@ -275,7 +275,7 @@ foreach ($array_checkinout as $row_CHECKTIME) {
                             $echo_parametros .= "  id_usuario=".$array_usuarios[$row_CHECKTIME['USERID']]['id_usuario'];
                             $echo_parametros .= '-ID:'.$row_CHECKTIME['ID'].' ';    
                             $echo_parametros .= $hora.">".$horaConvenio."-".$tolerancia."&&".$hora."<=".$horaConvenio."+".$tolerancia;
-                            $echo_parametros .= '-id_parametro:'.$idParametro.' ';    
+                            $echo_parametros .= '-id_parametro:'.$idParametro.chr(13).chr(10);    
                             // asignacion del id_parametro
                             $id_parametros = $idParametro;
                         }
@@ -285,7 +285,7 @@ foreach ($array_checkinout as $row_CHECKTIME) {
                 // guardamos log del error
                 $echo_parametros .= "  id_usuario=".$array_usuarios[$row_CHECKTIME['USERID']]['id_usuario'];
                 $echo_parametros .= '-ID:'.$row_CHECKTIME['ID'].' ';
-                $echo_parametros .= '-no tiene id_convenio asociado ';
+                $echo_parametros .= '-no tiene id_convenio asociado'.chr(13).chr(10);
             }   
 				
 			$echo .= '<br> id_usuario_reloj: <b>'.$array_usuarios[$row_CHECKTIME['USERID']]['id_usuario_reloj'];

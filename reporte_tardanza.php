@@ -84,14 +84,15 @@ if(isset($_GET['id'])){
 						Buscar intervalo de fechas
 --------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------*/
+
 if($_GET['buscar']==1){
-		$fecha_inicio=date( "Y-m-d", strtotime($_GET['fecha_inicio']));
-		$fecha_final=date( "Y-m-d", strtotime($_GET['fecha_final']));
+	$fecha_inicio=date( "Y-m-d", strtotime($_GET['fecha_inicio']));
+	$fecha_final=date( "Y-m-d", strtotime($_GET['fecha_final']));
 }else{
-		$fecha=date("d-m-Y");
-		$fecha_inicio=date('01-m-Y', strtotime($fecha));
-		$ultimoDia = getUltimoDiaMes(date('Y', strtotime($fecha)),date('m', strtotime($fecha)));
-		$fecha_final=$ultimoDia.date('-m-Y', strtotime($fecha));
+	$fecha=date("d-m-Y");
+	$fecha_inicio=date('01-m-Y', strtotime($fecha));
+	$ultimoDia = getUltimoDiaMes(date('Y', strtotime($fecha)),date('m', strtotime($fecha)));
+	$fecha_final=$ultimoDia.date('-m-Y', strtotime($fecha));
 }
 
 ?>
@@ -184,6 +185,7 @@ if($_GET['buscar']==1){
 </div>
 
 <div class="divider"></div>
+
 <!------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------
 						Usuarios
@@ -269,20 +271,18 @@ if($_GET['buscar']==1){
 							
 							if($cantidad_marcacion>0){
 							do{
-								$i = strtotime($row_marcacion['marcada']); 
-								$nro = jddayofweek(cal_to_jd(CAL_GREGORIAN, date("m",$i),date("d",$i), date("Y",$i)));
 								
-								$datos=array(
-											'id_usuario'	=> $row_usuario2['id_usuario'],
-											'dia'			=> $nro,
-											'id_parametros'	=> $row_marcacion['id_parametros'],
-											'marcada'		=> $row_marcacion['entrada']);
+								$datos = array(
+									'id_usuario'	=> $row_usuario2['id_usuario'],
+									'dia'			=> date('D', strtotime($row_marcacion['entrada'])),
+									'id_parametros'	=> $row_marcacion['id_parametros'],
+									'marcada'		=> $row_marcacion['entrada']
+								);
 								
-								$tardanza = getConvenios_tardanza($datos);
-								
+								$tardanza  = getConvenios_tardanza($datos);
 								$parametro = tipoParametro($row_marcacion['id_parametros']);
 																
-								if($tardanza['tiempo']!=0){
+								if($tardanza['tiempo'] != 0){
 									list ($clase, $title, $esferiado) = esferiado(date('Y-m-d', strtotime($row_marcacion['entrada'])));
 									
 									echo "<tr>";									

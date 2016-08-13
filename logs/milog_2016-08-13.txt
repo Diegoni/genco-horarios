@@ -1,0 +1,1248 @@
+[2016-08-13 08:28:45.000000 ::1  -  ] Wed
+[2016-08-13 08:28:45.000000 ::1  -  ] miercoles
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.miercoles 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Thu
+[2016-08-13 08:28:45.000000 ::1  -  ] jueves
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.jueves 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Tue
+[2016-08-13 08:28:45.000000 ::1  -  ] martes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.martes 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Wed
+[2016-08-13 08:28:45.000000 ::1  -  ] miercoles
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.miercoles 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Wed
+[2016-08-13 08:28:45.000000 ::1  -  ] miercoles
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.miercoles 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Wed
+[2016-08-13 08:28:45.000000 ::1  -  ] miercoles
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.miercoles 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Tue
+[2016-08-13 08:28:45.000000 ::1  -  ] martes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.martes 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Tue
+[2016-08-13 08:28:45.000000 ::1  -  ] martes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.martes 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Tue
+[2016-08-13 08:28:45.000000 ::1  -  ] martes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.martes 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Thu
+[2016-08-13 08:28:45.000000 ::1  -  ] jueves
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.jueves 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Fri
+[2016-08-13 08:28:45.000000 ::1  -  ] viernes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.viernes 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Thu
+[2016-08-13 08:28:45.000000 ::1  -  ] jueves
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.jueves 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Fri
+[2016-08-13 08:28:45.000000 ::1  -  ] viernes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.viernes 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Fri
+[2016-08-13 08:28:45.000000 ::1  -  ] viernes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.viernes 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Fri
+[2016-08-13 08:28:45.000000 ::1  -  ] viernes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.viernes 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Sat
+[2016-08-13 08:28:45.000000 ::1  -  ] sabado
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.sabado 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Sat
+[2016-08-13 08:28:45.000000 ::1  -  ] sabado
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.sabado 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Mon
+[2016-08-13 08:28:45.000000 ::1  -  ] lunes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.lunes 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Mon
+[2016-08-13 08:28:45.000000 ::1  -  ] lunes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.lunes 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Wed
+[2016-08-13 08:28:45.000000 ::1  -  ] miercoles
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.miercoles 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Wed
+[2016-08-13 08:28:45.000000 ::1  -  ] miercoles
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.miercoles 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Wed
+[2016-08-13 08:28:45.000000 ::1  -  ] miercoles
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.miercoles 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Wed
+[2016-08-13 08:28:45.000000 ::1  -  ] miercoles
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.miercoles 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Thu
+[2016-08-13 08:28:45.000000 ::1  -  ] jueves
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.jueves 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Thu
+[2016-08-13 08:28:45.000000 ::1  -  ] jueves
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.jueves 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Thu
+[2016-08-13 08:28:45.000000 ::1  -  ] jueves
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.jueves 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Thu
+[2016-08-13 08:28:45.000000 ::1  -  ] jueves
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.jueves 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Fri
+[2016-08-13 08:28:45.000000 ::1  -  ] viernes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.viernes 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Fri
+[2016-08-13 08:28:45.000000 ::1  -  ] viernes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.viernes 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Mon
+[2016-08-13 08:28:45.000000 ::1  -  ] lunes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.lunes 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Tue
+[2016-08-13 08:28:45.000000 ::1  -  ] martes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.martes 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Tue
+[2016-08-13 08:28:45.000000 ::1  -  ] martes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.martes 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Tue
+[2016-08-13 08:28:45.000000 ::1  -  ] martes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.martes 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Tue
+[2016-08-13 08:28:45.000000 ::1  -  ] martes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.martes 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Fri
+[2016-08-13 08:28:45.000000 ::1  -  ] viernes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.viernes 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Tue
+[2016-08-13 08:28:45.000000 ::1  -  ] martes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.martes 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Wed
+[2016-08-13 08:28:45.000000 ::1  -  ] miercoles
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.miercoles 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Wed
+[2016-08-13 08:28:45.000000 ::1  -  ] miercoles
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.miercoles 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Wed
+[2016-08-13 08:28:45.000000 ::1  -  ] miercoles
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.miercoles 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Wed
+[2016-08-13 08:28:45.000000 ::1  -  ] miercoles
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.miercoles 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Thu
+[2016-08-13 08:28:45.000000 ::1  -  ] jueves
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.jueves 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Thu
+[2016-08-13 08:28:45.000000 ::1  -  ] jueves
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.jueves 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Thu
+[2016-08-13 08:28:45.000000 ::1  -  ] jueves
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.jueves 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Fri
+[2016-08-13 08:28:45.000000 ::1  -  ] viernes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.viernes 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Fri
+[2016-08-13 08:28:45.000000 ::1  -  ] viernes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.viernes 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Fri
+[2016-08-13 08:28:45.000000 ::1  -  ] viernes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.viernes 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Sat
+[2016-08-13 08:28:45.000000 ::1  -  ] sabado
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.sabado 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Fri
+[2016-08-13 08:28:45.000000 ::1  -  ] viernes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.viernes 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Fri
+[2016-08-13 08:28:45.000000 ::1  -  ] viernes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.viernes 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Fri
+[2016-08-13 08:28:45.000000 ::1  -  ] viernes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.viernes 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Thu
+[2016-08-13 08:28:45.000000 ::1  -  ] jueves
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.jueves 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Fri
+[2016-08-13 08:28:45.000000 ::1  -  ] viernes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.viernes 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Sat
+[2016-08-13 08:28:45.000000 ::1  -  ] sabado
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.sabado 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Fri
+[2016-08-13 08:28:45.000000 ::1  -  ] viernes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.viernes 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Sat
+[2016-08-13 08:28:45.000000 ::1  -  ] sabado
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.sabado 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Mon
+[2016-08-13 08:28:45.000000 ::1  -  ] lunes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.lunes 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Mon
+[2016-08-13 08:28:45.000000 ::1  -  ] lunes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.lunes 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Mon
+[2016-08-13 08:28:45.000000 ::1  -  ] lunes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.lunes 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Mon
+[2016-08-13 08:28:45.000000 ::1  -  ] lunes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.lunes 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Tue
+[2016-08-13 08:28:45.000000 ::1  -  ] martes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.martes 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Tue
+[2016-08-13 08:28:45.000000 ::1  -  ] martes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.martes 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Tue
+[2016-08-13 08:28:45.000000 ::1  -  ] martes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.martes 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Tue
+[2016-08-13 08:28:45.000000 ::1  -  ] martes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.martes 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Wed
+[2016-08-13 08:28:45.000000 ::1  -  ] miercoles
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.miercoles 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Wed
+[2016-08-13 08:28:45.000000 ::1  -  ] miercoles
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.miercoles 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Wed
+[2016-08-13 08:28:45.000000 ::1  -  ] miercoles
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.miercoles 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Wed
+[2016-08-13 08:28:45.000000 ::1  -  ] miercoles
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.miercoles 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Thu
+[2016-08-13 08:28:45.000000 ::1  -  ] jueves
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.jueves 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Thu
+[2016-08-13 08:28:45.000000 ::1  -  ] jueves
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.jueves 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Thu
+[2016-08-13 08:28:45.000000 ::1  -  ] jueves
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.jueves 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Thu
+[2016-08-13 08:28:45.000000 ::1  -  ] jueves
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.jueves 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Mon
+[2016-08-13 08:28:45.000000 ::1  -  ] lunes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.lunes 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Mon
+[2016-08-13 08:28:45.000000 ::1  -  ] lunes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.lunes 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Mon
+[2016-08-13 08:28:45.000000 ::1  -  ] lunes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.lunes 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Mon
+[2016-08-13 08:28:45.000000 ::1  -  ] lunes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.lunes 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Tue
+[2016-08-13 08:28:45.000000 ::1  -  ] martes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.martes 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Tue
+[2016-08-13 08:28:45.000000 ::1  -  ] martes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.salida as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.martes 	= 1 AND 
+						convenio_turno.id_turno = '1'
+				
+[2016-08-13 08:28:45.000000 ::1  -  ] Tue
+[2016-08-13 08:28:45.000000 ::1  -  ] martes
+[2016-08-13 08:28:45.000000 ::1  -  ] SELECT  
+						convenio_turno.entrada as parametro,
+						convenio_turno.limite
+					FROM 
+						`usuario`
+					INNER JOIN 
+						convenio ON(usuario.id_convenio=convenio.id_convenio)
+					INNER JOIN 
+						convenio_turno ON(convenio.id_convenio=convenio_turno.id_convenio)
+					WHERE 
+						id_usuario				='228' AND 
+						convenio_turno.martes 	= 1 AND 
+						convenio_turno.id_turno = '2'
+				

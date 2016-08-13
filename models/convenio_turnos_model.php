@@ -136,31 +136,38 @@ function insertConvenioturno($datos){
 
 
 function getConvenios_tardanza($datos){
-	if($datos['id_parametros']!=0){	
+	if($datos['id_parametros'] != 0){
+		if($datos['id_usuario'] == 228){
+			write_log($datos['dia']);
+		}	
+			
 		switch ($datos['dia']) {
-			case 0:
-		         $dia="domingo";
+			case 'Sun':
+		         $dia = "domingo";
 		         break;
-			case 1:
-		         $dia="lunes";
+			case 'Mon':
+		         $dia = "lunes";
 		         break;
-			case 2:
-		         $dia="martes";
+			case 'Tue':
+		         $dia = "martes";
 		         break;
-			case 3:
-		         $dia="miercoles";
+			case 'Wed':
+		         $dia = "miercoles";
 		         break;
-			case 4:
-		         $dia="jueves";
+			case 'Thu':
+		         $dia = "jueves";
 		         break;
-			case 5:
-		         $dia="viernes";
+			case 'Fri':
+		         $dia = "viernes";
 		         break;
-			case 6:
-		         $dia="sabado";
+			case 'Sat':
+		         $dia = "sabado";
 		         break;
 		}
 		
+		if($datos['id_usuario'] == 228){
+			write_log($dia);
+		}	
 		
 		switch ($datos['id_parametros']) {
 			case 1:
@@ -195,7 +202,13 @@ function getConvenios_tardanza($datos){
 						id_usuario				='$datos[id_usuario]' AND 
 						convenio_turno.$dia 	= 1 AND 
 						convenio_turno.id_turno = '$id_turno'
-				";   
+				";  
+				
+		if($datos['id_usuario'] == 228){
+			write_log($query);
+		}		
+		 
+		
 		$convenio_turno		= mysql_query($query) or die(mysql_error());
 		$row_convenio_turno = mysql_fetch_assoc($convenio_turno);   
 		$cantidad_convenio_turno = mysql_num_rows($convenio_turno);
